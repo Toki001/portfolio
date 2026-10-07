@@ -1,0 +1,1049 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Jameskier Doliguez — Mobile, Web &amp; AI Developer</title>
+<!-- Google Fonts: Geist & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim from Spec -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed": "#ffdbd1",
+            "inverse-on-surface": "#f4f1e8",
+            "surface-container-highest": "#e5e2da",
+            "on-primary-container": "#81a499",
+            "on-error": "#ffffff",
+            "surface-dim": "#dddad1",
+            "on-tertiary-fixed": "#0e1f13",
+            "on-primary-fixed-variant": "#2b4d44",
+            "surface-container-high": "#ebe8df",
+            "tertiary-container": "#27382a",
+            "surface-container": "#f1eee5",
+            "tertiary": "#122316",
+            "primary-fixed": "#c5eade",
+            "primary-container": "#183a32",
+            "tertiary-fixed": "#d3e8d4",
+            "on-secondary-container": "#732105",
+            "surface-bright": "#fcf9f0",
+            "surface-variant": "#e5e2da",
+            "error": "#ba1a1a",
+            "outline-variant": "#c1c8c4",
+            "on-tertiary-fixed-variant": "#394b3c",
+            "on-surface": "#1c1c17",
+            "on-surface-variant": "#414846",
+            "on-error-container": "#93000a",
+            "primary": "#183a32",
+            "secondary": "#d96c4b",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#802a0e",
+            "primary-fixed-dim": "#aacec3",
+            "on-primary": "#ffffff",
+            "surface-tint": "#43655c",
+            "secondary-container": "#fd8865",
+            "tertiary-fixed-dim": "#b8ccb8",
+            "inverse-primary": "#aacec3",
+            "background": "#f4f1e8",
+            "surface": "#fffdf8",
+            "on-primary-fixed": "#00201a",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f6f3ea",
+            "on-secondary-fixed": "#3a0a00",
+            "inverse-surface": "#31312b",
+            "on-background": "#1c1c17",
+            "on-secondary": "#ffffff",
+            "secondary-fixed-dim": "#ffb59f",
+            "on-tertiary-container": "#8ea28f",
+            "outline": "#66766e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "3.5rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.375rem",
+            "space-sm": "0.75rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1.25rem",
+            "space-lg": "2rem",
+            "margin": "3rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Geist"],
+            "code-snippet": ["Geist", "monospace"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Geist"],
+            "headline-lg-mobile": ["Geist"],
+            "display": ["Geist"],
+            "headline-lg": ["Geist"],
+            "display-mobile": ["Geist"],
+            "headline-sm": ["Geist"],
+            "label-sm": ["Geist"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "500" }],
+            "code-snippet": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "30px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Elegant Ambient Swirly Line Keyframes */
+    @keyframes swirlDriftPrimary {
+      0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        stroke-dashoffset: 0;
+      }
+      50% {
+        transform: translate(-35px, 25px) rotate(1.8deg) scale(1.02);
+        stroke-dashoffset: 240;
+      }
+      100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        stroke-dashoffset: 480;
+      }
+    }
+
+    @keyframes swirlDriftTerra {
+      0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        stroke-dashoffset: 350;
+      }
+      50% {
+        transform: translate(30px, -28px) rotate(-1.5deg) scale(0.98);
+        stroke-dashoffset: 90;
+      }
+      100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        stroke-dashoffset: 350;
+      }
+    }
+
+    @keyframes swirlDriftSage {
+      0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        stroke-dashoffset: 0;
+      }
+      50% {
+        transform: translate(-25px, -30px) rotate(1.2deg) scale(1.03);
+        stroke-dashoffset: 180;
+      }
+      100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        stroke-dashoffset: 360;
+      }
+    }
+
+    @keyframes swirlSpiral {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+      50% {
+        transform: rotate(180deg) scale(1.05);
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
+    }
+
+    @keyframes swirlLoopFloat {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      33% {
+        transform: translate(20px, 25px) rotate(2deg);
+      }
+      66% {
+        transform: translate(-15px, 15px) rotate(-1.5deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+    }
+
+    .swirl-group-forest {
+      stroke-dasharray: 1200;
+      animation: swirlDriftPrimary 34s ease-in-out infinite;
+      transform-origin: 45% 50%;
+    }
+
+    .swirl-group-terracotta {
+      stroke-dasharray: 1000;
+      animation: swirlDriftTerra 28s ease-in-out infinite;
+      transform-origin: 55% 45%;
+    }
+
+    .swirl-group-sage {
+      stroke-dasharray: 900;
+      animation: swirlDriftSage 38s ease-in-out infinite;
+      transform-origin: 50% 50%;
+    }
+
+    .swirl-spiral-node-1 {
+      animation: swirlSpiral 45s linear infinite;
+      transform-origin: 320px 240px;
+    }
+
+    .swirl-spiral-node-2 {
+      animation: swirlSpiral 40s linear infinite reverse;
+      transform-origin: 1140px 720px;
+    }
+
+    .swirl-loop-node {
+      animation: swirlLoopFloat 26s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .swirl-group-forest,
+      .swirl-group-terracotta,
+      .swirl-group-sage,
+      .swirl-spiral-node-1,
+      .swirl-spiral-node-2,
+      .swirl-loop-node {
+        animation: none !important;
+      }
+    }
+
+    /* Editorial elevation shadows */
+    .editorial-card-shadow {
+      box-shadow: 0 1px 3px rgba(24, 58, 50, 0.04), 0 8px 24px -4px rgba(24, 58, 50, 0.06);
+    }
+    .editorial-hover-lift:hover {
+      box-shadow: 0 2px 6px rgba(24, 58, 50, 0.05), 0 16px 32px -8px rgba(24, 58, 50, 0.08);
+    }
+    .dark-hero-elevation {
+      box-shadow: inset 0 1px 0 rgba(217, 108, 75, 0.25), 0 12px 32px -6px rgba(21, 52, 45, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-[#F4F1E8] text-primary antialiased font-body-md text-body-md selection:bg-secondary-fixed selection:text-secondary relative min-h-screen">
+<!-- ========================================================================= -->
+<!-- ANIMATED SWIRLY LINE BACKGROUND (FLOWING CURVES, SPIRALS & RIBBONS)        -->
+<!-- ========================================================================= -->
+<div aria-hidden="true" class="fixed inset-0 pointer-events-none w-full h-full overflow-hidden z-0">
+<svg class="w-full h-full" fill="none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 960" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Soft gradients for layered ribbon swirls -->
+<linearGradient id="forestSwirlGrad" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="rgba(54, 78, 67, 0.24)"></stop>
+<stop offset="50%" stop-color="rgba(24, 58, 50, 0.18)"></stop>
+<stop offset="100%" stop-color="rgba(54, 78, 67, 0.22)"></stop>
+</linearGradient>
+<linearGradient id="terraSwirlGrad" x1="0%" x2="100%" y1="100%" y2="0%">
+<stop offset="0%" stop-color="rgba(217, 108, 75, 0.24)"></stop>
+<stop offset="60%" stop-color="rgba(217, 108, 75, 0.16)"></stop>
+<stop offset="100%" stop-color="rgba(217, 108, 75, 0.22)"></stop>
+</linearGradient>
+</defs>
+<!-- 1. DEEP FOREST GREEN SWIRLY LINES & S-CURVES -->
+<g class="swirl-group-forest">
+<!-- Big Diagonal Sweeping S-Curve 1 -->
+<path d="M-80,120 C180,-40 380,260 620,180 C860,100 1020,380 1280,220 C1460,100 1560,340 1620,260" stroke="rgba(54, 78, 67, 0.22)" stroke-linecap="round" stroke-width="2"></path>
+<!-- Swirling Ribbon Loop Upper-Left -->
+<path d="M120,40 C280,120 440,320 320,440 C200,560 60,380 180,240 C260,140 520,280 780,160" stroke="rgba(24, 58, 50, 0.16)" stroke-linecap="round" stroke-width="1.75"></path>
+<!-- Long Flowing Lower Diagonal Ribbon -->
+<path d="M-120,680 C160,540 340,940 700,740 C980,580 1140,920 1420,780 C1540,720 1620,860 1700,800" stroke="rgba(54, 78, 67, 0.22)" stroke-linecap="round" stroke-width="2"></path>
+<!-- Graceful Curving Intersect Wave -->
+<path d="M420,-60 C580,260 360,560 680,680 C920,780 1120,540 1340,660 C1520,760 1600,620 1680,720" stroke="rgba(24, 58, 50, 0.16)" stroke-linecap="round" stroke-width="1.5"></path>
+</g>
+<!-- 2. TERRACOTTA ACCENT SWIRLS & SPIRAL CURVES -->
+<g class="swirl-group-terracotta">
+<!-- Fluid Terracotta S-Swirl spanning across center -->
+<path d="M-60,420 C220,300 360,660 720,480 C1040,320 1180,620 1520,440 C1620,380 1680,520 1720,460" stroke="rgba(217, 108, 75, 0.22)" stroke-linecap="round" stroke-width="1.75"></path>
+<!-- Terracotta sweeping arc crossing from bottom-left to upper-center -->
+<path d="M40,920 C220,780 440,620 620,780 C800,940 1020,820 1240,680 C1460,540 1560,760 1660,640" stroke="rgba(217, 108, 75, 0.15)" stroke-linecap="round" stroke-width="1.5"></path>
+<!-- Secondary Dynamic Swirl Crest -->
+<path d="M260,-40 C420,180 680,120 840,320 C960,480 820,640 1000,740 C1180,840 1440,720 1600,920" stroke="rgba(217, 108, 75, 0.20)" stroke-dasharray="12 8" stroke-linecap="round" stroke-width="1.5"></path>
+</g>
+<!-- 3. SOFT SAGE CONTOUR RIBBONS & FLUID LOOPS -->
+<g class="swirl-group-sage">
+<!-- Gentle, broad sage contour swirl -->
+<path d="M-100,280 C180,480 520,180 860,380 C1200,580 1380,260 1640,480" stroke="rgba(169, 189, 170, 0.32)" stroke-linecap="round" stroke-width="2"></path>
+<!-- Soft Sage lower loop wave -->
+<path d="M180,1020 C360,780 620,960 940,820 C1260,680 1380,980 1620,860" stroke="rgba(169, 189, 170, 0.30)" stroke-linecap="round" stroke-width="2"></path>
+<!-- Flowing upper framing curve -->
+<path d="M-40,80 C320,240 680,-20 1040,140 C1320,260 1500,40 1660,180" stroke="rgba(169, 189, 170, 0.28)" stroke-linecap="round" stroke-width="1.75"></path>
+</g>
+<!-- 4. ORBITAL SPIRAL & LOOP CONCENTRIC NODES (SUBTLE ELEGANCE) -->
+<g class="swirl-spiral-node-1">
+<!-- Golden Ratio inspired spiral arc node in upper section -->
+<path d="M320,240 C340,210 370,220 380,245 C395,280 360,315 320,315 C265,315 220,270 220,210 C220,130 290,70 375,70 C480,70 560,155 560,265" stroke="rgba(54, 78, 67, 0.20)" stroke-linecap="round" stroke-width="1.5"></path>
+<path d="M320,240 C310,255 295,250 290,235 C280,215 300,195 320,195 C350,195 375,220 375,250" stroke="rgba(217, 108, 75, 0.18)" stroke-linecap="round" stroke-width="1.25"></path>
+</g>
+<g class="swirl-spiral-node-2">
+<!-- Secondary Organic Swirl Vortex in lower-right -->
+<path d="M1140,720 C1160,690 1195,700 1205,725 C1220,760 1185,795 1145,795 C1090,795 1045,750 1045,690 C1045,610 1115,550 1200,550 C1305,550 1385,635 1385,745" stroke="rgba(54, 78, 67, 0.18)" stroke-linecap="round" stroke-width="1.5"></path>
+<path d="M1140,720 C1125,735 1110,730 1105,715 C1095,695 1115,675 1135,675 C1165,675 1190,700 1190,730" stroke="rgba(217, 108, 75, 0.18)" stroke-linecap="round" stroke-width="1.25"></path>
+</g>
+<!-- 5. FLOATING S-CURVE LOOPS & MEANDERING STRANDS -->
+<g class="swirl-loop-node">
+<path d="M540,480 C680,360 820,580 960,460 C1080,360 1180,500 1300,420" stroke="rgba(169, 189, 170, 0.30)" stroke-linecap="round" stroke-width="1.75"></path>
+<path d="M480,540 C620,420 760,640 900,520 C1020,420 1120,560 1240,480" stroke="rgba(217, 108, 75, 0.15)" stroke-linecap="round" stroke-width="1.35"></path>
+</g>
+</svg>
+</div>
+<!-- ========================================================================= -->
+<!-- STICKY TOP NAVIGATION BAR (TECHNICAL BENTO IDENTITY)                      -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-50 w-full bg-[#F4F1E8]/90 backdrop-blur-md border-b border-[#D5D9D2] transition-colors">
+<div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between gap-4">
+<!-- Brand Mark: Jameskier Doliguez -->
+<a class="flex items-center gap-3.5 group shrink-0" href="#home">
+<div class="relative w-10 h-10 rounded-xl bg-primary-container text-primary-fixed border border-white/15 flex items-center justify-center font-bold text-sm font-headline-sm shadow-sm shrink-0">
+  JD
+  
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm font-semibold text-primary tracking-tight leading-none group-hover:text-secondary transition-colors">Jameskier Doliguez</span>
+
+</div>
+<p class="text-xs text-outline tracking-tight mt-0.5 font-code-snippet">[ mobile • web • ai ]</p>
+</div>
+</a>
+<!-- Center Navigation Links with Monospace Indexes -->
+<nav class="hidden md:flex items-center gap-1 lg:gap-1.5 px-3 py-1.5 rounded-full bg-[#FFFDF8]/90 border border-[#D5D9D2] shadow-sm"><a class="px-3 py-1.5 rounded-full text-label-md font-label-md text-primary font-medium hover:bg-[#DDE7DC] hover:text-primary transition-all duration-150" href="#home">Home</a>
+<a class="px-3 py-1.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:bg-[#DDE7DC] hover:text-primary transition-all duration-150" href="#projects">Projects</a>
+<a class="px-3 py-1.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:bg-[#DDE7DC] hover:text-primary transition-all duration-150" href="#tech-stack">Tech Stack</a>
+<a class="px-3 py-1.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:bg-[#DDE7DC] hover:text-primary transition-all duration-150" href="#tools">Tools</a>
+<a class="px-3 py-1.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:bg-[#DDE7DC] hover:text-primary transition-all duration-150" href="#about">About</a>
+<a class="px-3 py-1.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:bg-[#DDE7DC] hover:text-primary transition-all duration-150" href="#contact">Contact</a></nav>
+<!-- Far Right Socials & Contact CTA -->
+<div class="flex items-center gap-2 sm:gap-3">
+<div class="hidden lg:flex items-center gap-1.5 pr-2 border-r border-[#D5D9D2]"><a aria-label="GitHub Profile" class="w-8 h-8 rounded-lg bg-[#FFFDF8] border border-[#D5D9D2] flex items-center justify-center text-primary hover:border-[#A9BDAA] hover:bg-[#DDE7DC] transition-colors duration-150 active:scale-[0.98]" href="https://github.com" rel="noopener noreferrer" target="_blank"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg></a><a aria-label="LinkedIn Profile" class="w-8 h-8 rounded-lg bg-[#FFFDF8] border border-[#D5D9D2] flex items-center justify-center text-primary hover:border-[#A9BDAA] hover:bg-[#DDE7DC] transition-colors duration-150 active:scale-[0.98]" href="https://linkedin.com" rel="noopener noreferrer" target="_blank"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a><a aria-label="Facebook Profile" class="w-8 h-8 rounded-lg bg-[#FFFDF8] border border-[#D5D9D2] flex items-center justify-center text-primary hover:border-[#A9BDAA] hover:bg-[#DDE7DC] transition-colors duration-150 active:scale-[0.98]" href="https://facebook.com/jameskier" rel="noopener noreferrer" target="_blank"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></a><a aria-label="Discord Community" class="w-8 h-8 rounded-lg bg-[#FFFDF8] border border-[#D5D9D2] flex items-center justify-center text-primary hover:border-[#A9BDAA] hover:bg-[#DDE7DC] transition-colors duration-150 active:scale-[0.98]" href="https://discord.com" rel="noopener noreferrer" target="_blank"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"></path></svg></a></div>
+<!-- Action Button -->
+<a class="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-[#FFFDF8] rounded-lg text-label-md font-label-md font-medium hover:bg-[#15342D] transition-colors duration-150 active:scale-[0.98] shadow-sm" href="#contact">
+<span class="">Get in Touch</span>
+<span class="text-secondary-fixed text-xs font-semibold">↗</span>
+</a>
+<!-- Mobile Menu Toggle Button -->
+</div>
+</div>
+<!-- Mobile Collapsible Menu Drawer -->
+<div class="hidden md:hidden bg-[#FFFDF8] border-b border-[#D5D9D2] px-6 py-5 shadow-lg" id="topNavDrawer">
+<nav class="flex flex-col gap-2 font-code-snippet text-xs">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-primary font-medium bg-[#DDE7DC]" href="#home">
+<span class="">[ 00 ] Home</span>
+<span class="text-xs font-mono">→</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-[#DDE7DC]" href="#projects">
+<span class="">[ 02 ] Projects</span>
+<span class="text-xs font-mono">→</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-[#DDE7DC]" href="#tech-stack">
+<span class="">[ 03 ] Tech Stack</span>
+<span class="text-xs font-mono">→</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-[#DDE7DC]" href="#tools">
+<span class="">[ 04 ] Tools</span>
+<span class="text-xs font-mono">→</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-[#DDE7DC]" href="#about">
+<span class="">[ 05 ] Bio</span>
+<span class="text-xs font-mono">→</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:text-primary hover:bg-[#DDE7DC]" href="#contact">
+<span class="">[ 06 ] Contact</span>
+<span class="text-xs font-mono">→</span>
+</a>
+</nav>
+</div>
+</header>
+<!-- ======================================================================= -->
+<!-- MAIN CONTENT CANVAS                                                     -->
+<!-- ======================================================================= -->
+<main class="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-10">
+<!-- ===================================================================== -->
+<!-- 01. HERO SECTION                                                      -->
+<!-- ===================================================================== -->
+<section class="mb-16 pt-2" id="home">
+<!-- Top Bento Grid (Profile + Sidebar Cards) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5">
+<!-- Main Left Profile Card (8 columns) -->
+<div class="lg:col-span-8 bg-[#FFFDF8] rounded-[24px] p-6 md:p-8 border border-[#D5D9D2] editorial-card-shadow flex flex-col justify-between">
+<div>
+<!-- Header Eyebrows -->
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-[#D5D9D2]/60"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline text-[15px]">person</span><span class="font-code-snippet text-xs text-outline tracking-wider font-mono">[ profile ]</span><span class="font-code-snippet text-xs text-secondary font-bold font-mono px-2 py-0.5 rounded-full bg-[#D96C4B]/10 text-[#D96C4B]">00 // PROFILE</span></div></div>
+<!-- Identity Row -->
+<div class="flex items-center gap-4 mb-6">
+<div class="w-14 h-14 rounded-xl bg-primary-container text-primary-fixed flex items-center justify-center font-bold text-lg font-headline-sm shadow-sm shrink-0 border border-white/10">
+            JD
+          </div>
+<div>
+<h1 class="text-headline-lg font-headline-lg font-bold text-primary tracking-tight leading-tight">
+              Jameskier Doliguez
+            </h1>
+<p class="text-xs md:text-sm font-label-md text-secondary font-semibold tracking-wide mt-0.5">
+              Mobile, Web &amp; AI Developer
+            </p>
+</div>
+</div>
+<!-- Statement Heading -->
+<h2 class="text-headline-md md:text-headline-lg font-headline-md text-primary tracking-tight leading-[1.2] mb-4">
+          I build practical digital products across mobile, web, and machine learning.
+        </h2>
+<!-- Supporting Copy -->
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed mb-8 max-w-3xl">
+          Focused on crafting production-grade software with tight engineering standards. Dedicated to edge-computing, clean state architectures in Flutter, and building high-utility tools designed to solve real-world workflows.
+        </p>
+</div>
+<!-- Action Buttons & Social Icons Row -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#D5D9D2]/50">
+<div class="flex flex-wrap items-center gap-3">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-[#FFFDF8] text-label-md font-label-md font-medium hover:bg-[#15342D] transition-colors shadow-sm active:scale-[0.98]" href="#projects">
+            View Projects
+          </a>
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#FFFDF8] text-primary border border-[#D5D9D2] text-label-md font-label-md font-medium hover:bg-[#DDE7DC] transition-colors active:scale-[0.98]" href="#contact">
+            Get in Touch
+          </a>
+</div>
+<!-- Social Icon Buttons -->
+<div class="flex items-center gap-2">
+<a aria-label="GitHub Profile" class="w-9 h-9 rounded-full bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary hover:bg-[#DDE7DC] hover:border-[#A9BDAA] transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+</a>
+<a aria-label="LinkedIn Profile" class="w-9 h-9 rounded-full bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary hover:bg-[#DDE7DC] hover:border-[#A9BDAA] transition-colors" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+<svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a aria-label="Facebook Profile" class="w-9 h-9 rounded-full bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary hover:bg-[#DDE7DC] hover:border-[#A9BDAA] transition-colors" href="https://facebook.com" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a aria-label="Discord Community" class="w-9 h-9 rounded-full bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary hover:bg-[#DDE7DC] hover:border-[#A9BDAA] transition-colors" href="https://discord.com" rel="noopener noreferrer" target="_blank">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<!-- Right Column Bento Cards (4 columns stacked) -->
+<div class="lg:col-span-4 flex flex-col justify-between gap-3.5 h-full"><div class="bg-[#FFFDF8] rounded-[20px] p-5 border border-[#D5D9D2] editorial-card-shadow flex flex-col justify-between flex-1 transition-all duration-150 hover:border-[#A9BDAA]"><div class="flex items-center justify-between pb-2 mb-3 border-b border-[#D5D9D2]/50"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-outline text-[15px]">location_on</span><span class="font-code-snippet text-[11px] text-outline font-mono tracking-wider">[ LOCATION ]</span></div></div><div><div class="flex items-baseline justify-between"><h3 class="text-headline-sm font-headline-sm font-semibold text-primary tracking-tight leading-tight">Philippines</h3><span class="font-code-snippet text-[10px] text-outline font-mono">15.48° N, 120.71° E</span></div><p class="text-xs text-on-surface-variant font-body-sm mt-0.5 flex items-center gap-1.5">Central Luzon&nbsp;</p></div></div><div class="bg-[#FFFDF8] rounded-[20px] p-5 border border-[#D5D9D2] editorial-card-shadow flex flex-col justify-between flex-1 transition-all duration-150 hover:border-[#A9BDAA]"><div class="flex items-center justify-between pb-2 mb-3 border-b border-[#D5D9D2]/50"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-outline text-[15px]">bolt</span><span class="font-code-snippet text-[11px] text-outline font-mono tracking-wider">[ CURRENT FOCUS ]</span></div></div><div class=""><div class="flex flex-wrap items-center gap-1.5 mb-3"><span class="px-2.5 py-1 rounded-full bg-surface-container border border-[#D5D9D2] text-xs font-code-snippet text-primary font-medium hover:bg-[#DDE7DC] transition-colors">Flutter</span><span class="px-2.5 py-1 rounded-full bg-surface-container border border-[#D5D9D2] text-xs font-code-snippet text-primary font-medium hover:bg-[#DDE7DC] transition-colors">Full-stack</span><span class="px-2.5 py-1 rounded-full bg-surface-container border border-[#D5D9D2] text-xs font-code-snippet text-primary font-medium hover:bg-[#DDE7DC] transition-colors">AI / ML</span></div><div class="border-t border-[#D5D9D2]/70 my-3"></div><div class="space-y-2 text-xs font-code-snippet"><div class="flex items-start justify-between gap-2"><span class="text-outline font-mono text-[11px]">Architecture</span><span class="text-primary font-medium text-right text-[11px]">Offline-First &amp; Edge AI</span></div><div class="flex items-start justify-between gap-2"><span class="text-outline font-mono text-[11px]">Research</span><span class="text-primary font-medium text-right text-[11px]">Quantized Models (TFLite)</span></div></div></div></div><div class="bg-[#FFFDF8] rounded-[20px] p-5 border border-[#D5D9D2] editorial-card-shadow flex flex-col justify-between flex-1 group transition-all duration-150 hover:border-[#A9BDAA]"><div class="flex items-center justify-between pb-2 mb-3 border-b border-[#D5D9D2]/50"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-outline">rocket_launch</span><span class="font-code-snippet text-[11px] text-outline font-mono tracking-wider">[ CURRENTLY BUILDING ]</span></div></div><div><div class="flex items-center justify-between mb-1"><div class="flex items-center gap-2"><h3 class="text-headline-sm font-headline-sm font-semibold text-primary group-hover:text-secondary transition-colors">PesoFlow</h3></div><a class="text-xs font-code-snippet font-medium text-[#D96C4B] hover:text-secondary transition-colors inline-flex items-center gap-1 hover:underline" href="#projects"><span class="">View</span> <span class="font-mono">→</span></a></div><p class="text-xs text-on-surface-variant font-body-sm">Personal finance application with offline-first SQLite sync</p></div></div></div>
+</div>
+<!-- Bento Disciplines / About Card -->
+<div class="bg-[#FFFDF8] rounded-[24px] p-6 md:p-8 border border-[#D5D9D2] editorial-card-shadow">
+<!-- Header Row -->
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-[#D5D9D2]/60"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline text-[15px]">info</span><span class="font-code-snippet text-xs text-outline tracking-wider font-mono">[ about ]</span><span class="font-code-snippet text-xs text-secondary font-bold font-mono px-2 py-0.5 rounded-full bg-[#D96C4B]/10 text-[#D96C4B]">01 // DISCIPLINES</span></div></div>
+<!-- Narrative Header -->
+<h2 class="text-headline-md md:text-headline-lg font-headline-md text-primary tracking-tight mb-3">
+      I like building products that solve real problems.
+    </h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-4xl leading-relaxed mb-8">
+      My work spans the entire lifecycle from foundational machine learning architectures to intuitive mobile and responsive web client interfaces. Rather than assembling generic templates, I design purpose-built systems optimized for user ergonomics and predictable runtime performance.
+    </p>
+<!-- 3-Column Disciplines Sub-Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Discipline 1: Mobile -->
+<div class="bg-surface-container-low rounded-xl p-5 md:p-6 border border-[#D5D9D2] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-secondary text-xs font-code-snippet font-bold">[ 01 ]</span>
+<span class="text-[10px] font-code-snippet text-outline tracking-wider font-medium uppercase">MOBILE</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2">Mobile Development</h3>
+<p class="text-xs md:text-body-sm font-body-sm text-on-surface-variant leading-relaxed mb-6">
+            Flutter-based mobile applications with an emphasis on useful everyday products, clean state handling, and offline-first persistence.
+          </p>
+</div>
+<div class="pt-3 border-t border-[#D5D9D2]/60 text-xs font-code-snippet text-outline">
+          Flutter • Dart • Drift
+        </div>
+</div>
+<!-- Discipline 2: Web -->
+<div class="bg-surface-container-low rounded-xl p-5 md:p-6 border border-[#D5D9D2] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-secondary text-xs font-code-snippet font-bold">[ 02 ]</span>
+<span class="text-[10px] font-code-snippet text-outline tracking-wider font-medium uppercase">WEB</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2">Web Development</h3>
+<p class="text-xs md:text-body-sm font-body-sm text-on-surface-variant leading-relaxed mb-6">
+            Modern responsive interfaces and full-stack web experiences designed with tight information density, performance, and accessibility.
+          </p>
+</div>
+<div class="pt-3 border-t border-[#D5D9D2]/60 text-xs font-code-snippet text-outline">
+          React • Tailwind • Supabase
+        </div>
+</div>
+<!-- Discipline 3: Intelligence / AI -->
+<div class="bg-surface-container-low rounded-xl p-5 md:p-6 border border-[#D5D9D2] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-secondary text-xs font-code-snippet font-bold">[ 03 ]</span>
+<span class="text-[10px] font-code-snippet text-outline tracking-wider font-medium uppercase">INTELLIGENCE</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2">AI / Machine Learning</h3>
+<p class="text-xs md:text-body-sm font-body-sm text-on-surface-variant leading-relaxed mb-6">
+            Image classification, TensorFlow models, lightweight CNN architectures, and edge deployment with mobile-optimized inference pipelines.
+          </p>
+</div>
+<div class="pt-3 border-t border-[#D5D9D2]/60 text-xs font-code-snippet text-outline">
+          TensorFlow • TFLite • OpenCV
+        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- 02. PROJECTS SECTION (BENTO SPECIFICATION STYLING)                    -->
+<!-- ===================================================================== -->
+<section class="mb-16 scroll-mt-24" id="projects">
+<!-- Section Bento Container (Crisp warm-white outer shell) -->
+<div class="bg-[#FFFDF8] rounded-[24px] md:rounded-[32px] p-5 md:p-8 border border-[#D5D9D2] editorial-card-shadow">
+<!-- Header with Bracketed Mono Syntax & Terracotta Highlights -->
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-[#D5D9D2]/70">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline text-[15px]">folder_open</span><span class="font-code-snippet text-xs text-outline tracking-wider font-mono">[ projects ]</span><span class="font-code-snippet text-xs text-secondary font-bold font-mono px-2 py-0.5 rounded-full bg-[#D96C4B]/10 text-[#D96C4B]">02 // CASE STUDIES</span></div>
+<div class="flex items-center gap-3"><span class="text-label-sm font-code-snippet text-outline hidden sm:block font-mono" id="project-counter">[ 4 SPECIFICATIONS DEPLOYED ]</span><div class="flex items-center gap-1.5"><button id="btn-project-prev" onclick="document.getElementById('projects-slider').scrollBy({left: -360, behavior: 'smooth'})" aria-label="Previous project" class="w-8 h-8 rounded-lg bg-[#FFFDF8] border border-[#D5D9D2] flex items-center justify-center text-primary hover:border-[#A9BDAA] hover:bg-[#DDE7DC] active:scale-[0.98] transition-all duration-150"><span class="material-symbols-outlined text-[18px]">arrow_back</span></button><button id="btn-project-next" onclick="document.getElementById('projects-slider').scrollBy({left: 360, behavior: 'smooth'})" aria-label="Next project" class="w-8 h-8 rounded-lg bg-[#FFFDF8] border border-[#D5D9D2] flex items-center justify-center text-primary hover:border-[#A9BDAA] hover:bg-[#DDE7DC] active:scale-[0.98] transition-all duration-150"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></button></div></div>
+</div>
+<div class="mb-6">
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary tracking-tight mb-2">
+        Featured Projects &amp; Software
+      </h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+        A selected portfolio of mobile applications, full-stack web platforms, and machine learning inference tools designed with technical precision.
+      </p>
+</div>
+<!-- Technical Specification Bento Cards Grid -->
+<div><div class="relative"><div id="projects-slider" class="flex gap-6 overflow-x-auto pb-4 pt-1 scroll-smooth snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none;"><article class="snap-start shrink-0 w-full sm:w-[360px] lg:w-[380px] bg-[#FFFDF8] rounded-[20px] p-5 border border-[#D5D9D2] editorial-card-shadow editorial-hover-lift transition-all duration-200 flex flex-col justify-between group"><div class="space-y-4"><div class="h-48 rounded-xl overflow-hidden border border-[#D5D9D2] bg-surface-container relative shrink-0"><img class="w-full h-full object-cover" data-alt="PesoFlow financial application screenshot interface preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6q1GDz643rjfH5Mi266MS_DrsK8cT-LFJjnKQETPz_lwQCu0RCPQXC7-yMtAJVPimz9DOg3PgNn6U-_OvqZ9RXGGOGxQElxqx5qcYK33z-odFx4YBRnwwo-kxRyKJY1inxO67jPI5aa29Yy_SSRR2wjLhfPBKy2XMCHBiTJfWShUKaq_Mi-fvwpZtaDeq1tVsP5Ou0M1xhvi13zmQY7cviRCw0pBUjfuybF6-T-6t"><div class="absolute top-2.5 left-2.5 flex items-center gap-1.5"><span class="px-2 py-0.5 rounded-full bg-[#FFFDF8]/95 border border-[#D5D9D2] text-[10px] font-code-snippet font-semibold text-primary">[ 01 ]</span></div><div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-[10px] font-code-snippet text-[#FFFDF8] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> v2.4.0</div></div><div><div class="flex items-center justify-between pb-2 mb-2.5 border-b border-[#D5D9D2]/50 font-code-snippet text-[11px]"><span class="text-secondary font-bold px-1.5 py-0.5 rounded bg-[#D96C4B]/10 text-[#D96C4B]">[ MOBILE / FINTECH ]</span><span class="text-outline font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> OFFLINE-FIRST</span></div><h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2 line-clamp-1 group-hover:text-secondary transition-colors">PesoFlow</h3><p class="text-body-sm font-body-sm text-on-surface-variant mb-4 leading-relaxed line-clamp-2">Offline-first mobile finance app optimized for swift expense logging, recurring budget analytics, and encrypted biometric vaults.</p><div class="flex flex-wrap gap-1.5 mb-2"><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Flutter</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Dart</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Drift ORM</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Riverpod</span></div></div></div><div class="flex items-center justify-between pt-4 mt-4 border-t border-[#D5D9D2]/60 font-code-snippet text-xs"><span class="text-outline text-[11px]">STATUS: PROD READY</span><div class="flex items-center gap-3"><a class="inline-flex items-center gap-1 text-primary hover:text-secondary font-medium transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank"><span class="">Source</span> <span class="font-bold">↗</span></a><a class="inline-flex items-center gap-1 text-secondary font-semibold hover:underline" href="#contact"><span class="">Demo</span> <span class="font-bold">→</span></a></div></div></article><article class="snap-start shrink-0 w-full sm:w-[360px] lg:w-[380px] bg-[#FFFDF8] rounded-[20px] p-5 border border-[#D5D9D2] editorial-card-shadow editorial-hover-lift transition-all duration-200 flex flex-col justify-between group"><div class="space-y-4"><div class="h-48 rounded-xl overflow-hidden border border-[#D5D9D2] bg-surface-container relative shrink-0"><img class="w-full h-full object-cover" data-alt="Machine learning crop leaf disease classification interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBzP7Oq7nnh2m3vYsxUDl-z_u6Dh10yOanOBFMDcUcRbNM0pdWn9_3uZEyL_UbqTvqpwTdxhipDdR7aOHAf4H39XCFKT-Kqv7ah9j3hBhfTtwHH8vejEXdZMHuHb0i1Mc4S7goz_Pbq2WnDIAdaIA9FrEKgqf7tpHyg8F7P0bdDDKeeY1FfKXGnleMCRWkuQXURB5FPcI5tSOFCEOyv-w8NaQFQIOYxeT09cY_8vR1"><div class="absolute top-2.5 left-2.5 flex items-center gap-1.5"><span class="px-2 py-0.5 rounded-full bg-[#FFFDF8]/95 border border-[#D5D9D2] text-[10px] font-code-snippet font-semibold text-primary">[ 02 ]</span></div><div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-[10px] font-code-snippet text-[#FFFDF8]">98.4% ACC</div></div><div><div class="flex items-center justify-between pb-2 mb-2.5 border-b border-[#D5D9D2]/50 font-code-snippet text-[11px]"><span class="text-secondary font-bold px-1.5 py-0.5 rounded bg-[#D96C4B]/10 text-[#D96C4B]">[ EDGE AI / VISION ]</span><span class="text-outline font-medium">~48ms LATENCY</span></div><h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2 line-clamp-1 group-hover:text-secondary transition-colors">AgroScan</h3><p class="text-body-sm font-body-sm text-on-surface-variant mb-4 leading-relaxed line-clamp-2">On-device CNN pipeline identifying leaf blights in real time without network dependency using quantized MobileNetV3 weights.</p><div class="flex flex-wrap gap-1.5 mb-2"><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">TensorFlow</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">TFLite</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Python</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">OpenCV</span></div></div></div><div class="flex items-center justify-between pt-4 mt-4 border-t border-[#D5D9D2]/60 font-code-snippet text-xs"><span class="text-outline text-[11px]">LATENCY: ~48ms</span><div class="flex items-center gap-3"><a class="inline-flex items-center gap-1 text-primary hover:text-secondary font-medium transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank"><span class="">Source</span> <span class="font-bold">↗</span></a><a class="inline-flex items-center gap-1 text-secondary font-semibold hover:underline" href="#contact"><span class="">Weights</span> <span class="font-bold">→</span></a></div></div></article><article class="snap-start shrink-0 w-full sm:w-[360px] lg:w-[380px] bg-[#FFFDF8] rounded-[20px] p-5 border border-[#D5D9D2] editorial-card-shadow editorial-hover-lift transition-all duration-200 flex flex-col justify-between group"><div class="space-y-4"><div class="h-48 rounded-xl overflow-hidden border border-[#D5D9D2] bg-surface-container relative shrink-0"><img class="w-full h-full object-cover" data-alt="PulseHub fullstack responsive web dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsMhxJTR6p1JW_O5o8g3SCWvYPlkVnAlTJGXL9aDHKwOpMinL25PGX1lCuXw0awfYFOU_snl7Wn5ZDo_scrEQUkh17xPPki_2zFRC2nRQBKDy6gGUeYVwrFw0zY0FyeEIHgU7dJ95jSYEPofM9ci_IAZoq37IaZNXOnqhHyq0ijh8l3QIgB3zVWsZI9CwpCh_npcQijYW33sOPtMkubQCBc_rHyhS409uxI2ycQDlb"><div class="absolute top-2.5 left-2.5 flex items-center gap-1.5"><span class="px-2 py-0.5 rounded-full bg-[#FFFDF8]/95 border border-[#D5D9D2] text-[10px] font-code-snippet font-semibold text-primary">[ 03 ]</span></div><div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-[10px] font-code-snippet text-[#FFFDF8]">SUPABASE RLS</div></div><div><div class="flex items-center justify-between pb-2 mb-2.5 border-b border-[#D5D9D2]/50 font-code-snippet text-[11px]"><span class="text-secondary font-bold px-1.5 py-0.5 rounded bg-[#D96C4B]/10 text-[#D96C4B]">[ REALTIME / DISTRIBUTED ]</span><span class="text-outline font-medium">POSTGRESQL</span></div><h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2 line-clamp-1 group-hover:text-secondary transition-colors">PulseHub</h3><p class="text-body-sm font-body-sm text-on-surface-variant mb-4 leading-relaxed line-clamp-2">High-density dispatch dashboard with websocket synchronization, Supabase PostgreSQL triggers, and role governance.</p><div class="flex flex-wrap gap-1.5 mb-2"><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">React 18</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Next.js</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Supabase</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">PostgreSQL</span></div></div></div><div class="flex items-center justify-between pt-4 mt-4 border-t border-[#D5D9D2]/60 font-code-snippet text-xs"><span class="text-outline text-[11px]">NEXT.JS + SUPABASE</span><div class="flex items-center gap-3"><a class="inline-flex items-center gap-1 text-primary hover:text-secondary font-medium transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank"><span class="">Repo</span> <span class="font-bold">↗</span></a><a class="inline-flex items-center gap-1 text-secondary font-semibold hover:underline" href="#contact"><span class="">Live App</span> <span class="font-bold">→</span></a></div></div></article><article class="snap-start shrink-0 w-full sm:w-[360px] lg:w-[380px] bg-[#FFFDF8] rounded-[20px] p-5 border border-[#D5D9D2] editorial-card-shadow editorial-hover-lift transition-all duration-200 flex flex-col justify-between group"><div class="space-y-4"><div class="h-48 rounded-xl overflow-hidden border border-[#D5D9D2] bg-surface-container relative shrink-0"><div class="w-full h-full bg-[#15342D] flex flex-col justify-center items-center p-6 text-center"><span class="material-symbols-outlined text-[40px] text-secondary-fixed mb-2">monitoring</span><span class="font-code-snippet text-xs text-[#A9BDAA] font-mono">prometheus_collector:v1.2</span><div class="flex items-center gap-2 mt-2"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span><span class="text-[11px] font-code-snippet text-[#FFFDF8]">99.98% SLA INGESTION</span></div></div><div class="absolute top-2.5 left-2.5 flex items-center gap-1.5"><span class="px-2 py-0.5 rounded-full bg-[#FFFDF8]/95 border border-[#D5D9D2] text-[10px] font-code-snippet font-semibold text-primary">[ 04 ]</span></div><div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded bg-primary/80 backdrop-blur-sm text-[10px] font-code-snippet text-[#FFFDF8]">EDGE INGEST</div></div><div><div class="flex items-center justify-between pb-2 mb-2.5 border-b border-[#D5D9D2]/50 font-code-snippet text-[11px]"><span class="text-secondary font-bold px-1.5 py-0.5 rounded bg-[#D96C4B]/10 text-[#D96C4B]">[ DEV INFRASTRUCTURE ]</span><span class="text-outline font-medium">PROMETHEUS &amp; GO</span></div><h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2 line-clamp-1 group-hover:text-secondary transition-colors">CloudMetrics</h3><p class="text-body-sm font-body-sm text-on-surface-variant mb-4 leading-relaxed line-clamp-2">Edge API telemetry collector designed in Go with sub-millisecond dispatch, Prometheus metric scraping, and Grafana alerting.</p><div class="flex flex-wrap gap-1.5 mb-2"><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Go</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Prometheus</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Docker</span><span class="px-2.5 py-0.5 rounded-full bg-surface-container border border-[#D5D9D2] text-[11px] font-code-snippet text-primary">Grafana</span></div></div></div><div class="flex items-center justify-between pt-4 mt-4 border-t border-[#D5D9D2]/60 font-code-snippet text-xs"><span class="text-outline text-[11px]">STATUS: DEPLOYED</span><div class="flex items-center gap-3"><a class="inline-flex items-center gap-1 text-primary hover:text-secondary font-medium transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank"><span class="">Source</span> <span class="font-bold">↗</span></a><a class="inline-flex items-center gap-1 text-secondary font-semibold hover:underline" href="#contact"><span class="">Docs</span> <span class="font-bold">→</span></a></div></div></article></div><div class="flex items-center justify-between pt-4 mt-2 border-t border-[#D5D9D2]/50 font-code-snippet text-xs text-outline"><span class="hidden sm:inline-block font-mono">← DRAG OR USE BUTTONS TO NAVIGATE CASE STUDIES →</span><div class="flex items-center gap-2 mx-auto sm:mx-0"><button onclick="document.getElementById('projects-slider').scrollTo({left: 0, behavior: 'smooth'})" class="w-2.5 h-2.5 rounded-full bg-primary"></button><button onclick="document.getElementById('projects-slider').scrollTo({left: 380, behavior: 'smooth'})" class="w-2.5 h-2.5 rounded-full bg-[#D5D9D2] hover:bg-secondary transition-colors"></button><button onclick="document.getElementById('projects-slider').scrollTo({left: 760, behavior: 'smooth'})" class="w-2.5 h-2.5 rounded-full bg-[#D5D9D2] hover:bg-secondary transition-colors"></button><button onclick="document.getElementById('projects-slider').scrollTo({left: 1140, behavior: 'smooth'})" class="w-2.5 h-2.5 rounded-full bg-[#D5D9D2] hover:bg-secondary transition-colors"></button></div></div></div></div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- 03. TECH STACK & ARCHITECTURE SECTION                                 -->
+<!-- ===================================================================== -->
+<section class="mb-16 scroll-mt-24" id="tech-stack">
+<div class="bg-[#FFFDF8] rounded-[24px] p-6 md:p-8 border border-[#D5D9D2] editorial-card-shadow mb-6">
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-[#D5D9D2]/60">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline text-[15px]">layers</span><span class="font-code-snippet text-xs text-outline tracking-wider font-mono">[ tech stack ]</span><span class="font-code-snippet text-xs text-secondary font-bold font-mono">03 // ARCHITECTURE &amp; SKILLS</span></div>
+<span class="text-label-sm font-code-snippet text-outline font-mono hidden sm:block">[ 6 CORE DOMAINS ]</span>
+</div>
+<h2 class="text-headline-md md:text-headline-lg font-headline-md text-primary tracking-tight mb-3">
+      Technological Competencies &amp; Ecosystem
+    </h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-3xl leading-relaxed mb-8">
+      A structured inventory of development runtimes, libraries, databases, and deployment toolchains I utilize to craft performant digital products.
+    </p>
+<!-- Grid of Bento Taxonomy Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- Card 1: Mobile -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-[#D5D9D2] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 mb-4 border-b border-[#D5D9D2]/60">
+<span class="text-secondary font-code-snippet text-xs font-bold">[ 01 ] MOBILE</span>
+<span class="material-symbols-outlined text-outline text-[18px]">smartphone</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2">Cross-Platform Mobile</h3>
+<p class="text-xs font-body-sm text-on-surface-variant mb-5 leading-relaxed">
+            Multi-platform client engineering with fluid animations, local SQLite databases, reactive state loops, and hardware sensor integrations.
+          </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Flutter</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Dart</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Riverpod</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Drift</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Hive</span>
+</div>
+</div>
+<div class="pt-3 border-t border-[#D5D9D2]/60 text-xs font-code-snippet text-outline">
+          Flutter • Dart • Riverpod • SQLite
+        </div>
+</div>
+<!-- Card 2: Web & Frontend -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-[#D5D9D2] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 mb-4 border-b border-[#D5D9D2]/60">
+<span class="text-secondary font-code-snippet text-xs font-bold">[ 02 ] FRONTEND</span>
+<span class="material-symbols-outlined text-outline text-[18px]">desktop_windows</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2">Modern Web Development</h3>
+<p class="text-xs font-body-sm text-on-surface-variant mb-5 leading-relaxed">
+            Fast, accessible interfaces built on component composition, strict TypeScript typing, and atomic utility CSS design systems.
+          </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">React</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Next.js</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">TypeScript</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Tailwind CSS</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">HTML5/CSS3</span>
+</div>
+</div>
+<div class="pt-3 border-t border-[#D5D9D2]/60 text-xs font-code-snippet text-outline">
+          React • Next.js • TypeScript • Tailwind
+        </div>
+</div>
+<!-- Card 3: Backend & Data -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-[#D5D9D2] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 mb-4 border-b border-[#D5D9D2]/60">
+<span class="text-secondary font-code-snippet text-xs font-bold">[ 03 ] BACKEND</span>
+<span class="material-symbols-outlined text-outline text-[18px]">database</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2">Backend &amp; Cloud Services</h3>
+<p class="text-xs font-body-sm text-on-surface-variant mb-5 leading-relaxed">
+            RESTful APIs, relational databases, serverless functions, authentication guards, and low-latency transactional storage.
+          </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Node.js</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Supabase</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">PostgreSQL</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Firebase</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">REST APIs</span>
+</div>
+</div>
+<div class="pt-3 border-t border-[#D5D9D2]/60 text-xs font-code-snippet text-outline">
+          Node.js • Supabase • PostgreSQL • Firebase
+        </div>
+</div>
+<!-- Card 4: Machine Learning & Edge AI -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-[#D5D9D2] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 mb-4 border-b border-[#D5D9D2]/60">
+<span class="text-secondary font-code-snippet text-xs font-bold">[ 04 ] INTELLIGENCE</span>
+<span class="material-symbols-outlined text-outline text-[18px]">psychology</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2">AI &amp; Machine Learning</h3>
+<p class="text-xs font-body-sm text-on-surface-variant mb-5 leading-relaxed">
+            Supervised model training, computer vision pipelines, quantization for edge inference, and integration with intelligent LLM APIs.
+          </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">TensorFlow</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">TFLite</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Python</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">OpenCV</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">scikit-learn</span>
+</div>
+</div>
+<div class="pt-3 border-t border-[#D5D9D2]/60 text-xs font-code-snippet text-outline">
+          TensorFlow • TFLite • OpenCV • Python
+        </div>
+</div>
+<!-- Card 5: Engineering Workflows (Spans 2 cols on lg) -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-[#D5D9D2] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 mb-4 border-b border-[#D5D9D2]/60">
+<span class="text-secondary font-code-snippet text-xs font-bold">[ 05 ] TOOLCHAIN</span>
+<span class="material-symbols-outlined text-outline text-[18px]">terminal</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2">DevOps, Version Control &amp; Quality</h3>
+<p class="text-xs font-body-sm text-on-surface-variant mb-5 leading-relaxed">
+            Git branching hygiene, automated continuous deployment workflows, containerized environments, and contract API testing.
+          </p>
+<div class="flex flex-wrap gap-1.5 mb-6">
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Git</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">GitHub Actions</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Docker</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Postman</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">VS Code</span>
+<span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Linux CLI</span>
+</div>
+</div>
+<div class="pt-3 border-t border-[#D5D9D2]/60 text-xs font-code-snippet text-outline">
+          Git • Docker • GitHub Actions • Postman
+        </div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 border border-[#D5D9D2] flex flex-col justify-between"><div><div class="flex items-center justify-between pb-3 mb-4 border-b border-[#D5D9D2]/60"><span class="text-secondary font-code-snippet text-xs font-bold">[ 06 ] ARCHITECTURE</span><span class="material-symbols-outlined text-outline text-[18px]">architecture</span></div><h3 class="text-headline-sm font-headline-sm font-semibold text-primary mb-2">System Architecture &amp; Optimization</h3><p class="text-xs font-body-sm text-on-surface-variant mb-5 leading-relaxed">Clean architectural design patterns, state management boundaries, offline-first caching strategies, and runtime performance profiling.</p><div class="flex flex-wrap gap-1.5 mb-6"><span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Clean Architecture</span><span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Offline-First</span><span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Performance Profiling</span><span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">Design Systems</span><span class="px-2.5 py-1 rounded bg-[#FFFDF8] border border-[#D5D9D2] text-xs font-code-snippet text-primary">REST / GraphQL</span></div></div><div class="pt-3 border-t border-[#D5D9D2]/60 text-xs font-code-snippet text-outline">Clean Arch • Offline Sync • Profiling • State Design</div></div></div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- 04. TOOLS & WORKBENCH SECTION                                         -->
+<!-- ===================================================================== -->
+<section class="mb-16 scroll-mt-24" id="tools">
+<!-- Top Daily Strip Re-Enforced in Bento Styling -->
+<div class="rounded-[24px] md:rounded-[32px] p-5 md:p-8 border border-[#D5D9D2] bg-[#FFFDF8] editorial-card-shadow">
+<!-- Header with Bracketed Mono Syntax -->
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-[#D5D9D2]/70">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline text-[15px]">build</span><span class="font-code-snippet text-xs text-outline tracking-wider font-mono">[ tools ]</span><span class="font-code-snippet text-xs text-secondary font-bold font-mono">04 // WORKBENCH</span></div>
+<span class="text-label-sm font-code-snippet text-outline hidden sm:block font-mono">[ DAILY INSTRUMENTATION ]</span>
+</div>
+<!-- Workbench Table in White Card -->
+<div class="bg-[#FFFDF8] rounded-[20px] border border-[#D5D9D2] p-6 md:p-8 editorial-card-shadow divide-y divide-[#D5D9D2]/70">
+<!-- Tool Row 1: Editor -->
+<div class="py-4 first:pt-0 last:pb-0 flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-lg bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px] text-secondary">terminal</span>
+</span>
+<div>
+<h4 class="text-primary font-headline-sm font-medium">VS Code &amp; Cursor</h4>
+<p class="text-xs text-on-surface-variant">Primary code editing environment with Dart, Flutter &amp; Tailwind language servers</p>
+</div>
+</div>
+<div class="flex items-center gap-3 font-code-snippet text-xs">
+<span class="text-outline">[ AUTHORING ]</span>
+
+</div>
+</div>
+<!-- Tool Row 2: VCS & Collab -->
+<div class="py-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-lg bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px] text-outline">code</span>
+</span>
+<div>
+<h4 class="text-primary font-headline-sm font-medium">GitHub &amp; Git CLI</h4>
+<p class="text-xs text-on-surface-variant">Distributed version control, continuous integration runners, and issue milestones</p>
+</div>
+</div>
+<div class="flex items-center gap-3 font-code-snippet text-xs">
+<span class="text-outline">[ REPOSITORY ]</span>
+
+</div>
+</div>
+<!-- Tool Row 3: Design -->
+<div class="py-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-lg bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px] text-secondary">draw</span>
+</span>
+<div>
+<h4 class="text-primary font-headline-sm font-medium">Figma</h4>
+<p class="text-xs text-on-surface-variant">Mobile app prototyping, design tokens, wireframing, and interactive components</p>
+</div>
+</div>
+<div class="flex items-center gap-3 font-code-snippet text-xs">
+<span class="text-outline">[ DESIGN ]</span>
+
+</div>
+</div>
+<!-- Tool Row 4: Database & Cloud -->
+<div class="py-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-lg bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px] text-outline">database</span>
+</span>
+<div>
+<h4 class="text-primary font-headline-sm font-medium">Supabase &amp; Firebase Console</h4>
+<p class="text-xs text-on-surface-variant">Cloud database orchestration, authentication rules, storage buckets, and realtime channels</p>
+</div>
+</div>
+<div class="flex items-center gap-3 font-code-snippet text-xs">
+<span class="text-outline">[ CLOUD DB ]</span>
+
+</div>
+</div>
+<!-- Tool Row 5: AI & Intelligence -->
+<div class="py-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-lg bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px] text-secondary bg-[#DDE7DC] text-primary border border-[#D5D9D2]/70">psychology</span>
+</span>
+<div>
+<h4 class="text-primary font-headline-sm font-medium">Claude 3.7 &amp; OpenAI API</h4>
+<p class="text-xs text-on-surface-variant">Architecture formulation, edge-case analysis, documentation writing, and prototype synthesis</p>
+</div>
+</div>
+<div class="flex items-center gap-3 font-code-snippet text-xs">
+<span class="text-outline">[ SYNTHESIS ]</span>
+
+</div>
+</div>
+<!-- Tool Row 6: API Debugging -->
+<div class="py-4 last:pb-0 flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 rounded-lg bg-surface-container border border-[#D5D9D2] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px] text-outline">api</span>
+</span>
+<div>
+<h4 class="text-primary font-headline-sm font-medium">Postman</h4>
+<p class="text-xs text-on-surface-variant">REST endpoint assertions, header authorization testing, and schema validation</p>
+</div>
+</div>
+<div class="flex items-center gap-3 font-code-snippet text-xs">
+<span class="text-outline">[ TESTING ]</span>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- 05. BIO & BACKGROUND SECTION                                          -->
+<!-- ===================================================================== -->
+<section class="mb-16 scroll-mt-24" id="about">
+<div class="bg-[#FFFDF8] rounded-[24px] p-6 md:p-8 border border-[#D5D9D2] editorial-card-shadow mb-6">
+<!-- Header with Bracketed Mono Syntax -->
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-[#D5D9D2]/60">
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-outline text-[15px]">history_edu</span><span class="font-code-snippet text-xs text-outline tracking-wider font-mono">[ background ]</span><span class="font-code-snippet text-xs text-secondary font-bold font-mono">05 // EXPERIENCE &amp; PHILOSOPHY</span></div>
+<span class="text-label-sm font-code-snippet text-outline font-mono hidden sm:block">[ IDENTITY: JAMESKIER DOLIGUEZ ]</span>
+</div>
+<!-- Narrative & Credentials Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+<!-- Left Narrative (7 cols) -->
+<div class="lg:col-span-7 space-y-4 text-body-md font-body-md text-on-surface-variant leading-relaxed">
+<h3 class="text-headline-md font-headline-md text-primary tracking-tight">
+          Hi, I'm Jameskier Doliguez.
+        </h3>
+<p class="">
+          I am a mobile, web, and machine learning developer with a focus on building functional, durable digital systems. My engineering discipline centers on clean code structures, predictable offline persistence, and pragmatic intelligence pipelines.
+        </p>
+<p class="">
+          Whether architecting cross-platform Flutter applications or training quantized vision models with TensorFlow Lite, I prioritize user speed, clean separation of concerns, and clean visual typography.
+        </p>
+<p class="">
+          I thrive on translating complex requirements into reliable codebases with intuitive feedback loops and zero bloated dependencies.
+        </p>
+<!-- Spec Highlights Row -->
+<div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-[#D5D9D2]/60 font-code-snippet text-xs">
+<div class="p-3 rounded-lg bg-surface-container-low border border-[#D5D9D2]">
+<span class="text-outline block mb-1">[ SPECIALTY ]</span>
+<span class="text-primary font-semibold">Flutter &amp; Dart</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-[#D5D9D2]">
+<span class="text-outline block mb-1">[ AI FOCUS ]</span>
+<span class="text-primary font-semibold">TFLite Vision Models</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-[#D5D9D2]">
+<span class="text-outline block mb-1">[ TIMEZONE ]</span>
+<span class="text-primary font-semibold">GMT+8 (Philippines)</span>
+</div>
+</div>
+</div>
+<!-- Right Credentials & Discipline Bento Card (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<!-- Education & Credentials Card -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-[#D5D9D2]">
+<span class="font-code-snippet text-xs text-outline tracking-wider font-mono mb-3 block">[ CREDENTIALS &amp; EDUCATION ]</span>
+<div class="space-y-3 font-body-sm">
+<div class="pb-2.5 border-b border-[#D5D9D2]/60">
+<span class="text-xs font-code-snippet text-secondary font-semibold">ACADEMIC DEGREE</span>
+<h4 class="text-primary font-semibold text-body-md">B.S. in Information Technology</h4>
+<p class="text-xs text-on-surface-variant">Major in Network &amp; Software Systems</p>
+</div>
+<div class="pb-2.5 border-b border-[#D5D9D2]/60">
+<span class="text-xs font-code-snippet text-secondary font-semibold">FOCUS AREAS</span>
+<p class="text-xs text-on-surface-variant font-code-snippet">Mobile Architecture • Edge Inference • SQL Optimization</p>
+</div>
+<div>
+<span class="text-xs font-code-snippet text-secondary font-semibold">AVAILABILITY</span>
+<p class="text-xs text-primary font-semibold flex items-center gap-1.5 mt-0.5">Available for full-time &amp; contract projects
+              </p>
+</div>
+</div>
+</div>
+<!-- Technical Philosophy Code Card -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-[#D5D9D2] font-code-snippet text-xs text-primary">
+<div class="flex items-center justify-between text-outline text-[11px] mb-2 font-mono">
+<span class="">[ PHILOSOPHY ]</span>
+<span class="">SPEC v1.0</span>
+</div>
+<span class="text-secondary">const</span> engineeringPrinciple = {<br>
+          &nbsp;&nbsp;architecture: <span class="text-primary-container font-semibold">"clean &amp; modular"</span>,<br>
+          &nbsp;&nbsp;stateManagement: <span class="text-primary-container font-semibold">"predictable"</span>,<br>
+          &nbsp;&nbsp;userExperience: <span class="text-primary-container font-semibold">"fast &amp; responsive"</span><br>
+          };
+        </div>
+</div>
+</div>
+<!-- Role Rows with Bento Bracket Syntax -->
+<div class="rounded-xl border border-[#D5D9D2] bg-surface-container-low p-4 divide-y divide-[#D5D9D2]/60">
+<div class="py-3 first:pt-1 last:pb-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="font-code-snippet text-xs text-secondary font-bold">[ 01 ]</span>
+<span class="text-headline-sm font-headline-sm font-semibold text-primary">Mobile Application Developer</span>
+</div>
+<span class="text-xs font-code-snippet text-outline">Offline-first Flutter, Drift DB, Native Dart APIs</span>
+</div>
+<div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="font-code-snippet text-xs text-secondary font-bold">[ 02 ]</span>
+<span class="text-headline-sm font-headline-sm font-semibold text-primary">Full-Stack Web Developer</span>
+</div>
+<span class="text-xs font-code-snippet text-outline">React, Next.js, Tailwind CSS, Supabase PostgreSQL</span>
+</div>
+<div class="py-3 last:pb-1 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="font-code-snippet text-xs text-secondary font-bold">[ 03 ]</span>
+<span class="text-headline-sm font-headline-sm font-semibold text-primary">AI &amp; Edge Machine Learning</span>
+</div>
+<span class="text-xs font-code-snippet text-outline">TFLite Vision Models, CNN Classifiers, Python Preprocessing</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- 06. CONTACT SECTION (BENTO CHANNELS & TECHNICAL BRIEF)                 -->
+<!-- ===================================================================== -->
+<section class="mb-16 scroll-mt-24" id="contact">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-2"><span class="material-symbols-outlined text-outline text-[15px]">alternate_email</span><span class="font-code-snippet text-xs text-outline tracking-wider font-mono">[ contact ]</span><span class="font-code-snippet text-xs text-secondary font-bold font-mono">06 // GET IN TOUCH</span></div>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary tracking-tight mb-2">
+      Let's Build Something Together
+    </h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+      Have a mobile app in mind, a web platform to launch, or machine learning model to deploy? Let's discuss requirements and timelines.
+    </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Deep Evergreen Card (#15342D) -->
+<div class="lg:col-span-5 bg-[#15342D] text-[#FFFDF8] rounded-[24px] p-6 md:p-8 dark-hero-elevation border border-[rgba(255,253,248,0.1)] h-full flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-[#A9BDAA]">hub</span><span class="font-code-snippet text-xs text-[#A9BDAA] font-mono tracking-wider">[ DIRECT CHANNELS ]</span></div></div>
+<h3 class="text-headline-md font-headline-md font-semibold text-[#FFFDF8] mb-3">
+        Reach Out Directly
+      </h3>
+<p class="text-body-sm font-body-sm text-[#A9BDAA] mb-8 leading-relaxed">
+        I respond to project inquiries, freelance collaborations, and full-time discussions within 24 hours.
+      </p>
+<!-- Direct Channel Links -->
+<div class="space-y-3">
+<a class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:border-secondary-fixed hover:bg-white/10 transition-colors" href="mailto:jameskier.doliguez@gmail.com">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">mail</span>
+<span class="text-xs font-code-snippet text-[#FFFDF8]">jameskier.doliguez@gmail.com</span>
+</div>
+<span class="text-xs font-mono text-secondary-fixed">↗</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:border-secondary-fixed hover:bg-white/10 transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">code</span>
+<span class="text-xs font-code-snippet text-[#FFFDF8]">github.com/jameskier</span>
+</div>
+<span class="text-xs font-mono text-secondary-fixed">↗</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:border-secondary-fixed hover:bg-white/10 transition-colors" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">share</span>
+<span class="text-xs font-code-snippet text-[#FFFDF8]">linkedin.com/in/jameskier</span>
+</div>
+<span class="text-xs font-mono text-secondary-fixed">↗</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:border-secondary-fixed hover:bg-white/10 transition-colors" href="https://facebook.com" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">group</span>
+<span class="text-xs font-code-snippet text-[#FFFDF8]">facebook.com/jameskier</span>
+</div>
+<span class="text-xs font-mono text-secondary-fixed">↗</span>
+</a>
+<div class="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">chat</span>
+<span class="text-xs font-code-snippet text-[#A9BDAA]">Discord: @jameskier</span>
+</div>
+<span class="text-xs font-code-snippet text-outline font-mono">ONLINE</span>
+</div>
+</div>
+<!-- FAQ Accordion Snippets with Monospace Accents -->
+
+</div>
+<!-- Right: Warm-White Contact Form Card with Technical Specifications -->
+<div class="lg:col-span-7 bg-[#FFFDF8] rounded-[24px] p-6 md:p-8 border border-[#D5D9D2] editorial-card-shadow h-full">
+<div class="flex items-center justify-between pb-3 mb-4 border-b border-[#D5D9D2]/60"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-outline">edit_note</span><span class="font-code-snippet text-xs text-outline tracking-wider font-mono">[ SEND A BRIEF ]</span></div><span class="font-code-snippet text-xs text-secondary font-mono">INPUT CHANNELS</span></div>
+<h3 class="text-headline-md font-headline-md text-primary mb-2">Project Inquiries &amp; Collaboration</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-6">
+        Fill out your product ideas, scope requirements, or direct inquiry below.
+      </p>
+<form class="space-y-4" id="contactForm" onsubmit="event.preventDefault(); alert('Message received! Jameskier Doliguez will get back to you shortly.');">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-code-snippet text-xs text-primary mb-1 font-mono" for="name">[ 01 ] YOUR NAME</label>
+<input class="w-full bg-[#FFFDF8] border border-[#D5D9D2] text-primary placeholder-[#66766E] rounded-lg p-3 text-body-sm focus:border-secondary focus:ring-0 outline-none transition-colors" id="name" placeholder="John Doe" required="" type="text">
+</div>
+<div>
+<label class="block font-code-snippet text-xs text-primary mb-1 font-mono" for="email">[ 02 ] EMAIL ADDRESS</label>
+<input class="w-full bg-[#FFFDF8] border border-[#D5D9D2] text-primary placeholder-[#66766E] rounded-lg p-3 text-body-sm focus:border-secondary focus:ring-0 outline-none transition-colors" id="email" placeholder="john@domain.com" required="" type="email">
+</div>
+</div>
+<div>
+<label class="block font-code-snippet text-xs text-primary mb-1 font-mono" for="subject">[ 03 ] TOPIC / PROJECT TYPE</label>
+<input class="w-full bg-[#FFFDF8] border border-[#D5D9D2] text-primary placeholder-[#66766E] rounded-lg p-3 text-body-sm focus:border-secondary focus:ring-0 outline-none transition-colors" id="subject" placeholder="Mobile App Development / Web Platform" required="" type="text">
+</div>
+<div>
+<label class="block font-code-snippet text-xs text-primary mb-1 font-mono" for="message">[ 04 ] PROJECT BRIEF</label>
+<textarea class="w-full bg-[#FFFDF8] border border-[#D5D9D2] text-primary placeholder-[#66766E] rounded-lg p-3 text-body-sm focus:border-secondary focus:ring-0 outline-none transition-colors resize-none" id="message" placeholder="Describe the problem, target platform, technical parameters, and target timeline..." required="" rows="5"></textarea>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="text-xs text-outline font-code-snippet">[ RESPONSE: &lt; 24H ]</span>
+<button class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-[#FFFDF8] text-label-md font-label-md font-medium hover:bg-secondary transition-all duration-150 active:scale-[0.98] shadow-sm font-code-snippet" type="submit">
+<span class="">Send Message</span>
+<span class="text-secondary-fixed text-base font-semibold">↗</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- 07. FOOTER (TECHNICAL COLOPHON SPECIFICATION)                         -->
+<!-- ===================================================================== -->
+<footer class="w-full border-t border-[#D5D9D2] pt-10 pb-8 text-on-surface-variant text-body-sm font-body-sm">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-6">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-code-snippet text-xs font-mono text-secondary font-bold">[ JD ]</span>
+<span class="text-headline-sm font-headline-sm font-semibold text-primary tracking-tight block">
+          Jameskier Doliguez
+        </span>
+</div>
+<p class="text-xs font-code-snippet text-outline mt-1 font-mono">
+        Mobile, Web &amp; AI Developer • Crafted with Geist &amp; Plus Jakarta Sans
+      </p>
+</div>
+<!-- Quick Links with Monospace Indexes -->
+<div class="flex flex-wrap gap-5 font-code-snippet text-xs">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150" href="#home">[ 01 ] Home</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150" href="#projects">[ 02 ] Projects</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150" href="#tech-stack">[ 03 ] Stack</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150" href="#tools">[ 04 ] Tools</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150" href="#about">[ 05 ] Bio</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-150" href="#contact">[ 06 ] Contact</a>
+</div>
+</div>
+<div class="pt-6 border-t border-[#D5D9D2]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-code-snippet text-outline">
+<p class="">© 2025 Jameskier Doliguez. All rights reserved.</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+<span class="font-mono text-primary font-medium">[ SYSTEM STATUS: ALL SYSTEMS NOMINAL ]</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Navigation Script -->
+<script>
+  const navToggleBtn = document.getElementById('navToggleBtn');
+  const topNavDrawer = document.getElementById('topNavDrawer');
+
+  if (navToggleBtn && topNavDrawer) {
+    navToggleBtn.addEventListener('click', () => {
+      topNavDrawer.classList.toggle('hidden');
+    });
+
+    // Close drawer when any anchor is selected
+    topNavDrawer.querySelectorAll('a').forEach(anchor => {
+      anchor.addEventListener('click', () => {
+        topNavDrawer.classList.add('hidden');
+      });
+    });
+  }
+</script>
+
+
+
+
+
+
+
+
+</body></html>
