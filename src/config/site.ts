@@ -1,5 +1,6 @@
 import profileImg from "../assets/profile.jpg";
 import pesoflowImg from "../assets/pesoflow.svg";
+import pixeltoolsImg from "../assets/pixeltools.png";
 
 export const siteConfig = {
   seo: {
@@ -133,7 +134,7 @@ export const siteConfig = {
       statusLabel: "NEXT.JS + SUPABASE",
       statusTone: "neutral",
       versionLabel: "",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBsMhxJTR6p1JW_O5o8g3SCWvYPlkVnAlTJGXL9aDHKwOpMinL25PGX1lCuXw0awfYFOU_snl7Wn5ZDo_scrEQUkh17xPPki_2zFRC2nRQBKDy6gGUeYVwrFw0zY0FyeEIHgU7dJ95jSYEPofM9ci_IAZoq37IaZNXOnqhHyq0ijh8l3QIgB3zVWsZI9CwpCh_npcQijYW33sOPtMkubQCBc_rHyhS409uxI2ycQDlb",
+      image: pixeltoolsImg,
       imageAlt: "PixelTools fullstack responsive web dashboard",
       description: "PixelTools is a web-based image editing tool that allows users to crop, rotate, and resize images.",
       tags: ["TypeScript", "React", "Tailwind", "React Crop"],
