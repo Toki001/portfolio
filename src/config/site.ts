@@ -5,9 +5,9 @@ import pixeltoolsImg from "../assets/pixeltools.png";
 export const siteConfig = {
   seo: {
     title: "Jameskier Doliguez — Software Engineer",
-    description: "I build practical digital products across web, desktop, mobile, and AI.",
-    siteUrl: "https://jameskier.com", // placeholder
-    ogImage: "/og-image.jpg", // placeholder
+    description: "I build practical digital products across web, desktop, mobile.",
+    siteUrl: "https://portfolio-toki20.vercel.app",
+    ogImage: "https://portfolio-toki20.vercel.app/og-image.jpg",
   },
 
   identity: {
@@ -131,7 +131,7 @@ export const siteConfig = {
       title: "PixelTools",
       category: "WEB / IMAGE EDITING",
       categoryLabel: "[ WEB / IMAGE EDITING ]",
-      statusLabel: "NEXT.JS + SUPABASE",
+      statusLabel: "REACT + TAILWIND",
       statusTone: "neutral",
       versionLabel: "",
       image: pixeltoolsImg,
@@ -150,14 +150,14 @@ export const siteConfig = {
       id: "guest-reco",
       index: "04",
       title: "GuestReco",
-      category: "AI / RECOMMANDATION ENGINE",
-      categoryLabel: "[ AI / RECOMMANDATION ENGINE ]",
+      category: "AI / FACIAL RECOGNITION",
+      categoryLabel: "[ AI / FACIAL RECOGNITION ]",
       statusLabel: "STATUS: DEPLOYED",
       statusTone: "success",
       versionLabel: "AI",
       image: "",
       imageAlt: "GuestReco interface preview",
-      description: "GuestReco is facial recognation for guest and employees",
+      description: "GuestReco is facial recognition for guests and employees.",
       tags: ["TypeScript", "FastAPI", "MediaMTX", "SQL"],
       footerLabel: "AI & MACHINE LEARNING",
       links: {
