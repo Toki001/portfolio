@@ -1,0 +1,37 @@
+// Small inline SVGs avoid downloading and laying out a full icon font.
+const paths: Record<string, string> = {
+  folder_open: 'M3 7h6l2 2h10l-3 11H3V7Z M3 7V4h6l2 3h8v2',
+  arrow_back: 'M20 12H4m7-7-7 7 7 7',
+  arrow_forward: 'M4 12h16m-7-7 7 7-7 7',
+  monitoring: 'M3 3v18h18M6 16l4-5 4 3 6-9',
+  layers: 'm12 3 10 6-10 6L2 9l10-6Zm-10 11 10 6 10-6',
+  person: 'M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-3a8 8 0 0 1 16 0v3',
+  location_on: 'M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Zm-4 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
+  bolt: 'm13 2-9 12h7l-1 8 10-13h-7l1-7Z',
+  rocket_launch: 'M10 14C10 6 15 3 21 3c0 6-3 11-11 11Zm3-4 3 3M10 9H6l-3 5h7m5 0v4l-5 3v-7M6 17l-3 4',
+  info: 'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0ZM12 11v6m0-10v1',
+  alternate_email: 'M16 8v6a4 4 0 1 1-4-6c2 0 4 2 4 4 0 7 6 4 6 0a10 10 0 1 0-5 9',
+  hub: 'M14 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-2-2V5m2 8 5 3m-9-3-5 3M14 3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm8 15a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM6 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z',
+  mail: 'M3 5h18v14H3V5Zm0 0 9 8 9-8',
+  chat: 'M3 3h18v14H8l-5 4V3Z',
+  edit_note: 'M3 5h12M3 10h8M3 15h6m4 5 2-5 6-6 3 3-6 6-5 2Z',
+  check_circle: 'M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0ZM7 12l3 3 7-7',
+  close: 'm5 5 14 14M5 19 19 5',
+  menu: 'M3 5h18M3 12h18M3 19h18',
+  history_edu: 'M5 3h14v18H5V3Zm4 5h6M9 12h6m-6 4h4',
+  build: 'm14 6 4 4 4-4c1 6-3 9-8 7L5 22l-3-3 9-9c-2-5 1-9 7-8l-4 4Z',
+  smartphone: 'M7 2h10v20H7V2Zm0 3h10M7 18h10m-5 1v1',
+  desktop_windows: 'M2 3h20v14H2V3Zm10 14v4m-6 0h12',
+  psychology: 'M9 22v-5c-5-2-6-8-3-12 5-6 14-2 13 5l3 4h-4v5h-5v3M9 8h6m-6 4h4',
+  database: 'M21 5c0 5-18 5-18 0s18-5 18 0ZM3 5v14c0 5 18 5 18 0V5M3 12c0 5 18 5 18 0',
+  terminal: 'M2 3h20v18H2V3Zm4 4 5 5-5 5m7 0h5',
+  architecture: 'M12 2 3 22m9-20 9 20M7 13h10M9 6h6',
+  code: 'm8 5-7 7 7 7m8-14 7 7-7 7M14 3l-4 18',
+  draw: 'm3 21 2-7L17 2l5 5-12 12-7 2Zm12-17 5 5',
+  api: 'm8 5-7 7 7 7m8-14 7 7-7 7M12 9v6',
+  share: 'm6 12 12-7M6 12l12 7M6 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm14-8a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm0 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z',
+  group: 'M10 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm10 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM1 21v-3a6 6 0 0 1 12 0v3m1-7a6 6 0 0 1 9 4v3',
+};
+export function Icon({ name, className = '' }: { name: string; className?: string }) {
+  return <svg aria-hidden="true" focusable="false" className={`inline-block shrink-0 align-middle ${className}`} width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d={paths[name] ?? paths.code} /></svg>;
+}

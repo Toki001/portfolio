@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { Icon } from './Icon';
+import { useState, useEffect } from 'react';
 import { siteConfig } from '../../config/site';
 
 interface HeaderProps {
@@ -20,17 +21,17 @@ export function Header({ activeSection }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full bg-[#fcf9f0]/90 backdrop-blur-md border-b border-[#c1c8c4] transition-colors">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between gap-4">
         {/* Brand Mark */}
-        <a className="flex items-center gap-3.5 group shrink-0" href="#home" onClick={() => setIsDrawerOpen(false)}>
+        <a className="flex items-center gap-2 sm:gap-3.5 group min-w-0" href="#home" onClick={() => setIsDrawerOpen(false)}>
           <div className="relative w-10 h-10 rounded-xl bg-primary-container text-primary-fixed border border-white/15 flex items-center justify-center font-bold text-sm font-headline-sm shadow-sm shrink-0 overflow-hidden">
             {siteConfig.identity.profileImage ? (
-              <img src={siteConfig.identity.profileImage} alt={siteConfig.identity.name} className="w-full h-full object-cover" />
+              <img width={40} height={40} decoding="async" src={siteConfig.identity.profileImage} alt={siteConfig.identity.name} className="w-full h-full object-cover" />
             ) : (
               siteConfig.identity.initials
             )}
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-headline-sm font-headline-sm font-semibold text-primary tracking-tight leading-none group-hover:text-secondary transition-colors">
+              <span className="text-sm sm:text-headline-sm font-headline-sm font-semibold text-primary tracking-tight leading-none group-hover:text-secondary transition-colors">
                 {siteConfig.identity.name}
               </span>
             </div>
@@ -41,12 +42,13 @@ export function Header({ activeSection }: HeaderProps) {
         </a>
 
         {/* Center Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 px-3 py-1.5 rounded-full bg-[#ffffff]/90 border border-[#c1c8c4] shadow-sm">
+        <nav aria-label="Main navigation" className="hidden xl:flex items-center gap-1 lg:gap-1.5 px-3 py-1.5 rounded-full bg-[#ffffff]/90 border border-[#c1c8c4] shadow-sm">
           {siteConfig.navigation.map((nav) => {
             const isActive = activeSection === nav.href.replace('#', '') || (activeSection === '' && nav.href === '#home');
             return (
               <a
                 key={nav.href}
+                aria-current={isActive ? "location" : undefined}
                 href={nav.href}
                 className={`px-3 py-1.5 rounded-full text-label-md font-label-md transition-all duration-150 ${
                   isActive
@@ -62,7 +64,7 @@ export function Header({ activeSection }: HeaderProps) {
 
         {/* Far Right Socials & Contact CTA */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <div className="hidden lg:flex items-center gap-1.5 pr-2 border-r border-[#c1c8c4]">
+          <div className="hidden 2xl:flex items-center gap-1.5 pr-2 border-r border-[#c1c8c4]">
             {Object.values(siteConfig.socials).map((social) => {
               if (!social.url) return null;
               // Hardcoded SVGs for common socials based on the original template
@@ -93,7 +95,7 @@ export function Header({ activeSection }: HeaderProps) {
           </div>
 
           <a
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-[#ffffff] rounded-lg text-label-md font-label-md font-medium hover:bg-secondary transition-colors duration-150 active:scale-[0.98] shadow-sm"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-[#ffffff] rounded-lg text-label-md font-label-md font-medium hover:bg-secondary transition-colors duration-150 active:scale-[0.98] shadow-sm"
             href="#contact"
             onClick={() => setIsDrawerOpen(false)}
           >
@@ -103,13 +105,13 @@ export function Header({ activeSection }: HeaderProps) {
 
           {/* Mobile Menu Toggle Button */}
           <button
-            className="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-lg bg-[#ffffff] border border-[#c1c8c4] text-primary"
+            className="xl:hidden flex flex-col items-center justify-center w-10 h-10 rounded-lg bg-[#ffffff] border border-[#c1c8c4] text-primary"
             onClick={() => setIsDrawerOpen(!isDrawerOpen)}
             aria-label="Toggle menu"
             aria-expanded={isDrawerOpen}
             aria-controls="topNavDrawer"
           >
-            <span className="material-symbols-outlined text-[20px]">{isDrawerOpen ? 'close' : 'menu'}</span>
+            <Icon className="text-[20px]" name={isDrawerOpen ? 'close' : 'menu'} />
           </button>
         </div>
       </div>
@@ -117,14 +119,15 @@ export function Header({ activeSection }: HeaderProps) {
       {/* Mobile Collapsible Menu Drawer */}
       <div
         id="topNavDrawer"
-        className={`${isDrawerOpen ? 'flex' : 'hidden'} md:hidden bg-[#ffffff] border-b border-[#c1c8c4] px-6 py-5 shadow-lg flex-col`}
+        className={`${isDrawerOpen ? 'flex' : 'hidden'} xl:hidden bg-[#ffffff] border-b border-[#c1c8c4] px-6 py-5 shadow-lg flex-col`}
       >
-        <nav className="flex flex-col gap-2 font-code-snippet text-xs">
+        <nav aria-label="Mobile navigation" className="flex flex-col gap-2 font-code-snippet text-xs">
           {siteConfig.navigation.map((nav) => {
             const isActive = activeSection === nav.href.replace('#', '') || (activeSection === '' && nav.href === '#home');
             return (
               <a
                 key={nav.href}
+                aria-current={isActive ? "location" : undefined}
                 className={`flex items-center justify-between px-3 py-2 rounded-lg transition-colors ${
                   isActive
                     ? 'text-primary font-medium bg-[#e5e2da]'

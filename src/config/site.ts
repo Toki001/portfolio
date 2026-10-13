@@ -1,3 +1,4 @@
+import pokechampImg from "../assets/pokechamp.webp";
 import seo from "./seo.json";
 import profileImg from "../assets/profile.webp";
 import pesoflowImg from "../assets/pesoflow.svg";
@@ -110,7 +111,7 @@ export const siteConfig = {
       statusLabel: "TEAM BUILDER",
       statusTone: "neutral",
       versionLabel: "v1.0.0",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCBzP7Oq7nnh2m3vYsxUDl-z_u6Dh10yOanOBFMDcUcRbNM0pdWn9_3uZEyL_UbqTvqpwTdxhipDdR7aOHAf4H39XCFKT-Kqv7ah9j3hBhfTtwHH8vejEXdZMHuHb0i1Mc4S7goz_Pbq2WnDIAdaIA9FrEKgqf7tpHyg8F7P0bdDDKeeY1FfKXGnleMCRWkuQXURB5FPcI5tSOFCEOyv-w8NaQFQIOYxeT09cY_8vR1",
+      image: pokechampImg,
       imageAlt: "Pokemon team builder preview",
       description: "Pokemon team builder with meta analytics and team showcase.",
       tags: ["TypeScript", "Vite", "Tailwind"],

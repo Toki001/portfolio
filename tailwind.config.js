@@ -20,7 +20,7 @@ export default {
         "on-surface-variant": "#414846",
         "inverse-surface": "#31312b",
         "inverse-on-surface": "#f4f1e8",
-        "outline": "#717976",
+        "outline": "#606b66",
         "outline-variant": "#c1c8c4",
         "surface-tint": "#43655c",
         "primary": "#00241d",
@@ -103,8 +103,5 @@ export default {
       }
     },
   },
-  plugins: [
-    require('@tailwindcss/container-queries'),
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [],
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Icon } from './Icon';
 import { siteConfig } from '../../config/site';
 
 export function Hero() {
@@ -14,7 +14,7 @@ export function Hero() {
           <div>
             <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#c1c8c4]/60">
               <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-outline text-[15px]">person</span>
+                <Icon className="text-outline text-[15px]" name="person" />
                 <span className="font-code-snippet text-xs text-outline tracking-wider font-mono">[ profile ]</span>
                 <span className="font-code-snippet text-xs text-secondary font-bold font-mono px-2 py-0.5 rounded-full bg-[#9f4123]/10 text-[#9f4123]">
                   00 // PROFILE
@@ -27,13 +27,13 @@ export function Hero() {
               <div className="flex flex-col items-start shrink-0">
                 <div className="w-40 h-40 md:w-[192px] md:h-[192px] rounded-[24px] bg-primary-container text-primary-fixed flex items-center justify-center font-bold text-6xl md:text-[5rem] font-headline-md shadow-sm mb-4 border border-[#c1c8c4]/30 overflow-hidden">
                   {identity.profileImage ? (
-                    <img src={identity.profileImage} alt={`${identity.name} Profile`} className="w-full h-full object-cover" />
+                    <img width={384} height={384} fetchPriority="high" decoding="async" src={identity.profileImage} alt={`${identity.name} Profile`} className="w-full h-full object-cover" />
                   ) : (
                     identity.initials
                   )}
                 </div>
                 <h1 className="text-xl md:text-[22px] font-headline-lg font-bold text-primary tracking-tight">
-                  {identity.name}
+                  {identity.name}<span className="sr-only"> — {identity.title}</span>
                 </h1>
                 <p className="text-[13px] md:text-sm font-label-md text-secondary font-semibold tracking-wide mt-1">
                   {identity.title}
@@ -98,13 +98,13 @@ export function Hero() {
           <div className="bg-[#ffffff] rounded-[20px] p-5 border border-[#c1c8c4] editorial-card-shadow flex flex-col justify-between flex-1 transition-all duration-150 hover:border-[#81a499]">
             <div className="flex items-center justify-between pb-2 mb-3 border-b border-[#c1c8c4]/50">
               <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-outline text-[15px]">location_on</span>
+                <Icon className="text-outline text-[15px]" name="location_on" />
                 <span className="font-code-snippet text-[11px] text-outline font-mono tracking-wider">[ LOCATION ]</span>
               </div>
             </div>
             <div>
               <div className="flex items-baseline justify-between">
-                <h3 className="text-headline-sm font-headline-sm font-semibold text-primary tracking-tight leading-tight">{location.country}</h3>
+                <p className="text-headline-sm font-headline-sm font-semibold text-primary tracking-tight leading-tight">{location.country}</p>
                 <span className="font-code-snippet text-[10px] text-outline font-mono">{location.coordinatesLabel}</span>
               </div>
               <p className="text-xs text-on-surface-variant font-body-sm mt-0.5">
@@ -116,7 +116,7 @@ export function Hero() {
           <div className="bg-[#ffffff] rounded-[20px] p-5 border border-[#c1c8c4] editorial-card-shadow flex flex-col justify-between flex-1 transition-all duration-150 hover:border-[#81a499]">
             <div className="flex items-center justify-between pb-2 mb-3 border-b border-[#c1c8c4]/50">
               <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-outline text-[15px]">bolt</span>
+                <Icon className="text-outline text-[15px]" name="bolt" />
                 <span className="font-code-snippet text-[11px] text-outline font-mono tracking-wider">[ CURRENT FOCUS ]</span>
               </div>
             </div>
@@ -145,14 +145,14 @@ export function Hero() {
           <div className="bg-[#ffffff] rounded-[20px] p-5 border border-[#c1c8c4] editorial-card-shadow flex flex-col justify-between flex-1 group transition-all duration-150 hover:border-[#81a499]">
             <div className="flex items-center justify-between pb-2 mb-3 border-b border-[#c1c8c4]/50">
               <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[15px] text-outline">rocket_launch</span>
+                <Icon className="text-[15px] text-outline" name="rocket_launch" />
                 <span className="font-code-snippet text-[11px] text-outline font-mono tracking-wider">[ CURRENTLY BUILDING ]</span>
               </div>
             </div>
             <div>
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-2">
-                  <h3 className="text-headline-sm font-headline-sm font-semibold text-primary group-hover:text-secondary transition-colors">{currentlyBuilding.title}</h3>
+                  <p className="text-headline-sm font-headline-sm font-semibold text-primary group-hover:text-secondary transition-colors">{currentlyBuilding.title}</p>
                 </div>
                 <a className="text-xs font-code-snippet font-medium text-[#9f4123] hover:text-secondary transition-colors inline-flex items-center gap-1 hover:underline" href={currentlyBuilding.href}>
                   <span>View</span> <span className="font-mono">→</span>
@@ -169,7 +169,7 @@ export function Hero() {
       <div className="bg-[#ffffff] rounded-[24px] p-6 md:p-8 border border-[#c1c8c4] editorial-card-shadow">
         <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#c1c8c4]/60">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-outline text-[15px]">info</span>
+            <Icon className="text-outline text-[15px]" name="info" />
             <span className="font-code-snippet text-xs text-outline tracking-wider font-mono">[ about ]</span>
             <span className="font-code-snippet text-xs text-secondary font-bold font-mono px-2 py-0.5 rounded-full bg-[#9f4123]/10 text-[#9f4123]">
               01 // DISCIPLINES

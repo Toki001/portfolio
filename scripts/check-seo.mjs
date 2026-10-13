@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import { readFile, access } from 'node:fs/promises';
+import { seo } from './seo.mjs';
+const html = await readFile('dist/index.html', 'utf8');
+assert.equal((html.match(/<h1\b/g) ?? []).length, 1, 'Exactly one prerendered H1');
+assert.ok(html.includes(`<link rel="canonical" href="${seo.siteUrl}"`));
+assert.ok(!/noindex/i.test(html));
+assert.ok(html.includes('<meta name="description"'));
+assert.ok(html.includes('<meta name="twitter:card" content="summary_large_image"'));
+assert.ok(html.includes('<title>') && !html.includes('<!-- seo-head -->'));
+const graph = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+assert.ok(graph['@graph'].some(entity => entity['@type'] === 'ProfilePage'));
+assert.equal(graph['@graph'].find(entity => entity['@type'] === 'Person').url, seo.siteUrl);
+for (const match of html.matchAll(/(?:src|href)="(\/[^"#?]*)"/g)) {
+  await access(`dist${match[1] === '/' ? '/index.html' : match[1]}`);
+}
+const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
+assert.equal(new Set(ids).size, ids.length, 'Unique HTML IDs');
+for (const match of html.matchAll(/href="#([^"]+)"/g)) assert.ok(ids.includes(match[1]), `Broken anchor: ${match[1]}`);
+const sitemap = await readFile('dist/sitemap.xml', 'utf8');
+assert.ok(sitemap.includes(`<loc>${seo.siteUrl}</loc>`));
+assert.equal((sitemap.match(/<loc>/g) ?? []).length, 1, 'Only real pages in sitemap');
+assert.ok((await readFile('dist/robots.txt', 'utf8')).includes(`Sitemap: ${seo.siteUrl}sitemap.xml`));
+assert.ok((await readFile('dist/llms.txt', 'utf8')).includes(seo.siteUrl));
+const manifest = JSON.parse(await readFile('dist/site.webmanifest', 'utf8'));
+for (const icon of manifest.icons) await access(`dist${icon.src}`);
+assert.equal(await readFile('dist/google711de76d62b8d616.html', 'utf8'), await readFile('public/google711de76d62b8d616.html', 'utf8'), 'Google verification file copied unchanged');
+const verification = process.env.GOOGLE_SITE_VERIFICATION;
+if (verification) assert.ok(html.includes(`name="google-site-verification" content="${verification}"`));
+console.log('PASS: prerendered H1, canonical, metadata, schema, anchors, local assets, crawl files and favicon manifest.');

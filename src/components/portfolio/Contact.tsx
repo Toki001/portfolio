@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 import React, { useState } from 'react';
 import { siteConfig } from '../../config/site';
 
@@ -38,7 +39,7 @@ export function Contact() {
         } else {
           setFormStatus('error');
         }
-      } catch (error) {
+      } catch {
         setFormStatus('error');
       }
     }
@@ -48,7 +49,7 @@ export function Contact() {
     <section className="mb-16 scroll-mt-24" id="contact">
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <span className="material-symbols-outlined text-outline text-[15px]">alternate_email</span>
+          <Icon className="text-outline text-[15px]" name="alternate_email" />
           <span className="font-code-snippet text-xs text-outline tracking-wider font-mono">[ contact ]</span>
           <span className="font-code-snippet text-xs text-secondary font-bold font-mono">06 // GET IN TOUCH</span>
         </div>
@@ -66,7 +67,7 @@ export function Contact() {
           <div>
             <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
               <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[15px] text-[#81a499]">hub</span>
+                <Icon className="text-[15px] text-[#81a499]" name="hub" />
                 <span className="font-code-snippet text-xs text-[#81a499] font-mono tracking-wider">[ DIRECT CHANNELS ]</span>
               </div>
             </div>
@@ -80,7 +81,7 @@ export function Contact() {
             <div className="space-y-3">
               <a className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:border-secondary-fixed hover:bg-white/10 transition-colors" href={`mailto:${contact.email}`}>
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-secondary-container text-[20px]">mail</span>
+                  <Icon className="text-secondary-container text-[20px]" name="mail" />
                   <span className="text-xs font-code-snippet text-[#ffffff]">{contact.email}</span>
                 </div>
                 <span className="text-xs font-mono text-secondary-fixed">↗</span>
@@ -94,20 +95,20 @@ export function Contact() {
                 return (
                   <a key={social.label} className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:border-secondary-fixed hover:bg-white/10 transition-colors" href={social.url} rel="noopener noreferrer" target="_blank">
                     <div className="flex items-center gap-3">
-                      <span className="material-symbols-outlined text-secondary-container text-[20px]">{iconName}</span>
+                      <Icon className="text-secondary-container text-[20px]" name={iconName} />
                       <span className="text-xs font-code-snippet text-[#ffffff]">{social.handle}</span>
                     </div>
                     <span className="text-xs font-mono text-secondary-fixed">↗</span>
                   </a>
                 );
               })}
-              {siteConfig.socials.discord && siteConfig.socials.discord.url && (
+              {siteConfig.socials.discord.handle && (
                 <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10">
                   <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-secondary-container text-[20px]">chat</span>
+                    <Icon className="text-secondary-container text-[20px]" name="chat" />
                     <span className="text-xs font-code-snippet text-[#81a499]">Discord: {siteConfig.socials.discord.handle}</span>
                   </div>
-                  <span className="text-xs font-code-snippet text-outline font-mono">ONLINE</span>
+                  <span className="text-xs font-code-snippet text-[#81a499] font-mono">HANDLE</span>
                 </div>
               )}
             </div>
@@ -118,7 +119,7 @@ export function Contact() {
         <div className="lg:col-span-7 bg-[#ffffff] rounded-[24px] p-6 md:p-8 border border-[#c1c8c4] editorial-card-shadow h-full">
           <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#c1c8c4]/60">
             <div className="flex items-center gap-1.5">
-              <span className="material-symbols-outlined text-[15px] text-outline">edit_note</span>
+              <Icon className="text-[15px] text-outline" name="edit_note" />
               <span className="font-code-snippet text-xs text-outline tracking-wider font-mono">[ SEND A BRIEF ]</span>
             </div>
             <span className="font-code-snippet text-xs text-secondary font-mono">INPUT CHANNELS</span>
@@ -131,7 +132,7 @@ export function Contact() {
 
           {formStatus === 'success' ? (
             <div className="bg-[#e5e2da] border border-[#81a499] text-primary p-4 rounded-lg flex flex-col items-center justify-center text-center py-10" aria-live="polite">
-              <span className="material-symbols-outlined text-[32px] text-secondary mb-3">check_circle</span>
+              <Icon className="text-[32px] text-secondary mb-3" name="check_circle" />
               <h4 className="font-headline-sm font-semibold mb-1">Message Prepared Successfully</h4>
               <p className="text-body-sm text-on-surface-variant mb-6">Your draft has been created or message has been sent.</p>
               <button 

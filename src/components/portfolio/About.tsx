@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 import React from 'react';
 import { siteConfig } from '../../config/site';
 
@@ -9,7 +10,7 @@ export function About() {
       <div className="bg-[#ffffff] rounded-[24px] p-6 md:p-8 border border-[#c1c8c4] editorial-card-shadow mb-6">
         <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#c1c8c4]/60">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-outline text-[15px]">history_edu</span>
+            <Icon className="text-outline text-[15px]" name="history_edu" />
             <span className="font-code-snippet text-xs text-outline tracking-wider font-mono">[ background ]</span>
             <span className="font-code-snippet text-xs text-secondary font-bold font-mono">
               05 // {about.sectionTitle}
@@ -23,9 +24,10 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
           {/* Left Narrative */}
           <div className="lg:col-span-7 space-y-4 text-body-md font-body-md text-on-surface-variant leading-relaxed">
-            <h3 className="text-headline-md font-headline-md text-primary tracking-tight">
+            <h2 className="text-headline-md font-headline-md text-primary tracking-tight">
               {about.introHeading}
-            </h3>
+            </h2>
+            <p>Explore my <a className="text-secondary underline" href="#projects">featured projects</a> and <a className="text-secondary underline" href="#tech-stack">technical skills</a>, or <a className="text-secondary underline" href="#contact">discuss a collaboration</a>.</p>
             {about.paragraphs.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
@@ -47,7 +49,7 @@ export function About() {
               <div className="space-y-3 font-body-sm">
                 <div className="pb-2.5 border-b border-[#c1c8c4]/60">
                   <span className="text-xs font-code-snippet text-secondary font-semibold">ACADEMIC DEGREE</span>
-                  <h4 className="text-primary font-semibold text-body-md">{about.education.degree}</h4>
+                  <h3 className="text-primary font-semibold text-body-md">{about.education.degree}</h3>
                   <p className="text-xs text-on-surface-variant">{about.education.school}</p>
                 </div>
                 <div className="pb-2.5 border-b border-[#c1c8c4]/60">
