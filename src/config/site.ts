@@ -1,14 +1,10 @@
-import profileImg from "../assets/profile.jpg";
+import seo from "./seo.json";
+import profileImg from "../assets/profile.webp";
 import pesoflowImg from "../assets/pesoflow.svg";
-import pixeltoolsImg from "../assets/pixeltools.png";
+import pixeltoolsImg from "../assets/pixeltools.webp";
 
 export const siteConfig = {
-  seo: {
-    title: "Jameskier Doliguez — Software Engineer",
-    description: "I build practical digital products across web, desktop, mobile.",
-    siteUrl: "https://portfolio-toki20.vercel.app",
-    ogImage: "https://portfolio-toki20.vercel.app/og-image.jpg",
-  },
+  seo,
 
   identity: {
     name: "Jameskier Doliguez",
@@ -33,7 +29,7 @@ export const siteConfig = {
     github: { label: "GitHub", url: "https://github.com/Toki001?tab=repositories", handle: "github.com/Toki001?tab=repositories" },
     linkedin: { label: "LinkedIn", url: "https://www.linkedin.com/in/jameskier-doliguez-6b8432413/", handle: "linkedin.com/in/jameskier" },
     facebook: { label: "Facebook", url: "https://www.facebook.com/jameskier.doliguez", handle: "facebook.com/jameskierdoliguez" },
-    discord: { label: "Discord", url: "https://discord.com", handle: "_rtoki" },
+    discord: { label: "Discord", url: "" as string, handle: "_rtoki" },
   },
 
   location: {
@@ -53,7 +49,7 @@ export const siteConfig = {
     projectId: "peso-flow",
     title: "PesoFlow",
     description: "Personal finance application with offline-first SQLite sync",
-    href: "#projects",
+    href: "#peso-flow",
   },
 
   disciplines: [
@@ -123,6 +119,7 @@ export const siteConfig = {
         source: "https://github.com/Toki001/pokechamp",
         demo: "",
         live: "https://pokechamp-tau.vercel.app/",
+        docs: "",
       },
     },
     {
