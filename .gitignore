@@ -33,3 +33,6 @@ references/portfolio-redesign/*.mp4
 references/portfolio-redesign/*.webp
 test-results/
 playwright-report/
+
+# Cinematic references are private study material.
+references/motion/*.mp4

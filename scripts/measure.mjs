@@ -5,6 +5,9 @@ import { chromium } from "@playwright/test";
 import { readFile, writeFile } from "node:fs/promises";
 process.env.CHROME_PATH ||= chromium.executablePath();
 const port = 4175;
+const label = process.argv[2] ?? "lighthouse-final";
+if (!/^[a-z0-9-]+$/.test(label))
+  throw new Error("Use a simple measurement label");
 const summary = [];
 const server = spawn(process.execPath, ["scripts/preview.mjs"], {
   env: { ...process.env, PORT: String(port) },
@@ -24,7 +27,7 @@ try {
       "--chrome-flags=--headless --no-sandbox",
       "--output=json",
       "--output=html",
-      `--output-path=docs/verification/lighthouse-final-${name}`,
+      `--output-path=docs/verification/${label}-${name}`,
       "--only-categories=performance,accessibility,best-practices,seo",
       "--quiet",
       ...(desktop ? ["--preset=desktop"] : []),
@@ -33,10 +36,7 @@ try {
     const [code] = await once(child, "exit");
     if (code !== 0) throw new Error(`Lighthouse ${name} failed: ${code}`);
     const report = JSON.parse(
-      await readFile(
-        `docs/verification/lighthouse-final-${name}.report.json`,
-        "utf8",
-      ),
+      await readFile(`docs/verification/${label}-${name}.report.json`, "utf8"),
     );
     summary.push({
       name,
@@ -72,7 +72,7 @@ try {
     console.log(`Measured ${name}`);
   }
   await writeFile(
-    "docs/verification/lighthouse-final-summary.json",
+    `docs/verification/${label}-summary.json`,
     JSON.stringify(summary, null, 2) + "\n",
   );
 } finally {
