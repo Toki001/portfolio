@@ -50,7 +50,7 @@ export const additionalProjects: Project[] = [
     challenges:
       "Keep a draft distinct from a delivered response and keep tenant data isolated across API, retrieval and worker boundaries. The default drafting/embedding paths are synthetic; optional provider acceptance does not establish production AI quality.",
     results:
-      "The source and documented synthetic workflow demonstrate ingestion, evidence review and internal replies. No production deployment, customer delivery, adoption or model-quality result is claimed.",
+      "A working internal support workflow for collecting knowledge, reviewing evidence and preparing replies. The captured workflow uses synthetic messages; external customer delivery and a production release remain future work.",
     spotlight: true,
     media: projectMedia.resolvehub,
   },
@@ -101,7 +101,7 @@ export const additionalProjects: Project[] = [
     challenges:
       "Preserve exact money semantics and the boundary between extracted candidates, approved records and matching results. Retries and recovery must not silently duplicate financial effects. Live AI quality and production operations remain unverified here.",
     results:
-      "The local implementation and retained synthetic workspace show real finance screens and documented verification. Public deployment, payment execution and production business outcomes are not claimed. The public remote currently has no useful released source, so no repository link is shown.",
+      "A local development workspace connecting invoice review with purchase-order matching, exceptions and an audit trail. Screens use synthetic records. Payment execution and a public release are outside the demonstrated workflow.",
     spotlight: true,
     media: projectMedia.reconcileiq,
   },
@@ -152,7 +152,7 @@ export const additionalProjects: Project[] = [
     challenges:
       "Keep uploaded material separate from trusted rendering, preserve owner access boundaries and make exports work independently of the workspace. An isolated capture worker and application-authored renderer enforce those boundaries.",
     results:
-      "The local source and recorded fixture workflows demonstrate editing, browser evidence and buildable exports. Screens show original fictional fixtures, not customer projects. Staging/production release and external provider consent remain separate gates; no public demo or useful remote source is claimed.",
+      "Local fixture workflows cover interface editing, browser comparisons and buildable React exports. Screens use original fictional interfaces. Public release and external provider connections remain future work.",
     spotlight: true,
     media: projectMedia.reimagined,
   },

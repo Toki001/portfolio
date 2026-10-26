@@ -48,3 +48,35 @@ test("local-only studies have useful media and no invented repository or live ac
     ).toBeGreaterThan(0);
   }
 });
+
+test("hydrating the wrapping filters preserves the initial project position", async ({
+  browser,
+  page,
+}) => {
+  for (const width of [390, 414, 1280]) {
+    const context = await browser.newContext({
+      javaScriptEnabled: false,
+      viewport: { width, height: 900 },
+    });
+    const initial = await context.newPage();
+    await initial.goto("/projects");
+    await initial.evaluate(() => document.fonts.ready);
+    const before = await initial.locator(".explorer-grid").boundingBox();
+    const initialFrame = await initial
+      .locator(".project-explorer")
+      .boundingBox();
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/projects");
+    await expect(
+      page.getByRole("button", { name: "All", exact: true }),
+    ).toBeVisible();
+    await page.evaluate(() => document.fonts.ready);
+    const after = await page.locator(".explorer-grid").boundingBox();
+    const hydratedFrame = await page.locator(".project-explorer").boundingBox();
+    // No-JS has an extra native navigation row; compare within the content frame.
+    expect(
+      Math.abs(after!.y - hydratedFrame!.y - (before!.y - initialFrame!.y)),
+    ).toBeLessThan(1);
+    await context.close();
+  }
+});

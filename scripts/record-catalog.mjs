@@ -66,11 +66,23 @@ try {
         name: "Next screenshot",
         exact: true,
       });
-      if (await next.count())
-        for (let i = 0; i < 2; i++) {
+      // Native zoom keeps each genuine screen legible even when the desktop
+      // gallery frame is taller than the viewport. Never alter product CSS for QA.
+      for (let i = 0; i < 3; i++) {
+        if (i && (await next.count())) {
           await next.click();
-          await p.waitForTimeout(500);
+          await p.waitForTimeout(350);
         }
+        await gallery
+          .getByRole("button", { name: "View larger", exact: true })
+          .click();
+        await p.waitForTimeout(400);
+        await p.screenshot({
+          path: `${root}/${name}-${slug}-screen-${i + 1}.png`,
+        });
+        await p.getByRole("button", { name: "Close", exact: false }).click();
+        await p.waitForTimeout(100);
+      }
       await p.screenshot({ path: `${root}/${name}-${slug}-gallery.png` });
     }
     const video = p.video();
@@ -86,7 +98,7 @@ try {
         "ResolveHub",
         "ReconcileIQ",
         "Reimagined",
-        "actual available galleries",
+        "three genuine screens per new case, each opened in native zoom",
       ],
     });
   }

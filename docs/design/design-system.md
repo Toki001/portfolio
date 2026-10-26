@@ -19,3 +19,11 @@ Final implementation: Archivo variable Latin OFL is installed (100–900, 34,928
 ## Phase 3 portrait replacement (M16)
 
 The hero now uses an open asymmetric text/photograph spread: a straight rectangular owned portrait, oversized offset name lines, a separate About caption link and small burgundy identity accents. The former horseshoe frame, rounded image mask, grid, code ornament, circular lens and image-overlay action are removed. A single white side reveal and nested picture settle coordinate with name masks. Fine-pointer lighting is a faint rectangular sheen; mobile/reduced/no-JS show the same readable composition without required movement. See phase-3-motion-and-content-direction.md and milestone-16.md for decision and real before/after evidence.
+
+## Phase 3 editorial identity and row rhythm
+
+The navbar wordmark is now the owner-requested `toki`, configured in siteConfig.identity.wordmark, while the real personal identity stays Jameskier Doliguez. The favicon is an original code-native white t on a navy rounded square with a small burgundy registration dot; the SVG is the source for ICO/PNG/Apple variants. Share cards and the manifest use the same wordmark. Approved palette and self-hosted Archivo remain.
+
+The portrait is an open, straight rectangular original photo offset beside oversized name lines. It has no arch, window, grid, thick colored frame or circular overlay. A quiet light curtain and finite masked type entry coordinate its entrance. Portrait action lives in the caption.
+
+Capabilities and tools retain semantic details/summary and ordered-list reading order. On first ordinary scroll, a fine rule draws from the left, titles reveal through real responsive line masks, and index/category/support text arrive with a short stagger. Opening a capability adds at most 260ms of finite transform/opacity feedback across its paragraph/tags. Native state changes are immediate; rapid toggles cancel previous feedback, keyboard and reduced motion snap. Row rules are decorative. Nothing becomes a fake clickable tool or forces a scroll sequence.

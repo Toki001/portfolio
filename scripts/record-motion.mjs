@@ -34,6 +34,21 @@ try {
     await p.goto("http://127.0.0.1:4176/");
     await p.waitForTimeout(1400);
     await p.screenshot({ path: `${root}/${name}-hero.png` });
+    if (!mobile) {
+      const portrait = await p.locator(".portrait-stage").boundingBox();
+      if (portrait) {
+        await p.mouse.move(
+          portrait.x + portrait.width * 0.3,
+          portrait.y + portrait.height * 0.3,
+        );
+        await p.mouse.move(
+          portrait.x + portrait.width * 0.7,
+          portrait.y + portrait.height * 0.6,
+          { steps: 20 },
+        );
+        await p.waitForTimeout(350);
+      }
+    }
     const hasEditorialIntro = await p
       .locator(".editorial-introduction")
       .count();
@@ -55,11 +70,6 @@ try {
         .getByRole("link", { name: "Projects", exact: true })
         .tap();
     } else {
-      await p.mouse.move(1000, 320);
-      await p.mouse.move(1240, 480, { steps: 30 });
-      await p.waitForTimeout(500);
-      await p.mouse.move(1100, 270, { steps: 30 });
-      await p.waitForTimeout(500);
       await p
         .getByRole("navigation", { name: "Main navigation", exact: true })
         .getByRole("link", { name: "Projects", exact: true })
@@ -147,6 +157,31 @@ try {
     await p.mouse.wheel(0, 500);
     await p.waitForTimeout(750);
     await p.screenshot({ path: `${root}/${name}-pixel-act.png` });
+    for (const [selector, chapter] of [
+      [".capability-list", "capabilities"],
+      [".tools-list", "tools"],
+    ]) {
+      await p.locator(selector).evaluate((el) =>
+        scrollTo({
+          top: el.getBoundingClientRect().top + scrollY - innerHeight + 70,
+          behavior: "instant",
+        }),
+      );
+      await p.waitForTimeout(100);
+      for (let step = 0; step < 4; step++) {
+        await p.mouse.wheel(0, 180);
+        await p.waitForTimeout(step === 0 ? 90 : 380);
+        if (step === 0)
+          await p.screenshot({ path: `${root}/${name}-${chapter}-reveal.png` });
+      }
+      if (chapter === "capabilities") {
+        const summary = p.locator("#tech-stack summary").nth(1);
+        if (mobile) await summary.tap();
+        else await summary.click();
+        await p.waitForTimeout(350);
+      }
+      await p.screenshot({ path: `${root}/${name}-${chapter}.png` });
+    }
     await p.locator("#about").scrollIntoViewIfNeeded();
     await p.waitForTimeout(750);
     await p.locator("#contact").scrollIntoViewIfNeeded();
@@ -168,6 +203,8 @@ try {
         "project filters",
         "case entry",
         "gallery next and dialog",
+        "native scroll row rules and masked capability/tool titles",
+        "native capability disclosure with staggered tags",
         "geometric handoff, about and real copy-email feedback",
       ],
     });

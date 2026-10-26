@@ -5,7 +5,12 @@ type Scope = ReturnType<typeof createMotionScope>;
 export function createEditorialReveals(scope: Scope) {
   const targets = [
     ...document.querySelectorAll<HTMLElement>("[data-reveal]"),
-  ].filter((el) => !el.parentElement?.closest('[data-reveal="sequence"]'));
+  ].filter(
+    (el) =>
+      !el.parentElement?.closest(
+        '[data-reveal="sequence"], [data-reveal="row"]',
+      ),
+  );
   const copies = [...document.querySelectorAll<HTMLElement>(".scroll-copy")];
   const done = new WeakSet<Element>();
   let alive = true,
@@ -105,6 +110,34 @@ export function createEditorialReveals(scope: Scope) {
               ],
               { duration: 300 },
             );
+        }
+        if (el.dataset.reveal === "row") {
+          const rule = el.querySelector(".editorial-row-rule");
+          if (rule)
+            scope.play(
+              rule,
+              [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }],
+              { duration: compact ? 360 : 480 },
+            );
+          el.querySelectorAll(
+            ".capability-index, .tool-index, .tool-category, [data-row-copy]",
+          ).forEach((item, i) =>
+            scope.play(
+              item,
+              [
+                {
+                  transform: `translate3d(${i ? 12 : 0}px,${i ? 0 : 10}px,0)`,
+                  opacity: 0,
+                },
+                { transform: "translate3d(0,0,0)", opacity: 1 },
+              ],
+              {
+                duration: compact ? 340 : 440,
+                delay: i * 45,
+                fill: "backwards",
+              },
+            ),
+          );
         }
         let headlineRow = 0;
         for (const copy of text) {

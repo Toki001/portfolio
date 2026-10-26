@@ -1,0 +1,72 @@
+{
+  "conditions": "Chromium 156.0.8078.4, 1440×900 fine pointer; 4× CPU, 150ms RTT, 1.6384Mbps download; default motion; local gzip production build. Single scripted run, not field INP.",
+  "events": [
+    {
+      "name": "pointerdown",
+      "duration": 24,
+      "inputDelay": 2.0999999940395355
+    },
+    {
+      "name": "pointerup",
+      "duration": 24,
+      "inputDelay": 5.799999997019768
+    },
+    {
+      "name": "click",
+      "duration": 24,
+      "inputDelay": 6
+    },
+    {
+      "name": "pointerdown",
+      "duration": 16,
+      "inputDelay": 1.8999999910593033
+    },
+    {
+      "name": "pointerup",
+      "duration": 16,
+      "inputDelay": 4.700000002980232
+    },
+    {
+      "name": "click",
+      "duration": 16,
+      "inputDelay": 4.700000002980232
+    },
+    {
+      "name": "pointerdown",
+      "duration": 24,
+      "inputDelay": 0.6000000089406967
+    },
+    {
+      "name": "pointerup",
+      "duration": 24,
+      "inputDelay": 4.399999991059303
+    },
+    {
+      "name": "click",
+      "duration": 24,
+      "inputDelay": 4.399999991059303
+    },
+    {
+      "name": "pointerdown",
+      "duration": 24,
+      "inputDelay": 2.4000000059604645
+    },
+    {
+      "name": "pointerup",
+      "duration": 24,
+      "inputDelay": 3.5999999940395355
+    },
+    {
+      "name": "click",
+      "duration": 24,
+      "inputDelay": 3.5999999940395355
+    }
+  ],
+  "longTasks": [
+    55
+  ],
+  "lcp": 716,
+  "cls": 0.0000980737396391985,
+  "idleAnimations": 0,
+  "heap": 5824260
+}

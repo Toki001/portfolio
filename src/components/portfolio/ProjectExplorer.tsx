@@ -38,7 +38,7 @@ export function ProjectExplorer() {
         className="project-filters"
         role="group"
         aria-label="Filter projects"
-        hidden={!enhanced}
+        style={{ visibility: enhanced ? "visible" : "hidden" }}
       >
         {categories.map((value) => (
           <button

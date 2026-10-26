@@ -1,7 +1,12 @@
 import { chromium } from "@playwright/test";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
-import { writeFile } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
+const label =
+  process.argv.slice(2).find((arg) => !arg.startsWith("--")) ?? "motion-after";
+if (!/^[a-z0-9-]+$/.test(label)) throw new Error("Use a simple profile label");
+const root = `docs/verification/motion/${label === "motion-after" ? "after" : label}`;
+await mkdir(root, { recursive: true });
 const desktop = process.argv.includes("--desktop");
 const device = desktop ? "desktop" : "mobile";
 const server = spawn(process.execPath, ["scripts/preview.mjs"], {
@@ -85,7 +90,16 @@ try {
       .tap();
     await page.locator("#tech-stack summary").nth(1).tap();
   }
-  for (const id of ["projects", "tech-stack", "tools", "about", "contact"]) {
+  for (const id of [
+    "projects",
+    "resolvehub",
+    "reconcileiq",
+    "reimagined",
+    "tech-stack",
+    "tools",
+    "about",
+    "contact",
+  ]) {
     await page.locator(`#${id}`).scrollIntoViewIfNeeded();
     await page.evaluate(
       () =>
@@ -98,7 +112,7 @@ try {
     );
   }
   await page.screenshot({
-    path: `docs/verification/motion/after/${device}-throttled-contact.png`,
+    path: `${root}/${device}-throttled-contact.png`,
   });
   await page.waitForFunction(() =>
     document.getAnimations().every((a) => a.playState !== "running"),
@@ -116,7 +130,7 @@ try {
     heap: metrics.metrics.find((m) => m.name === "JSHeapUsedSize")?.value,
   };
   await writeFile(
-    `docs/verification/motion-after-${device}-profile.json`,
+    `docs/verification/${label}-${device}-profile.json`,
     JSON.stringify(result, null, 2) + "\n",
   );
   console.log(JSON.stringify(result, null, 2));

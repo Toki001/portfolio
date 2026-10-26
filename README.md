@@ -1,95 +1,88 @@
-# Jameskier Doliguez — Portfolio
+# Jameskier Doliguez — toki portfolio
 
-An editorial software-engineering portfolio built with the existing React 19, TypeScript, Vite 8, Tailwind 3 and npm stack. Six pages are prerendered to static HTML and hydrated for navigation, project filters, galleries and clipboard feedback. Production needs no Node server, database, contact backend or analytics service.
+An editorial engineering portfolio continuing the existing React 19, TypeScript, Vite 8, Tailwind 3 and npm application. Nine indexable pages are prerendered to HTML and hydrated for navigation, filters, galleries and clipboard feedback. Production needs no Node server, database or contact backend.
 
-The source was copied with Git history from the owner-confirmed `/Users/jameskierdoliguez/projects/portfolio` into this workspace. That original checkout was not edited. Fourteen local milestone commits implement the redesign and cinematic motion upgrade (09–14); nothing was pushed or deployed.
+Twenty local milestone checkpoints cover the initial redesign, cinematic motion and Phase 3 editorial upgrade (15–20). The owner-confirmed original `/Users/jameskierdoliguez/projects/portfolio` was preserved. Nothing was pushed or deployed.
 
 ## Run locally
 
-Use Node **22.x** (verification used 22.22.3).
+Use Node **22.x** (verified with 22.22.3).
 
 ```sh
 npm ci
 npm run dev
 ```
 
-For the actual static production output and correct HTTP 404 behavior:
+To review the real static production router and HTTP 404s:
 
 ```sh
 npm run build
 npm run preview
 ```
 
-Open http://127.0.0.1:4173. Vite's development fallback is not the production HTTP router. The build creates the SSR bundle, regenerates brand assets, builds the client, prerenders six routes and 404, writes crawl files and removes the temporary SSR bundle. `dist/` is the deployable artifact.
+Open http://127.0.0.1:4173. Build generates brand assets, client output, nine indexable routes, custom 404, schema and crawl files. `dist/` is the deployable artifact; the temporary SSR bundle is removed. Vite's development fallback is not the production HTTP router.
 
-## Routes and real content
+## Routes and verified work
 
-| Route | Content |
-| --- | --- |
-| `/` | Identity, selected work, capabilities, tools, about and email contact |
-| `/projects` | Four-project index; All/Mobile/Web/AI filters reflected in the URL |
-| `/projects/peso-flow` | Local-first Flutter finance app, in development; three actual test captures |
-| `/projects/pokechamp` | Team builder, usage snapshots and sharing; actual local interface capture |
-| `/projects/pixeltools` | Static Next.js browser image utilities; retained actual directory capture |
-| `/projects/guest-reco` | Limited project note from original portfolio, with repository link |
+| Route                   | Evidence                                                                                        |
+| ----------------------- | ----------------------------------------------------------------------------------------------- |
+| `/`                     | Editorial portrait, introduction, six featured projects, capabilities, tools, about and contact |
+| `/projects`             | Seven projects; URL-backed All/Mobile/Web/AI/Systems/Tools filters                              |
+| `/projects/peso-flow`   | Flutter local-first finance app; Home, Budgets, Analytics                                       |
+| `/projects/pokechamp`   | Pokémon builder, Showcase and Meta Analytics                                                    |
+| `/projects/pixeltools`  | Directory plus working Crop, Resize and Rotate tools                                            |
+| `/projects/guest-reco`  | Limited source-verified project note; Dashboard, Camera Grid, Employees client views            |
+| `/projects/resolvehub`  | Internal support workflow; Conversation, Knowledge, Review                                      |
+| `/projects/reconcileiq` | Synthetic local finance workspace; Overview, Invoices, Reconciliation, Exceptions               |
+| `/projects/reimagined`  | Original fixture workflows; Studio, Browser Comparisons, React Export                           |
 
-The three featured studies include verified architecture and constraints. GuestReco does not claim deployment, accuracy or detailed implementation proof. All original section/project fragment IDs remain. Unknown paths return the custom **HTTP 404**, not a home-page rewrite. No hollow about/contact routes were added.
+All **23 different real views** have captions and provenance in [media manifest](docs/verification/project-media-manifest.md). Empty isolated client fixtures and historical captures are explicitly distinguished from working backends. GuestReco claims no recognition accuracy, real camera operation or deployment. Missing release/source URLs stay hidden. [Project inventory](docs/verification/project-inventory.md) records inclusion and deferral decisions. Unknown URLs return the custom HTTP 404; original section IDs and routes remain.
 
-Native links support opening in new tabs. The mobile menu handles Escape/focus/section navigation; galleries support arrows, numbered selection, URL reload and native zoom dialog with focus return. Contact opens a mail draft; Copy email reports actual success or failure. Without JavaScript, static content, links, native capability disclosures, navigation and full-size media remain available. No email was sent during QA.
+Galleries support named thumbnails, touch swipe, previous/next, URL reload, keyboard and native zoom with focus return. Vertical scroll/pinch stay native. Email opens a draft; Copy email reports real success/failure. No email was sent during QA. Static content, navigation, native disclosures and full-size image links remain available without JavaScript.
 
-## Edit content and design
+## Content and design
 
-- `src/config/site.ts`: owner identity, verified bio/education, socials, tools/capabilities, contact, optional resume/current availability. Undefined optional values stay hidden.
-- `src/content/projects.ts`: typed, source-verified project records and media. Keep stable slugs. Missing URLs stay absent. `validation.ts` rejects unstable/duplicate slugs, unsafe protocols and incomplete media.
-- `src/config/seo.json`: production origin, home metadata and fallback share image. If the origin changes, update the HTTPS destination in `vercel.json` and canonical tests as well.
-- `src/styles-tokens.css`: exact five-color palette and derived tints, typography, spacing and motion. One self-hosted OFL Archivo variable font, light mode primary, no mode switch or animation library.
-- `public/projects/`: owned media with explicit dimensions/responsive derivatives. `public/og/`: generated 1200×630 JPEG project cards. `npm run assets:brand` regenerates cards/icons; the full build always does this too.
+- `src/config/site.ts`: actual identity/bio, the owner-requested **toki** wordmark, socials, tools/capabilities, optional availability/resume. Unsupported values stay hidden.
+- `src/content/projects.ts` / `additional-projects.ts`: typed, verified records and stable slugs. `validation.ts` rejects unsafe links, duplicate/unstable slugs and incomplete media.
+- `src/content/project-media.ts`: generated public metadata. Owner-local capture/import scripts are optional; ordinary build uses committed images without accessing other projects. Review source/privacy first, run `scripts/import-project-media.mjs`, then `npm run check:media`; never edit output hashes to bypass verification.
+- `src/config/seo.json`: real production origin and metadata. Origin changes also require redirect/canonical-test updates.
+- `src/styles-tokens.css`: five-color palette, derived tints, spacing and motion. One self-hosted OFL Archivo variable font, light mode, no animation library.
+- `public/projects/`: responsive owned WebP media. `npm run assets:brand` regenerates the editorial t favicon (SVG/ICO/PNG/Apple sizes), manifest and eight 1200×630 JPEG share cards. Full build does this automatically.
 
-See [design system](docs/design/design-system.md), [reference interpretation](docs/design/reference-analysis.md), [motion budget](docs/design/motion-spec.md), [media provenance](docs/design/media-provenance.md) and [owner media checklist](docs/design/media-checklist.md). Private reference media never enters public output.
+[Phase 3 direction](docs/design/phase-3-motion-and-content-direction.md) maps all five video references to original composition and motion choices. The arch/window portrait was replaced with an open rectangular graduation portrait beside oversized asymmetric type. Actual responsive lines reveal through masks across home/index/studies. Capabilities and tools use rule draws, masked titles, staggered text and native disclosures with finite tag feedback. The existing short three-project depth stack leads into three differently composed project spreads.
 
-## Verify
+One shared observer handles editorial entrances; layout is measured on font/resize changes. Native scrolling, fast jumps, keyboard, offscreen cleanup, reduced motion and no-JS retain full content. Fine-pointer lighting/depth is bounded and settles. Mobile has normal-flow work and touch controls. No wheel interception, global smooth-scroll wrapper or looping background.
 
-Install the pinned Playwright Chromium browser once:
+## Verification and review artifacts
 
 ```sh
 npx playwright install chromium
 npm run verify
 ```
 
-`verify` runs formatting, Oxlint, typecheck, four content unit tests, production build, static SEO validation, and the full Playwright suite. Final results: **70/70 browser tests**, including nine pixel comparisons at 390/768/1440; all six routes at 320/360/375/390/430/768/1024/1280/1440/1920 in both default/reduced motion; axe; real clipboard states; no-JS; landscape/coarse pointer; keyboard/dialog; redirects; enlarged text and genuine native Chromium 200% browser zoom. Console/page errors and broken images fail the route matrix.
+Verification runs Prettier, Oxlint, TypeScript, four content unit tests, production build, static SEO/media checks and Playwright. Coverage includes nine exact visual comparisons, all nine routes at 320/360/375/390/**414**/430/768/1024/1280/1440/1920 in default/reduced motion, axe, real clipboard outcomes, portrait failure, all featured links/filters, seven multi-screen galleries, real touch gestures, no-JS, landscape, keyboard and native Chromium 200% zoom.
 
-Snapshots in `tests/visual.spec.ts-snapshots/` were captured on macOS ARM / Chromium 156, reduced motion, fonts/media settled, exact pixel comparison. Other OS/browser versions require deliberately reviewed baselines; Linux/iOS/Safari equivalence is not claimed. Playwright HTML reports/traces are generated locally and ignored. Milestone screenshots and measured reports are committed under `docs/verification/`.
+The final release runs **95 browser checks and four unit tests**. The project index reserves filter geometry before hydration to avoid layout shift; inactive no-JS controls remain hidden. Matched final Lighthouse performance: home mobile 97, desktop 100, PesoFlow mobile 99, index mobile 95; Accessibility/Best Practices/SEO 100 throughout and CLS 0. Home/index LCP 2.56/2.85s remain explicit tradeoffs in the comparison record.
 
-```sh
-npm run measure
-npm run profile:motion
-npm audit
-```
+Baselines use macOS ARM / Chromium 156, reduced motion, settled font/media and exact pixel comparison. Other engines/OS need reviewed baselines. Playwright reports/traces are local and ignored. [Final verification](docs/verification/milestone-20.md), [comparison viewer](docs/verification/phase-3-comparison.html), [comparison record](docs/verification/phase-3-comparison.md), and [final design review](docs/design/phase-3-final-review.md) contain results and limits. Previous milestone evidence is preserved.
 
-`measure` builds first, uses an isolated gzip static server and the installed Chromium, and saves four Lighthouse HTML/JSON reports plus `lighthouse-final-summary.json`. `profile:motion` samples default-motion interactions at 390×844 with 4× CPU and constrained mobile networking; build first. These are lab measurements, not field INP/60fps certification. See [motion release record](docs/verification/milestone-14.md) and [original release record](docs/verification/milestone-08.md), [M7 measurement conditions](docs/verification/milestone-07.md), [tool availability](docs/verification/tool-discovery.md) and [external link check](docs/verification/external-links.md).
-
-No new runtime dependency was added. Dev tools: Playwright/axe, Prettier and Lighthouse. The Tailwind 3 selector-parser override patches its build-time advisory; a fresh `npm ci` and audit are recorded. No high/critical/moderate advisory remains in the recorded audit.
-
-## Cinematic motion upgrade
-
-Four signature scenes use existing assets: masked identity/portrait curtains, bounded reactive portrait lighting, a three-project CSS depth stack, and one local pixel-edge handoff. The index uses280ms FLIP filtering; case titles/media, native zoom, navigation and real contact feedback share the same vocabulary. No new library or runtime dependency was added.
-
-The sticky/perspective scene requires a fine pointer and at least1100×720 CSS pixels. It occupies about two desktop viewports, uses native scrolling, supports direct project selection and focus, and releases normally. Mobile/coarse/reduced/no-JS show the ordered project presentation. Pointer effects settle and stop; keyboard/Escape/focus never wait. The old global cross-document fade was removed after actual Chromium aborts; native routes and controlled case-entry motion remain.
-
-[Motion direction and attribution](docs/design/motion-direction.md), [final review](docs/design/motion-review.md), and [performance comparison](docs/verification/motion-comparison.md) record the exact choices and limits. Before-and-after videos, decoded timelines and screenshots are in `docs/verification/motion/{before,after}/`. Milestone11–13 intermediate videos are retained too. All recordings show the actual owner site; reference videos remain private and excluded from deployment.
-
-Reproduce the evidence after building:
+Reproduce evidence after building, one command at a time:
 
 ```sh
-node scripts/record-motion.mjs after
-node scripts/review-motion-video.mjs after desktop
-node scripts/review-motion-video.mjs after mobile
-node scripts/measure.mjs motion-after
-node scripts/profile-motion.mjs
-node scripts/profile-motion.mjs --desktop
+node scripts/measure.mjs phase3-after
+node scripts/profile-motion.mjs phase3-after
+node scripts/profile-motion.mjs phase3-after --desktop
+node scripts/record-motion.mjs phase3-after
+node scripts/record-catalog.mjs phase3-after-catalog
+node scripts/review-motion-video.mjs phase3-after desktop
+node scripts/review-motion-video.mjs phase3-after mobile
+node scripts/review-motion-video.mjs phase3-after-catalog desktop
+node scripts/review-motion-video.mjs phase3-after-catalog mobile
 ```
 
-Recordings use default motion and Chromium; the review utility decodes actual VP9 with Playwright's bundled FFmpeg (override `FFMPEG_PATH` if needed). Lighthouse reports use separate `motion-before-*` and `motion-after-*` names. The CPU profiles write `motion-after-mobile-profile.json` and `motion-after-desktop-profile.json`; they sample Event Timing/heap, not field INP or leak/60fps certification. Physical iOS/Android and screen-reader hardware still need owner testing.
+These run local gzip production previews and installed Chromium. Lighthouse writes four HTML/JSON reports and a summary. Profiles record scripted Event Timing/heap with 4× CPU and constrained networking; they do not measure field INP, certify 60fps or prove no memory leaks. Recordings are actual VP9 browser output; the review utility uses Playwright's bundled FFmpeg (`FFMPEG_PATH` override available). Label arguments preserve earlier evidence. Physical iOS/Android, Safari/Firefox and screen-reader speech remain owner checks.
+
+No portfolio runtime/library dependency was added. Fresh `npm ci` reproduces the retained lockfile and reports zero vulnerabilities. [Tool discovery](docs/verification/tool-discovery.md) distinguishes installed/source-reviewed skills, actual connected GitHub use and unavailable plugin fallbacks. Reference assets and private provenance never enter the deployed output.
 
 ## Vercel release and rollback
 
@@ -104,13 +97,13 @@ npx vercel link
 npx vercel deploy
 ```
 
-Choose the existing project/team. Check the preview's six routes, media, menu, mailto, galleries, unknown-route 404, headers and social cards. Preview builds have `noindex` and robots `Disallow: /`. When ready, **create a fresh production-context build**:
+Choose the existing project/team. Check the preview's nine routes, media, menu, mailto, galleries, unknown-route 404, headers and social cards. Preview builds have `noindex` and robots `Disallow: /`. When ready, **create a fresh production-context build**:
 
 ```sh
 npx vercel deploy --prod
 ```
 
-Do not directly promote a preview artifact: its build-time noindex would remain embedded. On production verify robots allows crawling, canonical/OG/schema use the target origin, all six routes return 200, an unknown URL returns 404, redirects preserve queries, fonts/images return correct types and cards are 1200×630. Recheck mobile and social previews against the real CDN. Record the deployment URL/commit in the release log; no domain/DNS/analytics changes are part of this handoff.
+Do not directly promote a preview artifact: its build-time noindex would remain embedded. On production verify robots allows crawling, canonical/OG/schema use the target origin, all nine routes return 200, an unknown URL returns 404, redirects preserve queries, fonts/images return correct types and cards are 1200×630. Recheck mobile and social previews against the real CDN. Record the deployment URL/commit in the release log; no domain/DNS/analytics changes are part of this handoff.
 
 Before release, retain the previous known-good **production** deployment URL/commit. If necessary use the Vercel project **Deployments → previous production deployment → Rollback** flow, then verify the production alias and key routes again. Never delete the previous artifact before acceptance. CLI alternative: `npx vercel rollback <previous-production-deployment-url>`. Confirm plan/account availability in [Vercel's rollback documentation](https://vercel.com/docs/deployments/rollback-production-deployment). See [Vite deployment guidance](https://vercel.com/docs/frameworks/frontend/vite).
 

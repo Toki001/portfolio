@@ -59,9 +59,10 @@ export function Header({
         <a
           href={sectionHref("#home")}
           className="wordmark"
-          aria-label={`jd — ${siteConfig.identity.name}, home`}
+          aria-label={`${siteConfig.identity.wordmark} — ${siteConfig.identity.name}, home`}
+          translate="no"
         >
-          jd<span aria-hidden="true">.</span>
+          {siteConfig.identity.wordmark}
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
           {siteConfig.navigation

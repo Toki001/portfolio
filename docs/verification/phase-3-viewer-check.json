@@ -1,0 +1,54 @@
+{
+  "source": "Actual Chromium file-based comparison viewer check",
+  "metadata": [
+    {
+      "file": "motion/phase3-before/desktop.webm",
+      "duration": 20.4,
+      "width": 1440,
+      "height": 900,
+      "controls": true
+    },
+    {
+      "file": "motion/phase3-after/desktop.webm",
+      "duration": 28.28,
+      "width": 1440,
+      "height": 900,
+      "controls": true
+    },
+    {
+      "file": "motion/phase3-before/mobile.webm",
+      "duration": 15.72,
+      "width": 390,
+      "height": 844,
+      "controls": true
+    },
+    {
+      "file": "motion/phase3-after/mobile.webm",
+      "duration": 23.64,
+      "width": 390,
+      "height": 844,
+      "controls": true
+    },
+    {
+      "file": "motion/phase3-after-catalog/desktop.webm",
+      "duration": 19.68,
+      "width": 1440,
+      "height": 900,
+      "controls": true
+    },
+    {
+      "file": "motion/phase3-after-catalog/mobile.webm",
+      "duration": 19.32,
+      "width": 390,
+      "height": 844,
+      "controls": true
+    }
+  ],
+  "checks": [
+    "All local links/media/posters exist",
+    "Six real videos load native metadata/controls",
+    "Desktop/Mobile selection and native playback advance",
+    "Pause stops all recordings"
+  ],
+  "errors": []
+}

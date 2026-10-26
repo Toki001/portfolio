@@ -1,0 +1,18 @@
+{
+  "duration": 15.72,
+  "times": [
+    0.08,
+    0.25,
+    0.5,
+    0.9,
+    1.3,
+    3.93,
+    6.288,
+    8.646,
+    11.004,
+    12.576,
+    14.148000000000001,
+    15.2484
+  ],
+  "source": "Actual Playwright VP9 recording decoded by its bundled FFmpeg; no synthetic frames"
+}

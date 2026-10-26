@@ -1,0 +1,56 @@
+[
+  {
+    "source": "public/projects/peso-flow-home.webp",
+    "sourceSHA256": "5ea7a99ab674250e82501d7466fc6c9f5cae0c2b137cfd3bb9fc8d23122599e6",
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "width": 390,
+      "height": 860
+    },
+    "use": "Existing top-aligned cropped phone artwork only; never counted as another screen. Case-study gallery keeps the original full screenshot.",
+    "outputs": [
+      {
+        "file": "public/projects/peso-flow-home-artwork-195.webp",
+        "sha256": "570f8ff81ca66548c0b7342a04b7c68217d01365e6ec84de19927054e479a4f0",
+        "bytes": 13232,
+        "width": 195,
+        "height": 430
+      },
+      {
+        "file": "public/projects/peso-flow-home-artwork.webp",
+        "sha256": "0703b8ccd08a47fecdec127905e328a5d017127bfdfbf7270ddaab8ce11476c8",
+        "bytes": 30642,
+        "width": 390,
+        "height": 860
+      }
+    ]
+  },
+  {
+    "source": "public/projects/peso-flow-budgets.webp",
+    "sourceSHA256": "10d78e532dd2c71a5053e8cfce52bab005a2dda162cac394fca99926ff976766",
+    "crop": {
+      "left": 0,
+      "top": 0,
+      "width": 390,
+      "height": 860
+    },
+    "use": "Existing top-aligned cropped phone artwork only; never counted as another screen. Case-study gallery keeps the original full screenshot.",
+    "outputs": [
+      {
+        "file": "public/projects/peso-flow-budgets-artwork-195.webp",
+        "sha256": "f4c4f8a7d2e36165cae13a5b37ade50f11b48a4b3517b68934dea6fdff390850",
+        "bytes": 12060,
+        "width": 195,
+        "height": 430
+      },
+      {
+        "file": "public/projects/peso-flow-budgets-artwork.webp",
+        "sha256": "4f7e82d1a6685c69e68ce9386c681eb585f385bb662741a428ded905c49aa318",
+        "bytes": 28168,
+        "width": 390,
+        "height": 860
+      }
+    ]
+  }
+]

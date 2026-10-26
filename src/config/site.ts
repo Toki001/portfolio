@@ -8,6 +8,7 @@ export const siteConfig = {
   availability: undefined as string | undefined,
   seo: seo,
   identity: {
+    wordmark: "toki",
     name: "Jameskier Doliguez",
     title: "Software Engineer",
     heroStatement:

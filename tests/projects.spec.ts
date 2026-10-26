@@ -4,11 +4,9 @@ import AxeBuilder from "@axe-core/playwright";
 test("all featured cards open their matching project pages", async ({
   page,
 }) => {
-  for (const [name, slug] of [
-    ["PesoFlow", "peso-flow"],
-    ["PokeChamp", "pokechamp"],
-    ["PixelTools", "pixeltools"],
-  ]) {
+  for (const { title: name, slug } of projects.filter(
+    (p) => p.featuredRank || p.spotlight,
+  )) {
     await page.goto("/");
     await page.getByRole("link", { name: `Read ${name} case study` }).click();
     await expect(page).toHaveURL(new RegExp(`/projects/${slug}$`));

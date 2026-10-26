@@ -1,4 +1,5 @@
 import { siteConfig } from "../../config/site";
+import { ScrollText } from "./ScrollText";
 import { TextMask } from "./TextMask";
 export function ToolsWorkbench() {
   return (
@@ -18,15 +19,18 @@ export function ToolsWorkbench() {
       </div>
       <ol className="tools-list">
         {siteConfig.tools.map((tool, i) => (
-          <li className="tool-row" key={tool.id}>
+          <li className="tool-row" key={tool.id} data-reveal="row">
+            <span className="editorial-row-rule" aria-hidden="true" />
             <span className="tool-index">{String(i + 1).padStart(2, "0")}</span>
             <div>
               <span className="tool-category">
                 {tool.categoryLabel.toLowerCase()}
               </span>
-              <h3>{tool.name}</h3>
+              <h3>
+                <ScrollText>{tool.name}</ScrollText>
+              </h3>
             </div>
-            <p>{tool.description}</p>
+            <p data-row-copy>{tool.description}</p>
           </li>
         ))}
       </ol>

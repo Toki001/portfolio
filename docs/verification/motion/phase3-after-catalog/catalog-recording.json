@@ -1,0 +1,38 @@
+{
+  "label": "phase3-after-catalog",
+  "source": "Actual local production Chromium video, default motion",
+  "records": [
+    {
+      "name": "desktop",
+      "size": {
+        "width": 1440,
+        "height": 900
+      },
+      "errors": [],
+      "scenes": [
+        "catalog",
+        "real Systems/Tools/All filters",
+        "ResolveHub",
+        "ReconcileIQ",
+        "Reimagined",
+        "three genuine screens per new case, each opened in native zoom"
+      ]
+    },
+    {
+      "name": "mobile",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "errors": [],
+      "scenes": [
+        "catalog",
+        "real Systems/Tools/All filters",
+        "ResolveHub",
+        "ReconcileIQ",
+        "Reimagined",
+        "three genuine screens per new case, each opened in native zoom"
+      ]
+    }
+  ]
+}

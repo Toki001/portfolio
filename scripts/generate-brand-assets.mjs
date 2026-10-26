@@ -9,7 +9,8 @@ const xml = (value) =>
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#890620"/><path d="M28 18v22c0 8-14 10-16 0m26-22v28h7c17 0 17-28 0-28z" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+// A compact editorial “t”: open geometry, navy canvas and a burgundy registration dot.
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#011936"/><path d="M27 12h9v10h12v8H36v14c0 5 3 7 10 5v8c-13 3-19-2-19-12V30H17v-8h10z" fill="#FFFFFF"/><circle cx="49" cy="14" r="5" fill="#890620"/></svg>`;
 await writeFile("public/favicon.svg", favicon);
 for (const [file, size] of [
   ["favicon-32x32.png", 32],
@@ -48,7 +49,7 @@ await writeFile(
   JSON.stringify(
     {
       name: `${identity.name} — Portfolio`,
-      short_name: "JD Portfolio",
+      short_name: `${identity.wordmark} Portfolio`,
       start_url: "/",
       scope: "/",
       display: "browser",
@@ -83,7 +84,7 @@ for (const project of [null, ...projects]) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
     <rect width="1200" height="630" fill="#FFFFFF"/><rect x="784" width="416" height="630" fill="#011936"/>
     <path d="M64 150H730M64 530H730" stroke="#767B91"/>
-    <text x="64" y="91" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#890620">jd.</text>
+    <text x="64" y="91" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#890620">${xml(identity.wordmark)}</text>
     <text x="136" y="91" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#03191E">${xml(project ? identity.name : identity.title)}</text>
     ${titleLines.map((line, i) => `<text x="60" y="${project ? 284 : 264 + i * 86}" font-family="Helvetica,Arial,sans-serif" font-weight="600" font-size="${project ? 78 : 74}" letter-spacing="-4" fill="#03191E">${xml(line)}${i === titleLines.length - 1 ? '<tspan fill="#890620">.</tspan>' : ""}</text>`).join("")}
     ${lines(description, 47)

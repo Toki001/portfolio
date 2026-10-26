@@ -113,7 +113,8 @@ html[data-motion="full"] .portrait-curtain {
   }
   .portrait-curtain,
   .portrait-image {
-    animation-duration: 480ms;
+    animation-duration: 360ms;
+    animation-delay: 0ms;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -407,4 +408,8 @@ html[data-motion="full"]:not([data-input="keyboard"])
   [data-handoff] {
     transform: none !important;
   }
+}
+/* The disclosure indicator is a pseudo-element and needs its own keyboard rule. */
+html[data-input="keyboard"] .disclosure-plus::after {
+  transition: none;
 }

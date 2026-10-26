@@ -27,8 +27,7 @@
   outline-color: var(--color-paper);
 }
 .capability-detail {
-  border-top: 1px solid
-    color-mix(in srgb, var(--brand-slate) 65%, var(--brand-navy));
+  position: relative;
 }
 .capability-detail:last-child {
   border-bottom: 1px solid
@@ -80,7 +79,6 @@
 }
 .capability-content {
   padding: 0 0 1.75rem 2.5rem;
-  animation: panel-enter 220ms var(--ease-out);
 }
 .capability-content p {
   color: var(--color-on-deep);
@@ -112,11 +110,11 @@
   margin: 0;
 }
 .tool-row {
+  position: relative;
   display: grid;
   grid-template-columns: 2rem minmax(0, 1fr) minmax(0, 1.1fr);
   gap: 2rem;
   padding-block: 2rem;
-  border-top: 1px solid var(--color-line);
 }
 .tool-row:last-child {
   border-bottom: 1px solid var(--color-line);
@@ -436,4 +434,20 @@
     grid-template-columns: 6rem minmax(0, 1fr);
     gap: 1rem;
   }
+}
+
+/* Each rule and text group shares one observed entrance; content remains native/static. */
+.editorial-row-rule {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: var(--color-line);
+  transform-origin: left center;
+  pointer-events: none;
+}
+.capability-detail .editorial-row-rule {
+  background: color-mix(in srgb, var(--brand-slate) 65%, var(--brand-navy));
+}
+.tool-category {
+  display: inline-block;
 }

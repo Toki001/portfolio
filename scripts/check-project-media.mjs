@@ -29,6 +29,28 @@ for (const item of evidence) {
   const thumb = await sharp("public" + item.thumbnail).metadata();
   assert.ok(thumb.width <= 320);
 }
+const artwork = JSON.parse(
+  await readFile("docs/verification/project-artwork-evidence.json", "utf8"),
+);
+for (const item of artwork) {
+  assert.equal(
+    createHash("sha256")
+      .update(await readFile(item.source))
+      .digest("hex"),
+    item.sourceSHA256,
+  );
+  for (const output of item.outputs) {
+    const bytes = await readFile(output.file),
+      meta = await sharp(bytes).metadata();
+    assert.equal(
+      createHash("sha256").update(bytes).digest("hex"),
+      output.sha256,
+    );
+    assert.equal(meta.width, output.width);
+    assert.equal(meta.height, output.height);
+    assert.equal(bytes.length, output.bytes);
+  }
+}
 const sitemap = await readFile("dist/sitemap.xml", "utf8");
 let count = 0;
 for (const [, url] of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) {
@@ -56,5 +78,5 @@ for (const [, url] of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) {
   count += images.length;
 }
 console.log(
-  `PASS: ${evidence.length} reviewed capture outputs match hashes/geometry; ${count} distinct gallery images have static fallback links.`,
+  `PASS: ${evidence.length} reviewed capture outputs match hashes/geometry; ${artwork.length * 2} artwork derivatives verified separately; ${count} distinct gallery images have static fallback links.`,
 );
