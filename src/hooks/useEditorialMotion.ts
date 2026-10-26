@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { canAnimate, createMotionScope } from "../motion/animate";
+import { canAnimate, createMotionScope, motion } from "../motion/animate";
 
 export function useEditorialMotion() {
   const progress = useRef<HTMLDivElement>(null);
@@ -81,7 +81,7 @@ export function useEditorialMotion() {
                   { transform: "translateY(110%) rotateX(12deg)" },
                   { transform: "translateY(0) rotateX(0deg)" },
                 ],
-                { delay: index * 60 },
+                { delay: index * motion.stagger },
               ),
             );
           else if (

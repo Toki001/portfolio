@@ -71,7 +71,19 @@ try {
     await p.screenshot({ path: `${root}/${name}-work.png` });
     for (let i = 0; i < 6; i++) {
       await p.mouse.wheel(0, 260);
-      await p.waitForTimeout(250);
+      await p.waitForTimeout(350);
+    }
+    if (await scene.isVisible()) {
+      for (const [index, title] of [
+        ["02", "PokeChamp"],
+        ["03", "PixelTools"],
+      ]) {
+        await scene
+          .getByRole("button", { name: `Show ${index} ${title}`, exact: true })
+          .click();
+        await p.waitForTimeout(800);
+        await p.screenshot({ path: `${root}/${name}-work-${index}.png` });
+      }
     }
     await p
       .getByRole("link", { name: "Explore all projects", exact: true })

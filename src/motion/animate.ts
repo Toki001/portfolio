@@ -4,10 +4,8 @@ export const motion = {
   ui: 220,
   reflow: 280,
   reveal: 650,
-  hero: 780,
   stagger: 60,
   out: "cubic-bezier(0.23,1,0.32,1)",
-  scene: "cubic-bezier(0.77,0,0.175,1)",
   drawer: "cubic-bezier(0.32,0.72,0,1)",
 } as const;
 export function canAnimate() {

@@ -2,7 +2,7 @@
 
 An editorial software-engineering portfolio built with the existing React 19, TypeScript, Vite 8, Tailwind 3 and npm stack. Six pages are prerendered to static HTML and hydrated for navigation, project filters, galleries and clipboard feedback. Production needs no Node server, database, contact backend or analytics service.
 
-The source was copied with Git history from the owner-confirmed `/Users/jameskierdoliguez/projects/portfolio` into this workspace. That original checkout was not edited. Eight local milestone commits implement the redesign; nothing was pushed or deployed.
+The source was copied with Git history from the owner-confirmed `/Users/jameskierdoliguez/projects/portfolio` into this workspace. That original checkout was not edited. Fourteen local milestone commits implement the redesign and cinematic motion upgrade (09–14); nothing was pushed or deployed.
 
 ## Run locally
 
@@ -56,7 +56,7 @@ npx playwright install chromium
 npm run verify
 ```
 
-`verify` runs formatting, Oxlint, typecheck, four content unit tests, production build, static SEO validation, and the full Playwright suite. Final results: **48/48 browser tests**, including nine pixel comparisons at 390/768/1440; all six routes at 320/360/375/390/430/768/1024/1280/1440/1920; axe; real clipboard states; no-JS; landscape/coarse pointer; keyboard/dialog; redirects; enlarged text and genuine native Chromium 200% browser zoom. Console/page errors and broken images fail the route matrix.
+`verify` runs formatting, Oxlint, typecheck, four content unit tests, production build, static SEO validation, and the full Playwright suite. Final results: **70/70 browser tests**, including nine pixel comparisons at 390/768/1440; all six routes at 320/360/375/390/430/768/1024/1280/1440/1920 in both default/reduced motion; axe; real clipboard states; no-JS; landscape/coarse pointer; keyboard/dialog; redirects; enlarged text and genuine native Chromium 200% browser zoom. Console/page errors and broken images fail the route matrix.
 
 Snapshots in `tests/visual.spec.ts-snapshots/` were captured on macOS ARM / Chromium 156, reduced motion, fonts/media settled, exact pixel comparison. Other OS/browser versions require deliberately reviewed baselines; Linux/iOS/Safari equivalence is not claimed. Playwright HTML reports/traces are generated locally and ignored. Milestone screenshots and measured reports are committed under `docs/verification/`.
 
@@ -66,9 +66,30 @@ npm run profile:motion
 npm audit
 ```
 
-`measure` builds first, uses an isolated gzip static server and the installed Chromium, and saves four Lighthouse HTML/JSON reports plus `lighthouse-final-summary.json`. `profile:motion` samples default-motion interactions at 390×844 with 4× CPU and constrained mobile networking; build first. These are lab measurements, not field INP/60fps certification. See [final release record](docs/verification/milestone-08.md), [M7 measurement conditions](docs/verification/milestone-07.md), [tool availability](docs/verification/tool-discovery.md) and [external link check](docs/verification/external-links.md).
+`measure` builds first, uses an isolated gzip static server and the installed Chromium, and saves four Lighthouse HTML/JSON reports plus `lighthouse-final-summary.json`. `profile:motion` samples default-motion interactions at 390×844 with 4× CPU and constrained mobile networking; build first. These are lab measurements, not field INP/60fps certification. See [motion release record](docs/verification/milestone-14.md) and [original release record](docs/verification/milestone-08.md), [M7 measurement conditions](docs/verification/milestone-07.md), [tool availability](docs/verification/tool-discovery.md) and [external link check](docs/verification/external-links.md).
 
 No new runtime dependency was added. Dev tools: Playwright/axe, Prettier and Lighthouse. The Tailwind 3 selector-parser override patches its build-time advisory; a fresh `npm ci` and audit are recorded. No high/critical/moderate advisory remains in the recorded audit.
+
+## Cinematic motion upgrade
+
+Four signature scenes use existing assets: masked identity/portrait curtains, bounded reactive portrait lighting, a three-project CSS depth stack, and one local pixel-edge handoff. The index uses280ms FLIP filtering; case titles/media, native zoom, navigation and real contact feedback share the same vocabulary. No new library or runtime dependency was added.
+
+The sticky/perspective scene requires a fine pointer and at least1100×720 CSS pixels. It occupies about two desktop viewports, uses native scrolling, supports direct project selection and focus, and releases normally. Mobile/coarse/reduced/no-JS show the ordered project presentation. Pointer effects settle and stop; keyboard/Escape/focus never wait. The old global cross-document fade was removed after actual Chromium aborts; native routes and controlled case-entry motion remain.
+
+[Motion direction and attribution](docs/design/motion-direction.md), [final review](docs/design/motion-review.md), and [performance comparison](docs/verification/motion-comparison.md) record the exact choices and limits. Before-and-after videos, decoded timelines and screenshots are in `docs/verification/motion/{before,after}/`. Milestone11–13 intermediate videos are retained too. All recordings show the actual owner site; reference videos remain private and excluded from deployment.
+
+Reproduce the evidence after building:
+
+```sh
+node scripts/record-motion.mjs after
+node scripts/review-motion-video.mjs after desktop
+node scripts/review-motion-video.mjs after mobile
+node scripts/measure.mjs motion-after
+node scripts/profile-motion.mjs
+node scripts/profile-motion.mjs --desktop
+```
+
+Recordings use default motion and Chromium; the review utility decodes actual VP9 with Playwright's bundled FFmpeg (override `FFMPEG_PATH` if needed). Lighthouse reports use separate `motion-before-*` and `motion-after-*` names. The CPU profiles write `motion-after-mobile-profile.json` and `motion-after-desktop-profile.json`; they sample Event Timing/heap, not field INP or leak/60fps certification. Physical iOS/Android and screen-reader hardware still need owner testing.
 
 ## Vercel release and rollback
 

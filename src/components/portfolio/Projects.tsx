@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { featuredProjects } from "../../content/projects";
 import type { Project } from "../../content/projects";
 import { TextMask } from "./TextMask";
@@ -108,9 +107,7 @@ export function Projects() {
         <FeaturedCard project={featuredProjects[0]} lead />
         <div className="work-pair">
           {featuredProjects.slice(1).map((project) => (
-            <Fragment key={project.id}>
-              <FeaturedCard project={project} />
-            </Fragment>
+            <FeaturedCard key={project.id} project={project} />
           ))}
         </div>
       </div>

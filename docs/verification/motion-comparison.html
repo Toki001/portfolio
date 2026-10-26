@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>Portfolio motion — before / after</title
+  ><style>
+    :root {
+      color-scheme: light;
+      font:
+        16px/1.6 Arial,
+        sans-serif;
+      color: #03191e;
+      background: white;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      max-width: 1500px;
+      padding: 32px;
+      margin: auto;
+    }
+    h1 {
+      font-size: clamp(32px, 5vw, 64px);
+      letter-spacing: -0.05em;
+      line-height: 1.05;
+      margin: 0 0 24px;
+    }
+    button {
+      font: inherit;
+      min-height: 44px;
+      padding: 8px 18px;
+      border: 1px solid #767b91;
+      border-radius: 8px;
+      background: white;
+      color: #03191e;
+      cursor: pointer;
+    }
+    button[aria-pressed="true"],
+    #play {
+      background: #890620;
+      color: white;
+      border-color: #890620;
+    }
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #890620;
+      outline-offset: 4px;
+    }
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+    }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .pair[hidden] {
+      display: none;
+    }
+    figure {
+      margin: 0;
+    }
+    figcaption {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    video {
+      display: block;
+      width: 100%;
+      background: #011936;
+      border-radius: 12px;
+      aspect-ratio: 8/5;
+    }
+    .mobile video {
+      aspect-ratio: 390/844;
+      max-height: 700px;
+    }
+    a {
+      color: #890620;
+      text-underline-offset: 4px;
+    }
+    table {
+      border-collapse: collapse;
+      margin-top: 32px;
+      width: 100%;
+      font-variant-numeric: tabular-nums;
+    }
+    td,
+    th {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #767b91;
+    }
+    #status {
+      min-height: 26px;
+    }
+    @media (max-width: 760px) {
+      body {
+        padding: 20px;
+      }
+      .pair {
+        grid-template-columns: 1fr;
+      }
+      td,
+      th {
+        padding: 8px;
+        font-size: 14px;
+      }
+    }
+  </style>
+  <h1>Portfolio motion.<br />Before / after.</h1>
+  <p>
+    Actual Chromium recordings of the local production site. The upgraded
+    sequence includes masked type, owned portrait lighting, spatial project
+    chapters, filter reflow, real media and contact feedback.
+  </p>
+  <nav aria-label="Recording view">
+    <button data-view="desktop" aria-pressed="true">Desktop</button
+    ><button data-view="mobile" aria-pressed="false">Mobile</button
+    ><button id="play">Play both from the start</button
+    ><button id="pause">Pause both</button>
+  </nav>
+  <p id="status" role="status"></p>
+  <div class="pair" id="desktop">
+    <figure>
+      <figcaption>Before — milestone 09</figcaption>
+      <video
+        controls
+        preload="metadata"
+        poster="motion/before/desktop-hero.png"
+        src="motion/before/desktop.webm"
+      ></video
+      ><a href="motion/before/desktop-timeline.webp">Decoded timeline</a>
+    </figure>
+    <figure>
+      <figcaption>After — milestone 14</figcaption>
+      <video
+        controls
+        preload="metadata"
+        poster="motion/after/desktop-hero.png"
+        src="motion/after/desktop.webm"
+      ></video
+      ><a href="motion/after/desktop-timeline.webp">Decoded timeline</a>
+    </figure>
+  </div>
+  <div class="pair mobile" id="mobile" hidden>
+    <figure>
+      <figcaption>Before — mobile</figcaption>
+      <video
+        controls
+        preload="metadata"
+        poster="motion/before/mobile-hero.png"
+        src="motion/before/mobile.webm"
+      ></video
+      ><a href="motion/before/mobile-timeline.webp">Decoded timeline</a>
+    </figure>
+    <figure>
+      <figcaption>After — mobile</figcaption>
+      <video
+        controls
+        preload="metadata"
+        poster="motion/after/mobile-hero.png"
+        src="motion/after/mobile.webm"
+      ></video
+      ><a href="motion/after/mobile-timeline.webp">Decoded timeline</a>
+    </figure>
+  </div>
+  <p>
+    Recordings have different lengths and show real interaction cadence. Each
+    video can be paused or scrubbed independently. Reference footage is private
+    study material and is absent from these recordings and the deployed app.
+  </p>
+  <table>
+    <caption>
+      Lighthouse performance — reproduced baseline and final build
+    </caption>
+    <thead>
+      <tr>
+        <th>Page</th>
+        <th>Before</th>
+        <th>After</th>
+        <th>Final LCP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Home mobile</td>
+        <td>99</td>
+        <td>98</td>
+        <td>2.3s</td>
+      </tr>
+      <tr>
+        <td>Home desktop</td>
+        <td>100</td>
+        <td>100</td>
+        <td>0.5s</td>
+      </tr>
+      <tr>
+        <td>PesoFlow mobile</td>
+        <td>98</td>
+        <td>99</td>
+        <td>2.0s</td>
+      </tr>
+      <tr>
+        <td>Index mobile</td>
+        <td>98</td>
+        <td>98</td>
+        <td>2.4s</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Accessibility, Best Practices and SEO:100 throughout. Single-run local lab
+    results, not field INP/real-device certification.
+    <a href="motion-comparison.md">Conditions and exact evidence</a>.
+  </p>
+  <script>
+    let current = "desktop";
+    const status = document.getElementById("status");
+    const all = [...document.querySelectorAll("video")];
+    for (const button of document.querySelectorAll("[data-view]"))
+      button.addEventListener("click", () => {
+        all.forEach((video) => video.pause());
+        current = button.dataset.view;
+        for (const id of ["desktop", "mobile"])
+          document.getElementById(id).hidden = id !== current;
+        for (const b of document.querySelectorAll("[data-view]"))
+          b.setAttribute("aria-pressed", String(b === button));
+        status.textContent = "";
+      });
+    document.getElementById("play").addEventListener("click", async () => {
+      const videos = [
+        ...document.getElementById(current).querySelectorAll("video"),
+      ];
+      videos.forEach((v) => (v.currentTime = 0));
+      const results = await Promise.allSettled(videos.map((v) => v.play()));
+      status.textContent = results.some((r) => r.status === "rejected")
+        ? "Use the individual video controls to start playback."
+        : "Playing both recordings.";
+    });
+    document.getElementById("pause").addEventListener("click", () => {
+      all.forEach((v) => v.pause());
+      status.textContent = "Recordings paused.";
+    });
+  </script>
+</html>

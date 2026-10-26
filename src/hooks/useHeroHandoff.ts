@@ -14,6 +14,10 @@ export function useHeroHandoff() {
         portrait.style.transform = "";
         return;
       }
+      if (scrollY > height) {
+        if (portrait.style.transform) portrait.style.transform = "";
+        return;
+      }
       const progress = Math.min(1, Math.max(0, scrollY / height));
       portrait.style.transform =
         progress > 0
@@ -21,7 +25,7 @@ export function useHeroHandoff() {
           : "";
     };
     const request = () => {
-      if (!frame) frame = requestAnimationFrame(draw);
+      if (!frame && !document.hidden) frame = requestAnimationFrame(draw);
     };
     const measure = () => {
       height = hero.offsetHeight;

@@ -1,6 +1,6 @@
 # Motion inventory and budget
 
-No animation dependency. CSS/WAAPI + one shared IntersectionObserver. Native scrolling; no scroll locking/pinning. Visible default content; enhance only after JS initialization. Main CTA works during entrance. Fine-pointer lens only if measured cheap; no live backdrop capture. Prefer bounded image displacement over an expensive lens.
+No animation dependency. CSS/WAAPI + one shared reveal IntersectionObserver. Native scrolling; M12 adds a short desktop CSS sticky stack, with no scroll locking or wheel interception. Visible default content; enhance only after JS initialization. Main CTA works during entrance. Fine-pointer lens only if measured cheap; no live backdrop capture. Prefer bounded image displacement over an expensive lens.
 
 | Scene | Purpose / trigger | Duration and curve | Touch / reduced-motion / budget |
 | --- | --- | --- | --- |
@@ -25,3 +25,10 @@ No animation dependency. CSS/WAAPI + one shared IntersectionObserver. Native scr
 | Tiny hover controls | 44px controls and visible focus | Touch and keyboard equivalent |
 
 Targets: 120–250ms ordinary feedback, 350–800ms editorial entrance. No bounce except future actual momentum gesture. No mandatory motion, loop or keyboard delay. Record measured Lighthouse and CPU traces later; never equate lab results with field INP/60fps.
+
+
+## Cinematic upgrade (M09–14)
+
+See [motion-direction.md](motion-direction.md) for reference mapping and responsive storyboard, and [motion-review.md](motion-review.md) for final animation review. Actual implementation adds: two fixed text masks (780/520ms,60ms stagger), split owned-portrait curtain (700/480ms), finite critically damped pointer follower (omega24, <=4deg /6px), hero recession (24px/.975scale), three-project native sticky depth stack (<=4deg/.95scale, large/fine/full only), immediate filters with280ms FLIP, case masks650ms, gallery180ms, native dialog220ms, one12-block geometric edge460ms+<=220ms stagger, contact mask/160ms real clipboard feedback. Quiet body/tool rows remain static.
+
+Input modality suppresses interactive movement, with immediate keyboard/Escape/focus. A completed hero never restarts when modality/preference changes. Root preference bootstrap avoids an animated no-JS path. Mode/visibility/unmount cancels effects and resets pointer/depth layers; offscreen hero writes stop. No tracking, WebGL, animated public video, background loop, native-scroll replacement or animation library. Native cross-document fade opt-in was removed after actual baseline navigation aborts; controlled page entry remains reliable.

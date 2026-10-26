@@ -2,6 +2,8 @@ import { chromium } from "@playwright/test";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
 import { writeFile } from "node:fs/promises";
+const desktop = process.argv.includes("--desktop");
+const device = desktop ? "desktop" : "mobile";
 const server = spawn(process.execPath, ["scripts/preview.mjs"], {
   env: { ...process.env, PORT: "4176" },
   stdio: ["ignore", "pipe", "inherit"],
@@ -10,9 +12,11 @@ await once(server.stdout, "data");
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage({
-    viewport: { width: 390, height: 844 },
-    isMobile: true,
-    hasTouch: true,
+    viewport: desktop
+      ? { width: 1440, height: 900 }
+      : { width: 390, height: 844 },
+    isMobile: !desktop,
+    hasTouch: !desktop,
   });
   const cdp = await page.context().newCDPSession(page);
   await cdp.send("Emulation.setCPUThrottlingRate", { rate: 4 });
@@ -54,12 +58,33 @@ try {
   await page.waitForFunction(() =>
     document.getAnimations().every((a) => a.playState !== "running"),
   );
-  await page.getByRole("button", { name: "Menu", exact: true }).tap();
-  await page
-    .getByRole("navigation", { name: "Mobile navigation" })
-    .getByRole("link", { name: "Tools", exact: true })
-    .tap();
-  await page.locator("#tech-stack summary").nth(1).tap();
+  if (desktop) {
+    const bounds = await page.locator(".portrait-stage").boundingBox();
+    await page.mouse.move(
+      bounds.x + bounds.width * 0.8,
+      bounds.y + bounds.height * 0.3,
+    );
+    await page.waitForTimeout(500);
+    const nav = page.getByRole("navigation", {
+      name: "Featured project navigation",
+    });
+    for (const name of [
+      "Show 01 PesoFlow",
+      "Show 02 PokeChamp",
+      "Show 03 PixelTools",
+    ]) {
+      await nav.getByRole("button", { name, exact: true }).click();
+      await page.waitForTimeout(600);
+    }
+    await page.locator("#tech-stack summary").nth(1).click();
+  } else {
+    await page.getByRole("button", { name: "Menu", exact: true }).tap();
+    await page
+      .getByRole("navigation", { name: "Mobile navigation" })
+      .getByRole("link", { name: "Tools", exact: true })
+      .tap();
+    await page.locator("#tech-stack summary").nth(1).tap();
+  }
   for (const id of ["projects", "tech-stack", "tools", "about", "contact"]) {
     await page.locator(`#${id}`).scrollIntoViewIfNeeded();
     await page.evaluate(
@@ -73,7 +98,7 @@ try {
     );
   }
   await page.screenshot({
-    path: "docs/verification/screenshots/m7-throttled-contact.png",
+    path: `docs/verification/motion/after/${device}-throttled-contact.png`,
   });
   await page.waitForFunction(() =>
     document.getAnimations().every((a) => a.playState !== "running"),
@@ -81,8 +106,7 @@ try {
   await cdp.send("Performance.enable");
   const metrics = await cdp.send("Performance.getMetrics");
   const result = {
-    conditions:
-      "Chromium 156, 390×844 coarse pointer; 4× CPU, 150ms RTT, 1.6384Mbps download; default motion; local gzip production build. Single scripted run, not field INP.",
+    conditions: `Chromium ${await browser.version()}, ${desktop ? "1440×900 fine pointer" : "390×844 coarse pointer"}; 4× CPU, 150ms RTT, 1.6384Mbps download; default motion; local gzip production build. Single scripted run, not field INP.`,
     ...(await page.evaluate(() => ({
       ...window.__profile,
       idleAnimations: document
@@ -92,7 +116,7 @@ try {
     heap: metrics.metrics.find((m) => m.name === "JSHeapUsedSize")?.value,
   };
   await writeFile(
-    "docs/verification/motion-profile.json",
+    `docs/verification/motion-after-${device}-profile.json`,
     JSON.stringify(result, null, 2) + "\n",
   );
   console.log(JSON.stringify(result, null, 2));
