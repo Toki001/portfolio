@@ -1,11 +1,11 @@
-import pokechampImg from "../assets/pokechamp.webp";
+import { projects } from "../content/projects";
 import seo from "./seo.json";
 import profileImg from "../assets/profile.webp";
-import pesoflowImg from "../assets/pesoflow.svg";
-import pixeltoolsImg from "../assets/pixeltools.webp";
 
 export const siteConfig = {
   seo,
+  resumeUrl: undefined as string | undefined, // TODO: owner-provided public resume only.
+  availability: undefined as string | undefined, // TODO: owner must reconfirm current availability.
 
   identity: {
     name: "Jameskier Doliguez",
@@ -37,7 +37,7 @@ export const siteConfig = {
     country: "Philippines",
     region: "Caraga, Agusan del Sur",
     remoteLabel: "Remote",
-    coordinatesLabel: "15.48° N, 120.71° E",
+    coordinatesLabel: "", // TODO: publish coordinates only after owner verification.
   },
 
   currentFocus: {
@@ -80,92 +80,7 @@ export const siteConfig = {
     },
   ],
 
-  projects: [
-    {
-      id: "peso-flow",
-      index: "01",
-      title: "PesoFlow",
-      category: "MOBILE / FINTECH",
-      categoryLabel: "[ MOBILE / FINTECH ]",
-      statusLabel: "STATUS: PROD READY",
-      statusTone: "success",
-      versionLabel: "v2.4.0",
-      image: pesoflowImg,
-      imageAlt: "PesoFlow financial application screenshot interface preview",
-      description: "Offline-first mobile finance app optimized for swift expense logging, recurring budget analytics, and encrypted biometric vaults.",
-      tags: ["Flutter", "Dart", "Drift ORM", "Riverpod"],
-      footerLabel: "OFFLINE-FIRST",
-      links: {
-        source: "https://github.com/Toki001/pesoflow",
-        demo: "#contact",
-        live: "",
-        docs: "",
-      },
-    },
-    {
-      id: "pokechamp",
-      index: "02",
-      title: "PokeChamp",
-      category: "WEBSITE / GAMING",
-      categoryLabel: "[ WEBSITE / GAMING ]",
-      statusLabel: "TEAM BUILDER",
-      statusTone: "neutral",
-      versionLabel: "v1.0.0",
-      image: pokechampImg,
-      imageAlt: "Pokemon team builder preview",
-      description: "Pokemon team builder with meta analytics and team showcase.",
-      tags: ["TypeScript", "Vite", "Tailwind"],
-      footerLabel: "SUPABASE",
-      links: {
-        source: "https://github.com/Toki001/pokechamp",
-        demo: "",
-        live: "https://pokechamp-tau.vercel.app/",
-        docs: "",
-      },
-    },
-    {
-      id: "pixeltools",
-      index: "03",
-      title: "PixelTools",
-      category: "WEB / IMAGE EDITING",
-      categoryLabel: "[ WEB / IMAGE EDITING ]",
-      statusLabel: "REACT + TAILWIND",
-      statusTone: "neutral",
-      versionLabel: "",
-      image: pixeltoolsImg,
-      imageAlt: "PixelTools fullstack responsive web dashboard",
-      description: "PixelTools is a web-based image editing tool that allows users to crop, rotate, and resize images.",
-      tags: ["TypeScript", "React", "Tailwind", "React Crop"],
-      footerLabel: "REACT",
-      links: {
-        source: "https://github.com/Toki001/pixeltools",
-        live: "https://pixeltool-toki.netlify.app",
-        demo: "",
-        docs: "",
-      },
-    },
-    {
-      id: "guest-reco",
-      index: "04",
-      title: "GuestReco",
-      category: "AI / FACIAL RECOGNITION",
-      categoryLabel: "[ AI / FACIAL RECOGNITION ]",
-      statusLabel: "STATUS: DEPLOYED",
-      statusTone: "success",
-      versionLabel: "AI",
-      image: "",
-      imageAlt: "GuestReco interface preview",
-      description: "GuestReco is facial recognition for guests and employees.",
-      tags: ["TypeScript", "FastAPI", "MediaMTX", "SQL"],
-      footerLabel: "AI & MACHINE LEARNING",
-      links: {
-        source: "https://github.com/Toki001/guest-reco",
-        docs: "#contact",
-        demo: "",
-        live: "",
-      },
-    },
-  ],
+  projects,
 
   techDomains: [
     {
@@ -332,7 +247,7 @@ export const siteConfig = {
   },
 
   footer: {
-    craftedWith: "Crafted with Geist & Plus Jakarta Sans",
+    craftedWith: "Designed and built with React & TypeScript",
     copyrightName: "Jameskier Doliguez",
     systemStatus: "ALL SYSTEMS NOMINAL",
   },

@@ -9,7 +9,12 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "check:seo": "node scripts/check-seo.mjs",
-    "assets:brand": "node scripts/generate-brand-assets.mjs"
+    "assets:brand": "node scripts/generate-brand-assets.mjs",
+    "typecheck": "tsc -b",
+    "test": "playwright test",
+    "test:unit": "node --experimental-strip-types --test tests/content.test.mjs",
+    "format": "prettier --write src scripts tests playwright.config.ts vite.config.ts",
+    "format:check": "prettier --check src scripts tests playwright.config.ts vite.config.ts"
   },
   "dependencies": {
     "autoprefixer": "^10.6.1",
@@ -19,11 +24,15 @@
     "tailwindcss": "^3.4.19"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
     "@types/node": "^24.19.1",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
+    "lighthouse": "^13.5.0",
     "oxlint": "^1.81.0",
+    "prettier": "^3.9.10",
     "sharp": "^0.35.5",
     "typescript": "~6.0.2",
     "vite": "^8.3.0"
