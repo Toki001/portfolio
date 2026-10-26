@@ -403,3 +403,349 @@
 .work-index-actions a {
   font-size: 0.875rem;
 }
+
+/* Actual product screens, each with its own editorial composition. */
+.product-composition {
+  container-type: inline-size;
+  aspect-ratio: 1.45;
+  border-radius: var(--radius-media);
+  isolation: isolate;
+}
+.composition-copy {
+  position: absolute;
+  z-index: 3;
+  top: 8%;
+  left: 7%;
+  width: 48%;
+}
+.composition-title {
+  display: block;
+  white-space: pre-line;
+  font-size: clamp(1.4rem, 7.2cqw, 5.25rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+.composition-detail {
+  display: block;
+  margin-top: 1.2em;
+  max-width: 90%;
+  font-size: clamp(0.65rem, 1.7cqw, 1rem);
+  line-height: 1.5;
+}
+.composition-screen {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--brand-slate) 35%, transparent);
+  border-radius: 0.6rem;
+  background: var(--color-paper);
+  box-shadow: 0 1.5rem 2rem -1.5rem var(--color-overlay);
+}
+.screen-topbar {
+  height: clamp(0.7rem, 2.6cqw, 1.75rem);
+  display: flex;
+  gap: 5%;
+  align-items: center;
+  padding-inline: 3%;
+  color: var(--color-muted);
+  font-size: clamp(0.3rem, 1cqw, 0.6rem);
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
+}
+.screen-dots {
+  display: flex;
+  gap: 3px;
+}
+.screen-dots i {
+  width: clamp(2px, 0.55cqw, 5px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-line);
+}
+.composition-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.composition-primary {
+  width: 68%;
+  right: -3%;
+  top: 31%;
+  transform: rotate(-4deg);
+  z-index: 1;
+}
+.composition-secondary {
+  width: 35%;
+  left: 6%;
+  top: 58%;
+  transform: rotate(5deg);
+  z-index: 2;
+}
+.composition-footnote {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  padding: 0.9em 1.5em;
+  font-size: clamp(0.6rem, 1.6cqw, 0.8rem);
+  background: var(--color-paper);
+  color: var(--color-muted);
+  z-index: 4;
+}
+.composition-battle {
+  background: var(--color-deep);
+  color: var(--color-paper);
+}
+.composition-battle .composition-footnote {
+  background: var(--color-deep);
+  color: var(--color-on-deep);
+}
+.composition-tools {
+  background: var(--color-wash);
+}
+.composition-tools .composition-primary {
+  width: 72%;
+  left: 5%;
+  top: 39%;
+  transform: rotate(-3deg);
+}
+.composition-tools .composition-secondary {
+  width: 38%;
+  left: auto;
+  right: -3%;
+  top: 15%;
+  transform: rotate(6deg);
+}
+.composition-tools .composition-copy {
+  width: 53%;
+}
+.composition-support {
+  background: var(--color-deep);
+  color: var(--color-paper);
+}
+.composition-support .composition-copy {
+  width: 29%;
+  top: 12%;
+}
+.composition-support .composition-title {
+  font-size: clamp(1.2rem, 6.4cqw, 4.7rem);
+}
+.composition-support .composition-primary {
+  width: 62%;
+  right: -3%;
+  top: 9%;
+  transform: rotate(-2deg);
+}
+.composition-support .composition-secondary {
+  width: 40%;
+  left: 7%;
+  top: 57%;
+  transform: rotate(3deg);
+}
+.composition-support .composition-footnote {
+  background: var(--color-deep);
+  color: var(--color-on-deep);
+}
+.composition-finance {
+  background: var(--color-rose);
+}
+.composition-finance .composition-copy {
+  left: auto;
+  right: 6%;
+  top: 9%;
+  width: 25%;
+}
+.composition-finance .composition-title {
+  font-size: clamp(1.2rem, 6.5cqw, 4.8rem);
+}
+.composition-finance .composition-detail {
+  display: none;
+}
+.composition-finance .composition-primary {
+  left: 5%;
+  right: auto;
+  top: 12%;
+  width: 63%;
+  transform: rotate(-3deg);
+}
+.composition-finance .composition-secondary {
+  left: auto;
+  right: 3%;
+  top: 60%;
+  width: 44%;
+  transform: rotate(4deg);
+}
+.composition-finance .composition-footnote {
+  background: var(--color-rose);
+}
+.composition-studio {
+  background: var(--color-wash);
+}
+.composition-studio .composition-primary {
+  width: 84%;
+  left: 7%;
+  right: auto;
+  top: 38%;
+  transform: rotate(-2deg);
+}
+.composition-studio .composition-secondary {
+  width: 29%;
+  top: 7%;
+  left: auto;
+  right: 3%;
+  transform: rotate(5deg);
+}
+.composition-studio .composition-copy {
+  width: 58%;
+  top: 8%;
+}
+.case-cover .product-composition {
+  aspect-ratio: 1.9;
+}
+.spotlight-work {
+  margin-top: clamp(6rem, 10vw, 10rem);
+}
+.spotlight-intro {
+  max-width: 55rem;
+  margin-bottom: 4rem;
+}
+.spotlight-intro h2 {
+  font-size: clamp(2.75rem, 6vw, 6rem);
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+}
+.spotlight-intro > p:last-child {
+  max-width: 33rem;
+  color: var(--color-muted);
+  margin-top: 1.75rem;
+}
+.spotlight-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  margin-bottom: 6rem;
+}
+.spotlight-copy h3 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.03;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+.spotlight-copy > p:not(.work-meta) {
+  color: var(--color-muted);
+  margin-top: 1.5rem;
+}
+.spotlight-copy ul {
+  padding-left: 1.15rem;
+  margin: 1.5rem 0;
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.spotlight-copy li::marker {
+  color: var(--color-accent);
+}
+.spotlight-stack {
+  font-size: 0.75rem;
+}
+.spotlight-copy .work-case-link {
+  margin-top: 1.75rem;
+}
+.spotlight-reconcileiq {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr);
+}
+.spotlight-reconcileiq .spotlight-media {
+  grid-column: 2;
+  grid-row: 1;
+}
+.spotlight-reconcileiq .spotlight-copy {
+  grid-column: 1;
+  grid-row: 1;
+}
+.spotlight-reimagined {
+  display: block;
+}
+.spotlight-reimagined .product-composition {
+  aspect-ratio: 1.9;
+}
+.spotlight-reimagined .spotlight-copy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4rem;
+  padding-top: 2rem;
+  align-items: start;
+}
+.spotlight-reimagined .spotlight-copy .work-meta {
+  grid-column: 1;
+}
+.spotlight-reimagined .spotlight-copy h3 {
+  grid-column: 1;
+}
+.spotlight-reimagined .spotlight-description {
+  grid-column: 2;
+  grid-row: 1/3;
+  margin-top: 0;
+}
+.spotlight-reimagined .spotlight-copy ul {
+  grid-column: 2;
+}
+.spotlight-reimagined .spotlight-copy > .spotlight-stack {
+  grid-column: 1;
+  grid-row: 3;
+  margin-top: 1rem;
+}
+.spotlight-reimagined .spotlight-copy .work-case-link {
+  grid-column: 1;
+  grid-row: 4;
+  margin-top: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .work-media-link:hover .composition-screen {
+    transition: transform 220ms var(--ease-out);
+  }
+  .work-media-link:hover .composition-primary {
+    transform: rotate(0);
+  }
+  .work-media-link:hover .composition-secondary {
+    transform: rotate(2deg);
+  }
+}
+html[data-input="keyboard"] .composition-screen {
+  transition: none !important;
+}
+@media (max-width: 768px) {
+  .case-cover .product-composition {
+    aspect-ratio: 1.4;
+  }
+  .composition-detail {
+    display: none;
+  }
+  .spotlight-card,
+  .spotlight-reconcileiq {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .spotlight-reimagined .product-composition {
+    aspect-ratio: 1.4;
+  }
+  .spotlight-reimagined .spotlight-copy {
+    display: block;
+    padding-top: 0;
+  }
+  .spotlight-reimagined .spotlight-copy > p:not(.work-meta) {
+    margin-top: 1.5rem;
+  }
+}
+/* Keep the case-study action clear of the finance artwork's upper-right title. */
+.spotlight-reconcileiq .work-open {
+  top: auto;
+  bottom: 1rem;
+}
+.composition-studio .composition-detail {
+  display: none;
+}

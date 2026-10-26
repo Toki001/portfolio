@@ -1,4 +1,4 @@
-import { featuredProjects } from "../../content/projects";
+import { featuredProjects, projects } from "../../content/projects";
 import type { Project } from "../../content/projects";
 import { ScrollText, SectionLabel } from "./ScrollText";
 import { Arrow } from "./Arrow";
@@ -111,6 +111,64 @@ export function Projects() {
             <FeaturedCard key={project.id} project={project} />
           ))}
         </div>
+      </div>
+      <div className="spotlight-work">
+        <div className="spotlight-intro" data-reveal="sequence" data-handoff>
+          <SectionLabel>Systems & tools</SectionLabel>
+          <h2>
+            <ScrollText accentEnd>Systems, in detail.</ScrollText>
+          </h2>
+          <p>
+            Support workflows, invoice reconciliation and a visual development
+            workspace.
+          </p>
+        </div>
+        {projects
+          .filter((p) => p.spotlight)
+          .map((project) => (
+            <article
+              className={`spotlight-card spotlight-${project.id}`}
+              key={project.id}
+              id={project.id}
+            >
+              <a
+                className="work-media-link spotlight-media"
+                href={`/projects/${project.slug}`}
+                data-pointer-surface="card"
+                data-reveal="media"
+              >
+                <div className="project-tilt" data-pointer-layer>
+                  <ProjectArtwork project={project} decorative />
+                </div>
+                <span className="sr-only">Read {project.title} case study</span>
+                <span className="work-open" aria-hidden="true">
+                  <Arrow />
+                </span>
+              </a>
+              <div className="spotlight-copy" data-reveal="sequence">
+                <p className="work-meta">
+                  <span>{project.index}</span>
+                  {project.category.toLowerCase()}
+                </p>
+                <h3>
+                  <ScrollText>{project.title}</ScrollText>
+                </h3>
+                <p className="spotlight-description">{project.description}</p>
+                <ul>
+                  {project.keyFeatures.slice(0, 2).map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+                <p className="spotlight-stack">{project.tags.join(" / ")}</p>
+                <a
+                  className="work-case-link"
+                  href={`/projects/${project.slug}`}
+                >
+                  Read case study <Arrow />
+                </a>
+              </div>
+            </article>
+          ))}
       </div>
       <div className="work-index-link" data-reveal>
         <p>There’s more behind the interface.</p>

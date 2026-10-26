@@ -47,3 +47,33 @@ test("explorer works on touch with accessible controls", async ({
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await context.close();
 });
+
+test("wide project spreads keep caption blocks from overlapping", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  for (const width of [1280, 1440, 1920]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto("/");
+    await page.evaluate(() => document.fonts.ready);
+    for (const card of await page.locator(".spotlight-copy").all()) {
+      const overlaps = await card.evaluate((el) => {
+        const boxes = [...el.children].map((child) =>
+          child.getBoundingClientRect(),
+        );
+        for (let i = 0; i < boxes.length; i++)
+          for (let j = i + 1; j < boxes.length; j++) {
+            const a = boxes[i],
+              b = boxes[j];
+            if (
+              Math.min(a.right, b.right) - Math.max(a.left, b.left) > 1 &&
+              Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 1
+            )
+              return true;
+          }
+        return false;
+      });
+      expect(overlaps).toBe(false);
+    }
+  }
+});

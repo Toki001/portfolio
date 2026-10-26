@@ -99,6 +99,23 @@ try {
         await p.screenshot({ path: `${root}/${name}-work-${index}.png` });
       }
     }
+    for (const slug of ["resolvehub", "reconcileiq", "reimagined"]) {
+      const card = p.locator(`.spotlight-${slug} .spotlight-media`);
+      if (await card.count()) {
+        await card.scrollIntoViewIfNeeded();
+        await p.waitForTimeout(750);
+        const box = await card.boundingBox();
+        if (!mobile && box) {
+          await p.mouse.move(
+            box.x + box.width * 0.6,
+            box.y + box.height * 0.5,
+            { steps: 12 },
+          );
+          await p.waitForTimeout(350);
+        }
+        await p.screenshot({ path: `${root}/${name}-spotlight-${slug}.png` });
+      }
+    }
     await p
       .getByRole("link", { name: "Explore all projects", exact: true })
       .click();

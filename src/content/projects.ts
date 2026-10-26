@@ -1,9 +1,11 @@
 import { additionalProjects } from "./additional-projects";
+import { projectMedia } from "./project-media";
 import { validateProjects } from "./validation";
 
 export type ProjectCategory =
   "Mobile" | "Web" | "AI / ML" | "Systems" | "Tools";
 export interface ProjectMedia {
+  thumbnail?: string;
   srcSet?: string;
   label?: string;
   src: string;
@@ -13,6 +15,12 @@ export interface ProjectMedia {
   caption: string;
 }
 export interface Project {
+  spotlight?: boolean;
+  artwork?: {
+    variant: "battle" | "tools" | "support" | "finance" | "studio";
+    title: string;
+    detail: string;
+  };
   id: string;
   slug: string;
   index: string;
@@ -89,6 +97,8 @@ export const projects: Project[] = [
         width: 390,
         height: 1447,
         caption: "Home screen. App test capture with fixture data.",
+        label: "Home",
+        thumbnail: "/projects/peso-flow-home-195.webp",
       },
       {
         src: "/projects/peso-flow-budgets.webp",
@@ -96,6 +106,8 @@ export const projects: Project[] = [
         width: 390,
         height: 1600,
         caption: "Budgets. App test capture with fixture data.",
+        label: "Budgets",
+        thumbnail: "/projects/peso-flow-budgets-195.webp",
       },
       {
         src: "/projects/peso-flow-analytics.webp",
@@ -103,11 +115,17 @@ export const projects: Project[] = [
         width: 390,
         height: 1600,
         caption: "Analytics. App test capture with fixture data.",
+        label: "Analytics",
       },
     ],
   },
   {
     id: "pokechamp",
+    artwork: {
+      variant: "battle",
+      title: "Plan your\nnext team.",
+      detail: "Team composition / coverage / meta snapshots",
+    },
     slug: "pokechamp",
     index: "02",
     title: "PokeChamp",
@@ -160,11 +178,19 @@ export const projects: Project[] = [
         height: 1100,
         caption:
           "Local team-building session with a sample roster. No team was submitted.",
+        label: "Team builder",
+        thumbnail: "/projects/pokechamp-800.webp",
       },
+      ...projectMedia.pokechamp,
     ],
   },
   {
     id: "pixeltools",
+    artwork: {
+      variant: "tools",
+      title: "Small edits.\nAll local.",
+      detail: "Crop / resize / rotate",
+    },
     slug: "pixeltools",
     index: "03",
     title: "PixelTools",
@@ -213,11 +239,14 @@ export const projects: Project[] = [
     media: [
       {
         src: "/projects/pixeltools.webp",
-        alt: "PixelTools fullstack responsive web dashboard",
+        alt: "PixelTools directory of browser-based image utilities",
         width: 960,
         height: 782,
         caption: "Actual tool directory retained from the original portfolio.",
+        label: "Tool directory",
+        thumbnail: "/projects/pixeltools-640.webp",
       },
+      ...projectMedia.pixeltools,
     ],
   },
   {
@@ -235,14 +264,14 @@ export const projects: Project[] = [
     },
     problem: "Recognize guests and employees in a visitor workflow.",
     solution:
-      "The existing portfolio describes a facial recognition project using TypeScript, FastAPI, MediaMTX and SQL.",
+      "The public source contains a React client for camera, personnel, event and attendance views, with FastAPI and MediaMTX service code. The captured SecureSight interface is an isolated client preview with empty fixture data.",
     architecture: [],
     keyFeatures: [],
     challenges:
-      "A detailed implementation walkthrough requires source and owned interface media that are not present in this checkout.",
+      "The client views can be inspected without collecting any person's image or attendance record. Live camera feeds, backend authorization and recognition quality were not exercised in the isolated preview.",
     results:
-      "Retained as a project note from the original portfolio. Deployment, model accuracy and production use have not been independently verified.",
-    media: [],
+      "Retained as a project note with three actual empty client views. No connected camera, biometric result, deployment or production-use claim follows from these captures.",
+    media: projectMedia["guest-reco"],
   },
   ...additionalProjects,
 ];

@@ -31,7 +31,7 @@ try {
     p.on("pageerror", (e) => errors.push(e.message));
     await p.goto("http://127.0.0.1:4188/projects");
     await p.waitForTimeout(900);
-    await p.screenshot({ path: `${root}/${name}-index.png`, fullPage: true });
+    await p.screenshot({ path: `${root}/${name}-index.png`, fullPage: false });
     for (const category of ["Systems", "Tools", "All"]) {
       await p.getByRole("button", { name: category, exact: true }).click();
       await p.waitForTimeout(500);

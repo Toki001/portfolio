@@ -33,6 +33,17 @@ export function MediaGallery({ project }: { project: Project }) {
     );
   }, [active]);
   const titleId = useId();
+  const touch = useRef<{ id: number; x: number; y: number } | null>(null);
+  const pages = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const rail = pages.current,
+      button = rail?.querySelector<HTMLButtonElement>(
+        'button[aria-pressed="true"]',
+      );
+    if (rail && button)
+      rail.scrollLeft =
+        button.offsetLeft - (rail.clientWidth - button.offsetWidth) / 2;
+  }, [active, enhanced]);
   const count = project.media.length;
   useEffect(() => {
     setEnhanced(true);
@@ -101,11 +112,44 @@ export function MediaGallery({ project }: { project: Project }) {
       </div>
       <figure>
         <div
-          className={`gallery-image ${project.kind === "Mobile" ? "gallery-image-mobile" : ""}`}
+          className={`gallery-image ${project.kind === "Mobile" ? "gallery-image-mobile" : "gallery-image-web"}`}
+          style={
+            project.kind === "Mobile"
+              ? undefined
+              : {
+                  aspectRatio: Math.max(
+                    0.9,
+                    Math.min(
+                      1.7,
+                      ...project.media.map((m) => m.width / m.height),
+                    ),
+                  ),
+                }
+          }
+          onPointerDown={(e) => {
+            if (e.pointerType === "touch" && e.isPrimary) {
+              touch.current = { id: e.pointerId, x: e.clientX, y: e.clientY };
+              e.currentTarget.setPointerCapture(e.pointerId);
+            }
+          }}
+          onPointerCancel={() => {
+            touch.current = null;
+          }}
+          onPointerUp={(e) => {
+            const start = touch.current;
+            touch.current = null;
+            if (!start || start.id !== e.pointerId || count < 2) return;
+            const dx = e.clientX - start.x,
+              dy = e.clientY - start.y;
+            if (Math.abs(dx) > 50 && Math.abs(dy) < Math.abs(dx) * 0.5)
+              change(active + (dx < 0 ? 1 : -1));
+          }}
         >
           <img
             ref={image}
             src={media.src}
+            srcSet={media.srcSet}
+            sizes="(max-width:600px) 90vw, (max-width:1024px) 85vw, 1100px"
             alt={media.alt}
             width={media.width}
             height={media.height}
@@ -129,17 +173,30 @@ export function MediaGallery({ project }: { project: Project }) {
           </button>
           <div
             className="gallery-pages"
+            ref={pages}
             role="group"
             aria-label="Choose screenshot"
           >
-            {project.media.map((_, i) => (
+            {project.media.map((item, i) => (
               <button
                 key={i}
-                aria-label={`Screenshot ${String(i + 1).padStart(2, "0")}`}
+                aria-label={`Screenshot ${String(i + 1).padStart(2, "0")}: ${item.label ?? `View ${i + 1}`}`}
+                className="gallery-thumb"
                 aria-pressed={active === i}
                 onClick={() => change(i)}
               >
-                {String(i + 1).padStart(2, "0")}
+                <img
+                  src={item.thumbnail ?? item.src}
+                  width={160}
+                  height={100}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span>
+                  <span>{String(i + 1).padStart(2, "0")}</span>{" "}
+                  {item.label ?? `View ${i + 1}`}
+                </span>
               </button>
             ))}
           </div>

@@ -1,4 +1,38 @@
-import type { Project } from "../../content/projects";
+import type { Project, ProjectMedia } from "../../content/projects";
+
+function Screen({
+  media,
+  priority,
+  className,
+}: {
+  media: ProjectMedia;
+  priority: boolean;
+  className: string;
+}) {
+  return (
+    <div className={`composition-screen ${className}`}>
+      <div className="screen-topbar" aria-hidden="true">
+        <span className="screen-dots">
+          <i />
+          <i />
+          <i />
+        </span>
+        <span>{media.label}</span>
+      </div>
+      <img
+        src={media.src}
+        srcSet={media.srcSet}
+        sizes="(max-width:600px) 75vw, (max-width:1024px) 50vw, 850px"
+        alt={media.alt}
+        width={media.width}
+        height={media.height}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : undefined}
+        decoding="async"
+      />
+    </div>
+  );
+}
 
 export function ProjectArtwork({
   project,
@@ -10,6 +44,47 @@ export function ProjectArtwork({
   priority?: boolean;
 }) {
   const cover = project.media[0];
+  if (project.artwork && project.media.length >= 3) {
+    const { variant, title, detail } = project.artwork;
+    const primary =
+      project.media[variant === "tools" ? 1 : variant === "finance" ? 2 : 0];
+    const secondary =
+      project.media[
+        variant === "tools"
+          ? 2
+          : variant === "support" || variant === "finance"
+            ? 1
+            : 2
+      ];
+    return (
+      <div
+        className={`work-artwork product-composition composition-${variant}`}
+        aria-hidden={decorative || undefined}
+      >
+        <div className="composition-copy" aria-hidden="true">
+          <span className="composition-title">{title}</span>
+          <span className="composition-detail">{detail}</span>
+        </div>
+        <Screen
+          media={primary}
+          priority={priority}
+          className="composition-primary"
+        />
+        <Screen
+          media={secondary}
+          priority={false}
+          className="composition-secondary"
+        />
+        <span className="composition-footnote">
+          {project.id === "reimagined"
+            ? "Actual app / original fixture"
+            : project.kind === "Systems"
+              ? "Actual app / demo data"
+              : "Actual application views"}
+        </span>
+      </div>
+    );
+  }
   if (project.id === "peso-flow")
     return (
       <div

@@ -15,9 +15,10 @@
     "test:unit": "node --experimental-strip-types --test tests/content.test.mjs",
     "format": "prettier --write src scripts tests playwright.config.ts vite.config.ts tailwind.config.js postcss.config.js package.json vercel.json",
     "format:check": "prettier --check src scripts tests playwright.config.ts vite.config.ts tailwind.config.js postcss.config.js package.json vercel.json",
-    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run test:unit && npm run build && npm run check:seo && npm test",
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run test:unit && npm run build && npm run check:seo && npm run check:media && npm test",
     "measure": "npm run build && node scripts/measure.mjs",
-    "profile:motion": "node scripts/profile-motion.mjs"
+    "profile:motion": "node scripts/profile-motion.mjs",
+    "check:media": "node scripts/check-project-media.mjs"
   },
   "dependencies": {
     "autoprefixer": "^10.6.1",
