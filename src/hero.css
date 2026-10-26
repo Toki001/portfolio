@@ -71,9 +71,11 @@
   align-self: end;
 }
 .portrait-stage {
-  padding: 0.625rem;
+  --portrait-inset: 0.625rem;
+  --portrait-radius: 1.75rem;
+  padding: var(--portrait-inset);
   border: 1px solid var(--color-line);
-  border-radius: 1.75rem;
+  border-radius: var(--portrait-radius);
   position: relative;
   isolation: isolate;
   aspect-ratio: 0.83;
@@ -246,7 +248,9 @@
 
 /* Soft inset framing, with a responsive original photograph at every density. */
 .portrait-image {
-  border-radius: 1.125rem;
+  position: absolute;
+  inset: var(--portrait-inset);
+  border-radius: calc(var(--portrait-radius) - var(--portrait-inset));
   overflow: hidden;
 }
 .portrait-image picture {
@@ -255,19 +259,12 @@
   height: 100%;
 }
 .portrait-stage .portrait-curtain {
-  inset: 0.625rem;
-  border-radius: 1.125rem;
+  inset: var(--portrait-inset);
+  border-radius: calc(var(--portrait-radius) - var(--portrait-inset));
 }
 @media (max-width: 600px) {
   .portrait-stage {
-    padding: 0.5rem;
-    border-radius: 1.5rem;
-  }
-  .portrait-image {
-    border-radius: 0.95rem;
-  }
-  .portrait-stage .portrait-curtain {
-    inset: 0.5rem;
-    border-radius: 0.95rem;
+    --portrait-inset: 0.5rem;
+    --portrait-radius: 1.5rem;
   }
 }

@@ -9,14 +9,15 @@ const xml = (value) =>
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
-// Original “t.” mark mirrors the ink wordmark and its red full stop at small sizes.
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="#FFFFFF" stroke="#011936" stroke-width="2"/><path d="M24 13h8v10h10v8H32v12c0 5 2 7 8 5v8c-12 3-16-2-16-12V31h-8v-8h8z" fill="#011936"/><circle cx="49" cy="50" r="5" fill="#890620"/></svg>`;
+// Original tk monogram: white lettering, navy tile and the toki. burgundy full stop.
+const favicon = await readFile("src/brand/toki-symbol.svg", "utf8");
+await writeFile("public/toki-icon.svg", favicon);
 await writeFile("public/favicon.svg", favicon);
 for (const [file, size] of [
-  ["favicon-32x32.png", 32],
-  ["apple-touch-icon.png", 180],
-  ["icon-192.png", 192],
-  ["icon-512.png", 512],
+  ["toki-icon-32.png", 32],
+  ["toki-apple-touch-icon.png", 180],
+  ["toki-icon-192.png", 192],
+  ["toki-icon-512.png", 512],
 ]) {
   await sharp(Buffer.from(favicon))
     .resize(size, size)
@@ -44,20 +45,37 @@ icons.forEach((png, i) => {
   offset += png.length;
 });
 await writeFile("public/favicon.ico", Buffer.concat([header, ...icons]));
+await writeFile("public/toki-icon.ico", Buffer.concat([header, ...icons]));
+// Conventional discovery paths still resolve for bookmarks and older clients.
+await writeFile(
+  "public/favicon-32x32.png",
+  await readFile("public/toki-icon-32.png"),
+);
+await writeFile(
+  "public/apple-touch-icon.png",
+  await readFile("public/toki-apple-touch-icon.png"),
+);
+await writeFile(
+  "public/toki-mask.svg",
+  favicon
+    .replace(/^[ \t]*<rect[^>]*\/>\r?\n/m, "")
+    .replace(/#[0-9a-f]{6}/gi, "#000000"),
+);
 await writeFile(
   "public/site.webmanifest",
   JSON.stringify(
     {
-      name: `${identity.name} — Portfolio`,
-      short_name: `${identity.wordmark}. Portfolio`,
+      id: "/",
+      name: `${identity.wordmark}. — ${identity.name}`,
+      short_name: `${identity.wordmark}.`,
       start_url: "/",
       scope: "/",
       display: "browser",
       background_color: "#FFFFFF",
       theme_color: "#FFFFFF",
       icons: [
-        { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
-        { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+        { src: "/toki-icon-192.png", sizes: "192x192", type: "image/png" },
+        { src: "/toki-icon-512.png", sizes: "512x512", type: "image/png" },
       ],
     },
     null,

@@ -88,105 +88,99 @@ export const siteConfig = {
       proofProject: "peso-flow",
       title: "Cross-Platform Mobile",
       description:
-        "Multi-platform client engineering with fluid animations, local SQLite databases, reactive state loops, and hardware sensor integrations.",
-      tags: ["Flutter", "Dart", "Riverpod", "Drift", "Hive"],
+        "Flutter applications with Riverpod state, typed local storage and receipt capture. PesoFlow keeps financial records in an encrypted local workspace backed by Drift and SQLite.",
+      tags: ["Flutter", "Dart", "Riverpod", "Drift", "SQLite"],
     },
     {
       index: "02",
       proofProject: "pixeltools",
       title: "Modern Web Development",
       description:
-        "Fast, accessible interfaces built on component composition, strict TypeScript typing, and atomic utility CSS design systems.",
-      tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML5/CSS3"],
+        "React interfaces with TypeScript and Tailwind, from PixelTools’ browser-based image tools to Next.js dashboards. Vite powers smaller applications and interactive frontends.",
+      tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vite"],
     },
     {
       index: "03",
       proofProject: "resolvehub",
-      title: "Backend & Cloud Services",
+      title: "APIs & Application Services",
       description:
-        "RESTful APIs, relational databases, serverless functions, authentication guards, and low-latency transactional storage.",
-      tags: ["Node.js", "Supabase", "PostgreSQL", "Firebase", "REST APIs"],
+        "Python and TypeScript services using FastAPI and NestJS. ResolveHub and ReconcileIQ connect REST and GraphQL interfaces to authentication, document workflows and background jobs.",
+      tags: ["Python", "FastAPI", "Node.js", "NestJS", "GraphQL"],
     },
     {
       index: "04",
       proofProject: "guest-reco",
-      title: "AI & Machine Learning",
+      title: "Computer Vision & Machine Learning",
       description:
-        "Supervised model training, computer vision pipelines, quantization for edge inference, and integration with intelligent LLM APIs.",
-      tags: ["TensorFlow", "TFLite", "Python", "OpenCV", "scikit-learn"],
+        "Image classification experiments in PyTorch and TensorFlow, with OpenCV preprocessing and classification reports. GuestReco applies face embeddings and ONNX inference to visitor recognition.",
+      tags: ["PyTorch", "TensorFlow", "OpenCV", "ONNX Runtime", "scikit-learn"],
     },
     {
       index: "05",
-      proofProject: "reimagined",
-      title: "DevOps, Version Control & Quality",
+      proofProject: "reconcileiq",
+      title: "Databases & Persistence",
       description:
-        "Git branching hygiene, automated continuous deployment workflows, containerized environments, and contract API testing.",
+        "Relational data and migrations with PostgreSQL, Drizzle and SQLAlchemy. GuestReco uses MySQL for visitor records; ResolveHub uses Redis with BullMQ for queued work.",
+      tags: ["PostgreSQL", "MySQL", "Drizzle ORM", "SQLAlchemy", "Redis"],
+    },
+    {
+      index: "06",
+      proofProject: "reimagined",
+      title: "Testing & Delivery",
+      description:
+        "Browser checks with Playwright, TypeScript unit tests with Vitest and Python tests with pytest. Docker Compose defines local services, with GitHub Actions running repository checks.",
       tags: [
         "Git",
         "GitHub Actions",
         "Docker",
-        "Postman",
-        "VS Code",
-        "Linux CLI",
-      ],
-    },
-    {
-      index: "06",
-      proofProject: "reconcileiq",
-      title: "System Architecture & Optimization",
-      description:
-        "Clean architectural design patterns, state management boundaries, offline-first caching strategies, and runtime performance profiling.",
-      tags: [
-        "Clean Architecture",
-        "Offline-First",
-        "Performance Profiling",
-        "Design Systems",
-        "REST / GraphQL",
+        "Playwright",
+        "Vitest",
+        "pytest",
       ],
     },
   ],
   tools: [
     {
       id: "editor",
-      name: "VS Code & Antigravity",
+      name: "Flutter & Dart",
       description:
-        "Primary code editing environment with Dart, Flutter & Tailwind language servers",
-      categoryLabel: "AUTHORING",
+        "Mobile interfaces, Riverpod state and local financial records in PesoFlow.",
+      categoryLabel: "MOBILE",
     },
     {
       id: "vcs",
-      name: "GitHub & Git CLI",
+      name: "GitHub & Git",
       description:
-        "Distributed version control, continuous integration runners, and issue milestones",
+        "Versioned project source and GitHub Actions workflows for build and test checks.",
       categoryLabel: "REPOSITORY",
     },
     {
-      id: "design",
-      name: "Figma & Stitch",
+      id: "quality",
+      name: "Playwright & Vitest",
       description:
-        "Mobile app prototyping, design tokens, wireframing, and interactive components",
-      categoryLabel: "DESIGN",
+        "Browser interaction coverage and TypeScript unit tests in PixelTools and Reimagined.",
+      categoryLabel: "TESTING",
     },
     {
       id: "db",
-      name: "Supabase & Firebase Console",
+      name: "PostgreSQL & Drizzle",
       description:
-        "Cloud database orchestration, authentication rules, storage buckets, and realtime channels",
-      categoryLabel: "CLOUD DB",
+        "Typed relational schemas, queries and migrations in ResolveHub and Reimagined.",
+      categoryLabel: "DATA",
     },
     {
       id: "ai",
-      name: "Codex, Claude & Gemini",
+      name: "Jupyter & PyTorch",
       description:
-        "Architecture formulation, edge-case analysis, documentation writing, and prototype synthesis",
-      categoryLabel: "SYNTHESIS",
+        "Rice-leaf classification notebooks with image augmentation, model training and evaluation.",
+      categoryLabel: "RESEARCH",
     },
     {
       id: "api",
-      name: "Postman",
+      name: "FastAPI & NestJS",
       description:
-        "REST endpoint assertions, header authorization testing, and schema validation",
-      categoryLabel: "TESTING",
+        "Python and TypeScript API services for GuestReco, ReconcileIQ and ResolveHub.",
+      categoryLabel: "SERVICES",
     },
   ],
   about: {

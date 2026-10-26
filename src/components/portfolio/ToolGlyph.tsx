@@ -20,12 +20,11 @@ export function ToolGlyph({ kind }: { kind: string }) {
             <circle cx="34" cy="96" r="9" />
             <circle cx="86" cy="24" r="9" className="glyph-accent" />
           </>
-        ) : kind === "design" ? (
+        ) : kind === "quality" ? (
           <>
-            <rect x="18" y="18" width="48" height="48" rx="3" />
-            <circle cx="77" cy="77" r="26" />
-            <path d="m76 18 26 26M91 18h11v11" />
-            <circle cx="66" cy="66" r="6" className="glyph-accent" />
+            <rect x="16" y="24" width="88" height="72" rx="8" />
+            <path d="M16 42h88m-60 25 12 12 24-24" />
+            <circle cx="29" cy="33" r="3" className="glyph-accent" />
           </>
         ) : kind === "db" ? (
           <>

@@ -659,14 +659,6 @@ html[data-input="keyboard"] .tool-row::before {
   width: 1.4rem;
   height: 1.4rem;
 }
-.tech-mark-pair {
-  display: flex;
-  gap: 0.1rem;
-}
-.tech-mark-pair img {
-  width: 0.85rem;
-  height: 1.1rem;
-}
 .tech-name {
   min-width: 0;
   overflow-wrap: anywhere;

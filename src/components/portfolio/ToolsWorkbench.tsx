@@ -39,7 +39,9 @@ export function ToolsWorkbench() {
             The workbench<span className="heading-period">.</span>
           </TextMask>
         </h2>
-        <p>A few familiar tools, from the first sketch to the last test.</p>
+        <p>
+          The tools behind my mobile apps, web services and vision projects.
+        </p>
       </div>
       <div className="workbench-layout">
         <aside className="workbench-stage" aria-hidden="true">

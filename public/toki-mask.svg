@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">toki. — tk monogram</title>
+  <g fill="#000000" transform="translate(1 2) scale(.86)">
+    <path d="M17 13h7v11h9v7h-9v12c0 4 2 5 7 4v7c-10 2-14-2-14-10V31h-5v-7h5z"/>
+    <path d="M35 13h7v22l9-11h9L48 38l13 16H51L42 43v11h-7z"/>
+  </g>
+  <circle cx="53" cy="52" r="6" fill="#000000"/>
+  <circle cx="53" cy="52" r="4" fill="#000000"/>
+</svg>

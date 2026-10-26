@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-27",
+  "owner": "Toki001",
+  "scope": "Read-only connected GitHub inspection. 19 public repository roots reviewed; actual manifests, source and tests below substantiate published labels. Dependency presence is project experience evidence, not a proficiency rating, production usage claim or proof of exclusive authorship.",
+  "publicRepositories": [
+    "Toki001/terraria-config-generator",
+    "Toki001/hardware_price_tracker",
+    "Toki001/full",
+    "Toki001/reimagined",
+    "Toki001/pixeltools",
+    "Toki001/pokechamp",
+    "Toki001/thesis",
+    "Toki001/portfolio",
+    "Toki001/ajb-heating-plumbing",
+    "Toki001/multimodal-rag-dashboard",
+    "Toki001/resolvehub",
+    "Toki001/reconcileIQ",
+    "Toki001/projectmilestonelog",
+    "Toki001/guest-reco",
+    "Toki001/tracker-v1",
+    "Toki001/IVA",
+    "Toki001/Toki001",
+    "Toki001/pesoflow",
+    "Toki001/guest-detector"
+  ],
+  "files": [
+    {
+      "repo": "Toki001/Toki001",
+      "path": "README.md",
+      "url": "https://github.com/Toki001/Toki001/blob/main/README.md",
+      "gitBlob": "0b04398d73f79ead75d8bb004ccde93651f6463f"
+    },
+    {
+      "repo": "Toki001/pesoflow",
+      "path": "mobile/pubspec.yaml",
+      "url": "https://github.com/Toki001/pesoflow/blob/main/mobile/pubspec.yaml",
+      "gitBlob": "787679ef37d0d9e8662e88595a8886d9c471d56c"
+    },
+    {
+      "repo": "Toki001/pesoflow",
+      "path": "mobile/lib/core/storage/finance_database.dart",
+      "url": "https://github.com/Toki001/pesoflow/blob/main/mobile/lib/core/storage/finance_database.dart",
+      "gitBlob": "14f4e103b2f1ae03a7fe834cc199620da5504689"
+    },
+    {
+      "repo": "Toki001/pixeltools",
+      "path": "package.json",
+      "url": "https://github.com/Toki001/pixeltools/blob/main/package.json",
+      "gitBlob": "06a9e47b48a43ed9a81c72f46ea08c456825867c"
+    },
+    {
+      "repo": "Toki001/resolvehub",
+      "path": "services/api/package.json",
+      "url": "https://github.com/Toki001/resolvehub/blob/main/services/api/package.json",
+      "gitBlob": "6c3ae0234cfa50fa335293ba7711856f874d06f9"
+    },
+    {
+      "repo": "Toki001/resolvehub",
+      "path": "packages/db/package.json",
+      "url": "https://github.com/Toki001/resolvehub/blob/main/packages/db/package.json",
+      "gitBlob": "e8250dbb0bbb22bab62d1da22c67004fb4bb23c2"
+    },
+    {
+      "repo": "Toki001/resolvehub",
+      "path": "services/worker/package.json",
+      "url": "https://github.com/Toki001/resolvehub/blob/main/services/worker/package.json",
+      "gitBlob": "6d08e6eaf700415a8212de858684c8a39fe50f88"
+    },
+    {
+      "repo": "Toki001/resolvehub",
+      "path": ".github/workflows/ci.yml",
+      "url": "https://github.com/Toki001/resolvehub/blob/main/.github/workflows/ci.yml",
+      "gitBlob": "9a8185fb50c20801e4ad12d406d892ca876419b6"
+    },
+    {
+      "repo": "Toki001/reconcileIQ",
+      "path": "services/api/pyproject.toml",
+      "url": "https://github.com/Toki001/reconcileIQ/blob/main/services/api/pyproject.toml",
+      "gitBlob": "64c8e899cc706f1098ffcb89e01c45761ea62bc6"
+    },
+    {
+      "repo": "Toki001/reconcileIQ",
+      "path": "packages/database/pyproject.toml",
+      "url": "https://github.com/Toki001/reconcileIQ/blob/main/packages/database/pyproject.toml",
+      "gitBlob": "3a0dd0663cd17b2acca18e042d944084dddfa4d4"
+    },
+    {
+      "repo": "Toki001/reconcileIQ",
+      "path": "tests/test_money.py",
+      "url": "https://github.com/Toki001/reconcileIQ/blob/main/tests/test_money.py",
+      "gitBlob": "36d97b4151f467137e0f6c73178397eb1a4b4a00"
+    },
+    {
+      "repo": "Toki001/reimagined",
+      "path": "package.json",
+      "url": "https://github.com/Toki001/reimagined/blob/main/package.json",
+      "gitBlob": "4789a472a1fc953116aa4685feab0da6bde8e565"
+    },
+    {
+      "repo": "Toki001/reimagined",
+      "path": "tests/tab-drafts.test.ts",
+      "url": "https://github.com/Toki001/reimagined/blob/main/tests/tab-drafts.test.ts",
+      "gitBlob": "5a888b4147399724ae6714a82dc2f78024575cd0"
+    },
+    {
+      "repo": "Toki001/guest-reco",
+      "path": "backend/requirements.txt",
+      "url": "https://github.com/Toki001/guest-reco/blob/main/backend/requirements.txt",
+      "gitBlob": "7e4e263ea49763fa3c7be468a9274c9ba7fd0fde"
+    },
+    {
+      "repo": "Toki001/guest-reco",
+      "path": "frontend/package.json",
+      "url": "https://github.com/Toki001/guest-reco/blob/main/frontend/package.json",
+      "gitBlob": "6084f74d9015d4f25b82701e3dc45e342bf878e2"
+    },
+    {
+      "repo": "Toki001/thesis",
+      "path": "EfficientNet-B0.ipynb",
+      "url": "https://github.com/Toki001/thesis/blob/main/EfficientNet-B0.ipynb",
+      "gitBlob": "33e39b1e42618a1e9dabcf25560ca6c799afd1ae"
+    },
+    {
+      "repo": "Toki001/thesis",
+      "path": "Thesis_Torch-based.ipynb",
+      "url": "https://github.com/Toki001/thesis/blob/main/Thesis_Torch-based.ipynb",
+      "gitBlob": "607a9170afdaed8b7bac043c7ceadaa2fed0e7b2"
+    },
+    {
+      "repo": "Toki001/guest-reco",
+      "path": "backend/services/face_engine.py",
+      "url": "https://github.com/Toki001/guest-reco/blob/main/backend/services/face_engine.py",
+      "gitBlob": "50afc22ec5107f955d13c4480b5cbd1c7e32cbe7"
+    },
+    {
+      "repo": "Toki001/resolvehub",
+      "path": "services/worker/src/application.ts",
+      "url": "https://github.com/Toki001/resolvehub/blob/main/services/worker/src/application.ts",
+      "gitBlob": "44c361407daba355230e4d34bb40e7d8b09cd462"
+    },
+    {
+      "repo": "Toki001/reimagined",
+      "path": "tests/e2e/public.spec.ts",
+      "url": "https://github.com/Toki001/reimagined/blob/main/tests/e2e/public.spec.ts",
+      "gitBlob": "0a6691a62ac67de6bedd66219ec35b6e428428c2"
+    },
+    {
+      "repo": "Toki001/terraria-config-generator",
+      "path": "package.json",
+      "url": "https://github.com/Toki001/terraria-config-generator/blob/main/package.json",
+      "gitBlob": "7b1cabf9b443aa7f251cdb09907c528db0044fd5"
+    },
+    {
+      "repo": "Toki001/pesoflow",
+      "path": "mobile/lib/main.dart",
+      "url": "https://github.com/Toki001/pesoflow/blob/main/mobile/lib/main.dart",
+      "gitBlob": "107dd380c24dc8cf8f7461ba09508143344d1955"
+    },
+    {
+      "repo": "Toki001/reimagined",
+      "path": "compose.yaml",
+      "url": "https://github.com/Toki001/reimagined/blob/main/compose.yaml",
+      "gitBlob": "239f357b028a111fd126a570f44e88bbb333017c"
+    },
+    {
+      "repo": "Toki001/resolvehub",
+      "path": "docker-compose.yml",
+      "url": "https://github.com/Toki001/resolvehub/blob/main/docker-compose.yml",
+      "gitBlob": "464133e20016b8ceda5adb15d5f1c1dd12f2aa96"
+    }
+  ],
+  "publishedStack": [
+    "Flutter",
+    "Dart",
+    "Riverpod",
+    "Drift",
+    "SQLite",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Vite",
+    "Python",
+    "FastAPI",
+    "Node.js",
+    "NestJS",
+    "GraphQL",
+    "PyTorch",
+    "TensorFlow",
+    "OpenCV",
+    "ONNX Runtime",
+    "scikit-learn",
+    "PostgreSQL",
+    "MySQL",
+    "Drizzle ORM",
+    "SQLAlchemy",
+    "Redis",
+    "Git",
+    "GitHub Actions",
+    "Docker",
+    "Playwright",
+    "Vitest",
+    "pytest"
+  ],
+  "removedUnverifiedClaims": [
+    "Hardware sensor integrations",
+    "Serverless functions",
+    "Low-latency transactional storage",
+    "Edge quantization in this generic capability list",
+    "Runtime performance profiling",
+    "Continuous deployment as a general skill claim"
+  ],
+  "removedOrReplacedLabels": [
+    "Hive",
+    "Firebase",
+    "Supabase",
+    "Postman",
+    "VS Code & Antigravity",
+    "Figma & Stitch",
+    "Codex, Claude & Gemini"
+  ],
+  "notes": [
+    "Supabase is present in Pokechamp; omitted from the focused core skill list rather than declared absent.",
+    "Prior CLI/editor/design/assistant use was not inferred from repository dependency lists.",
+    "No new unverified metrics or project completion claims. Public source was not executed."
+  ]
+}
