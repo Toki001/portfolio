@@ -51,6 +51,22 @@ try {
         .click();
     }
     await p.waitForTimeout(850);
+    const scene = p.getByRole("navigation", {
+      name: "Featured project navigation",
+    });
+    if (await scene.isVisible()) {
+      await scene.getByRole("button", { name: "Show 01 PesoFlow" }).click();
+      await p.waitForTimeout(600);
+      const b = await p.locator("#peso-flow .work-media-link").boundingBox();
+      if (b) {
+        await p.mouse.move(b.x + b.width * 0.3, b.y + b.height * 0.4);
+        await p.mouse.move(b.x + b.width * 0.7, b.y + b.height * 0.6, {
+          steps: 20,
+        });
+        await p.waitForTimeout(350);
+      }
+    }
+
     await p.screenshot({ path: `${root}/${name}-work.png` });
     for (let i = 0; i < 6; i++) {
       await p.mouse.wheel(0, 260);

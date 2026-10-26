@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { projects } from "../../content/projects";
 import { ProjectArtwork } from "./ProjectArtwork";
 import { Arrow } from "./Arrow";
+import { useProjectReflow } from "../../hooks/useProjectReflow";
 const categories = ["All", ...new Set(projects.map((p) => p.kind))];
 function readCategory() {
   const value = new URLSearchParams(location.search).get("category") ?? "All";
@@ -10,6 +11,7 @@ function readCategory() {
 export function ProjectExplorer() {
   const [category, setCategory] = useState("All");
   const [enhanced, setEnhanced] = useState(false);
+  const reflow = useProjectReflow(category);
   useEffect(() => {
     setEnhanced(true);
     setCategory(readCategory());
@@ -43,7 +45,8 @@ export function ProjectExplorer() {
           <button
             key={value}
             aria-pressed={category === value}
-            onClick={() => {
+            onClick={(event) => {
+              reflow.capture(event.detail !== 0);
               setCategory(value);
               const url = new URL(location.href);
               if (value === "All") url.searchParams.delete("category");
@@ -58,15 +61,21 @@ export function ProjectExplorer() {
       <p className="filter-result" role="status">
         {filtered.length} {filtered.length === 1 ? "project" : "projects"}
       </p>
-      <div className="explorer-grid">
+      <div className="explorer-grid" ref={reflow.ref}>
         {filtered.map((project, index) => (
           <article key={project.id} className="explorer-card">
-            <a className="work-media-link" href={`/projects/${project.slug}`}>
-              <ProjectArtwork
-                project={project}
-                decorative
-                priority={index === 0}
-              />
+            <a
+              className="work-media-link"
+              href={`/projects/${project.slug}`}
+              data-pointer-surface="card"
+            >
+              <div className="project-tilt" data-pointer-layer>
+                <ProjectArtwork
+                  project={project}
+                  decorative
+                  priority={index === 0}
+                />
+              </div>
               <span className="sr-only">Explore {project.title}</span>
             </a>
             <div className="explorer-caption">

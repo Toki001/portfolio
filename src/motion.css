@@ -165,3 +165,145 @@ html[data-motion="full"] .portrait-curtains {
     transform: none !important;
   }
 }
+/* Signature 2: normal document flow becomes a short native sticky project stack. */
+.scene-marker,
+.scene-toolbar,
+.scene-stack {
+  display: none;
+}
+.scene-controls[hidden] {
+  display: none;
+}
+.project-tilt {
+  transform-origin: center;
+}
+.explorer-card {
+  transform-origin: top left;
+}
+@media (min-width: 1100px) and (min-height: 720px) and (hover: hover) and (pointer: fine) {
+  html[data-motion="full"] .project-deck {
+    position: relative;
+    isolation: isolate;
+    --scene-top: 10rem;
+  }
+  html[data-motion="full"] .scene-marker {
+    display: block;
+    height: 0;
+    pointer-events: none;
+  }
+  html[data-motion="full"] .scene-toolbar {
+    display: block;
+    position: sticky;
+    top: 96px;
+    z-index: 10;
+    min-height: 64px;
+    background: var(--color-paper);
+    padding-block: 8px;
+  }
+  .scene-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .scene-count {
+    margin-right: auto;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .scene-controls button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-line);
+    border-radius: 2rem;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-size: 0.85rem;
+  }
+  .scene-controls button[aria-pressed="true"] {
+    background: var(--color-accent);
+    color: var(--color-paper);
+    border-color: var(--color-accent);
+  }
+  html[data-motion="full"] .project-deck .work-pair {
+    display: contents;
+  }
+  html[data-motion="full"] .project-deck .featured-card {
+    position: sticky;
+    top: var(--scene-top);
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+    padding: 1.5rem;
+    margin: 0 0 2.5rem;
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-media);
+    min-height: min(35rem, calc(100svh - 12rem));
+    box-shadow: 0 -12px 28px -28px var(--color-overlay);
+    transform-origin: center top;
+  }
+  html[data-motion="full"] .project-deck .work-caption {
+    display: block;
+    padding: 1rem 1.5rem 1rem 0;
+  }
+  html[data-motion="full"] .project-deck .work-caption h3 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+  }
+  html[data-motion="full"] .project-deck .work-summary {
+    margin-top: 1.5rem;
+  }
+  html[data-motion="full"] .project-deck .work-case-link {
+    margin-top: 2rem;
+  }
+  html[data-motion="full"] .scene-stack {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    gap: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin: 1.5rem 0 0;
+  }
+  html[data-motion="full"] .project-deck .work-artwork {
+    aspect-ratio: 1.2;
+  }
+  html[data-motion="full"] .project-deck .mobile-artwork-copy {
+    top: 7%;
+    left: 7%;
+    width: 70%;
+    gap: 1rem;
+  }
+  html[data-motion="full"] .project-deck .mobile-artwork-copy > span {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+  html[data-motion="full"] .project-deck .mobile-artwork-copy > small {
+    display: none;
+  }
+  html[data-motion="full"] .project-deck .app-screen {
+    width: 40%;
+  }
+  html[data-motion="full"] .project-deck .screen-primary {
+    top: 36%;
+    right: 46%;
+  }
+  html[data-motion="full"] .project-deck .screen-secondary {
+    top: 20%;
+    right: 7%;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .work-media-link:focus-within .work-open,
+  .work-media-link:hover .work-open {
+    transform: rotate(45deg);
+  }
+  .explorer-card:focus-within h2,
+  .explorer-card:hover h2 {
+    color: var(--color-accent);
+  }
+}

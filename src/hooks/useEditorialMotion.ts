@@ -66,6 +66,14 @@ export function useEditorialMotion() {
                 { delay: index * 60 },
               ),
             );
+          else if (
+            entry.target instanceof HTMLElement &&
+            entry.target.dataset.reveal === "media"
+          )
+            scope.play(entry.target, [
+              { transform: "translateY(28px) scale(.97) rotateY(3deg)" },
+              { transform: "translateY(0) scale(1) rotateY(0deg)" },
+            ]);
           else
             scope.play(entry.target, [
               { transform: "translateY(18px)", opacity: 0 },
