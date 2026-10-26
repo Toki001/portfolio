@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-26",
+  "presentation": "Unaltered brand geometry, monochrome CSS; Hive lockup viewBox cropped to its existing symbol; Riverpod/Hive editor metadata removed; neutral custom symbols for concepts and Drift",
+  "entries": [
+    {
+      "name": "flutter",
+      "src": "/tech/flutter.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/flutter/flutter-plain.svg",
+      "sourceGitBlob": "a272fc9c0e3ada2091d1a80589be13a1db7844ed",
+      "sha256": "f22e912731e9f98fb5cf53857fb8ba8f8760a22393e6ad5aca6e72ee6c454c8b"
+    },
+    {
+      "name": "dart",
+      "src": "/tech/dart.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/dart/dart-plain.svg",
+      "sourceGitBlob": "c77b8bc868953561f41f764ddc099495ce7b6fe2",
+      "sha256": "e52b040cb49d83c5331cf1e7070d411d8e63a55b828577e56eccad283a3ddd92"
+    },
+    {
+      "name": "react",
+      "src": "/tech/react.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg",
+      "sourceGitBlob": "9af92b9dd783a9e1a2f07bdc5376724c08f05ef2",
+      "sha256": "7b9ef41cfe08eefafdc2abb515a85c580b15db116b7b008c1a8936dfe172d02a"
+    },
+    {
+      "name": "nextjs",
+      "src": "/tech/nextjs.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/nextjs/nextjs-plain.svg",
+      "sourceGitBlob": "c8cca26b833234894dbcd9eb98fcbc9c295e34c1",
+      "sha256": "a900ab756ae00312a306599e4071aeac106882b99e7a0487b70fc5556bcd15fb"
+    },
+    {
+      "name": "typescript",
+      "src": "/tech/typescript.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-plain.svg",
+      "sourceGitBlob": "2d227c30b749acfb582fea55f415456e39129be2",
+      "sha256": "6b6f7efdfa0dffaa151f4f0a2f0e3d2d70024db82874f1449f7863f393881a6c"
+    },
+    {
+      "name": "tailwindcss",
+      "src": "/tech/tailwindcss.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original.svg",
+      "sourceGitBlob": "83a13ff46ba0062101f0bfacf2b351298beafb39",
+      "sha256": "f8cec54589553807eb603bcaf4e056aa090196211698b056542e3cc62a2f3448"
+    },
+    {
+      "name": "html5",
+      "src": "/tech/html5.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/html5/html5-plain.svg",
+      "sourceGitBlob": "dd81b76a9f0a79bb921a30b543499a08e2325cb6",
+      "sha256": "d5cc2930adf55bdd7db14dc8f25ac3d06ba2287750d9638d0ed1b3df069e1b7f"
+    },
+    {
+      "name": "css3",
+      "src": "/tech/css3.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain.svg",
+      "sourceGitBlob": "550e2e09844e7f2d7ceef6ea36b2c8420f0f7d88",
+      "sha256": "4e8fad00ba6d84c0f9a84de25f3f4c6086679c362fd5dee749af14b8486e8781"
+    },
+    {
+      "name": "nodejs",
+      "src": "/tech/nodejs.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-plain.svg",
+      "sourceGitBlob": "f50c1a1eb0ed8ee12e75a8c5386629a9ffc16337",
+      "sha256": "652001afa92b10923ed00ac62121f242d0be85772d48f71c29cf825b2bb2f88c"
+    },
+    {
+      "name": "supabase",
+      "src": "/tech/supabase.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/supabase/supabase-plain.svg",
+      "sourceGitBlob": "5e88a4b79a287ee05ccacc9bad999b9eca2f2549",
+      "sha256": "c0ea1378e300e052fc01b9f037cdbcbec97a678b3673285bb7de949f01b7c15d"
+    },
+    {
+      "name": "postgresql",
+      "src": "/tech/postgresql.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-plain.svg",
+      "sourceGitBlob": "6e05342b7eca56a7e45ccc25fdc0f57a5e3d0729",
+      "sha256": "1a7cc49a0e0ef431f03f3a0005f8888692756207d7a7e4341d0b2507923c7f65"
+    },
+    {
+      "name": "firebase",
+      "src": "/tech/firebase.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/firebase/firebase-plain.svg",
+      "sourceGitBlob": "294650789ef3504f8d1a47266961bcae2968f61e",
+      "sha256": "8534346c6590a6414cae0e58896295592b9b2081e955be999cd0963bd1b6158c"
+    },
+    {
+      "name": "tensorflow",
+      "src": "/tech/tensorflow.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/tensorflow/tensorflow-original.svg",
+      "sourceGitBlob": "93dc2056e8f16ff1ec80546d55eedbfe215725d1",
+      "sha256": "055e64baf91a2050b5dfe2dafea41b5c7c1fa19c248b22456209b6f607d67aa6"
+    },
+    {
+      "name": "python",
+      "src": "/tech/python.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/python/python-plain.svg",
+      "sourceGitBlob": "bde3773ec09092c753646232740d24834d9628fb",
+      "sha256": "88f4137de2db611a51c4fabbc2f23fb514449c7918d0c26cc0a3d7c3f7a4cb73"
+    },
+    {
+      "name": "opencv",
+      "src": "/tech/opencv.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/opencv/opencv-plain.svg",
+      "sourceGitBlob": "84335dfcb4a3bd6ab7c7b975936376bc78f08dc3",
+      "sha256": "78ae16730f547d3e6857b0602d739ac319a4dc3f86d5cf8e215c3a64541816dc"
+    },
+    {
+      "name": "scikitlearn",
+      "src": "/tech/scikitlearn.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/scikitlearn/scikitlearn-plain.svg",
+      "sourceGitBlob": "b389f2ccf691c628d35c8a0991a32f9c8145ccad",
+      "sha256": "f076ceebf259d3410da545d1214f278f26b0386a34c620005c539cb9d5890126"
+    },
+    {
+      "name": "git",
+      "src": "/tech/git.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/git/git-plain.svg",
+      "sourceGitBlob": "fec490ef96a1fa882fadff6948de917eb1a9acb0",
+      "sha256": "f93bfbdcbdc12cd424cd2e9c9196398b0df43134b2464686208b12678514eb8e"
+    },
+    {
+      "name": "githubactions",
+      "src": "/tech/githubactions.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/githubactions/githubactions-plain.svg",
+      "sourceGitBlob": "91ffdda35ff693bfa0dcd44cee6a75ebdf8c7b80",
+      "sha256": "bd8c72be2bf1b08975edf34c3550a37b65f292565af2c4e1d0c75cb0e3ec4247"
+    },
+    {
+      "name": "docker",
+      "src": "/tech/docker.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg",
+      "sourceGitBlob": "9d51fcd2b823668d7c690c21cdbfa64d6765c94e",
+      "sha256": "9429c8add76f9a9ef51d0b25558a03f5adfa5d035be5e3ff35a6f25c7c54b1a1"
+    },
+    {
+      "name": "postman",
+      "src": "/tech/postman.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/postman/postman-plain.svg",
+      "sourceGitBlob": "be6a76436130e861c1af3b48b03897126295c6f8",
+      "sha256": "390b4e69f9bb2a7557ccd6173ec32731710a648ee1ea1b6fb8e8e0bc69a24d70"
+    },
+    {
+      "name": "vscode",
+      "src": "/tech/vscode.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-plain.svg",
+      "sourceGitBlob": "4cc9f7a7da07b3843f7e7571edb766fefbc4f8c2",
+      "sha256": "f32260c35adeb7a6c0936342f1e28be66e33dc9de111dd684e1c32a9c8ca2f1f"
+    },
+    {
+      "name": "linux",
+      "src": "/tech/linux.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/linux/linux-plain.svg",
+      "sourceGitBlob": "26ced8fd138caa307d27cfa4acecdf0a707defc3",
+      "sha256": "9674d1f5500b79f765e3719ca764ba51e424db86687d59a5dd7484fc74c5e4cd"
+    },
+    {
+      "name": "graphql",
+      "src": "/tech/graphql.svg",
+      "source": "https://github.com/devicons/devicon/blob/master/icons/graphql/graphql-plain.svg",
+      "sourceGitBlob": "3265b71859ada8359bdabc611ed059e223f4f890",
+      "sha256": "46ec41935c22932af0697b338ebd837920d73c37f77e16fcb0e56935c9aa587a"
+    },
+    {
+      "name": "riverpod",
+      "src": "/tech/riverpod.svg",
+      "source": "https://github.com/rrousselGit/riverpod/blob/master/website/static/img/logo.svg",
+      "sourceGitBlob": "6e0d8ab22e30b394b613025a4afe8e76f2d1fe64",
+      "sha256": "e511ae87e50dae296a8bd02d1a7da25e72ca0f6e1989021cb871e9b214351606"
+    },
+    {
+      "name": "hive",
+      "src": "/tech/hive.svg",
+      "source": "https://github.com/isar/hive/blob/main/.github/logo_transparent.svg",
+      "sourceGitBlob": "afcd4d86e9bbd589367636399d947a4b26060bd5",
+      "sha256": "3676a40763e41a1d6678c0d4e39d6507f1153fc2f1f99cd4f9f4d89a20c4bb61"
+    }
+  ]
+}

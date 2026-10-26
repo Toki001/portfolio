@@ -66,6 +66,24 @@ for (const output of portrait.outputs) {
     "Portrait derivatives contain no EXIF metadata",
   );
 }
+const techMarks = JSON.parse(
+  await readFile("docs/verification/tech-mark-evidence.json", "utf8"),
+);
+for (const entry of techMarks.entries) {
+  const bytes = await readFile(`public${entry.src}`),
+    svg = bytes.toString("utf8");
+  assert.equal(createHash("sha256").update(bytes).digest("hex"), entry.sha256);
+  assert.equal(
+    await sharp(bytes)
+      .metadata()
+      .then((meta) => meta.format),
+    "svg",
+  );
+  assert.ok(
+    !/<script|<foreignObject|(?:href|src)=["']https?:/i.test(svg),
+    "Self-hosted passive logo SVGs",
+  );
+}
 const sitemap = await readFile("dist/sitemap.xml", "utf8");
 let count = 0;
 for (const [, url] of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) {
@@ -93,5 +111,5 @@ for (const [, url] of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) {
   count += images.length;
 }
 console.log(
-  `PASS: ${evidence.length} reviewed capture outputs match hashes/geometry; ${artwork.length * 2} artwork derivatives and ${portrait.outputs.length} portrait variants verified separately; ${count} distinct gallery images have static fallback links.`,
+  `PASS: ${evidence.length} reviewed capture outputs match hashes/geometry; ${artwork.length * 2} artwork derivatives and ${portrait.outputs.length} portrait variants, ${techMarks.entries.length} logo assets verified separately; ${count} distinct gallery images have static fallback links.`,
 );

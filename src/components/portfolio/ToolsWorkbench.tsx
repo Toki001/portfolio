@@ -6,29 +6,13 @@ import { ToolGlyph } from "./ToolGlyph";
 import { createMotionScope } from "../../motion/animate";
 export function ToolsWorkbench() {
   const [active, setActive] = useState(0);
-  const list = useRef<HTMLOListElement>(null);
+  const [enhanced, setEnhanced] = useState(false);
+  const previous = useRef(active);
   const illustration = useRef<HTMLDivElement>(null);
+  useEffect(() => setEnhanced(true), []);
   useEffect(() => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const rows = [...(list.current?.children ?? [])];
-    const visible = new Set<Element>();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        for (const entry of entries) {
-          if (entry.isIntersecting) visible.add(entry.target);
-          else visible.delete(entry.target);
-        }
-        // A reading band, not a scroll handler or a per-frame React update.
-        const first = rows.findIndex((row) => visible.has(row));
-        if (first >= 0) setActive(first);
-      },
-      { rootMargin: "-20% 0px -45% 0px", threshold: 0 },
-    );
-    rows.forEach((row) => observer.observe(row));
-    return () => observer.disconnect();
-  }, []);
-  useEffect(() => {
+    if (previous.current === active) return;
+    previous.current = active;
     const scope = createMotionScope();
     if (illustration.current)
       scope.play(
@@ -82,13 +66,20 @@ export function ToolsWorkbench() {
             ))}
           </div>
         </aside>
-        <ol className="tools-list" ref={list}>
+        <ol className="tools-list">
           {siteConfig.tools.map((tool, i) => (
             <li
               className="tool-row"
               key={tool.id}
               data-reveal="row"
               data-active={i === active || undefined}
+              onPointerEnter={(event) => {
+                if (
+                  event.pointerType === "mouse" &&
+                  matchMedia("(hover: hover) and (pointer: fine)").matches
+                )
+                  setActive(i);
+              }}
             >
               <span className="editorial-row-rule" aria-hidden="true" />
               <span className="tool-index">
@@ -99,7 +90,16 @@ export function ToolsWorkbench() {
                   {tool.categoryLabel.toLowerCase()}
                 </span>
                 <h3>
-                  <ScrollText>{tool.name}</ScrollText>
+                  <button
+                    className="tool-select"
+                    type="button"
+                    disabled={!enhanced}
+                    aria-pressed={i === active}
+                    onFocus={() => setActive(i)}
+                    onClick={() => setActive(i)}
+                  >
+                    <ScrollText>{tool.name}</ScrollText>
+                  </button>
                 </h3>
               </div>
               <span className="tool-symbol">

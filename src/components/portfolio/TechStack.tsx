@@ -4,19 +4,36 @@ import { siteConfig } from "../../config/site";
 import { ScrollText, SectionLabel } from "./ScrollText";
 import { projects } from "../../content/projects";
 import { Arrow } from "./Arrow";
+import { TechMark } from "./TechMark";
 import { PixelHandoff } from "./PixelHandoff";
 export function TechStack() {
   const list = useRef<HTMLDivElement>(null);
+  const lastPoint = useRef<{ x: number; y: number } | null>(null);
+  const inputPointer = useRef("");
   useEffect(() => {
     const node = list.current;
-    const scope = createMotionScope();
+    const scopes = new Map<
+      HTMLDetailsElement,
+      ReturnType<typeof createMotionScope>
+    >();
     const toggle = (event: Event) => {
       if (!(event.target instanceof HTMLDetailsElement)) return;
+      const detail = event.target;
+      let scope = scopes.get(detail);
+      if (!scope) {
+        scope = createMotionScope();
+        scopes.set(detail, scope);
+      }
       scope.cancel();
-      if (!event.target.open || !canAnimate()) return;
-      const bounds = event.target.getBoundingClientRect();
+      if (!detail.open) return;
+      // Fallback exclusivity for engines without native details[name] grouping.
+      node?.querySelectorAll("details").forEach((other) => {
+        if (other !== detail) other.open = false;
+      });
+      if (!canAnimate()) return;
+      const bounds = detail.getBoundingClientRect();
       if (bounds.bottom < 0 || bounds.top > innerHeight) return;
-      event.target
+      detail
         .querySelectorAll(".capability-content p, .stack-tags li")
         .forEach((item, i) =>
           scope.play(
@@ -31,7 +48,7 @@ export function TechStack() {
     };
     node?.addEventListener("toggle", toggle, true);
     return () => {
-      scope.cancel();
+      scopes.forEach((scope) => scope.cancel());
       node?.removeEventListener("toggle", toggle, true);
     };
   }, []);
@@ -72,15 +89,62 @@ export function TechStack() {
             See it in the projects <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <div className="capability-list" ref={list}>
+        <div
+          className="capability-list"
+          ref={list}
+          onPointerDownCapture={(event) => {
+            inputPointer.current = event.pointerType;
+          }}
+          onPointerLeave={() => {
+            lastPoint.current = null;
+          }}
+          onPointerMove={(event) => {
+            if (
+              event.pointerType !== "mouse" ||
+              !matchMedia("(hover: hover) and (pointer: fine)").matches
+            )
+              return;
+            if (
+              lastPoint.current?.x === event.clientX &&
+              lastPoint.current?.y === event.clientY
+            )
+              return;
+            lastPoint.current = { x: event.clientX, y: event.clientY };
+            const detail =
+              event.target instanceof Element
+                ? event.target.closest("details")
+                : null;
+            if (!(detail instanceof HTMLDetailsElement) || detail.open) return;
+            // Hover must never hide a related-work link that still owns keyboard focus.
+            const focused = document.activeElement?.closest(
+              ".capability-content",
+            );
+            if (focused && !detail.contains(focused)) return;
+            detail.open = true;
+          }}
+        >
           {siteConfig.techDomains.map((domain, i) => (
             <details
               key={domain.index}
               open={i === 0}
+              name="engineering-capabilities"
               className="capability-detail"
               data-reveal="row"
             >
-              <summary>
+              <summary
+                onClick={(event) => {
+                  if (
+                    event.detail > 0 &&
+                    inputPointer.current === "mouse" &&
+                    matchMedia("(hover: hover) and (pointer: fine)").matches
+                  ) {
+                    event.preventDefault();
+                    (
+                      event.currentTarget.parentElement as HTMLDetailsElement
+                    ).open = true;
+                  }
+                }}
+              >
                 <span className="editorial-row-rule" aria-hidden="true" />
                 <span className="capability-index">{domain.index}</span>
                 <span className="capability-name">
@@ -92,7 +156,10 @@ export function TechStack() {
                 <p>{domain.description}</p>
                 <ul className="stack-tags" aria-label={`${domain.title} stack`}>
                   {domain.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
+                    <li key={tag}>
+                      <TechMark name={tag} />
+                      <span className="tech-name">{tag}</span>
+                    </li>
                   ))}
                 </ul>
                 <a

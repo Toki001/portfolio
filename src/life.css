@@ -87,20 +87,23 @@
   line-height: 1.8;
 }
 .stack-tags {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
   list-style: none;
   margin: 1.25rem 0 0;
   padding: 0;
 }
 .stack-tags li {
-  padding: 0.25rem 0.65rem;
-  border: 1px solid
-    color-mix(in srgb, var(--brand-slate) 65%, var(--brand-navy));
-  border-radius: 0.25rem;
-  font-size: 0.75rem;
-  color: var(--color-on-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  min-height: 3rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 0.6rem;
+  background: color-mix(in srgb, var(--brand-white) 4%, transparent);
+  color: var(--color-paper);
 }
 .tools-list {
   list-style: none;
@@ -633,4 +636,72 @@ html[data-input="keyboard"] .tool-row::before {
   .tool-row::before {
     inset-inline: -0.5rem;
   }
+}
+
+/* Logo-led technology badges retain their names and reading order in every mode. */
+.tech-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 1.75rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--color-paper);
+}
+.tech-mark img {
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.tech-mark svg {
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.tech-mark-pair {
+  display: flex;
+  gap: 0.1rem;
+}
+.tech-mark-pair img {
+  width: 0.85rem;
+  height: 1.1rem;
+}
+.tech-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+.tool-select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
+@media (min-width: 1100px) {
+  .stack-tags {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) {
+  .capability-content > p {
+    min-block-size: 5.4em;
+  }
+}
+html[data-input="keyboard"] .tool-symbol svg {
+  transition: none;
+  transform: none;
+}
+
+.tool-select:disabled {
+  cursor: default;
 }

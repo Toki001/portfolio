@@ -410,6 +410,7 @@ html[data-motion="full"]:not([data-input="keyboard"])
   }
 }
 /* The disclosure indicator is a pseudo-element and needs its own keyboard rule. */
-html[data-input="keyboard"] .disclosure-plus::after {
+html[data-input="keyboard"] .disclosure-plus::after,
+html[data-input="keyboard"] .desktop-nav a::after {
   transition: none;
 }
