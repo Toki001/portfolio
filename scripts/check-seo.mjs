@@ -3,6 +3,36 @@ import { readFile, access } from "node:fs/promises";
 import { seo } from "./seo.mjs";
 import sharp from "sharp";
 const preview = process.argv.includes("--preview");
+const { redirects = [] } = JSON.parse(await readFile("vercel.json", "utf8"));
+const origin = new URL(seo.siteUrl).origin;
+for (const redirect of redirects) {
+  const destination = new URL(redirect.destination, seo.siteUrl);
+  if (!redirect.has?.length)
+    assert.notEqual(
+      destination.origin + destination.pathname,
+      origin + redirect.source,
+      "Unconditional redirects must not send the canonical site back to itself",
+    );
+  if (
+    redirect.has?.some(
+      (condition) =>
+        condition.type === "header" &&
+        condition.key === "x-forwarded-proto" &&
+        condition.value === "http",
+    )
+  ) {
+    assert.equal(
+      destination.origin,
+      origin,
+      "HTTPS redirect uses the SEO origin",
+    );
+    assert.equal(
+      destination.pathname,
+      redirect.source,
+      "HTTPS redirect preserves the route wildcard",
+    );
+  }
+}
 const sitemap = await readFile("dist/sitemap.xml", "utf8");
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(
   (match) => match[1],

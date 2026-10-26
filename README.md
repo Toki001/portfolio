@@ -92,7 +92,7 @@ No portfolio runtime/library dependency was added. Fresh `npm ci` reproduces the
 
 ## Vercel release and rollback
 
-**Deployment has not been performed.** Use the existing Vercel project that owns `portfolio-toki20.vercel.app`; do not assume the independent legacy `portfolio-flax-one-59` deployment is its primary alias. Account/team selection and production publication are owner actions. Current verified public-link availability does not represent this new build being live.
+**No deployment was performed by this agent.** The owner-confirmed production domain is `https://jameskier-doliguez-portfolio.vercel.app/`. `src/config/seo.json` supplies the origin for generated sitemap, robots, canonicals, social metadata, schema and crawl links; the HTTPS redirect in `vercel.json` must match. Account/team selection and production publication are owner actions. Public-link availability does not represent the latest local build being live.
 
 Settings: Vite preset, Node 22.x, install `npm ci`, build `npm run build`, output `dist`. Keep `vercel.json`: clean URLs, no trailing slash, HTTP-to-HTTPS/index redirect, security and asset/font cache headers. Do not add a catch-all SPA rewrite; it would hide real 404s. No runtime environment variables are required. `.vercelignore` excludes private references and QA material from CLI uploads.
 
@@ -115,6 +115,6 @@ Before release, retain the previous known-good **production** deployment URL/com
 
 ## Search Console and remaining owner inputs
 
-`public/google711de76d62b8d616.html` is preserved unchanged. After production deployment, confirm the verification URL serves that exact file, use the issuing Google account to verify the URL-prefix property `https://portfolio-toki20.vercel.app/`, then submit `/sitemap.xml`. Optional HTML-tag verification uses `GOOGLE_SITE_VERIFICATION` (the exact tag content, not filename); see `.env.example`. Account verification/indexing was not performed.
+`public/google711de76d62b8d616.html` is preserved unchanged. After deploying the domain correction, confirm the verification URL serves that exact file, use the issuing Google account to verify the URL-prefix property `https://jameskier-doliguez-portfolio.vercel.app/`, then resubmit `https://jameskier-doliguez-portfolio.vercel.app/sitemap.xml`. Optional HTML-tag verification uses `GOOGLE_SITE_VERIFICATION` (the exact tag content, not filename); see `.env.example`. Account verification/indexing was not performed. See [domain correction](docs/verification/production-domain.md) for checks.
 
 Optional content: higher-resolution owned portrait, verified resume/current availability, more tool-in-use screenshots, and GuestReco source/media detail. No placeholder controls or invented substitutes ship for missing items. LinkedIn returns HTTP 999 to automation; its original URL remains. Physical iOS/Android, assistive-technology hardware and field Core Web Vitals need owner/device follow-up; no claim that emulation replaces them.
