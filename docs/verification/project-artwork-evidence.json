@@ -1,55 +1,55 @@
 [
   {
     "source": "public/projects/peso-flow-home.webp",
-    "sourceSHA256": "5ea7a99ab674250e82501d7466fc6c9f5cae0c2b137cfd3bb9fc8d23122599e6",
+    "sourceSHA256": "a2bf6de00a0be9d6a63c00a4f82192cdad4e7392922ce715e12992033336ade6",
     "crop": {
       "left": 0,
       "top": 0,
-      "width": 390,
-      "height": 860
+      "width": 780,
+      "height": 1688
     },
-    "use": "Existing top-aligned cropped phone artwork only; never counted as another screen. Case-study gallery keeps the original full screenshot.",
+    "use": "Resampled actual phone viewport for featured artwork; never counted as another screen. Case-study gallery keeps the full 2x render.",
     "outputs": [
       {
         "file": "public/projects/peso-flow-home-artwork-195.webp",
-        "sha256": "570f8ff81ca66548c0b7342a04b7c68217d01365e6ec84de19927054e479a4f0",
-        "bytes": 13232,
+        "sha256": "704ba789903ad412b0c13fb78434a9b8565f3ceb5b88f4b6317f936d327ce1d9",
+        "bytes": 11234,
         "width": 195,
-        "height": 430
+        "height": 422
       },
       {
         "file": "public/projects/peso-flow-home-artwork.webp",
-        "sha256": "0703b8ccd08a47fecdec127905e328a5d017127bfdfbf7270ddaab8ce11476c8",
-        "bytes": 30642,
+        "sha256": "6b427199b169f22cc0f8e6a0f7f9840514a9f0806f64780dd356b96f6fe7324a",
+        "bytes": 28378,
         "width": 390,
-        "height": 860
+        "height": 844
       }
     ]
   },
   {
     "source": "public/projects/peso-flow-budgets.webp",
-    "sourceSHA256": "10d78e532dd2c71a5053e8cfce52bab005a2dda162cac394fca99926ff976766",
+    "sourceSHA256": "4043fa4f94d3f6bc4fde1bee0e2bc404aba9fd65a77768ca7c6670fadf8436df",
     "crop": {
       "left": 0,
       "top": 0,
-      "width": 390,
-      "height": 860
+      "width": 780,
+      "height": 1688
     },
-    "use": "Existing top-aligned cropped phone artwork only; never counted as another screen. Case-study gallery keeps the original full screenshot.",
+    "use": "Resampled actual phone viewport for featured artwork; never counted as another screen. Case-study gallery keeps the full 2x render.",
     "outputs": [
       {
         "file": "public/projects/peso-flow-budgets-artwork-195.webp",
-        "sha256": "f4c4f8a7d2e36165cae13a5b37ade50f11b48a4b3517b68934dea6fdff390850",
-        "bytes": 12060,
+        "sha256": "ea54894e3ff987de8ff30da677f82d7a067d35a468d523e383bdd4783d3532cc",
+        "bytes": 10992,
         "width": 195,
-        "height": 430
+        "height": 422
       },
       {
         "file": "public/projects/peso-flow-budgets-artwork.webp",
-        "sha256": "4f7e82d1a6685c69e68ce9386c681eb585f385bb662741a428ded905c49aa318",
-        "bytes": 28168,
+        "sha256": "975bd8e8105de0abef753f1778db8dc76d1777f6b106eff88efdfe60841eefe4",
+        "bytes": 28848,
         "width": 390,
-        "height": 860
+        "height": 844
       }
     ]
   }

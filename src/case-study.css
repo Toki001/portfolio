@@ -416,3 +416,93 @@ html:has(dialog[open]) {
 .gallery-pages {
   position: relative;
 }
+
+/* Real mobile viewports, composed as a staggered product spread. */
+.gallery-image.mobile-gallery-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  height: auto;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 4rem);
+  background: var(--color-wash);
+}
+.mobile-preview-card {
+  min-width: 0;
+}
+.mobile-preview-card:nth-child(2) {
+  margin-top: 3.5rem;
+}
+.mobile-preview-card:nth-child(3) {
+  margin-top: 1.5rem;
+}
+.mobile-preview-select {
+  display: block;
+  width: 100%;
+  padding: 0.35rem;
+  border: 1px solid var(--color-line);
+  border-radius: clamp(1.25rem, 2.5vw, 2rem);
+  background: var(--color-paper);
+  box-shadow: 0 1.75rem 2.5rem -1.6rem var(--color-overlay);
+  overflow: hidden;
+  transition: transform 180ms var(--ease-out);
+}
+.mobile-gallery-showcase .mobile-preview-select img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  aspect-ratio: 390 / 844;
+  border-radius: clamp(0.95rem, 2vw, 1.6rem);
+}
+.mobile-preview-label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 3rem;
+  padding: 0.9rem 0.2rem 0;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+.mobile-preview-label > span:first-child {
+  font-variant-numeric: tabular-nums;
+}
+.mobile-preview-label > span:nth-child(2) {
+  color: var(--color-ink);
+}
+.mobile-preview-status {
+  margin-left: auto;
+  color: var(--color-accent);
+}
+.mobile-preview-select:disabled {
+  cursor: default;
+}
+@media (hover: hover) and (pointer: fine) {
+  .mobile-preview-select:not(:disabled):hover {
+    transform: translateY(-5px);
+  }
+}
+html[data-input="keyboard"] .mobile-preview-select {
+  transition: none;
+  transform: none;
+}
+@media (max-width: 768px) {
+  .gallery-image.mobile-gallery-showcase {
+    grid-template-columns: minmax(0, 21.25rem);
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .mobile-preview-card:not([data-active]) {
+    display: none;
+  }
+  .mobile-preview-card:nth-child(n) {
+    margin-top: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-preview-select {
+    transition: none;
+    transform: none !important;
+  }
+}

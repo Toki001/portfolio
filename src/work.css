@@ -40,7 +40,7 @@
 .app-screen {
   position: absolute;
   width: 25%;
-  aspect-ratio: 0.49;
+  aspect-ratio: 390 / 844;
   overflow: hidden;
   border: 0.45rem solid var(--color-deep);
   border-radius: 2rem;

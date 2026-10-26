@@ -222,6 +222,24 @@ export function createEditorialReveals(scope: Scope) {
                 { delay: index * motion.stagger, fill: "backwards" },
               ),
             );
+          else if (el.dataset.reveal === "gallery")
+            el.querySelectorAll(".mobile-preview-card").forEach((card, index) =>
+              scope.play(
+                card,
+                [
+                  {
+                    transform: `translateY(${compact ? 18 : 40}px)`,
+                    opacity: 0.3,
+                  },
+                  { transform: "translateY(0)", opacity: 1 },
+                ],
+                {
+                  duration: compact ? 380 : 620,
+                  delay: index * 70,
+                  fill: "backwards",
+                },
+              ),
+            );
           else if (el.dataset.reveal === "media")
             scope.play(el, [
               { transform: "translateY(28px) scale(.97) rotateY(3deg)" },

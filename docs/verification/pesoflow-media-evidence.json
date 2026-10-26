@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-27",
+  "repository": "https://github.com/Toki001/pesoflow",
+  "revision": "db29c0aa0f19a8a9dc619d810dd3ccc5fab15c5b",
+  "state": "Actual unchanged app UI, stitchV7Fixture synthetic financial data, fake repository/platform adapters and fixed test clock. No owner's financial records.",
+  "capture": "Existing production_app_test.dart in an isolated local copy; only viewport set to 390x844 and RepaintBoundary.toImage(pixelRatio: 2) used for PNG export. Inter/MaterialIcons loaded by the original test config. Flutter 3.47.5, no dependency installation.",
+  "command": "flutter test --no-pub test/production_app_test.dart --name '^(home light|budgets light|analytics dark) production golden$'",
+  "entries": [
+    {
+      "view": "home",
+      "theme": "light",
+      "source": ".local/pesoflow-capture-20261027/mobile/test/goldens/portfolio_home_light.png",
+      "sourceSHA256": "cbb84110133d2db058459cc793b9c0cfde35af13329809a033c8ca59c50586b3",
+      "outputs": [
+        {
+          "file": "public/projects/peso-flow-home-195.webp",
+          "width": 195,
+          "height": 422,
+          "bytes": 12124,
+          "sha256": "67450c4e4b5ab98f34a201b723f8d085b34dc75d44a13e66f577983419f5536c"
+        },
+        {
+          "file": "public/projects/peso-flow-home-390.webp",
+          "width": 390,
+          "height": 844,
+          "bytes": 31158,
+          "sha256": "473dcff3fe00e0ef6eccdedcada4e3c59a9ac637bad633af4c607ecfe2fde9ef"
+        },
+        {
+          "file": "public/projects/peso-flow-home.webp",
+          "width": 780,
+          "height": 1688,
+          "bytes": 71628,
+          "sha256": "a2bf6de00a0be9d6a63c00a4f82192cdad4e7392922ce715e12992033336ade6"
+        }
+      ]
+    },
+    {
+      "view": "budgets",
+      "theme": "light",
+      "source": ".local/pesoflow-capture-20261027/mobile/test/goldens/portfolio_budgets_light.png",
+      "sourceSHA256": "9b3d69996233c96b49f2ca29b747d862ca873abd6c54b8f548ff5f7ec4941e97",
+      "outputs": [
+        {
+          "file": "public/projects/peso-flow-budgets-195.webp",
+          "width": 195,
+          "height": 422,
+          "bytes": 12330,
+          "sha256": "33c19bd52a1eaa12f0efb3a2374a03f550398fd2424b008603a0384c5afc7221"
+        },
+        {
+          "file": "public/projects/peso-flow-budgets-390.webp",
+          "width": 390,
+          "height": 844,
+          "bytes": 32388,
+          "sha256": "eeb9f42b5bf7f24da662953b4615ed130f6143f320a05683249ccf61345e07e2"
+        },
+        {
+          "file": "public/projects/peso-flow-budgets.webp",
+          "width": 780,
+          "height": 1688,
+          "bytes": 75338,
+          "sha256": "4043fa4f94d3f6bc4fde1bee0e2bc404aba9fd65a77768ca7c6670fadf8436df"
+        }
+      ]
+    },
+    {
+      "view": "analytics",
+      "theme": "dark",
+      "source": ".local/pesoflow-capture-20261027/mobile/test/goldens/portfolio_analytics_dark.png",
+      "sourceSHA256": "23e645cf5beb30f89c0e517701ffc9bd32e5ddb1e9b09b296758995fe6160e14",
+      "outputs": [
+        {
+          "file": "public/projects/peso-flow-analytics-195.webp",
+          "width": 195,
+          "height": 422,
+          "bytes": 10730,
+          "sha256": "1f135b843f5d22597cbd0f4332a74b1d1ac40d88f03b73015703b342fcee5005"
+        },
+        {
+          "file": "public/projects/peso-flow-analytics-390.webp",
+          "width": 390,
+          "height": 844,
+          "bytes": 27430,
+          "sha256": "794dd9032e8a853e9200374e61224322baf962ca4a0c00316ec7194e19f281db"
+        },
+        {
+          "file": "public/projects/peso-flow-analytics.webp",
+          "width": 780,
+          "height": 1688,
+          "bytes": 62686,
+          "sha256": "e338709ad8028e2710e244025dc01ef4bf96127726ff2e1bc915c27212cbb75b"
+        }
+      ]
+    }
+  ]
+}

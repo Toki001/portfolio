@@ -45,6 +45,7 @@ export function MediaGallery({ project }: { project: Project }) {
         button.offsetLeft - (rail.clientWidth - button.offsetWidth) / 2;
   }, [active, enhanced]);
   const count = project.media.length;
+  const mobileShowcase = project.kind === "Mobile" && count >= 3;
   useEffect(() => {
     setEnhanced(true);
     const sync = () => {
@@ -112,7 +113,8 @@ export function MediaGallery({ project }: { project: Project }) {
       </div>
       <figure>
         <div
-          className={`gallery-image ${project.kind === "Mobile" ? "gallery-image-mobile" : "gallery-image-web"}`}
+          className={`gallery-image ${mobileShowcase ? "mobile-gallery-showcase" : project.kind === "Mobile" ? "gallery-image-mobile" : "gallery-image-web"}`}
+          data-reveal={mobileShowcase ? "gallery" : undefined}
           style={
             project.kind === "Mobile"
               ? undefined
@@ -145,17 +147,55 @@ export function MediaGallery({ project }: { project: Project }) {
               change(active + (dx < 0 ? 1 : -1));
           }}
         >
-          <img
-            ref={image}
-            src={media.src}
-            srcSet={media.srcSet}
-            sizes="(max-width:600px) 90vw, (max-width:1024px) 85vw, 1100px"
-            alt={media.alt}
-            width={media.width}
-            height={media.height}
-            loading="lazy"
-            decoding="async"
-          />
+          {mobileShowcase ? (
+            project.media.map((item, i) => (
+              <div
+                className="mobile-preview-card"
+                key={item.src}
+                data-active={i === active || undefined}
+              >
+                <button
+                  type="button"
+                  className="mobile-preview-select"
+                  disabled={!enhanced}
+                  aria-label={`Select ${item.label ?? `screen ${i + 1}`} preview`}
+                  aria-pressed={i === active}
+                  onClick={() => change(i)}
+                >
+                  <img
+                    ref={i === active ? image : undefined}
+                    src={item.src}
+                    srcSet={item.srcSet}
+                    sizes="(max-width:768px) 75vw, 340px"
+                    alt={item.alt}
+                    width={item.width}
+                    height={item.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </button>
+                <div className="mobile-preview-label" aria-hidden="true">
+                  <span>{String(i + 1).padStart(2, "0")}</span>
+                  <span>{item.label}</span>
+                  {i === active && (
+                    <span className="mobile-preview-status">Selected</span>
+                  )}
+                </div>
+              </div>
+            ))
+          ) : (
+            <img
+              ref={image}
+              src={media.src}
+              srcSet={media.srcSet}
+              sizes="(max-width:600px) 90vw, (max-width:1024px) 85vw, 1100px"
+              alt={media.alt}
+              width={media.width}
+              height={media.height}
+              loading="lazy"
+              decoding="async"
+            />
+          )}
         </div>
         <figcaption aria-live="polite">
           {count > 1 ? `${active + 1} of ${count}. ` : ""}

@@ -1,0 +1,206 @@
+[
+  {
+    "name": "mobile",
+    "version": "13.5.0",
+    "url": "http://127.0.0.1:4175/",
+    "fetchTime": "2026-10-26T18:18:58.100Z",
+    "scores": {
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 1402.4951,
+        "display": "1.4 s"
+      },
+      "largest-contentful-paint": {
+        "value": 2659.118875,
+        "display": "2.7 s"
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms"
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0"
+      },
+      "speed-index": {
+        "value": 1402.4951,
+        "display": "1.4 s"
+      }
+    },
+    "formFactor": "mobile",
+    "screen": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "throttlingMethod": "simulate"
+  },
+  {
+    "name": "desktop",
+    "version": "13.5.0",
+    "url": "http://127.0.0.1:4175/",
+    "fetchTime": "2026-10-26T18:19:09.170Z",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 323.9309,
+        "display": "0.3 s"
+      },
+      "largest-contentful-paint": {
+        "value": 523.9309,
+        "display": "0.5 s"
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms"
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0"
+      },
+      "speed-index": {
+        "value": 323.9309,
+        "display": "0.3 s"
+      }
+    },
+    "formFactor": "desktop",
+    "screen": {
+      "mobile": false,
+      "width": 1350,
+      "height": 940,
+      "deviceScaleFactor": 1,
+      "disabled": false
+    },
+    "throttling": {
+      "rttMs": 40,
+      "throughputKbps": 10240,
+      "requestLatencyMs": 0,
+      "downloadThroughputKbps": 0,
+      "uploadThroughputKbps": 0,
+      "cpuSlowdownMultiplier": 1
+    },
+    "throttlingMethod": "simulate"
+  },
+  {
+    "name": "peso-mobile",
+    "version": "13.5.0",
+    "url": "http://127.0.0.1:4175/projects/peso-flow",
+    "fetchTime": "2026-10-26T18:19:20.825Z",
+    "scores": {
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 1352.9024,
+        "display": "1.4 s"
+      },
+      "largest-contentful-paint": {
+        "value": 2252.9024,
+        "display": "2.3 s"
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms"
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0"
+      },
+      "speed-index": {
+        "value": 1352.9024,
+        "display": "1.4 s"
+      }
+    },
+    "formFactor": "mobile",
+    "screen": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "throttlingMethod": "simulate"
+  },
+  {
+    "name": "index-mobile",
+    "version": "13.5.0",
+    "url": "http://127.0.0.1:4175/projects",
+    "fetchTime": "2026-10-26T18:19:31.241Z",
+    "scores": {
+      "performance": 95,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "value": 1355.6967,
+        "display": "1.4 s"
+      },
+      "largest-contentful-paint": {
+        "value": 2855.6967,
+        "display": "2.9 s"
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms"
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0"
+      },
+      "speed-index": {
+        "value": 1355.6967,
+        "display": "1.4 s"
+      }
+    },
+    "formFactor": "mobile",
+    "screen": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    },
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    },
+    "throttlingMethod": "simulate"
+  }
+]

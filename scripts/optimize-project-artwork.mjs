@@ -9,7 +9,8 @@ const hash = async (path) =>
 const evidence = [];
 for (const view of ["home", "budgets"]) {
   const source = `public/projects/peso-flow-${view}.webp`;
-  const crop = { left: 0, top: 0, width: 390, height: 860 };
+  const meta = await sharp(source).metadata();
+  const crop = { left: 0, top: 0, width: meta.width, height: meta.height };
   const outputs = [];
   for (const width of [195, 390]) {
     const output = `public/projects/peso-flow-${view}-artwork${width === 195 ? "-195" : ""}.webp`;
@@ -23,14 +24,14 @@ for (const view of ["home", "budgets"]) {
       sha256: await hash(output),
       bytes: (await stat(output)).size,
       width,
-      height: (width * 860) / 390,
+      height: (width * meta.height) / meta.width,
     });
   }
   evidence.push({
     source,
     sourceSHA256: await hash(source),
     crop,
-    use: "Existing top-aligned cropped phone artwork only; never counted as another screen. Case-study gallery keeps the original full screenshot.",
+    use: "Resampled actual phone viewport for featured artwork; never counted as another screen. Case-study gallery keeps the full 2x render.",
     outputs,
   });
 }

@@ -102,11 +102,11 @@ export function ProjectArtwork({
         <div className="app-screen screen-secondary" aria-hidden="true">
           <img
             src="/projects/peso-flow-budgets-artwork.webp"
-            srcSet="/projects/peso-flow-budgets-artwork-195.webp 195w, /projects/peso-flow-budgets-artwork.webp 390w"
+            srcSet="/projects/peso-flow-budgets-artwork-195.webp 195w, /projects/peso-flow-budgets-artwork.webp 390w, /projects/peso-flow-budgets.webp 780w"
             sizes="(max-width:600px) 35vw, 22vw"
             alt=""
             width={390}
-            height={860}
+            height={844}
             loading="lazy"
             fetchPriority="low"
             decoding="async"
@@ -115,11 +115,11 @@ export function ProjectArtwork({
         <div className="app-screen screen-primary">
           <img
             src="/projects/peso-flow-home-artwork.webp"
-            srcSet="/projects/peso-flow-home-artwork-195.webp 195w, /projects/peso-flow-home-artwork.webp 390w"
+            srcSet="/projects/peso-flow-home-artwork-195.webp 195w, /projects/peso-flow-home-artwork.webp 390w, /projects/peso-flow-home.webp 780w"
             sizes="(max-width:600px) 35vw, 22vw"
             alt={project.media[0].alt}
             width={390}
-            height={860}
+            height={844}
             loading={priority ? "eager" : "lazy"}
             fetchPriority={priority ? "high" : undefined}
             decoding="async"

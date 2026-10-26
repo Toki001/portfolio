@@ -40,6 +40,8 @@ All **23 different real views** have captions and provenance in [media manifest]
 
 Galleries support named thumbnails, touch swipe, previous/next, URL reload, keyboard and native zoom with focus return. Vertical scroll/pinch stay native. Email opens a draft; Copy email reports real success/failure. No email was sent during QA. Static content, navigation, native disclosures and full-size image links remain available without JavaScript.
 
+PesoFlow's [current UI refresh](docs/verification/pesoflow-refresh.md) uses fresh 2× renders of its actual charcoal Home/light, Budgets/light and Analytics/dark screens. Its case-study gallery presents three staggered, softly framed phones on desktop and one readable selection on compact screens. Featured cards, thumbnails and the share image use the updated app too. The app source stays untouched; captures use its existing fixture harness in a private isolated copy. `scripts/import-pesoflow-media.mjs` and `scripts/optimize-project-artwork.mjs` import reviewed captures; normal builds need only the retained public assets and compact provenance.
+
 ## Content and design
 
 - `src/config/site.ts`: actual identity/bio, the owner-requested **toki.** wordmark with a burgundy full stop, socials, tools/capabilities, optional availability/resume. Unsupported values stay hidden.
