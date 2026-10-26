@@ -1,7 +1,7 @@
 import { validateProjects } from './validation';
-import pokechampImg from "../assets/pokechamp.webp";
+const pokechampImg = "/projects/pokechamp.webp";
 import pixeltoolsImg from "../assets/pixeltools.webp";
-import pesoflowImg from "../assets/pesoflow.svg";
+const pesoflowImg = "/projects/peso-flow-home.webp";
 
 export type ProjectCategory = 'Mobile' | 'Web' | 'AI / ML';
 export interface ProjectMedia {
@@ -190,7 +190,13 @@ export const projects: Project[] = originalProjects.map((project) => ({
       : project.description,
   tags: project.id === 'pixeltools' ? ['Next.js', 'TypeScript', 'Tailwind'] : [...project.tags],
   links: { source: project.links.source, ...(project.links.live ? { live: project.links.live } : {}) },
-  media: project.image && project.id !== 'peso-flow' ? [{ src: project.image, alt: project.imageAlt, width: 960, height: 600, caption: 'Project preview retained from the original portfolio.' }] : [],
+  media: project.id === 'peso-flow'
+    ? [
+      { src: '/projects/peso-flow-home.webp', alt: 'PesoFlow home with account balances, cashflow and budget pacing', width: 390, height: 1447, caption: 'Home screen. App test capture with fixture data.' },
+      { src: '/projects/peso-flow-budgets.webp', alt: 'PesoFlow budgets and category spending limits', width: 390, height: 1600, caption: 'Budgets. App test capture with fixture data.' },
+      { src: '/projects/peso-flow-analytics.webp', alt: 'PesoFlow spending analytics and cashflow', width: 390, height: 1600, caption: 'Analytics. App test capture with fixture data.' },
+    ]
+    : project.image ? [{ src: project.image, alt: project.id === 'pokechamp' ? 'Actual PokeChamp team builder with a sample roster and defensive coverage' : project.imageAlt, width: project.id === 'pokechamp' ? 1440 : 960, height: project.id === 'pokechamp' ? 1100 : 782, caption: project.id === 'pokechamp' ? 'Local team-building session with a sample roster. No team was submitted.' : 'Actual tool directory retained from the original portfolio.' }] : [],
 }));
 
 export const featuredProjects = projects.filter(p => p.featuredRank).sort((a, b) => a.featuredRank! - b.featuredRank!);

@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react(), {
       name: 'portfolio-seo',
       transformIndexHtml(html) {
-        return html.replace('<!-- seo-head -->', seoHead(env.GOOGLE_SITE_VERIFICATION))
+        return html.replace('<!-- seo-head -->', `<!-- seo-start -->${seoHead(env.GOOGLE_SITE_VERIFICATION)}<!-- seo-end -->`)
       },
     }],
   }

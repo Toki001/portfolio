@@ -5,6 +5,7 @@ import './index.css'
 import './styles-tokens.css'
 import './foundation.css'
 import './hero.css'
+import './work.css'
 import App from './App.tsx'
 
 const root = document.getElementById('root')!

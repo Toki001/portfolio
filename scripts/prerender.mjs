@@ -1,39 +1,32 @@
-import { readFile, writeFile, rm } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { render, siteConfig } from '../dist-server/entry-server.js';
+import { seoHead, escape } from './seo.mjs';
 const { seo, identity, socials, projects, contact } = siteConfig;
-const url = seo.siteUrl;
-const schema = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Person', '@id': `${url}#person`, name: identity.name,
-      url, jobTitle: identity.title, description: identity.heroStatement,
-      image: new URL(identity.profileImage, url).href,
-      sameAs: Object.values(socials).filter(s => s.url && s.label !== 'Discord').map(s => s.url),
-      knowsAbout: ['Flutter', 'React', 'TypeScript', 'Mobile development', 'Machine learning'],
-    },
-    { '@type': 'WebSite', '@id': `${url}#website`, url, name: identity.name, publisher: { '@id': `${url}#person` } },
-    {
-      '@type': 'ProfilePage', '@id': `${url}#webpage`, url, name: seo.title,
-      description: seo.description, inLanguage: 'en', mainEntity: { '@id': `${url}#person` },
-      isPartOf: { '@id': `${url}#website` },
-    },
-    {
-      '@type': 'ItemList', '@id': `${url}#project-list`, name: 'Featured projects',
-      itemListElement: projects.map((p, i) => ({
-        '@type': 'ListItem', position: i + 1,
-        item: { '@type': 'CreativeWork', name: p.title, description: p.description,
-          url: `${url}#${p.id}`, creator: { '@id': `${url}#person` } },
-      })),
-    },
-  ],
-};
-const html = (await readFile('dist/index.html', 'utf8'))
-  .replace('<div id="root"></div>', `<div id="root">${render()}</div>`)
-  .replace('</head>', `<script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script></head>`);
-await writeFile('dist/index.html', html);
-await writeFile('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${url}</loc></url></urlset>\n`);
-await writeFile('dist/robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${url}sitemap.xml\n`);
-await writeFile('dist/llms.txt', `# ${identity.name}\n\n> ${seo.description}\n\n${identity.heroStatement}\n\n## Portfolio\n\n${siteConfig.navigation.map(n => `- [${n.label}](${url}${n.href})`).join('\n')}\n\n## Projects\n\n${projects.map(p => `- [${p.title}](${url}#${p.id}): ${p.description}`).join('\n')}\n\n## Contact\n\n- [Email](mailto:${contact.email})\n- [GitHub](${socials.github.url})\n`);
+const origin = seo.siteUrl;
+const routes = [
+  { path: '/', title: seo.title, description: seo.description },
+  { path: '/projects', title: `Projects — ${identity.name}`, description: 'Explore mobile apps, browser tools and machine learning projects by Jameskier Doliguez.' },
+  ...projects.map(project => ({ path: `/projects/${project.slug}`, title: `${project.title} — ${identity.name}`, description: project.description, project })),
+];
+const template = await readFile('dist/index.html', 'utf8');
+for (const route of [...routes, { path: '/404', title: `Page not found — ${identity.name}`, description: 'This page could not be found. Explore Jameskier Doliguez’s software projects.', noindex: true }]) {
+  const url = new URL(route.path, origin).href;
+  const graph = [
+    { '@type': 'Person', '@id': `${origin}#person`, name: identity.name, url: origin, jobTitle: identity.title, image: new URL(identity.profileImage, origin).href, sameAs: Object.values(socials).filter(s => s.url).map(s => s.url) },
+    { '@type': 'WebSite', '@id': `${origin}#website`, url: origin, name: identity.name, publisher: { '@id': `${origin}#person` } },
+    { '@type': route.path === '/' ? 'ProfilePage' : 'WebPage', '@id': `${url}#webpage`, url, name: route.title, description: route.description, inLanguage: 'en', isPartOf: { '@id': `${origin}#website` }, ...(route.path === '/' ? { mainEntity: { '@id': `${origin}#person` } } : {}) },
+  ];
+  if (route.project) graph.push({ '@type': 'CreativeWork', name: route.project.title, description: route.description, url, creator: { '@id': `${origin}#person` } });
+  const html = template
+    .replace(/<!-- seo-start -->[\s\S]*?<!-- seo-end -->/, seoHead(process.env.GOOGLE_SITE_VERIFICATION, route))
+    .replace('<div id="root"></div>', `<div id="root">${render(route.path)}</div>`)
+    .replace('</head>', `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c')}</script></head>`);
+  const file = route.path === '/' ? 'dist/index.html' : route.path === '/404' ? 'dist/404.html' : `dist${route.path}/index.html`;
+  await mkdir(file.slice(0, file.lastIndexOf('/')), { recursive: true });
+  await writeFile(file, html);
+}
+await writeFile('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(route => `<url><loc>${escape(new URL(route.path, origin).href)}</loc></url>`).join('')}</urlset>\n`);
+await writeFile('dist/robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${new URL('/sitemap.xml', origin).href}\n`);
+await writeFile('dist/llms.txt', `# ${identity.name}\n\n> ${seo.description}\n\n## Pages\n${routes.map(route => `- [${route.title}](${new URL(route.path, origin).href}): ${route.description}`).join('\n')}\n\n## Contact\n- [Email](mailto:${contact.email})\n- [GitHub](${socials.github.url})\n`);
 await rm('dist-server', { recursive: true });
-console.log('Prerendered portfolio, structured data, sitemap.xml, robots.txt and llms.txt.');
+console.log(`Prerendered ${routes.length} indexable routes, custom 404, schema and crawl files.`);
