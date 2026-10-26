@@ -1,0 +1,14 @@
+.git
+node_modules
+dist
+dist-server
+references
+docs
+tests
+playwright-report
+test-results
+.env
+.env.*
+!.env.example
+AGENTS.md
+CODEX.md

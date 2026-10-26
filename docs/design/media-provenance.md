@@ -9,3 +9,5 @@
 - User-provided references are private analysis material only; never imported or copied under public/.
 
 M7: PixelTools copied to public/projects with a 640px responsive derivative; PesoFlow gained 195px thumbnails for small compositions. Full-size screenshots remain available in the gallery. Five 1200×630 JPEG social cards are generated from centralized identity/project content plus owned media. Screenshot dates are not presented as product release dates.
+
+M8 removed unused Geist/Jakarta fonts and old substitute PokeChamp/PesoFlow artwork; retained PixelTools now lives only under public/projects. Removed unused analytics thumbnail. All public font files are actively used Archivo plus its OFL license. .vercelignore excludes references/docs/tests from CLI uploads; public/ contains only approved identity/project/brand assets and the preserved verification file.

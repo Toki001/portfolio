@@ -1,9 +1,9 @@
 :root {
   --brand-burgundy: #890620;
-  --brand-slate: #767B91;
-  --brand-white: #FFFFFF;
+  --brand-slate: #767b91;
+  --brand-white: #ffffff;
   --brand-navy: #011936;
-  --brand-ink: #03191E;
+  --brand-ink: #03191e;
   --color-paper: var(--brand-white);
   --color-ink: var(--brand-ink);
   --color-accent: var(--brand-burgundy);
@@ -11,18 +11,26 @@
   --color-muted: color-mix(in srgb, var(--brand-slate) 70%, var(--brand-ink));
   --color-line: color-mix(in srgb, var(--brand-slate) 28%, var(--brand-white));
   --color-wash: color-mix(in srgb, var(--brand-slate) 8%, var(--brand-white));
-  --color-rose: color-mix(in srgb, var(--brand-burgundy) 7%, var(--brand-white));
-  --color-on-deep: color-mix(in srgb, var(--brand-slate) 26%, var(--brand-white));
+  --color-rose: color-mix(
+    in srgb,
+    var(--brand-burgundy) 7%,
+    var(--brand-white)
+  );
+  --color-on-deep: color-mix(
+    in srgb,
+    var(--brand-slate) 26%,
+    var(--brand-white)
+  );
   --color-overlay: color-mix(in srgb, var(--brand-ink) 55%, transparent);
-  --font-body: 'Archivo', 'Arial', sans-serif;
-  --font-code: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  --font-body: "Archivo", "Arial", sans-serif;
+  --font-code: ui-monospace, "SFMono-Regular", Consolas, monospace;
   --container: 90rem;
   --gutter: clamp(1.25rem, 4.4vw, 4rem);
   --section-space: clamp(4.5rem, 9vw, 9rem);
   --radius-media: 1.25rem;
-  --radius-control: .4rem;
-  --ease-out: cubic-bezier(.23, 1, .32, 1);
-  --ease-smooth: cubic-bezier(.32, .72, 0, 1);
+  --radius-control: 0.4rem;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
   --duration-fast: 160ms;
   --duration-ui: 220ms;
   --duration-reveal: 650ms;

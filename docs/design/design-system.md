@@ -13,3 +13,5 @@ One border token, small control radii, soft 20px media corners with a more expre
 Contrast validation computed in M1 evidence; body text must exceed 4.5:1. Never small slate text on white or burgundy text on navy. Focus outline uses burgundy on white and white on navy.
 
 This document and active brief supersede the prior warm-earth DESIGN.md; architecture remains unchanged. Design guidance applied from Apple Design and source-reviewed UI-UX/Hallmark/shadcn principles; script-based design generators not run.
+
+Final implementation: Archivo variable Latin OFL is installed (100–900, 34,928 bytes). Removed unused Geist/Jakarta files, legacy icons and ambient background. The root DESIGN.md now points to this system. Mobile project captions use their own opaque rose strip so text does not overlap interface text at tablet widths.

@@ -3,253 +3,193 @@ import seo from "./seo.json";
 import profileImg from "../assets/profile.webp";
 
 export const siteConfig = {
-  seo,
-  resumeUrl: undefined as string | undefined, // TODO: owner-provided public resume only.
-  availability: undefined as string | undefined, // TODO: owner must reconfirm current availability.
-
+  // TODO: add only an owner-verified resume URL and current availability.
+  resumeUrl: undefined as string | undefined,
+  availability: undefined as string | undefined,
+  seo: seo,
   identity: {
     name: "Jameskier Doliguez",
-    initials: "JD",
-    shortRole: "[ Software Engineer ]",
     title: "Software Engineer",
-    heroStatement: "I build practical digital products across mobile, web, and machine learning.",
-    heroDescription: "Focused on crafting production-grade software with tight engineering standards. Dedicated to edge-computing, clean state architectures in Flutter, and building high-utility tools designed to solve real-world workflows.",
-    profileImage: profileImg, // using imported asset
+    heroStatement:
+      "I build practical digital products across mobile, web, and machine learning.",
+    profileImage: profileImg,
   },
-
   navigation: [
-    { label: "Home", href: "#home", index: "01" },
-    { label: "Projects", href: "#projects", index: "02" },
-    { label: "Tech stack", href: "#tech-stack", index: "03" },
-    { label: "Tools", href: "#tools", index: "04" },
-    { label: "About", href: "#about", index: "05" },
-    { label: "Contact", href: "#contact", index: "06" },
+    {
+      label: "Home",
+      href: "#home",
+    },
+    {
+      label: "Projects",
+      href: "#projects",
+    },
+    {
+      label: "Tech stack",
+      href: "#tech-stack",
+    },
+    {
+      label: "Tools",
+      href: "#tools",
+    },
+    {
+      label: "About",
+      href: "#about",
+    },
+    {
+      label: "Contact",
+      href: "#contact",
+    },
   ],
-
   socials: {
-    github: { label: "GitHub", url: "https://github.com/Toki001?tab=repositories", handle: "github.com/Toki001?tab=repositories" },
-    linkedin: { label: "LinkedIn", url: "https://www.linkedin.com/in/jameskier-doliguez-6b8432413/", handle: "linkedin.com/in/jameskier" },
-    facebook: { label: "Facebook", url: "https://www.facebook.com/jameskier.doliguez", handle: "facebook.com/jameskierdoliguez" },
-    discord: { label: "Discord", url: "" as string, handle: "_rtoki" },
+    github: {
+      label: "GitHub",
+      url: "https://github.com/Toki001?tab=repositories",
+      handle: "github.com/Toki001?tab=repositories",
+    },
+    linkedin: {
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/jameskier-doliguez-6b8432413/",
+      handle: "linkedin.com/in/jameskier",
+    },
+    facebook: {
+      label: "Facebook",
+      url: "https://www.facebook.com/jameskier.doliguez",
+      handle: "facebook.com/jameskierdoliguez",
+    },
+    discord: {
+      label: "Discord",
+      url: "",
+      handle: "_rtoki",
+    },
   },
-
   location: {
     country: "Philippines",
     region: "Caraga, Agusan del Sur",
-    remoteLabel: "Remote",
-    coordinatesLabel: "", // TODO: publish coordinates only after owner verification.
+    timeZoneLabel: "GMT+8",
   },
-
   currentFocus: {
     tags: ["Flutter", "Full-stack", "AI / ML"],
     architecture: "Offline-First & Edge AI",
-    research: "Quantized Models (TFLite)",
   },
-
-  currentlyBuilding: {
-    projectId: "peso-flow",
-    title: "PesoFlow",
-    description: "Personal finance application with offline-first SQLite sync",
-    href: "#peso-flow",
-  },
-
-  disciplines: [
-    {
-      index: "01",
-      category: "MOBILE",
-      title: "Mobile Development",
-      description: "Flutter-based mobile applications with an emphasis on useful everyday products, clean state handling, and offline-first persistence.",
-      stackSummary: "Flutter • Dart • Drift",
-      icon: "smartphone",
-    },
-    {
-      index: "02",
-      category: "WEB",
-      title: "Web Development",
-      description: "Modern responsive interfaces and full-stack web experiences designed with tight information density, performance, and accessibility.",
-      stackSummary: "React • Tailwind • Supabase",
-      icon: "desktop_windows",
-    },
-    {
-      index: "03",
-      category: "INTELLIGENCE",
-      title: "AI / Machine Learning",
-      description: "Image classification, TensorFlow models, lightweight CNN architectures, and edge deployment with mobile-optimized inference pipelines.",
-      stackSummary: "TensorFlow • TFLite • OpenCV",
-      icon: "psychology",
-    },
-  ],
-
-  projects,
-
+  projects: projects,
   techDomains: [
     {
       index: "01",
-      category: "MOBILE",
-      icon: "smartphone",
       title: "Cross-Platform Mobile",
-      description: "Multi-platform client engineering with fluid animations, local SQLite databases, reactive state loops, and hardware sensor integrations.",
+      description:
+        "Multi-platform client engineering with fluid animations, local SQLite databases, reactive state loops, and hardware sensor integrations.",
       tags: ["Flutter", "Dart", "Riverpod", "Drift", "Hive"],
-      footer: "Flutter • Dart • Riverpod • SQLite",
     },
     {
       index: "02",
-      category: "FRONTEND",
-      icon: "desktop_windows",
       title: "Modern Web Development",
-      description: "Fast, accessible interfaces built on component composition, strict TypeScript typing, and atomic utility CSS design systems.",
+      description:
+        "Fast, accessible interfaces built on component composition, strict TypeScript typing, and atomic utility CSS design systems.",
       tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML5/CSS3"],
-      footer: "React • Next.js • TypeScript • Tailwind",
     },
     {
       index: "03",
-      category: "BACKEND",
-      icon: "database",
       title: "Backend & Cloud Services",
-      description: "RESTful APIs, relational databases, serverless functions, authentication guards, and low-latency transactional storage.",
+      description:
+        "RESTful APIs, relational databases, serverless functions, authentication guards, and low-latency transactional storage.",
       tags: ["Node.js", "Supabase", "PostgreSQL", "Firebase", "REST APIs"],
-      footer: "Node.js • Supabase • PostgreSQL • Firebase",
     },
     {
       index: "04",
-      category: "INTELLIGENCE",
-      icon: "psychology",
       title: "AI & Machine Learning",
-      description: "Supervised model training, computer vision pipelines, quantization for edge inference, and integration with intelligent LLM APIs.",
+      description:
+        "Supervised model training, computer vision pipelines, quantization for edge inference, and integration with intelligent LLM APIs.",
       tags: ["TensorFlow", "TFLite", "Python", "OpenCV", "scikit-learn"],
-      footer: "TensorFlow • TFLite • OpenCV • Python",
     },
     {
       index: "05",
-      category: "TOOLCHAIN",
-      icon: "terminal",
       title: "DevOps, Version Control & Quality",
-      description: "Git branching hygiene, automated continuous deployment workflows, containerized environments, and contract API testing.",
-      tags: ["Git", "GitHub Actions", "Docker", "Postman", "VS Code", "Linux CLI"],
-      footer: "Git • Docker • GitHub Actions • Postman",
+      description:
+        "Git branching hygiene, automated continuous deployment workflows, containerized environments, and contract API testing.",
+      tags: [
+        "Git",
+        "GitHub Actions",
+        "Docker",
+        "Postman",
+        "VS Code",
+        "Linux CLI",
+      ],
     },
     {
       index: "06",
-      category: "ARCHITECTURE",
-      icon: "architecture",
       title: "System Architecture & Optimization",
-      description: "Clean architectural design patterns, state management boundaries, offline-first caching strategies, and runtime performance profiling.",
-      tags: ["Clean Architecture", "Offline-First", "Performance Profiling", "Design Systems", "REST / GraphQL"],
-      footer: "Clean Arch • Offline Sync • Profiling • State Design",
+      description:
+        "Clean architectural design patterns, state management boundaries, offline-first caching strategies, and runtime performance profiling.",
+      tags: [
+        "Clean Architecture",
+        "Offline-First",
+        "Performance Profiling",
+        "Design Systems",
+        "REST / GraphQL",
+      ],
     },
   ],
-
   tools: [
     {
       id: "editor",
-      icon: "terminal",
       name: "VS Code & Antigravity",
-      description: "Primary code editing environment with Dart, Flutter & Tailwind language servers",
+      description:
+        "Primary code editing environment with Dart, Flutter & Tailwind language servers",
       categoryLabel: "AUTHORING",
-      href: "",
     },
     {
       id: "vcs",
-      icon: "code",
       name: "GitHub & Git CLI",
-      description: "Distributed version control, continuous integration runners, and issue milestones",
+      description:
+        "Distributed version control, continuous integration runners, and issue milestones",
       categoryLabel: "REPOSITORY",
-      href: "",
     },
     {
       id: "design",
-      icon: "draw",
       name: "Figma & Stitch",
-      description: "Mobile app prototyping, design tokens, wireframing, and interactive components",
+      description:
+        "Mobile app prototyping, design tokens, wireframing, and interactive components",
       categoryLabel: "DESIGN",
-      href: "",
     },
     {
       id: "db",
-      icon: "database",
       name: "Supabase & Firebase Console",
-      description: "Cloud database orchestration, authentication rules, storage buckets, and realtime channels",
+      description:
+        "Cloud database orchestration, authentication rules, storage buckets, and realtime channels",
       categoryLabel: "CLOUD DB",
-      href: "",
     },
     {
       id: "ai",
-      icon: "psychology",
       name: "Codex, Claude & Gemini",
-      description: "Architecture formulation, edge-case analysis, documentation writing, and prototype synthesis",
+      description:
+        "Architecture formulation, edge-case analysis, documentation writing, and prototype synthesis",
       categoryLabel: "SYNTHESIS",
-      href: "",
     },
     {
       id: "api",
-      icon: "api",
       name: "Postman",
-      description: "REST endpoint assertions, header authorization testing, and schema validation",
+      description:
+        "REST endpoint assertions, header authorization testing, and schema validation",
       categoryLabel: "TESTING",
-      href: "",
     },
   ],
-
   about: {
-    sectionTitle: "EXPERIENCE & PHILOSOPHY",
-    introHeading: "Hi, I'm Jameskier Doliguez.",
     paragraphs: [
       "I’m Jameskier Doliguez, a software engineer in the Philippines. I build mobile and web applications, and work with machine learning where it helps solve a practical problem.",
       "My focus is on clear interfaces and systems that stay understandable: local persistence, predictable state, and clean separation of concerns.",
-      "I enjoy turning complex requirements into useful products, from a Flutter application to a lightweight vision model running on a device."
-    ],
-    chips: [
-      { label: "SPECIALTY", value: "React19, Next.js & Flutter" },
-      { label: "AI FOCUS", value: "Machine Learning & AI Development" },
-      { label: "TIMEZONE", value: "GMT+8 (Philippines)" },
+      "I enjoy turning complex requirements into useful products, from a Flutter application to a lightweight vision model running on a device.",
     ],
     education: {
       degree: "B.S. in Computer Science",
       school: "Father Saturnino Urios University, Butuan City",
     },
-    focusAreas: ["Mobile Architecture", "Edge Inference", "SQL Optimization"],
-    availability: "Available for remote full-time & contract projects",
-    identityCodeLines: [
-      { key: "architecture", value: "clean & modular" },
-      { key: "stateManagement", value: "predictable" },
-      { key: "userExperience", value: "fast & responsive" },
-    ],
-    roles: [
-      {
-        index: "01",
-        title: "Full-Stack Web Developer",
-        stack: "React, Next.js, Tailwind CSS, Supabase PostgreSQL",
-      },
-      {
-        index: "02",
-        title: "Mobile Application Developer",
-        stack: "Offline-first Flutter, Drift DB, Native Dart APIs",
-      },
-      {
-        index: "03",
-        title: "AI & Edge Machine Learning",
-        stack: "TFLite Vision Models, CNN Classifiers, Python Preprocessing",
-      },
-    ],
   },
-
   contact: {
-    heading: "Let's Build Something Together",
-    intro: "Have a mobile app in mind, a web platform to launch, or machine learning model to deploy? Let's discuss requirements and timelines.",
-    subjectPrefix: "Project inquiry from the portfolio",
     email: "jameskierdoliguez@gmail.com",
-    directIntro: "I respond to project inquiries, freelance collaborations, and full-time discussions within 24 hours.",
-    form: {
-      mode: "mailto", // "mailto" | "endpoint"
-      endpoint: "",
-      subjectPrefix: "Project Inquiry from Portfolio",
-    },
+    subjectPrefix: "Project inquiry from the portfolio",
   },
-
   footer: {
     craftedWith: "Designed and built with React & TypeScript",
-    copyrightName: "Jameskier Doliguez",
     copyrightYear: 2026,
-    systemStatus: "ALL SYSTEMS NOMINAL",
   },
 } as const;

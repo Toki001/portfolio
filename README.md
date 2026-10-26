@@ -1,49 +1,100 @@
 # Jameskier Doliguez — Portfolio
 
-A responsive portfolio built with React 19, TypeScript, Vite and Tailwind CSS. The production build prerenders the complete page; React hydrates the mobile navigation, carousel and contact form.
+An editorial software-engineering portfolio built with the existing React 19, TypeScript, Vite 8, Tailwind 3 and npm stack. Six pages are prerendered to static HTML and hydrated for navigation, project filters, galleries and clipboard feedback. Production needs no Node server, database, contact backend or analytics service.
 
-## Development and validation
+The source was copied with Git history from the owner-confirmed `/Users/jameskierdoliguez/projects/portfolio` into this workspace. That original checkout was not edited. Eight local milestone commits implement the redesign; nothing was pushed or deployed.
+
+## Run locally
+
+Use Node **22.x** (verification used 22.22.3).
 
 ```sh
 npm ci
 npm run dev
+```
+
+For the actual static production output and correct HTTP 404 behavior:
+
+```sh
 npm run build
-npm run check:seo
-npm run lint
 npm run preview
 ```
 
-`npm run build` creates the client bundle, renders HTML through a temporary server bundle, generates crawl files and removes the temporary bundle. Deploy `dist/` to Vercel. No Node server is required in production.
+Open http://127.0.0.1:4173. Vite's development fallback is not the production HTTP router. The build creates the SSR bundle, regenerates brand assets, builds the client, prerenders six routes and 404, writes crawl files and removes the temporary SSR bundle. `dist/` is the deployable artifact.
 
-## Content and SEO
+## Routes and real content
 
-Edit `src/config/site.ts` for portfolio content and `src/config/seo.json` for the title, description, canonical origin and OG image. The canonical origin is `https://portfolio-flax-one-59.vercel.app/`. If the domain changes, update the HTTPS redirect destination in `vercel.json` too.
+| Route | Content |
+| --- | --- |
+| `/` | Identity, selected work, capabilities, tools, about and email contact |
+| `/projects` | Four-project index; All/Mobile/Web/AI filters reflected in the URL |
+| `/projects/peso-flow` | Local-first Flutter finance app, in development; three actual test captures |
+| `/projects/pokechamp` | Team builder, usage snapshots and sharing; actual local interface capture |
+| `/projects/pixeltools` | Static Next.js browser image utilities; retained actual directory capture |
+| `/projects/guest-reco` | Limited project note from original portfolio, with repository link |
 
-This is one page. Its sections and projects use descriptive fragment IDs; the sitemap lists only the root URL. The build generates `sitemap.xml`, `robots.txt` and `llms.txt` in `dist/`, along with Person, ProfilePage, WebSite and project-list JSON-LD. It includes indexable metadata, Open Graph and Twitter cards. Unknown URLs are not rewritten to the homepage; `/index.html` redirects to `/` and trailing slashes are normalized by Vercel.
+The three featured studies include verified architecture and constraints. GuestReco does not claim deployment, accuracy or detailed implementation proof. All original section/project fragment IDs remain. Unknown paths return the custom **HTTP 404**, not a home-page rewrite. No hollow about/contact routes were added.
 
-Vercel configuration includes an HTTP-to-HTTPS redirect, HSTS, immutable caching for hashed assets, and week-long caching for fonts. Vercel handles response compression. Production HTTP requests were checked and already redirect to HTTPS.
+Native links support opening in new tabs. The mobile menu handles Escape/focus/section navigation; galleries support arrows, numbered selection, URL reload and native zoom dialog with focus return. Contact opens a mail draft; Copy email reports actual success or failure. Without JavaScript, static content, links, native capability disclosures, navigation and full-size media remain available. No email was sent during QA.
 
-## Images, fonts and favicons
+## Edit content and design
 
-Project previews and the portrait are local, compressed WebP assets. Images have descriptive alt text, reserved dimensions and deferred decoding; project images load lazily. Text fonts are self-hosted Latin subsets with their licenses in `public/fonts/`. Icons use small inline SVGs.
+- `src/config/site.ts`: owner identity, verified bio/education, socials, tools/capabilities, contact, optional resume/current availability. Undefined optional values stay hidden.
+- `src/content/projects.ts`: typed, source-verified project records and media. Keep stable slugs. Missing URLs stay absent. `validation.ts` rejects unstable/duplicate slugs, unsafe protocols and incomplete media.
+- `src/config/seo.json`: production origin, home metadata and fallback share image. If the origin changes, update the HTTPS destination in `vercel.json` and canonical tests as well.
+- `src/styles-tokens.css`: exact five-color palette and derived tints, typography, spacing and motion. One self-hosted OFL Archivo variable font, light mode primary, no mode switch or animation library.
+- `public/projects/`: owned media with explicit dimensions/responsive derivatives. `public/og/`: generated 1200×630 JPEG project cards. `npm run assets:brand` regenerates cards/icons; the full build always does this too.
 
-Run `npm run assets:brand` after changing the portrait or branding to regenerate the 1200×630 OG image, SVG favicon, multi-size ICO, PNG favicon, Apple touch icon and manifest icons. The manifest uses browser display mode; this site does not register a service worker.
+See [design system](docs/design/design-system.md), [reference interpretation](docs/design/reference-analysis.md), [motion budget](docs/design/motion-spec.md), [media provenance](docs/design/media-provenance.md) and [owner media checklist](docs/design/media-checklist.md). Private reference media never enters public output.
 
-## Google Search Console
+## Verify
 
-The provided HTML verification file is preserved at `public/google711de76d62b8d616.html` and copied unchanged into the production build.
+Install the pinned Playwright Chromium browser once:
 
-1. Deploy these commits to the existing Vercel production project.
-2. Check that `https://portfolio-flax-one-59.vercel.app/google711de76d62b8d616.html` returns `google-site-verification: google711de76d62b8d616.html` as a file, rather than the homepage.
-3. Open Google Search Console, select/add the URL-prefix property `https://portfolio-flax-one-59.vercel.app/`, choose HTML-file verification and click **Verify** in the account that issued the file.
-4. Submit `https://portfolio-flax-one-59.vercel.app/sitemap.xml` under **Sitemaps**, then inspect the root URL and request indexing.
+```sh
+npx playwright install chromium
+npm run verify
+```
 
-Keep the verification file after ownership is confirmed. This workspace does not have access to your Google account, so verification and sitemap submission remain account-side steps.
+`verify` runs formatting, Oxlint, typecheck, four content unit tests, production build, static SEO validation, and the full Playwright suite. Final results: **48/48 browser tests**, including nine pixel comparisons at 390/768/1440; all six routes at 320/360/375/390/430/768/1024/1280/1440/1920; axe; real clipboard states; no-JS; landscape/coarse pointer; keyboard/dialog; redirects; enlarged text and genuine native Chromium 200% browser zoom. Console/page errors and broken images fail the route matrix.
 
-As an alternative, the HTML-tag method is supported: set `GOOGLE_SITE_VERIFICATION` to Google's exact content value in the production build environment and rebuild. See `.env.example`. Do not set it to the filename.
+Snapshots in `tests/visual.spec.ts-snapshots/` were captured on macOS ARM / Chromium 156, reduced motion, fonts/media settled, exact pixel comparison. Other OS/browser versions require deliberately reviewed baselines; Linux/iOS/Safari equivalence is not claimed. Playwright HTML reports/traces are generated locally and ignored. Milestone screenshots and measured reports are committed under `docs/verification/`.
 
-## Verification notes
+```sh
+npm run measure
+npm run profile:motion
+npm audit
+```
 
-Build, Oxlint and `check:seo` cover prerendered content, metadata, schema, local assets, fragment links, crawl files and favicon references. Chrome checks cover widths of 320, 375, 390, 768, 1024, 1280 and 1440 pixels, mobile navigation, carousel scrolling, hydration errors and readable content without JavaScript. External project/repository links returned HTTP 200; LinkedIn rejects automated checks (HTTP 999), so its existing profile URL is retained.
+`measure` builds first, uses an isolated gzip static server and the installed Chromium, and saves four Lighthouse HTML/JSON reports plus `lighthouse-final-summary.json`. `profile:motion` samples default-motion interactions at 390×844 with 4× CPU and constrained mobile networking; build first. These are lab measurements, not field INP/60fps certification. See [final release record](docs/verification/milestone-08.md), [M7 measurement conditions](docs/verification/milestone-07.md), [tool availability](docs/verification/tool-discovery.md) and [external link check](docs/verification/external-links.md).
 
-Mobile Lighthouse against a locally served, gzip-compressed production build measured 89 performance, 100 accessibility, 100 best practices and 100 SEO; LCP was 2.2 seconds, CLS 0 and total blocking time 30 ms. The QA server applied the asset/font cache policy configured for deployment. These are lab measurements; Search Console Core Web Vitals require real visitor data after deployment.
+No new runtime dependency was added. Dev tools: Playwright/axe, Prettier and Lighthouse. The Tailwind 3 selector-parser override patches its build-time advisory; a fresh `npm ci` and audit are recorded. No high/critical/moderate advisory remains in the recorded audit.
+
+## Vercel release and rollback
+
+**Deployment has not been performed.** Use the existing Vercel project that owns `portfolio-toki20.vercel.app`; do not assume the independent legacy `portfolio-flax-one-59` deployment is its primary alias. Account/team selection and production publication are owner actions. Current verified public-link availability does not represent this new build being live.
+
+Settings: Vite preset, Node 22.x, install `npm ci`, build `npm run build`, output `dist`. Keep `vercel.json`: clean URLs, no trailing slash, HTTP-to-HTTPS/index redirect, security and asset/font cache headers. Do not add a catch-all SPA rewrite; it would hide real 404s. No runtime environment variables are required. `.vercelignore` excludes private references and QA material from CLI uploads.
+
+After reviewing the final local commit, the owner can use the official Vercel CLI:
+
+```sh
+npx vercel link
+npx vercel deploy
+```
+
+Choose the existing project/team. Check the preview's six routes, media, menu, mailto, galleries, unknown-route 404, headers and social cards. Preview builds have `noindex` and robots `Disallow: /`. When ready, **create a fresh production-context build**:
+
+```sh
+npx vercel deploy --prod
+```
+
+Do not directly promote a preview artifact: its build-time noindex would remain embedded. On production verify robots allows crawling, canonical/OG/schema use the target origin, all six routes return 200, an unknown URL returns 404, redirects preserve queries, fonts/images return correct types and cards are 1200×630. Recheck mobile and social previews against the real CDN. Record the deployment URL/commit in the release log; no domain/DNS/analytics changes are part of this handoff.
+
+Before release, retain the previous known-good **production** deployment URL/commit. If necessary use the Vercel project **Deployments → previous production deployment → Rollback** flow, then verify the production alias and key routes again. Never delete the previous artifact before acceptance. CLI alternative: `npx vercel rollback <previous-production-deployment-url>`. Confirm plan/account availability in [Vercel's rollback documentation](https://vercel.com/docs/deployments/rollback-production-deployment). See [Vite deployment guidance](https://vercel.com/docs/frameworks/frontend/vite).
+
+## Search Console and remaining owner inputs
+
+`public/google711de76d62b8d616.html` is preserved unchanged. After production deployment, confirm the verification URL serves that exact file, use the issuing Google account to verify the URL-prefix property `https://portfolio-toki20.vercel.app/`, then submit `/sitemap.xml`. Optional HTML-tag verification uses `GOOGLE_SITE_VERIFICATION` (the exact tag content, not filename); see `.env.example`. Account verification/indexing was not performed.
+
+Optional content: higher-resolution owned portrait, verified resume/current availability, more tool-in-use screenshots, and GuestReco source/media detail. No placeholder controls or invented substitutes ship for missing items. LinkedIn returns HTTP 999 to automation; its original URL remains. Physical iOS/Android, assistive-technology hardware and field Core Web Vitals need owner/device follow-up; no claim that emulation replaces them.

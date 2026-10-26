@@ -1,14 +1,21 @@
-import { readFileSync } from 'node:fs';
-export const seo = JSON.parse(readFileSync(new URL('../src/config/seo.json', import.meta.url), 'utf8'));
-export const escape = (value) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
-export function seoHead(verification = '', page = {}) {
+import { readFileSync } from "node:fs";
+export const seo = JSON.parse(
+  readFileSync(new URL("../src/config/seo.json", import.meta.url), "utf8"),
+);
+export const escape = (value) =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+export function seoHead(verification = "", page = {}) {
   const title = page.title ?? seo.title;
   const description = page.description ?? seo.description;
-  const url = new URL(page.path ?? '/', seo.siteUrl).href;
+  const url = new URL(page.path ?? "/", seo.siteUrl).href;
   const image = new URL(page.image ?? seo.ogImage, seo.siteUrl).href;
   return `<title>${escape(title)}</title>
     <meta name="description" content="${escape(description)}" />
-    <meta name="robots" content="${page.noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'}" />
+    <meta name="robots" content="${page.noindex ? "noindex, follow" : "index, follow, max-image-preview:large"}" />
     <link rel="canonical" href="${url}" />
     <meta property="og:site_name" content="Jameskier Doliguez" />
     <meta property="og:title" content="${escape(title)}" />
@@ -25,5 +32,5 @@ export function seoHead(verification = '', page = {}) {
     <meta name="twitter:description" content="${escape(description)}" />
     <meta name="twitter:image" content="${image}" />
     <meta name="twitter:image:alt" content="${escape(title)}" />
-    ${verification ? `<meta name="google-site-verification" content="${escape(verification)}" />` : ''}`;
+    ${verification ? `<meta name="google-site-verification" content="${escape(verification)}" />` : ""}`;
 }
