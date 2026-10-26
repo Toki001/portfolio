@@ -54,10 +54,23 @@ export function useEditorialMotion() {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
           observer.unobserve(entry.target);
-          scope.play(entry.target, [
-            { transform: "translateY(18px)", opacity: 0 },
-            { transform: "translateY(0)", opacity: 1 },
-          ]);
+          const lines = entry.target.querySelectorAll(".motion-line");
+          if (lines.length)
+            lines.forEach((line, index) =>
+              scope.play(
+                line,
+                [
+                  { transform: "translateY(110%) rotateX(12deg)" },
+                  { transform: "translateY(0) rotateX(0deg)" },
+                ],
+                { delay: index * 60 },
+              ),
+            );
+          else
+            scope.play(entry.target, [
+              { transform: "translateY(18px)", opacity: 0 },
+              { transform: "translateY(0)", opacity: 1 },
+            ]);
         }
       },
       { threshold: 0.08 },

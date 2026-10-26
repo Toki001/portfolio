@@ -20,13 +20,6 @@
   line-height: 0.94;
   font-weight: 550;
 }
-.hero-title > span {
-  display: block;
-  animation: hero-enter 700ms var(--ease-out) both;
-}
-.hero-title > span:last-child {
-  animation-delay: 60ms;
-}
 .name-period {
   color: var(--color-accent);
 }
@@ -62,7 +55,6 @@
 .hero-portrait {
   margin: 0;
   min-width: 0;
-  animation: portrait-enter 800ms 80ms var(--ease-out) both;
 }
 .portrait-stage {
   aspect-ratio: 0.87;

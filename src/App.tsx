@@ -12,6 +12,7 @@ import { NotFound } from "./components/portfolio/NotFound";
 import { getProject } from "./content/projects";
 import { useActiveSection } from "./hooks/useActiveSection";
 import { useEditorialMotion } from "./hooks/useEditorialMotion";
+import { usePointerMotion } from "./hooks/usePointerMotion";
 const sectionIds = [
   "home",
   "projects",
@@ -26,6 +27,7 @@ function App({ pathname }: { pathname?: string } = {}) {
     (typeof window === "undefined" ? "/" : window.location.pathname);
   const activeSection = useActiveSection(sectionIds);
   const progress = useEditorialMotion();
+  usePointerMotion();
   const isHome = path === "/";
   const isIndex = path === "/projects" || path === "/projects/";
   const match = path.match(/^\/projects\/([a-z0-9-]+)\/?$/);

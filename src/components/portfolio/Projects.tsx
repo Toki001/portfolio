@@ -1,5 +1,6 @@
 import { featuredProjects } from "../../content/projects";
 import type { Project } from "../../content/projects";
+import { TextMask } from "./TextMask";
 import { Arrow } from "./Arrow";
 import { ProjectArtwork } from "./ProjectArtwork";
 
@@ -50,9 +51,11 @@ export function Projects() {
       tabIndex={-1}
       aria-labelledby="selected-title"
     >
-      <div className="section-heading" data-reveal>
+      <div className="section-heading" data-reveal="heading">
         <h2 id="selected-title">
-          Selected work<span className="heading-period">.</span>
+          <TextMask>
+            Selected work<span className="heading-period">.</span>
+          </TextMask>
         </h2>
         <p>From local-first mobile apps to useful tools in your browser.</p>
       </div>

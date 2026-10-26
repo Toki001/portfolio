@@ -1,11 +1,14 @@
 import { siteConfig } from "../../config/site";
 import { Arrow } from "./Arrow";
-
+import { TextMask } from "./TextMask";
+import { useHeroHandoff } from "../../hooks/useHeroHandoff";
 export function Hero() {
   const { identity, location } = siteConfig;
+  const hero = useHeroHandoff();
   const [givenName, ...familyName] = identity.name.split(" ");
   return (
     <section
+      ref={hero}
       id="home"
       className="hero container"
       tabIndex={-1}
@@ -15,38 +18,56 @@ export function Hero() {
         <div className="hero-copy">
           <p className="hero-introduction">Hello, I’m</p>
           <h1 id="identity-title" className="hero-title">
-            <span>{givenName}</span>
-            <span>
+            <TextMask>{givenName}</TextMask>
+            <TextMask>
               {familyName.join(" ")}
               <span className="name-period">.</span>
-            </span>
+            </TextMask>
           </h1>
           <div className="hero-positioning">
             <p className="hero-role">{identity.title}</p>
             <p className="hero-description">{identity.heroStatement}</p>
           </div>
           <div className="hero-actions">
-            <a className="button" href="#projects">
-              Explore my work <Arrow diagonal={false} />
+            <a
+              className="button"
+              href="#projects"
+              data-pointer-surface="magnetic"
+            >
+              <span className="magnetic-content" data-pointer-layer>
+                Explore my work <Arrow diagonal={false} />
+              </span>
             </a>
             <a className="text-link" href="#contact">
               Get in touch <Arrow />
             </a>
           </div>
         </div>
-        <figure className="hero-portrait">
-          <div className="portrait-stage">
+        <figure className="hero-portrait" data-hero-depth>
+          <div className="portrait-stage" data-pointer-surface="portrait">
+            <span className="portrait-grid" aria-hidden="true" />
             <span className="portrait-arc" aria-hidden="true" />
             <span className="portrait-word" aria-hidden="true">
               &lt;/&gt;
             </span>
-            <img
-              width={384}
-              height={384}
-              fetchPriority="high"
-              decoding="async"
-              src={identity.profileImage}
-              alt={`${identity.name} in his graduation gown`}
+            <div className="portrait-image" data-pointer-layer>
+              <img
+                width={384}
+                height={384}
+                fetchPriority="high"
+                decoding="async"
+                src={identity.profileImage}
+                alt={`${identity.name} in his graduation gown`}
+              />
+            </div>
+            <span className="portrait-curtains" aria-hidden="true">
+              <i />
+              <i />
+            </span>
+            <span
+              className="portrait-light"
+              data-pointer-light
+              aria-hidden="true"
             />
             <a href="#about" className="portrait-about">
               A little about me <Arrow />
