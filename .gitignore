@@ -27,3 +27,9 @@ dist-server
 .env
 .env.*
 !.env.example
+
+# Private inspiration sources are never deployed or committed.
+references/portfolio-redesign/*.mp4
+references/portfolio-redesign/*.webp
+test-results/
+playwright-report/

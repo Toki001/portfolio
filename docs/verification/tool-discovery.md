@@ -1,0 +1,22 @@
+# Tool discovery — 2026-10-26
+
+No callable tool named `find_skills` exists in this runtime. Used native available-skills catalog, `rg --files ... SKILL.md` local inspection and the installed **find-skills** instructions. Read skills.sh leaderboard and official repository instruction files; no external skill or plugin installed.
+
+| Requested capability | Verified availability and actual use |
+| --- | --- |
+| find-skills | Installed local SKILL.md at ~/.agents/skills/find-skills; discovery/leaderboard workflow used; not a fictional tool call. |
+| plugin-management | OpenAI curated cache v0.1.0; read SKILL.md; actual `mcp__codex_apps__plugin_management_search_plugins` calls for combined names and each exact name. |
+| apple-design | Installed ~/.agents/skills/apple-design/SKILL.md, no version field; applied immediate press feedback, readable type, motion continuity, reduced-motion/touch guidance. |
+| ui-ux-pro-max | Not installed. Read official nextlevelbuilder/ui-ux-pro-max-skill SKILL.md (no version field) over HTTPS. General priority-table fallback used for touch/contrast/layout/performance; database/search.py NOT installed or run. |
+| hallmark | Not installed. Read official nutlope/hallmark v2.0.0 SKILL.md plus redesign, flow and custom-direction guidance; applied material-first editorial review and anti-template floor. Theme/scaffold/sloplint scripts NOT installed or run; manual in-thread review fallback, no claim of plugin verification. |
+| shadcn | Not installed/no components.json. Read official shadcn-ui/ui SKILL.md; applied semantic tokens and accessible-control guidance where compatible. Did not force registry/components or framework change, CLI not run. |
+| web-design-guidelines | Not installed. Read official vercel-labs/agent-skills SKILL.md v1.0.0 and current vercel-labs/web-interface-guidelines/command.md. Applied actual source review recorded in baseline/final audit. |
+| emil-design-eng | Not installed. Read official emilkowalski/skills/skills/emil-design-eng/SKILL.md (no version field); actual duration/easing/reduced-motion review, documented with Before/After table. |
+| headless | Exact publisher/product unresolved. Search returned Wix/Data only (unrelated, not installed); not substituted. Actual fallback: Playwright Chromium screenshots, interaction/console/overflow checks. |
+| graphify | No callable tool or local skill; exact plugin search empty. Hosted api.graphify.com requires an authorized indexed repo/account; not used. Fallback: rg imports/routes/content/build map and final dependency review. |
+| ponytail | No callable tool/local skill; exact plugin search empty. DietrichGebert/ponytail identified by user brief only, not installed. Fallback: explicit YAGNI review of dependencies, observers, routing and components. |
+| Sites | OpenAI curated v1.1.2 SKILL.md plus local-preview and presentation-led references read. Applied local-only retained-checkout workflow. No Site created, remote synchronized or deployed; user explicitly prohibits automatic deployment. |
+
+Official read-only instruction downloads were approved via sandbox escalation into /private/tmp/portfolio-skill-review. Initial sandbox DNS failed; network reads succeeded with escalation. No OAuth, secrets, paid services or permission changes. Browser execution and local server require sandbox escalation; granted. Git metadata writes require escalation; user explicitly authorized milestone commits. No pushes.
+
+Primary instruction sources: [Hallmark](https://github.com/nutlope/hallmark), [UI-UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill), [shadcn](https://github.com/shadcn-ui/ui), [Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines), [Emil skills](https://github.com/emilkowalski/skills). Retrieved 2026-10-26; versions only where the retrieved files declare them.
