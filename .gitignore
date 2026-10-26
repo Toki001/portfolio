@@ -36,3 +36,10 @@ playwright-report/
 
 # Cinematic references are private study material.
 references/motion/*.mp4
+
+# Owner-supplied Phase 3 study kits and duplicate handoff files stay local.
+/portfolio-phase-3/
+/references copy/
+/README copy.md
+references/portfolio-phase-3/*.mp4
+references/portfolio-phase-3/*.png
