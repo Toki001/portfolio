@@ -1,0 +1,33 @@
+/* Native static content is the fallback; enhancement is scoped to a live capability flag. */
+.motion-mask {
+  display: block;
+  overflow: clip;
+  padding-block: 0.1em;
+  margin-block: -0.1em;
+  perspective: 900px;
+}
+.motion-line {
+  display: block;
+  transform-origin: left bottom;
+}
+html:not([data-motion="full"]) *,
+html:not([data-motion="full"]) *::before,
+html:not([data-motion="full"]) *::after,
+html[data-input="keyboard"] *,
+html[data-input="keyboard"] *::before,
+html[data-input="keyboard"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+html[data-input="keyboard"] .reading-progress {
+  opacity: 0;
+}
+button,
+summary {
+  user-select: none;
+  -webkit-user-select: none;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}

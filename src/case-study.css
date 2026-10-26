@@ -299,13 +299,6 @@ html:has(dialog[open]) {
   width: clamp(2rem, 7vw, 5rem);
   height: auto;
 }
-@view-transition {
-  navigation: auto;
-}
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 180ms;
-}
 @media (max-width: 768px) {
   .case-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -356,14 +349,5 @@ html:has(dialog[open]) {
   }
   .media-dialog {
     max-width: 94%;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  @view-transition {
-    navigation: none;
-  }
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
   }
 }

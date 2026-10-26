@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "../../config/site";
 import { Arrow } from "./Arrow";
+import { createMotionScope, motion } from "../../motion/animate";
 
 export function Header({
   activeSection,
@@ -16,6 +17,16 @@ export function Header({
   useEffect(() => {
     if (!open) return;
     menu.current?.querySelector("a")?.focus();
+    const scope = createMotionScope();
+    if (menu.current)
+      scope.play(
+        menu.current,
+        [
+          { transform: "translateY(-12px)", opacity: 0.6 },
+          { transform: "translateY(0)", opacity: 1 },
+        ],
+        { duration: motion.ui, easing: motion.drawer },
+      );
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setOpen(false);
@@ -36,6 +47,7 @@ export function Header({
     window.addEventListener("pointerdown", closeOnOutside);
     window.addEventListener("resize", onResize);
     return () => {
+      scope.cancel();
       window.removeEventListener("keydown", closeOnEscape);
       window.removeEventListener("pointerdown", closeOnOutside);
       window.removeEventListener("resize", onResize);

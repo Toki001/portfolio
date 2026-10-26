@@ -1,28 +1,63 @@
 import { useEffect, useRef } from "react";
+import { canAnimate, createMotionScope } from "../motion/animate";
 
 export function useEditorialMotion() {
   const progress = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const root = document.documentElement;
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+    const scope = createMotionScope();
     let frame = 0;
-    const running = new Set<Animation>();
+    const stop = () => {
+      scope.cancel();
+      cancelAnimationFrame(frame);
+      frame = 0;
+      // The whole page uses finite CSS/WAAPI effects. Cancelling restores static styles.
+      document.getAnimations().forEach((animation) => animation.cancel());
+    };
+    const notify = () =>
+      window.dispatchEvent(new Event("portfolio:motionchange"));
+    const preference = () => {
+      root.dataset.motion = reduced.matches ? "reduced" : "full";
+      if (reduced.matches) stop();
+      notify();
+    };
+    const keyboard = (event: KeyboardEvent) => {
+      if (
+        ![
+          "Tab",
+          "Enter",
+          "Escape",
+          " ",
+          "ArrowLeft",
+          "ArrowRight",
+          "ArrowDown",
+          "ArrowUp",
+        ].includes(event.key)
+      )
+        return;
+      root.dataset.input = "keyboard";
+      stop();
+      notify();
+    };
+    const pointer = () => {
+      if (root.dataset.input === "pointer") return;
+      root.dataset.input = "pointer";
+      notify();
+    };
+    const visibility = () => {
+      if (document.hidden) stop();
+      notify();
+    };
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
           observer.unobserve(entry.target);
-          if (reduced.matches) continue;
-          const animation = entry.target.animate(
-            [
-              { transform: "translateY(18px)", opacity: 0 },
-              { transform: "translateY(0)", opacity: 1 },
-            ],
-            { duration: 650, easing: "cubic-bezier(.23,1,.32,1)" },
-          );
-          running.add(animation);
-          animation.finished
-            .then(() => running.delete(animation))
-            .catch(() => running.delete(animation));
+          scope.play(entry.target, [
+            { transform: "translateY(18px)", opacity: 0 },
+            { transform: "translateY(0)", opacity: 1 },
+          ]);
         }
       },
       { threshold: 0.08 },
@@ -32,27 +67,34 @@ export function useEditorialMotion() {
       .forEach((el) => observer.observe(el));
     const update = () => {
       frame = 0;
-      const max = document.documentElement.scrollHeight - innerHeight;
+      if (!canAnimate()) return;
+      const max = root.scrollHeight - innerHeight;
       if (progress.current)
         progress.current.style.transform = `scaleX(${max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0})`;
     };
-    const requestUpdate = () => {
-      if (!frame) frame = requestAnimationFrame(update);
+    const request = () => {
+      if (!frame && canAnimate()) frame = requestAnimationFrame(update);
     };
-    const onPreferenceChange = () => {
-      if (reduced.matches) running.forEach((animation) => animation.cancel());
-    };
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-    reduced.addEventListener("change", onPreferenceChange);
+    preference();
     update();
+    addEventListener("scroll", request, { passive: true });
+    addEventListener("resize", request);
+    addEventListener("keydown", keyboard, { capture: true });
+    addEventListener("pointerdown", pointer, { passive: true, capture: true });
+    addEventListener("pointermove", pointer, { passive: true });
+    reduced.addEventListener("change", preference);
+    document.addEventListener("visibilitychange", visibility);
     return () => {
       observer.disconnect();
-      running.forEach((animation) => animation.cancel());
+      scope.cancel();
       cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestUpdate);
-      reduced.removeEventListener("change", onPreferenceChange);
+      removeEventListener("scroll", request);
+      removeEventListener("resize", request);
+      removeEventListener("keydown", keyboard, { capture: true });
+      removeEventListener("pointerdown", pointer, { capture: true });
+      removeEventListener("pointermove", pointer);
+      reduced.removeEventListener("change", preference);
+      document.removeEventListener("visibilitychange", visibility);
     };
   }, []);
   return progress;
