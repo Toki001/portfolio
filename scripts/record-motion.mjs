@@ -34,6 +34,19 @@ try {
     await p.goto("http://127.0.0.1:4176/");
     await p.waitForTimeout(1400);
     await p.screenshot({ path: `${root}/${name}-hero.png` });
+    const hasEditorialIntro = await p
+      .locator(".editorial-introduction")
+      .count();
+    if (hasEditorialIntro) {
+      for (let i = 0; i < 3; i++) {
+        await p.mouse.wheel(0, 260);
+        await p.waitForTimeout(i === 0 ? 180 : 450);
+        if (i === 0)
+          await p.screenshot({ path: `${root}/${name}-intro-reveal.png` });
+      }
+      await p.waitForTimeout(600);
+      await p.screenshot({ path: `${root}/${name}-intro.png` });
+    }
     if (mobile) {
       await p.getByRole("button", { name: "Menu", exact: true }).tap();
       await p.waitForTimeout(450);
@@ -48,7 +61,8 @@ try {
       await p.mouse.move(1100, 270, { steps: 30 });
       await p.waitForTimeout(500);
       await p
-        .getByRole("link", { name: "Explore my work", exact: true })
+        .getByRole("navigation", { name: "Main navigation", exact: true })
+        .getByRole("link", { name: "Projects", exact: true })
         .click();
     }
     await p.waitForTimeout(850);

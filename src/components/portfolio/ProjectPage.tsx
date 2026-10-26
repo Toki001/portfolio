@@ -1,5 +1,6 @@
 import { projects } from "../../content/projects";
 import type { Project } from "../../content/projects";
+import { ScrollText, SectionLabel } from "./ScrollText";
 import { TextMask } from "./TextMask";
 import { Arrow } from "./Arrow";
 import { ProjectArtwork } from "./ProjectArtwork";
@@ -82,15 +83,17 @@ export function ProjectPage({ project }: { project: Project }) {
         </div>
       </div>
       <div className="container case-reading">
-        <section className="case-chapter" data-reveal>
+        <section className="case-chapter" data-reveal="sequence">
           <h2>
-            <TextMask>The problem</TextMask>
+            <ScrollText>The problem</ScrollText>
           </h2>
-          <p>{project.problem}</p>
+          <p>
+            <ScrollText variant="body">{project.problem}</ScrollText>
+          </p>
         </section>
-        <section className="case-chapter" data-reveal>
+        <section className="case-chapter" data-reveal="sequence">
           <h2>
-            <TextMask>The approach</TextMask>
+            <ScrollText>The approach</ScrollText>
           </h2>
           <div>
             <p>{project.solution}</p>
@@ -110,10 +113,17 @@ export function ProjectPage({ project }: { project: Project }) {
           aria-labelledby="architecture-title"
         >
           <div className="container">
-            <div className="section-heading" data-reveal>
-              <h2 id="architecture-title">
-                <TextMask>Under the hood.</TextMask>
-              </h2>
+            <div
+              className="section-heading"
+              data-reveal="sequence"
+              data-handoff
+            >
+              <div>
+                <SectionLabel>Architecture</SectionLabel>
+                <h2 id="architecture-title">
+                  <ScrollText accentEnd>Under the hood.</ScrollText>
+                </h2>
+              </div>
               <p>
                 The pieces behind the experience, and how they fit together.
               </p>
@@ -141,15 +151,15 @@ export function ProjectPage({ project }: { project: Project }) {
       )}
       <div className="container case-reading">
         <MediaGallery project={project} />
-        <section className="case-chapter" data-reveal>
+        <section className="case-chapter" data-reveal="sequence">
           <h2>
-            <TextMask>Decisions & constraints</TextMask>
+            <ScrollText>Decisions & constraints</ScrollText>
           </h2>
           <p>{project.challenges}</p>
         </section>
-        <section className="case-chapter" data-reveal>
+        <section className="case-chapter" data-reveal="sequence">
           <h2>
-            <TextMask>What’s there today</TextMask>
+            <ScrollText>What’s there today</ScrollText>
           </h2>
           <p>{project.results}</p>
         </section>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "../../config/site";
 import { Arrow } from "./Arrow";
-import { TextMask } from "./TextMask";
+import { ScrollText } from "./ScrollText";
 import { createMotionScope, motion } from "../../motion/animate";
 export function Contact() {
   const [message, setMessage] = useState("");
@@ -40,11 +40,11 @@ export function Contact() {
           className="contact-invitation"
           data-pointer-surface="magnetic"
           href={`mailto:${contact.email}?subject=${encodeURIComponent(contact.subjectPrefix)}`}
-          data-reveal
+          data-reveal="sequence"
         >
           <h2 id="contact-title">
-            <TextMask>Let’s build</TextMask>
-            <TextMask>something together.</TextMask>
+            <ScrollText>Let’s build</ScrollText>
+            <ScrollText>something together.</ScrollText>
           </h2>
           <span className="contact-arrow" data-pointer-layer>
             <Arrow />

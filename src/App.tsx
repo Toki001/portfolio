@@ -1,4 +1,5 @@
 import { Header } from "./components/portfolio/Header";
+import { Introduction } from "./components/portfolio/Introduction";
 import { Hero } from "./components/portfolio/Hero";
 import { Projects } from "./components/portfolio/Projects";
 import { TechStack } from "./components/portfolio/TechStack";
@@ -48,6 +49,7 @@ function App({ pathname }: { pathname?: string } = {}) {
         {isHome ? (
           <>
             <Hero />
+            <Introduction />
             <Projects />
             <TechStack />
             <ToolsWorkbench />

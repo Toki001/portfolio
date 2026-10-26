@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { projects } from "../../content/projects";
+import { ScrollText } from "./ScrollText";
 import { ProjectArtwork } from "./ProjectArtwork";
 import { Arrow } from "./Arrow";
 import { useProjectReflow } from "../../hooks/useProjectReflow";
@@ -29,7 +30,7 @@ export function ProjectExplorer() {
           Back to selected work
         </a>
         <h1>
-          Project index<span className="heading-period">.</span>
+          <ScrollText accentEnd>Project index.</ScrollText>
         </h1>
         <p>
           Mobile applications, web tools and experiments in machine learning.

@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
-import { canAnimate, createMotionScope, motion } from "../motion/animate";
+import { canAnimate, createMotionScope } from "../motion/animate";
+
+import { createEditorialReveals } from "../motion/editorial";
 
 export function useEditorialMotion() {
   const progress = useRef<HTMLDivElement>(null);
@@ -7,9 +9,11 @@ export function useEditorialMotion() {
     const root = document.documentElement;
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
     const scope = createMotionScope();
+    const reveals = createEditorialReveals(scope);
     let frame = 0;
     const stop = () => {
       scope.cancel();
+      reveals.finish();
       cancelAnimationFrame(frame);
       frame = 0;
       // The whole page uses finite CSS/WAAPI effects. Cancelling restores static styles.
@@ -49,64 +53,10 @@ export function useEditorialMotion() {
       if (document.hidden) stop();
       notify();
     };
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          observer.unobserve(entry.target);
-          if (
-            entry.target instanceof HTMLElement &&
-            entry.target.dataset.reveal === "pixels"
-          ) {
-            entry.target
-              .querySelectorAll("i")
-              .forEach((pixel, index) =>
-                scope.play(
-                  pixel,
-                  [
-                    { transform: "translateY(105%)" },
-                    { transform: "translateY(0)" },
-                  ],
-                  { duration: 460, delay: ((index * 5) % 12) * 20 },
-                ),
-              );
-            continue;
-          }
-          const lines = entry.target.querySelectorAll(".motion-line");
-          if (lines.length)
-            lines.forEach((line, index) =>
-              scope.play(
-                line,
-                [
-                  { transform: "translateY(110%) rotateX(12deg)" },
-                  { transform: "translateY(0) rotateX(0deg)" },
-                ],
-                { delay: index * motion.stagger },
-              ),
-            );
-          else if (
-            entry.target instanceof HTMLElement &&
-            entry.target.dataset.reveal === "media"
-          )
-            scope.play(entry.target, [
-              { transform: "translateY(28px) scale(.97) rotateY(3deg)" },
-              { transform: "translateY(0) scale(1) rotateY(0deg)" },
-            ]);
-          else
-            scope.play(entry.target, [
-              { transform: "translateY(18px)", opacity: 0 },
-              { transform: "translateY(0)", opacity: 1 },
-            ]);
-        }
-      },
-      { threshold: 0.08 },
-    );
-    document
-      .querySelectorAll("[data-reveal]")
-      .forEach((el) => observer.observe(el));
     const update = () => {
       frame = 0;
       root.dataset.scrolled = scrollY > 24 ? "true" : "false";
+      reveals.draw(scrollY);
       if (!canAnimate()) return;
       const max = root.scrollHeight - innerHeight;
       if (progress.current)
@@ -125,8 +75,9 @@ export function useEditorialMotion() {
     reduced.addEventListener("change", preference);
     document.addEventListener("visibilitychange", visibility);
     return () => {
-      observer.disconnect();
+      reveals.destroy();
       scope.cancel();
+      reveals.finish();
       cancelAnimationFrame(frame);
       removeEventListener("scroll", request);
       removeEventListener("resize", request);

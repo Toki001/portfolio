@@ -342,3 +342,69 @@ html[data-scrolled="true"] .site-header {
     height: 25px;
   }
 }
+
+/* Phase 3: responsive line masks keep real words, spaces and normal wrapping. */
+.scroll-copy {
+  display: block;
+}
+.reveal-word {
+  display: inline-block;
+  overflow: clip;
+  vertical-align: top;
+  padding-block: 0.11em;
+  margin-block: -0.11em;
+  max-width: 100%;
+}
+.reveal-word-inner {
+  display: block;
+  transform-origin: left bottom;
+}
+html[data-motion="full"]:not([data-input="keyboard"])
+  [data-reveal-state="waiting"]
+  .reveal-word-inner {
+  transform: translateY(112%);
+}
+.editorial-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-bottom: 1.75rem;
+}
+.editorial-rule {
+  flex: 0 0 2.5rem;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+}
+.editorial-introduction {
+  padding-block: clamp(4rem, 8vw, 8rem) clamp(1rem, 3vw, 3rem);
+}
+.intro-statement {
+  font-size: clamp(2rem, 4.5vw, 4.5rem);
+  font-weight: 450;
+  line-height: 1.14;
+  letter-spacing: -0.045em;
+  max-width: 65rem;
+}
+.capability-intro .editorial-label {
+  color: var(--color-on-deep);
+  margin: 0 0 1.75rem;
+}
+.about-heading .editorial-label {
+  margin: 0 0 1.75rem;
+}
+.section-heading .editorial-label {
+  margin: 0 0 1.25rem;
+}
+[data-handoff] {
+  transform-origin: left center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-word-inner,
+  [data-handoff] {
+    transform: none !important;
+  }
+}

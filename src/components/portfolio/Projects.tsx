@@ -1,6 +1,6 @@
 import { featuredProjects } from "../../content/projects";
 import type { Project } from "../../content/projects";
-import { TextMask } from "./TextMask";
+import { ScrollText, SectionLabel } from "./ScrollText";
 import { Arrow } from "./Arrow";
 import { ProjectArtwork } from "./ProjectArtwork";
 import { useProjectScene } from "../../hooks/useProjectScene";
@@ -34,7 +34,7 @@ function FeaturedCard({
             <Arrow />
           </span>
         </a>
-        <div className="work-caption" data-reveal="heading">
+        <div className="work-caption" data-reveal="sequence">
           <div>
             <p className="work-meta">
               <span>{project.index}</span>
@@ -42,7 +42,7 @@ function FeaturedCard({
             </p>
             <h3>
               <a href={`/projects/${project.slug}`}>
-                <TextMask>{project.title}</TextMask>
+                <ScrollText>{project.title}</ScrollText>
               </a>
             </h3>
           </div>
@@ -69,12 +69,13 @@ export function Projects() {
       tabIndex={-1}
       aria-labelledby="selected-title"
     >
-      <div className="section-heading" data-reveal="heading">
-        <h2 id="selected-title">
-          <TextMask>
-            Selected work<span className="heading-period">.</span>
-          </TextMask>
-        </h2>
+      <div className="section-heading" data-reveal="sequence" data-handoff>
+        <div>
+          <SectionLabel>Selected projects</SectionLabel>
+          <h2 id="selected-title">
+            <ScrollText accentEnd>Selected work.</ScrollText>
+          </h2>
+        </div>
         <p>From local-first mobile apps to useful tools in your browser.</p>
       </div>
       <div

@@ -1,5 +1,5 @@
 import { siteConfig } from "../../config/site";
-import { TextMask } from "./TextMask";
+import { ScrollText, SectionLabel } from "./ScrollText";
 import { PixelHandoff } from "./PixelHandoff";
 export function TechStack() {
   return (
@@ -11,10 +11,11 @@ export function TechStack() {
     >
       <PixelHandoff />
       <div className="container capability-layout">
-        <div className="capability-intro" data-reveal>
+        <div className="capability-intro" data-reveal="sequence" data-handoff>
+          <SectionLabel>Engineering</SectionLabel>
           <h2 id="capability-title">
-            <TextMask>From interface</TextMask>
-            <TextMask>to infrastructure.</TextMask>
+            <ScrollText>From interface</ScrollText>
+            <ScrollText>to infrastructure.</ScrollText>
           </h2>
           <p>
             I care about what a product feels like — and what keeps it working

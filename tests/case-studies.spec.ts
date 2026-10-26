@@ -8,7 +8,17 @@ for (const slug of ["peso-flow", "pokechamp", "pixeltools", "guest-reco"]) {
   }) => {
     const response = await request.get(`/projects/${slug}`);
     expect(response.status()).toBe(200);
-    expect(await response.text()).toContain("The approach");
+    // Inspect the actual unhydrated response; line masks segment text into spans.
+    const headings = await page.evaluate(
+      (html) =>
+        [
+          ...new DOMParser()
+            .parseFromString(html, "text/html")
+            .querySelectorAll("h2"),
+        ].map((h) => h.textContent?.replace(/\s+/g, " ").trim()),
+      await response.text(),
+    );
+    expect(headings).toContain("The approach");
     await page.goto(`/projects/${slug}`);
     await expect(page.locator("h1")).toHaveCount(1);
     await expect(
