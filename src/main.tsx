@@ -7,6 +7,7 @@ import './foundation.css'
 import './hero.css'
 import './work.css'
 import './case-study.css'
+import './life.css'
 import App from './App.tsx'
 
 const root = document.getElementById('root')!

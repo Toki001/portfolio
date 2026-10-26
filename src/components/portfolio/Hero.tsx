@@ -3,11 +3,12 @@ import { Arrow } from './Arrow';
 
 export function Hero() {
   const { identity, location } = siteConfig;
+  const [givenName, ...familyName] = identity.name.split(" ");
   return <section id="home" className="hero container" tabIndex={-1} aria-labelledby="identity-title">
     <div className="hero-grid">
       <div className="hero-copy">
         <p className="hero-introduction">Hello, I’m</p>
-        <h1 id="identity-title" className="hero-title"><span>Jameskier</span><span>Doliguez<span className="name-period">.</span></span></h1>
+        <h1 id="identity-title" className="hero-title"><span>{givenName}</span><span>{familyName.join(" ")}<span className="name-period">.</span></span></h1>
         <div className="hero-positioning">
           <p className="hero-role">{identity.title}</p>
           <p className="hero-description">{identity.heroStatement}</p>

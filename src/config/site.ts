@@ -20,7 +20,7 @@ export const siteConfig = {
   navigation: [
     { label: "Home", href: "#home", index: "01" },
     { label: "Projects", href: "#projects", index: "02" },
-    { label: "Tech Stack", href: "#tech-stack", index: "03" },
+    { label: "Tech stack", href: "#tech-stack", index: "03" },
     { label: "Tools", href: "#tools", index: "04" },
     { label: "About", href: "#about", index: "05" },
     { label: "Contact", href: "#contact", index: "06" },
@@ -194,9 +194,9 @@ export const siteConfig = {
     sectionTitle: "EXPERIENCE & PHILOSOPHY",
     introHeading: "Hi, I'm Jameskier Doliguez.",
     paragraphs: [
-      "I am a mobile, web, and machine learning developer with a focus on building functional, durable digital systems. My engineering discipline centers on clean code structures, predictable offline persistence, and pragmatic intelligence pipelines.",
-      "Whether architecting cross-platform Flutter applications or training quantized vision models with TensorFlow Lite, I prioritize user speed, clean separation of concerns, and clean visual typography.",
-      "I thrive on translating complex requirements into reliable codebases with intuitive feedback loops and zero bloated dependencies."
+      "I’m Jameskier Doliguez, a software engineer in the Philippines. I build mobile and web applications, and work with machine learning where it helps solve a practical problem.",
+      "My focus is on clear interfaces and systems that stay understandable: local persistence, predictable state, and clean separation of concerns.",
+      "I enjoy turning complex requirements into useful products, from a Flutter application to a lightweight vision model running on a device."
     ],
     chips: [
       { label: "SPECIALTY", value: "React19, Next.js & Flutter" },
@@ -236,7 +236,7 @@ export const siteConfig = {
   contact: {
     heading: "Let's Build Something Together",
     intro: "Have a mobile app in mind, a web platform to launch, or machine learning model to deploy? Let's discuss requirements and timelines.",
-    responseTime: "< 24H",
+    subjectPrefix: "Project inquiry from the portfolio",
     email: "jameskierdoliguez@gmail.com",
     directIntro: "I respond to project inquiries, freelance collaborations, and full-time discussions within 24 hours.",
     form: {
@@ -249,6 +249,7 @@ export const siteConfig = {
   footer: {
     craftedWith: "Designed and built with React & TypeScript",
     copyrightName: "Jameskier Doliguez",
+    copyrightYear: 2026,
     systemStatus: "ALL SYSTEMS NOMINAL",
   },
 } as const;
