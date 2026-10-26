@@ -1,10 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "../../config/site";
 import { Arrow } from "./Arrow";
+import { TextMask } from "./TextMask";
+import { createMotionScope, motion } from "../../motion/animate";
 export function Contact() {
   const [message, setMessage] = useState("");
   const [canCopy, setCanCopy] = useState(false);
   const { contact, socials, availability } = siteConfig;
+  const status = useRef<HTMLParagraphElement>(null);
+  useEffect(() => {
+    if (!message || !status.current) return;
+    const scope = createMotionScope();
+    scope.play(
+      status.current,
+      [
+        { transform: "translateY(4px)", opacity: 0.5 },
+        { transform: "translateY(0)", opacity: 1 },
+      ],
+      { duration: motion.micro },
+    );
+    return () => scope.cancel();
+  }, [message]);
   useEffect(() => {
     setCanCopy(Boolean(navigator.clipboard?.writeText));
   }, []);
@@ -16,21 +32,23 @@ export function Contact() {
       aria-labelledby="contact-title"
     >
       <div className="container">
-        <div className="contact-top" data-reveal>
+        <div className="contact-top">
           <p>Have something in mind?</p>
           {availability && <p>{availability}</p>}
         </div>
         <a
           className="contact-invitation"
+          data-pointer-surface="magnetic"
           href={`mailto:${contact.email}?subject=${encodeURIComponent(contact.subjectPrefix)}`}
           data-reveal
         >
           <h2 id="contact-title">
-            Let’s build
-            <br />
-            something together.
+            <TextMask>Let’s build</TextMask>
+            <TextMask>something together.</TextMask>
           </h2>
-          <Arrow />
+          <span className="contact-arrow" data-pointer-layer>
+            <Arrow />
+          </span>
         </a>
         <div className="contact-bottom">
           <div className="direct-email">
@@ -55,7 +73,7 @@ export function Contact() {
                 Copy email
               </button>
             )}
-            <p className="copy-status" role="status">
+            <p ref={status} className="copy-status" role="status">
               {message}
             </p>
             <p className="email-note">Opens a draft in your email app.</p>

@@ -220,7 +220,7 @@
   letter-spacing: -0.055em;
   line-height: 1.02;
 }
-.contact-invitation > .arrow {
+.contact-invitation .arrow {
   width: clamp(3rem, 8vw, 7rem);
   height: auto;
 }
@@ -352,7 +352,7 @@
   }
 }
 @media (hover: hover) and (pointer: fine) {
-  .contact-invitation:hover > .arrow {
+  .contact-invitation:hover .arrow {
     transform: translate(7px, -7px);
   }
   .contact-socials a:hover,
@@ -414,7 +414,7 @@
   .contact-invitation h2 {
     font-size: clamp(2.7rem, 9vw, 4.5rem);
   }
-  .contact-invitation > .arrow {
+  .contact-invitation .arrow {
     width: 2.5rem;
   }
   .footer-top,

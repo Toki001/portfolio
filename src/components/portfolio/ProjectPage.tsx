@@ -1,5 +1,6 @@
 import { projects } from "../../content/projects";
 import type { Project } from "../../content/projects";
+import { TextMask } from "./TextMask";
 import { Arrow } from "./Arrow";
 import { ProjectArtwork } from "./ProjectArtwork";
 import { MediaGallery } from "./MediaGallery";
@@ -27,9 +28,11 @@ export function ProjectPage({ project }: { project: Project }) {
           <p className="work-meta">
             {project.kind} / {project.statusLabel}
           </p>
-          <h1>
-            {project.title}
-            <span className="heading-period">.</span>
+          <h1 className="case-title">
+            <TextMask>
+              {project.title}
+              <span className="heading-period">.</span>
+            </TextMask>
           </h1>
           <p>{project.description}</p>
         </div>
@@ -74,17 +77,21 @@ export function ProjectPage({ project }: { project: Project }) {
             </dd>
           </div>
         </dl>
-        <div className="case-cover" data-reveal>
+        <div className="case-cover" data-reveal="media">
           <ProjectArtwork project={project} />
         </div>
       </div>
       <div className="container case-reading">
         <section className="case-chapter" data-reveal>
-          <h2>The problem</h2>
+          <h2>
+            <TextMask>The problem</TextMask>
+          </h2>
           <p>{project.problem}</p>
         </section>
         <section className="case-chapter" data-reveal>
-          <h2>The approach</h2>
+          <h2>
+            <TextMask>The approach</TextMask>
+          </h2>
           <div>
             <p>{project.solution}</p>
             {project.keyFeatures.length > 0 && (
@@ -104,7 +111,9 @@ export function ProjectPage({ project }: { project: Project }) {
         >
           <div className="container">
             <div className="section-heading" data-reveal>
-              <h2 id="architecture-title">Under the hood.</h2>
+              <h2 id="architecture-title">
+                <TextMask>Under the hood.</TextMask>
+              </h2>
               <p>
                 The pieces behind the experience, and how they fit together.
               </p>
@@ -115,7 +124,9 @@ export function ProjectPage({ project }: { project: Project }) {
                   <span className="architecture-step">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3>{part.title}</h3>
+                  <h3>
+                    <TextMask>{part.title}</TextMask>
+                  </h3>
                   <p>{part.description}</p>
                   {i < project.architecture.length - 1 && (
                     <span className="architecture-arrow" aria-hidden="true">
@@ -131,18 +142,26 @@ export function ProjectPage({ project }: { project: Project }) {
       <div className="container case-reading">
         <MediaGallery project={project} />
         <section className="case-chapter" data-reveal>
-          <h2>Decisions & constraints</h2>
+          <h2>
+            <TextMask>Decisions & constraints</TextMask>
+          </h2>
           <p>{project.challenges}</p>
         </section>
         <section className="case-chapter" data-reveal>
-          <h2>What’s there today</h2>
+          <h2>
+            <TextMask>What’s there today</TextMask>
+          </h2>
           <p>{project.results}</p>
         </section>
       </div>
-      <nav className="next-project container" aria-label="Next project">
+      <nav
+        className="next-project container"
+        data-reveal="heading"
+        aria-label="Next project"
+      >
         <span>Keep exploring</span>
         <a href={`/projects/${next.slug}`}>
-          <span>{next.title}</span>
+          <TextMask>{next.title}</TextMask>
           <Arrow />
         </a>
         <a className="text-link" href="/projects">

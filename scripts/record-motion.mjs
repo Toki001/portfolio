@@ -26,6 +26,7 @@ try {
       isMobile: mobile,
       hasTouch: mobile,
       recordVideo: { dir: `${root}/raw`, size },
+      permissions: ["clipboard-read", "clipboard-write"],
     });
     const p = await context.newPage();
     const errors = [];
@@ -97,6 +98,19 @@ try {
     await p.getByRole("button", { name: "Close", exact: false }).click();
     await p.waitForTimeout(350);
     await p.screenshot({ path: `${root}/${name}-gallery.png` });
+    await p.goto("http://127.0.0.1:4176/");
+    await p.waitForTimeout(1000);
+    await p.locator(".work-index-link").scrollIntoViewIfNeeded();
+    await p.mouse.wheel(0, 500);
+    await p.waitForTimeout(750);
+    await p.screenshot({ path: `${root}/${name}-pixel-act.png` });
+    await p.locator("#about").scrollIntoViewIfNeeded();
+    await p.waitForTimeout(750);
+    await p.locator("#contact").scrollIntoViewIfNeeded();
+    await p.waitForTimeout(850);
+    await p.getByRole("button", { name: "Copy email", exact: true }).click();
+    await p.waitForTimeout(250);
+    await p.screenshot({ path: `${root}/${name}-contact.png` });
     const video = p.video();
     await context.close();
     await video.saveAs(`${root}/${name}.webm`);
@@ -111,6 +125,7 @@ try {
         "project filters",
         "case entry",
         "gallery next and dialog",
+        "geometric handoff, about and real copy-email feedback",
       ],
     });
   }

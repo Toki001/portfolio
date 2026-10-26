@@ -54,6 +54,24 @@ export function useEditorialMotion() {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
           observer.unobserve(entry.target);
+          if (
+            entry.target instanceof HTMLElement &&
+            entry.target.dataset.reveal === "pixels"
+          ) {
+            entry.target
+              .querySelectorAll("i")
+              .forEach((pixel, index) =>
+                scope.play(
+                  pixel,
+                  [
+                    { transform: "translateY(105%)" },
+                    { transform: "translateY(0)" },
+                  ],
+                  { duration: 460, delay: ((index * 5) % 12) * 20 },
+                ),
+              );
+            continue;
+          }
           const lines = entry.target.querySelectorAll(".motion-line");
           if (lines.length)
             lines.forEach((line, index) =>
@@ -88,6 +106,7 @@ export function useEditorialMotion() {
       .forEach((el) => observer.observe(el));
     const update = () => {
       frame = 0;
+      root.dataset.scrolled = scrollY > 24 ? "true" : "false";
       if (!canAnimate()) return;
       const max = root.scrollHeight - innerHeight;
       if (progress.current)

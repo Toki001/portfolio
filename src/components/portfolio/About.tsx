@@ -1,4 +1,5 @@
 import { siteConfig } from "../../config/site";
+import { TextMask } from "./TextMask";
 export function About() {
   const { about, location, currentFocus } = siteConfig;
   return (
@@ -11,9 +12,10 @@ export function About() {
       <div className="container about-layout">
         <div className="about-heading" data-reveal>
           <h2 id="about-title">
-            The person
-            <br />
-            behind the code<span className="heading-period">.</span>
+            <TextMask>The person</TextMask>
+            <TextMask>
+              behind the code<span className="heading-period">.</span>
+            </TextMask>
           </h2>
           <p>
             {siteConfig.identity.name}
@@ -23,7 +25,7 @@ export function About() {
             </span>
           </p>
         </div>
-        <div className="about-story" data-reveal>
+        <div className="about-story">
           {about.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}

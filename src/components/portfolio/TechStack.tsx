@@ -1,4 +1,6 @@
 import { siteConfig } from "../../config/site";
+import { TextMask } from "./TextMask";
+import { PixelHandoff } from "./PixelHandoff";
 export function TechStack() {
   return (
     <section
@@ -7,12 +9,12 @@ export function TechStack() {
       tabIndex={-1}
       aria-labelledby="capability-title"
     >
+      <PixelHandoff />
       <div className="container capability-layout">
         <div className="capability-intro" data-reveal>
           <h2 id="capability-title">
-            From interface
-            <br />
-            to infrastructure.
+            <TextMask>From interface</TextMask>
+            <TextMask>to infrastructure.</TextMask>
           </h2>
           <p>
             I care about what a product feels like — and what keeps it working
@@ -28,7 +30,6 @@ export function TechStack() {
               key={domain.index}
               open={i === 0}
               className="capability-detail"
-              data-reveal
             >
               <summary>
                 <span className="capability-index">{domain.index}</span>

@@ -27,11 +27,31 @@ export function useHeroHandoff() {
       height = hero.offsetHeight;
       request();
     };
+    const complete = () => {
+      hero.dataset.introComplete = "true";
+    };
+    const end = (event: AnimationEvent) => {
+      if (
+        event.target ===
+        hero.querySelector(".hero-title > .motion-mask:last-child .motion-line")
+      )
+        complete();
+    };
+    const mode = () => {
+      if (
+        document.documentElement.dataset.motion === "reduced" ||
+        document.documentElement.dataset.input === "keyboard" ||
+        document.hidden
+      )
+        complete();
+      draw();
+    };
+    hero.addEventListener("animationend", end);
     const resize = new ResizeObserver(measure);
     resize.observe(hero);
     addEventListener("scroll", request, { passive: true });
     addEventListener("resize", measure);
-    addEventListener("portfolio:motionchange", draw);
+    addEventListener("portfolio:motionchange", mode);
     draw();
     return () => {
       cancelAnimationFrame(frame);
@@ -39,7 +59,8 @@ export function useHeroHandoff() {
       portrait.style.transform = "";
       removeEventListener("scroll", request);
       removeEventListener("resize", measure);
-      removeEventListener("portfolio:motionchange", draw);
+      removeEventListener("portfolio:motionchange", mode);
+      hero.removeEventListener("animationend", end);
     };
   }, []);
   return ref;

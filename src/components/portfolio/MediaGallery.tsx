@@ -1,12 +1,37 @@
 import { useEffect, useId, useRef, useState } from "react";
 import type { Project } from "../../content/projects";
 import { Arrow } from "./Arrow";
+import { createMotionScope, motion } from "../../motion/animate";
 
 export function MediaGallery({ project }: { project: Project }) {
   const [active, setActive] = useState(0);
   const [enhanced, setEnhanced] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const zoom = useRef<HTMLButtonElement>(null);
+  const image = useRef<HTMLImageElement>(null),
+    userChange = useRef(false),
+    direction = useRef(1),
+    scope = useRef(createMotionScope());
+  useEffect(() => () => scope.current.cancel(), []);
+  useEffect(() => {
+    if (!userChange.current || !image.current) return;
+    userChange.current = false;
+    const current = getComputedStyle(image.current).transform;
+    scope.current.play(
+      image.current,
+      [
+        {
+          transform:
+            current === "none"
+              ? `translateX(${direction.current * 20}px) scale(.985)`
+              : current,
+          opacity: 0.6,
+        },
+        { transform: "translateX(0) scale(1)", opacity: 1 },
+      ],
+      { duration: 180 },
+    );
+  }, [active]);
   const titleId = useId();
   const count = project.media.length;
   useEffect(() => {
@@ -25,6 +50,8 @@ export function MediaGallery({ project }: { project: Project }) {
   const media = project.media[active];
   const change = (index: number) => {
     const next = (index + count) % count;
+    direction.current = index > active ? 1 : -1;
+    userChange.current = true;
     setActive(next);
     const url = new URL(location.href);
     if (next === 0) url.searchParams.delete("media");
@@ -51,7 +78,18 @@ export function MediaGallery({ project }: { project: Project }) {
           <button
             ref={zoom}
             className="text-button"
-            onClick={() => dialog.current?.showModal()}
+            onClick={() => {
+              if (!dialog.current) return;
+              dialog.current.showModal();
+              scope.current.play(
+                dialog.current,
+                [
+                  { transform: "translateY(12px) scale(.97)", opacity: 0.6 },
+                  { transform: "translateY(0) scale(1)", opacity: 1 },
+                ],
+                { duration: motion.ui },
+              );
+            }}
           >
             View larger <Arrow />
           </button>
@@ -66,6 +104,7 @@ export function MediaGallery({ project }: { project: Project }) {
           className={`gallery-image ${project.kind === "Mobile" ? "gallery-image-mobile" : ""}`}
         >
           <img
+            ref={image}
             src={media.src}
             alt={media.alt}
             width={media.width}
@@ -126,7 +165,10 @@ export function MediaGallery({ project }: { project: Project }) {
         ref={dialog}
         className="media-dialog"
         aria-labelledby={titleId}
-        onClose={() => zoom.current?.focus()}
+        onClose={() => {
+          scope.current.cancel();
+          zoom.current?.focus();
+        }}
       >
         <div className="dialog-heading">
           <h3 id={titleId}>{project.title} — interface detail</h3>
