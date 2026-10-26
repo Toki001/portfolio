@@ -43,3 +43,20 @@ references/motion/*.mp4
 /README copy.md
 references/portfolio-phase-3/*.mp4
 references/portfolio-phase-3/*.png
+
+# Owner-requested local-only QA: keep runnable on this machine, exclude from Git.
+/tests/
+/playwright.config.ts
+/playwright/
+/.playwright/
+/blob-report/
+/coverage/
+/.local/
+# Bulky generated evidence remains local; concise audits and provenance stay tracked.
+/docs/verification/motion/
+/docs/verification/screenshots/
+/docs/verification/*.report.html
+/docs/verification/*.report.json
+/docs/verification/*-profile.json
+/docs/verification/*-viewer-check.json
+/references/portfolio-phase-3/source-kit/

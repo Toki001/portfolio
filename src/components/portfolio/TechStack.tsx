@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { createMotionScope, canAnimate } from "../../motion/animate";
 import { siteConfig } from "../../config/site";
 import { ScrollText, SectionLabel } from "./ScrollText";
+import { projects } from "../../content/projects";
+import { Arrow } from "./Arrow";
 import { PixelHandoff } from "./PixelHandoff";
 export function TechStack() {
   const list = useRef<HTMLDivElement>(null);
@@ -52,6 +54,20 @@ export function TechStack() {
             I care about what a product feels like — and what keeps it working
             underneath.
           </p>
+          <div className="engineering-map" aria-label="Product layers">
+            <span className="engineering-connector" aria-hidden="true" />
+            {[
+              ["01", "Interface", "React / Flutter"],
+              ["02", "Application", "State / APIs"],
+              ["03", "Persistence", "Local / cloud"],
+            ].map(([number, name, detail]) => (
+              <div className="engineering-layer" key={number}>
+                <span aria-hidden="true">{number}</span>
+                <strong>{name}</strong>
+                <small>{detail}</small>
+              </div>
+            ))}
+          </div>
           <a className="text-link" href="/projects">
             See it in the projects <span aria-hidden="true">↗</span>
           </a>
@@ -79,6 +95,18 @@ export function TechStack() {
                     <li key={tag}>{tag}</li>
                   ))}
                 </ul>
+                <a
+                  className="capability-proof"
+                  href={`/projects/${domain.proofProject}`}
+                >
+                  Related work:{" "}
+                  {
+                    projects.find(
+                      (project) => project.slug === domain.proofProject,
+                    )?.title
+                  }
+                  <Arrow />
+                </a>
               </div>
             </details>
           ))}

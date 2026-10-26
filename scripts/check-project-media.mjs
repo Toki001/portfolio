@@ -51,6 +51,21 @@ for (const item of artwork) {
     assert.equal(bytes.length, output.bytes);
   }
 }
+const portrait = JSON.parse(
+  await readFile("docs/verification/portrait-evidence.json", "utf8"),
+);
+for (const output of portrait.outputs) {
+  const bytes = await readFile(output.file),
+    meta = await sharp(bytes).metadata();
+  assert.equal(createHash("sha256").update(bytes).digest("hex"), output.sha256);
+  assert.equal(meta.width, output.width);
+  assert.equal(meta.height, output.height);
+  assert.equal(
+    meta.exif,
+    undefined,
+    "Portrait derivatives contain no EXIF metadata",
+  );
+}
 const sitemap = await readFile("dist/sitemap.xml", "utf8");
 let count = 0;
 for (const [, url] of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) {
@@ -78,5 +93,5 @@ for (const [, url] of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) {
   count += images.length;
 }
 console.log(
-  `PASS: ${evidence.length} reviewed capture outputs match hashes/geometry; ${artwork.length * 2} artwork derivatives verified separately; ${count} distinct gallery images have static fallback links.`,
+  `PASS: ${evidence.length} reviewed capture outputs match hashes/geometry; ${artwork.length * 2} artwork derivatives and ${portrait.outputs.length} portrait variants verified separately; ${count} distinct gallery images have static fallback links.`,
 );

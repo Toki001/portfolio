@@ -1,0 +1,68 @@
+{
+  "source": "/Users/jameskierdoliguez/Downloads/profile.JPG",
+  "sourceSHA256": "243811eedf2a7b04ca29c613c4e91c07b3fb6e1648d83f6c08886533c7413fcc",
+  "original": {
+    "width": 6000,
+    "height": 4000,
+    "orientation": 8
+  },
+  "processing": "EXIF orientation normalized to 4000×6000; top-aligned 5:6 crop; grayscale; high-quality AVIF/WebP; no generated detail, sharpening or upscale; metadata stripped",
+  "outputs": [
+    {
+      "file": "src/assets/profile-480.avif",
+      "width": 480,
+      "height": 576,
+      "bytes": 10125,
+      "sha256": "75f08ccc2c8e1857ed737d00dbe9c894c789be0a47c3ce19e9b2300d1cc9c922"
+    },
+    {
+      "file": "src/assets/profile-480.webp",
+      "width": 480,
+      "height": 576,
+      "bytes": 20950,
+      "sha256": "a57db23939f91a4a0df1a828feb10113f74c502fccfef6da1f700d3c59f901cd"
+    },
+    {
+      "file": "src/assets/profile-800.avif",
+      "width": 800,
+      "height": 960,
+      "bytes": 21888,
+      "sha256": "a98684c50c28baf65d2dc4082c37ffd3ec7f050fdb19b2086d458b364f5459f5"
+    },
+    {
+      "file": "src/assets/profile-800.webp",
+      "width": 800,
+      "height": 960,
+      "bytes": 54676,
+      "sha256": "b5e6d88b4517319aeb8e9c0303ae1732998e5e518a16c5f93557fbdf8048d78a"
+    },
+    {
+      "file": "src/assets/profile-1200.avif",
+      "width": 1200,
+      "height": 1440,
+      "bytes": 48601,
+      "sha256": "9b15c84873c211d62af6d1e7a12764786dfa0ea5f4fdd43d4dbbc7540a832987"
+    },
+    {
+      "file": "src/assets/profile-1200.webp",
+      "width": 1200,
+      "height": 1440,
+      "bytes": 143092,
+      "sha256": "40e0bd8c40c061a98139247e951c1ebed993f47443da75612d01de20d7a1faa2"
+    },
+    {
+      "file": "src/assets/profile-1600.avif",
+      "width": 1600,
+      "height": 1920,
+      "bytes": 130806,
+      "sha256": "027adaa32b9125ec00d9615a51740f5752207befc199d69d4d98a7610c13f415"
+    },
+    {
+      "file": "src/assets/profile-1600.webp",
+      "width": 1600,
+      "height": 1920,
+      "bytes": 362274,
+      "sha256": "35b5e359b53f9fc871a4bb29b1ace1a2b9fe2b2e33df054441aa65713824562c"
+    }
+  ]
+}

@@ -139,6 +139,37 @@ export function createEditorialReveals(scope: Scope) {
             ),
           );
         }
+        el.querySelectorAll(".engineering-layer").forEach((layer, i) =>
+          scope.play(
+            layer,
+            [
+              { transform: "translate3d(-18px,10px,0)", opacity: 0 },
+              { transform: "translate3d(0,0,0)", opacity: 1 },
+            ],
+            {
+              duration: compact ? 380 : 500,
+              delay: 140 + i * 65,
+              fill: "backwards",
+            },
+          ),
+        );
+        const connector = el.querySelector(".engineering-connector");
+        if (connector)
+          scope.play(
+            connector,
+            [{ transform: "scaleY(0)" }, { transform: "scaleY(1)" }],
+            { duration: 500, delay: 140, fill: "backwards" },
+          );
+        const symbol = el.querySelector(".tool-symbol");
+        if (symbol)
+          scope.play(
+            symbol,
+            [
+              { transform: "rotate(-8deg) scale(.94)", opacity: 0.3 },
+              { transform: "rotate(0) scale(1)", opacity: 1 },
+            ],
+            { duration: compact ? 340 : 440, delay: 80 },
+          );
         let headlineRow = 0;
         for (const copy of text) {
           const body = copy.classList.contains("scroll-copy-body");

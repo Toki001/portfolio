@@ -168,7 +168,7 @@ try {
         }),
       );
       await p.waitForTimeout(100);
-      for (let step = 0; step < 4; step++) {
+      for (let step = 0; step < (chapter === "tools" ? 8 : 4); step++) {
         await p.mouse.wheel(0, 180);
         await p.waitForTimeout(step === 0 ? 90 : 380);
         if (step === 0)

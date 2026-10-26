@@ -48,14 +48,23 @@ export function Hero() {
         <figure className="hero-portrait" data-hero-depth>
           <div className="portrait-stage" data-pointer-surface="portrait">
             <div className="portrait-image" data-pointer-layer>
-              <img
-                width={384}
-                height={384}
-                fetchPriority="high"
-                decoding="async"
-                src={identity.profileImage}
-                alt={`${identity.name} in his graduation gown`}
-              />
+              <picture>
+                <source
+                  type="image/avif"
+                  srcSet={identity.profileAvifSrcSet}
+                  sizes="(max-width:600px) 80vw, (max-width:1024px) 34vw, 400px"
+                />
+                <img
+                  width={480}
+                  height={576}
+                  srcSet={identity.profileSrcSet}
+                  sizes="(max-width:600px) 80vw, (max-width:1024px) 34vw, 400px"
+                  fetchPriority="high"
+                  decoding="async"
+                  src={identity.profileImage}
+                  alt={`${identity.name} in his graduation gown`}
+                />
+              </picture>
             </div>
             <span className="portrait-curtain" aria-hidden="true" />
             <span

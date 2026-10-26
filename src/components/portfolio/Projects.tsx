@@ -171,9 +171,15 @@ export function Projects() {
           ))}
       </div>
       <div className="work-index-link" data-reveal>
+        <span className="work-index-number" aria-hidden="true">
+          0{projects.length}
+        </span>
         <p>There’s more behind the interface.</p>
+        <h2>
+          Explore the full index<span className="heading-period">.</span>
+        </h2>
         <div className="work-index-actions">
-          <a className="text-link" href="/projects">
+          <a className="button work-index-button" href="/projects">
             Explore all projects <Arrow diagonal={false} />
           </a>
           <a id="guest-reco" className="text-link" href="/projects/guest-reco">

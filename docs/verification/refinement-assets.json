@@ -1,0 +1,17 @@
+{
+  "source": "Actual final production preview / Chromium DPR2",
+  "wordmark": "toki.",
+  "portrait": {
+    "src": "profile-800-Db5uEcrB.avif",
+    "pixelWidth": 800,
+    "pixelHeight": 960,
+    "contentType": "image/avif"
+  },
+  "checks": [
+    "New icon cache keys return 200",
+    "Single format/pixel density covered by full suite",
+    "No page errors",
+    "Retina screenshot reviewed"
+  ],
+  "errors": []
+}

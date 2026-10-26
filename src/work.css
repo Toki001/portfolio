@@ -173,9 +173,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-line);
+
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--color-line);
+  border-radius: 1.5rem;
+  background: var(--color-wash);
+  overflow: hidden;
+  margin-block: 4rem 0;
 }
 .work-index-link p {
   color: var(--color-muted);
@@ -200,9 +205,6 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-block: 2rem 1rem;
-}
-.project-filters[hidden] {
-  display: none;
 }
 .project-filters button {
   padding: 0.5rem 1.25rem;
@@ -382,7 +384,6 @@
   }
   .work-index-link {
     display: block;
-    margin-top: 3rem;
   }
   .work-index-link .text-link {
     margin-top: 1rem;
@@ -748,4 +749,53 @@ html[data-input="keyboard"] .composition-screen {
 }
 .composition-studio .composition-detail {
   display: none;
+}
+
+/* A clear destination for the full catalog, distinct from the quieter case links. */
+.work-index-link h2 {
+  max-width: 37rem;
+  font-size: clamp(2.2rem, 4.4vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+  margin-block: 1rem 2rem;
+}
+.work-index-number {
+  position: absolute;
+  right: 1.5rem;
+  top: 0.25rem;
+  font-size: clamp(5rem, 12vw, 10rem);
+  font-weight: 550;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  color: var(--brand-slate);
+  pointer-events: none;
+}
+.work-index-link > :not(.work-index-number) {
+  position: relative;
+}
+.work-index-link .work-index-button {
+  font-size: 1rem;
+  padding: 1rem 1.35rem;
+  gap: 2rem;
+}
+.work-index-actions {
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .work-index-number {
+    font-size: 5rem;
+    right: 1rem;
+    top: 0.5rem;
+  }
+  .work-index-link > p {
+    max-width: 14rem;
+  }
+  .work-index-link h2 {
+    max-width: 17rem;
+  }
+}
+
+.work-index-link .text-link {
+  margin-top: 0;
 }

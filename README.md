@@ -1,4 +1,4 @@
-# Jameskier Doliguez — toki portfolio
+# Jameskier Doliguez — toki. portfolio
 
 An editorial engineering portfolio continuing the existing React 19, TypeScript, Vite 8, Tailwind 3 and npm application. Nine indexable pages are prerendered to HTML and hydrated for navigation, filters, galleries and clipboard feedback. Production needs no Node server, database or contact backend.
 
@@ -42,18 +42,22 @@ Galleries support named thumbnails, touch swipe, previous/next, URL reload, keyb
 
 ## Content and design
 
-- `src/config/site.ts`: actual identity/bio, the owner-requested **toki** wordmark, socials, tools/capabilities, optional availability/resume. Unsupported values stay hidden.
+- `src/config/site.ts`: actual identity/bio, the owner-requested **toki.** wordmark with a burgundy full stop, socials, tools/capabilities, optional availability/resume. Unsupported values stay hidden.
 - `src/content/projects.ts` / `additional-projects.ts`: typed, verified records and stable slugs. `validation.ts` rejects unsafe links, duplicate/unstable slugs and incomplete media.
 - `src/content/project-media.ts`: generated public metadata. Owner-local capture/import scripts are optional; ordinary build uses committed images without accessing other projects. Review source/privacy first, run `scripts/import-project-media.mjs`, then `npm run check:media`; never edit output hashes to bypass verification.
 - `src/config/seo.json`: real production origin and metadata. Origin changes also require redirect/canonical-test updates.
 - `src/styles-tokens.css`: five-color palette, derived tints, spacing and motion. One self-hosted OFL Archivo variable font, light mode, no animation library.
-- `public/projects/`: responsive owned WebP media. `npm run assets:brand` regenerates the editorial t favicon (SVG/ICO/PNG/Apple sizes), manifest and eight 1200×630 JPEG share cards. Full build does this automatically.
+- `public/projects/`: responsive owned WebP media. `npm run assets:brand` regenerates the editorial t. favicon (SVG/ICO/PNG/Apple sizes), manifest and eight 1200×630 JPEG share cards. Full build does this automatically.
 
-[Phase 3 direction](docs/design/phase-3-motion-and-content-direction.md) maps all five video references to original composition and motion choices. The arch/window portrait was replaced with an open rectangular graduation portrait beside oversized asymmetric type. Actual responsive lines reveal through masks across home/index/studies. Capabilities and tools use rule draws, masked titles, staggered text and native disclosures with finite tag feedback. The existing short three-project depth stack leads into three differently composed project spreads.
+[Phase 3 direction](docs/design/phase-3-motion-and-content-direction.md) maps all five video references to original composition and motion choices. The arch/window portrait was replaced with an open, softly rounded graduation portrait with inset padding beside oversized asymmetric type. Actual responsive lines reveal through masks across home/index/studies. Capabilities use a three-layer engineering diagram, masked titles, finite native disclosure feedback and related-project links. The workbench pairs its rows with original vector symbols and a reading-band illustration that changes during native scrolling; the full project index now has a larger burgundy CTA. The existing short three-project depth stack leads into three differently composed project spreads.
 
-One shared observer handles editorial entrances; layout is measured on font/resize changes. Native scrolling, fast jumps, keyboard, offscreen cleanup, reduced motion and no-JS retain full content. Fine-pointer lighting/depth is bounded and settles. Mobile has normal-flow work and touch controls. No wheel interception, global smooth-scroll wrapper or looping background.
+One shared observer handles editorial entrances; one small additional observer selects the current workbench illustration. Layout is measured on font/resize changes. Native scrolling, fast jumps, keyboard, offscreen cleanup, reduced motion and no-JS retain full content. Fine-pointer lighting/depth is bounded and settles. Mobile has normal-flow work and touch controls. No wheel interception, global smooth-scroll wrapper or looping background.
 
 ## Verification and review artifacts
+
+At the owner's request, `tests/`, `playwright.config.ts`, browser reports, screenshots, videos and raw Lighthouse reports are **local-only and ignored**. They remain on this machine; none were deleted by untracking. The normal `npm ci`, build and preview work without these QA files. Full `npm run verify` requires the local suite/config; a fresh checkout does not contain them. Earlier tracked QA can be recovered from `8132d7b` using `git restore --source=8132d7b --worktree -- tests playwright.config.ts`, then browser-review current visual baselines. This restores the earlier suite, not the two new local refinement checks.
+
+The latest portrait derivatives come from the owner's 24MP original, with EXIF orientation normalized and metadata stripped. AVIF/WebP at 480/800/1200/1600px support high-density displays; only the selected format/size downloads. `scripts/prepare-portrait.mjs /path/to/original.JPG` regenerates them. Original files and machine-specific archives stay outside Git.
 
 ```sh
 npx playwright install chromium
@@ -62,9 +66,9 @@ npm run verify
 
 Verification runs Prettier, Oxlint, TypeScript, four content unit tests, production build, static SEO/media checks and Playwright. Coverage includes nine exact visual comparisons, all nine routes at 320/360/375/390/**414**/430/768/1024/1280/1440/1920 in default/reduced motion, axe, real clipboard outcomes, portrait failure, all featured links/filters, seven multi-screen galleries, real touch gestures, no-JS, landscape, keyboard and native Chromium 200% zoom.
 
-The final release runs **95 browser checks and four unit tests**. The project index reserves filter geometry before hydration to avoid layout shift; inactive no-JS controls remain hidden. Matched final Lighthouse performance: home mobile 97, desktop 100, PesoFlow mobile 99, index mobile 95; Accessibility/Best Practices/SEO 100 throughout and CLS 0. Home/index LCP 2.56/2.85s remain explicit tradeoffs in the comparison record.
+The M20 baseline passed **95 browser checks and four unit tests**; the latest refinement adds Retina resource and workbench-state checks. See [current refinement record](docs/verification/refinement.md) for the final run. The project index reserves filter geometry before hydration to avoid layout shift; inactive no-JS controls remain hidden. M20 Lighthouse performance: home mobile 97, desktop 100, PesoFlow mobile 99, index mobile 95; Accessibility/Best Practices/SEO 100 throughout and CLS 0. Home/index LCP 2.56/2.85s remain explicit tradeoffs in the comparison record.
 
-Baselines use macOS ARM / Chromium 156, reduced motion, settled font/media and exact pixel comparison. Other engines/OS need reviewed baselines. Playwright reports/traces are local and ignored. [Final verification](docs/verification/milestone-20.md), [comparison viewer](docs/verification/phase-3-comparison.html), [comparison record](docs/verification/phase-3-comparison.md), and [final design review](docs/design/phase-3-final-review.md) contain results and limits. Previous milestone evidence is preserved.
+Baselines use macOS ARM / Chromium 156, reduced motion, settled font/media and exact pixel comparison. Other engines/OS need reviewed baselines. Playwright reports/traces are local and ignored. [Final verification](docs/verification/milestone-20.md), [comparison viewer](docs/verification/phase-3-comparison.html), [comparison record](docs/verification/phase-3-comparison.md), and [final design review](docs/design/phase-3-final-review.md) contain results and limits. Previous milestone evidence remains local and recoverable in Git history; compact audits/provenance remain tracked.
 
 Reproduce evidence after building, one command at a time:
 

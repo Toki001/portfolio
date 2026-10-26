@@ -9,8 +9,8 @@ const xml = (value) =>
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
-// A compact editorial “t”: open geometry, navy canvas and a burgundy registration dot.
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#011936"/><path d="M27 12h9v10h12v8H36v14c0 5 3 7 10 5v8c-13 3-19-2-19-12V30H17v-8h10z" fill="#FFFFFF"/><circle cx="49" cy="14" r="5" fill="#890620"/></svg>`;
+// Original “t.” mark mirrors the ink wordmark and its red full stop at small sizes.
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="#FFFFFF" stroke="#011936" stroke-width="2"/><path d="M24 13h8v10h10v8H32v12c0 5 2 7 8 5v8c-12 3-16-2-16-12V31h-8v-8h8z" fill="#011936"/><circle cx="49" cy="50" r="5" fill="#890620"/></svg>`;
 await writeFile("public/favicon.svg", favicon);
 for (const [file, size] of [
   ["favicon-32x32.png", 32],
@@ -49,7 +49,7 @@ await writeFile(
   JSON.stringify(
     {
       name: `${identity.name} — Portfolio`,
-      short_name: `${identity.wordmark} Portfolio`,
+      short_name: `${identity.wordmark}. Portfolio`,
       start_url: "/",
       scope: "/",
       display: "browser",
@@ -84,7 +84,7 @@ for (const project of [null, ...projects]) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
     <rect width="1200" height="630" fill="#FFFFFF"/><rect x="784" width="416" height="630" fill="#011936"/>
     <path d="M64 150H730M64 530H730" stroke="#767B91"/>
-    <text x="64" y="91" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#890620">${xml(identity.wordmark)}</text>
+    <text x="64" y="91" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#03191E">${xml(identity.wordmark)}<tspan fill="#890620">.</tspan></text>
     <text x="136" y="91" font-family="Helvetica,Arial,sans-serif" font-size="20" fill="#03191E">${xml(project ? identity.name : identity.title)}</text>
     ${titleLines.map((line, i) => `<text x="60" y="${project ? 284 : 264 + i * 86}" font-family="Helvetica,Arial,sans-serif" font-weight="600" font-size="${project ? 78 : 74}" letter-spacing="-4" fill="#03191E">${xml(line)}${i === titleLines.length - 1 ? '<tspan fill="#890620">.</tspan>' : ""}</text>`).join("")}
     ${lines(description, 47)
@@ -99,7 +99,7 @@ for (const project of [null, ...projects]) {
   </svg>`;
   let card = sharp(Buffer.from(svg));
   if (!project) {
-    const portrait = await sharp(await readFile("src/assets/profile.webp"))
+    const portrait = await sharp(await readFile("src/assets/profile-1200.webp"))
       .resize(338, 410, { fit: "cover" })
       .grayscale()
       .png()

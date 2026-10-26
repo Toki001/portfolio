@@ -1,0 +1,7 @@
+{
+  "source": "Exact staged source exported through git checkout-index, no tests/Playwright config/local archives/node_modules copied",
+  "commands": ["npm ci --offline", "npm run build"],
+  "result": "PASS",
+  "indexableRoutes": 9,
+  "notes": "Fresh dependency installation used the retained lockfile and local npm cache; no external portrait/project/reference/QA folder required."
+}

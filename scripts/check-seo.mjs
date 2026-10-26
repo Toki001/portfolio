@@ -82,6 +82,10 @@ for (const url of urls) {
   assert.equal(new Set(ids).size, ids.length, "Unique HTML IDs");
   for (const match of html.matchAll(/href="#([^"]+)"/g))
     assert.ok(ids.includes(match[1]), `${path}: broken anchor ${match[1]}`);
+  for (const match of html.matchAll(
+    /<link[^>]+href="(\/(?:favicon[^"?]*|apple-touch-icon[^"?]*)(?:\?[^"#]*)?)"/g,
+  ))
+    await access(`dist${new URL(match[1], seo.siteUrl).pathname}`);
   for (const match of html.matchAll(/(?:src|href)="(\/[^"#?]*)"/g)) {
     const local = match[1];
     if (local.includes("#")) continue;
