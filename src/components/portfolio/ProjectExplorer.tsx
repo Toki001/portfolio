@@ -28,8 +28,8 @@ export function ProjectExplorer() {
       }}>{value}</button>)}
     </div>
     <p className="filter-result" role="status">{filtered.length} {filtered.length === 1 ? 'project' : 'projects'}</p>
-    <div className="explorer-grid">{filtered.map(project => <article key={project.id} className="explorer-card">
-      <a className="work-media-link" href={`/projects/${project.slug}`}><ProjectArtwork project={project} decorative /><span className="sr-only">Explore {project.title}</span></a>
+    <div className="explorer-grid">{filtered.map((project,index) => <article key={project.id} className="explorer-card">
+      <a className="work-media-link" href={`/projects/${project.slug}`}><ProjectArtwork project={project} decorative priority={index === 0} /><span className="sr-only">Explore {project.title}</span></a>
       <div className="explorer-caption"><div><span className="work-meta">{project.kind} / {project.statusLabel}</span><h2><a href={`/projects/${project.slug}`}>{project.title}</a></h2></div><Arrow /></div><p className="work-summary">{project.description}</p>
     </article>)}</div>
   </div>;

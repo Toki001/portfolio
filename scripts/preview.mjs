@@ -1,6 +1,7 @@
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve, extname, join } from 'node:path';
+import { gzipSync } from 'node:zlib';
 const root = resolve('dist');
 const port = Number(process.env.PORT || 4173);
 const mime = { '.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json','.xml':'application/xml','.txt':'text/plain; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.ico':'image/x-icon','.woff2':'font/woff2' };
@@ -16,8 +17,10 @@ const server = createServer(async (request,response) => {
     let status = 200;
     try { const stats = await stat(file); if (stats.isDirectory()) file = join(file,'index.html'); await stat(file); }
     catch { file = join(root,'404.html'); status = 404; }
-    const body = await readFile(file);
-    response.writeHead(status,{ 'Content-Type':mime[extname(file)] || 'application/octet-stream','X-Content-Type-Options':'nosniff','Cache-Control':'no-cache' });
+    const raw = await readFile(file);
+    const compressed = /\btext\/|application\/(?:json|manifest\+json|xml)/.test(mime[extname(file)] || '') && /\bgzip\b/.test(request.headers['accept-encoding'] || '');
+    const body = compressed ? gzipSync(raw) : raw;
+    response.writeHead(status,{ 'Content-Type':mime[extname(file)] || 'application/octet-stream','X-Content-Type-Options':'nosniff','Cache-Control':'no-cache','Vary':'Accept-Encoding',...(compressed ? {'Content-Encoding':'gzip'} : {}),'Content-Length':body.length });
     response.end(request.method === 'HEAD' ? undefined : body);
   } catch { response.writeHead(400); response.end('Bad request'); }
 });

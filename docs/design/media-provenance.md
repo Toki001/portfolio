@@ -7,3 +7,5 @@
 - Archivo Latin variable WOFF2 34,928 bytes from official Google Fonts CSS / fonts.gstatic.com v25; OFL text from google/fonts/ofl/archivo. Other old local fonts retained until cleanup; never loaded by new page.
 - Favicon/social images generated locally from typography, approved brand shapes and legitimate project media; generator source retained.
 - User-provided references are private analysis material only; never imported or copied under public/.
+
+M7: PixelTools copied to public/projects with a 640px responsive derivative; PesoFlow gained 195px thumbnails for small compositions. Full-size screenshots remain available in the gallery. Five 1200×630 JPEG social cards are generated from centralized identity/project content plus owned media. Screenshot dates are not presented as product release dates.

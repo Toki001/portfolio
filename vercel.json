@@ -11,7 +11,7 @@
           "value": "http"
         }
       ],
-      "destination": "https://portfolio-flax-one-59.vercel.app/:path*",
+      "destination": "https://portfolio-toki20.vercel.app/:path*",
       "permanent": true
     },
     {

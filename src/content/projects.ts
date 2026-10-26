@@ -1,6 +1,6 @@
 import { validateProjects } from './validation';
 const pokechampImg = "/projects/pokechamp.webp";
-import pixeltoolsImg from "../assets/pixeltools.webp";
+const pixeltoolsImg = "/projects/pixeltools.webp";
 const pesoflowImg = "/projects/peso-flow-home.webp";
 
 export type ProjectCategory = 'Mobile' | 'Web' | 'AI / ML';

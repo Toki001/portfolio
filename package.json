@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/prerender.mjs",
+    "build": "tsc -b && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/generate-brand-assets.mjs && vite build && node scripts/prerender.mjs",
     "lint": "oxlint",
     "preview": "node scripts/preview.mjs",
     "check:seo": "node scripts/check-seo.mjs",
-    "assets:brand": "node scripts/generate-brand-assets.mjs",
+    "assets:brand": "vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/generate-brand-assets.mjs",
     "typecheck": "tsc -b",
     "test": "playwright test",
     "test:unit": "node --experimental-strip-types --test tests/content.test.mjs",
@@ -36,5 +36,8 @@
     "sharp": "^0.35.5",
     "typescript": "~6.0.2",
     "vite": "^8.3.0"
+  },
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6"
   }
 }
