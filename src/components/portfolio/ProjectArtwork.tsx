@@ -68,7 +68,7 @@ export function ProjectArtwork({
               ? "/projects/pokechamp-800.webp 800w, /projects/pokechamp.webp 1440w"
               : project.id === "pixeltools"
                 ? "/projects/pixeltools-640.webp 640w, /projects/pixeltools.webp 960w"
-                : undefined
+                : cover.srcSet
           }
           sizes="(max-width: 600px) 90vw, (max-width: 1024px) 45vw, 600px"
           alt={cover.alt}
@@ -81,7 +81,9 @@ export function ProjectArtwork({
         <span className="artwork-caption">
           {project.id === "pokechamp"
             ? "Actual team builder / sample roster"
-            : "Browser-based image tools"}
+            : project.id === "pixeltools"
+              ? "Browser-based image tools"
+              : cover.caption}
         </span>
       </div>
     );

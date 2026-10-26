@@ -52,31 +52,33 @@ export function ProjectPage({ project }: { project: Project }) {
               <dd>{project.role}</dd>
             </div>
           )}
-          <div>
-            <dt>Explore</dt>
-            <dd className="case-external">
-              {project.links.source && (
-                <a
-                  className="text-link"
-                  href={project.links.source}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Repository <Arrow />
-                </a>
-              )}
-              {project.links.live && (
-                <a
-                  className="text-link"
-                  href={project.links.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit project <Arrow />
-                </a>
-              )}
-            </dd>
-          </div>
+          {(project.links.source || project.links.live) && (
+            <div>
+              <dt>Explore</dt>
+              <dd className="case-external">
+                {project.links.source && (
+                  <a
+                    className="text-link"
+                    href={project.links.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Repository <Arrow />
+                  </a>
+                )}
+                {project.links.live && (
+                  <a
+                    className="text-link"
+                    href={project.links.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit project <Arrow />
+                  </a>
+                )}
+              </dd>
+            </div>
+          )}
         </dl>
         <div className="case-cover" data-reveal="media">
           <ProjectArtwork project={project} />

@@ -1,0 +1,47 @@
+[
+  {
+    "project": "resolvehub",
+    "view": "conversation",
+    "source": "/Users/jameskierdoliguez/projects/resolvehub/docs/verification/internal-support-desktop.png",
+    "revision": "5e37e45",
+    "state": "Historical actual app workflow capture, synthetic-customer@example.test, internal-only reply; documented in internal-support-workflow.md",
+    "sourceMtime": "2026-10-21T13:19:58.589Z",
+    "sourceSha256": "43992995856c7c69a9e2c95322d8823f621683c7202a65209893f5a44d7a5fd9",
+    "src": "/projects/resolvehub-conversation.webp",
+    "width": 1280,
+    "height": 1206,
+    "bytes": 55028,
+    "srcSet": "/projects/resolvehub-conversation-800.webp 800w, /projects/resolvehub-conversation.webp 1280w",
+    "sha256": "8e2cf751a4d61f5c3eaceed3efc609a6f776a34f323d2b2b929072f74ba5da68"
+  },
+  {
+    "project": "reconcileiq",
+    "view": "overview",
+    "source": "/private/tmp/portfolio-phase3-captures/reconcileiq/overview.png",
+    "revision": "Local preview at port 3100; source HEAD 326d9ec with later uncommitted work; runtime not asserted equal to HEAD",
+    "state": "Actual running synthetic read-only finance workspace, captured 2026-10-26",
+    "sourceMtime": "2026-10-26T08:47:43.133Z",
+    "sourceSha256": "0799b9b93cfdfb18546860f19011ba9b37e7038b1dcf08820055e7a39a81b534",
+    "src": "/projects/reconcileiq-overview.webp",
+    "width": 1440,
+    "height": 1000,
+    "bytes": 50816,
+    "srcSet": "/projects/reconcileiq-overview-800.webp 800w, /projects/reconcileiq-overview.webp 1440w",
+    "sha256": "2f439a46d32e051943159706614ecc63ca942f51e58a876cfef7a3fe707e06f6"
+  },
+  {
+    "project": "reimagined",
+    "view": "studio",
+    "source": "/Users/jameskierdoliguez/projects/reimagined/docs/verification/screenshots/m08-analytics-studio-1440.png",
+    "revision": "2f9ebec",
+    "state": "Actual app studio showing original fictional analytics fixture, no customer data; documented M08 verification",
+    "sourceMtime": "2026-10-26T02:20:06.868Z",
+    "sourceSha256": "f2a02d86aabe013e5f292c7b488b59c92811612423ea08878249d13787bd3eaf",
+    "src": "/projects/reimagined-studio.webp",
+    "width": 1440,
+    "height": 900,
+    "bytes": 46344,
+    "srcSet": "/projects/reimagined-studio-800.webp 800w, /projects/reimagined-studio.webp 1440w",
+    "sha256": "50785a4c0956f40ef9de503f890ed2b2fc881c4db7c1f41bd4d1e29329c74043"
+  }
+]

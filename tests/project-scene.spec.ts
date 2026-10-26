@@ -1,3 +1,4 @@
+import { projects } from "../src/content/projects";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 test("spatial stack tracks scroll, explicit selection, and keyboard focus", async ({
@@ -38,7 +39,7 @@ test("reflow filters tolerate rapid changes, history and keyboard activation", a
   await page.goto("/projects");
   for (const category of ["Web", "Mobile", "All", "AI / ML", "All"])
     await page.getByRole("button", { name: category, exact: true }).click();
-  await expect(page.locator(".explorer-card")).toHaveCount(4);
+  await expect(page.locator(".explorer-card")).toHaveCount(projects.length);
   await page.goBack();
   await expect(page.locator(".explorer-card")).toHaveCount(1);
   const web = page.getByRole("button", { name: "Web", exact: true });

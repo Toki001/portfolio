@@ -1,7 +1,8 @@
+import { projects } from "../src/content/projects";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 test.use({ reducedMotion: "reduce" });
-for (const slug of ["peso-flow", "pokechamp", "pixeltools", "guest-reco"]) {
+for (const { slug } of projects) {
   test(`${slug} has crawlable honest detail content`, async ({
     page,
     request,

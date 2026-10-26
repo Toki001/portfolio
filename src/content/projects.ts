@@ -1,7 +1,11 @@
+import { additionalProjects } from "./additional-projects";
 import { validateProjects } from "./validation";
 
-export type ProjectCategory = "Mobile" | "Web" | "AI / ML";
+export type ProjectCategory =
+  "Mobile" | "Web" | "AI / ML" | "Systems" | "Tools";
 export interface ProjectMedia {
+  srcSet?: string;
+  label?: string;
   src: string;
   alt: string;
   width: number;
@@ -240,6 +244,7 @@ export const projects: Project[] = [
       "Retained as a project note from the original portfolio. Deployment, model accuracy and production use have not been independently verified.",
     media: [],
   },
+  ...additionalProjects,
 ];
 
 export const featuredProjects = projects

@@ -32,9 +32,7 @@ export function ProjectExplorer() {
         <h1>
           <ScrollText accentEnd>Project index.</ScrollText>
         </h1>
-        <p>
-          Mobile applications, web tools and experiments in machine learning.
-        </p>
+        <p>Mobile applications, useful tools and the systems behind them.</p>
       </div>
       <div
         className="project-filters"

@@ -116,5 +116,5 @@ for (const project of [null, ...projects]) {
     .toFile(project ? `public/og/${project.slug}.jpg` : "public/og-image.jpg");
 }
 console.log(
-  "Generated approved-palette icons, manifest and five real 1200×630 JPEG social cards.",
+  `Generated approved-palette icons, manifest and ${projects.length + 1} real 1200×630 JPEG social cards.`,
 );

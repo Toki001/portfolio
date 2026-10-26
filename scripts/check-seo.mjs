@@ -7,7 +7,27 @@ const sitemap = await readFile("dist/sitemap.xml", "utf8");
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(
   (match) => match[1],
 );
-assert.equal(urls.length, 6, "Only the six real pages in sitemap");
+const indexHtml = await readFile("dist/projects/index.html", "utf8");
+const projectPaths = [
+  ...new Set(
+    [...indexHtml.matchAll(/href="(\/projects\/[a-z0-9-]+)"/g)].map(
+      (m) => m[1],
+    ),
+  ),
+];
+const expected = ["/", "/projects", ...projectPaths]
+  .map((path) => new URL(path, seo.siteUrl).href)
+  .sort();
+assert.deepEqual(
+  [...urls].sort(),
+  expected,
+  "Every actual project gets one sitemap route; no hollow additions",
+);
+for (const slug of ["peso-flow", "pokechamp", "pixeltools", "guest-reco"])
+  assert.ok(
+    projectPaths.includes(`/projects/${slug}`),
+    "Original project URL retained",
+  );
 const titles = new Set();
 const descriptions = new Set();
 const images = new Set();
@@ -86,5 +106,5 @@ assert.equal(
   await readFile("public/google711de76d62b8d616.html", "utf8"),
 );
 console.log(
-  `PASS: ${urls.length} static routes, unique titles/descriptions/H1/canonicals, five 1200×630 cards, schema, internal assets/anchors, 404 and ${preview ? "preview noindex" : "production"} crawl files.`,
+  `PASS: ${urls.length} static routes, unique titles/descriptions/H1/canonicals, ${projectPaths.length + 1} 1200×630 cards, schema, internal assets/anchors, 404 and ${preview ? "preview noindex" : "production"} crawl files.`,
 );

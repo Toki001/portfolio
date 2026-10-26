@@ -1,11 +1,9 @@
+import { projects } from "../src/content/projects";
 import { test, expect } from "@playwright/test";
 const routes = [
   "/",
   "/projects",
-  "/projects/peso-flow",
-  "/projects/pokechamp",
-  "/projects/pixeltools",
-  "/projects/guest-reco",
+  ...projects.map((p) => `/projects/${p.slug}`),
 ];
 for (const width of [320, 360, 375, 390, 430, 768, 1024, 1280, 1440, 1920])
   test(`default motion remains readable on every route at ${width}`, async ({
@@ -90,7 +88,7 @@ test("pointer decorations settle and disappear offscreen", async ({ page }) => {
     ),
   ).toBe(0);
 });
-test("all six routes and genuine gallery links survive without JavaScript", async ({
+test("all catalog routes and genuine gallery links survive without JavaScript", async ({
   browser,
 }) => {
   const c = await browser.newContext({

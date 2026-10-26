@@ -1,3 +1,4 @@
+import { projects } from "../src/content/projects";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 test("all featured cards open their matching project pages", async ({
@@ -16,7 +17,7 @@ test("all featured cards open their matching project pages", async ({
 });
 test("filter state, history and reload work", async ({ page }) => {
   await page.goto("/projects");
-  await expect(page.locator(".explorer-card")).toHaveCount(4);
+  await expect(page.locator(".explorer-card")).toHaveCount(projects.length);
   await page.getByRole("button", { name: "Web", exact: true }).click();
   await expect(page.locator(".explorer-card")).toHaveCount(2);
   await expect(page).toHaveURL(/category=Web/);
