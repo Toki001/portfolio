@@ -15,3 +15,7 @@ Contrast validation computed in M1 evidence; body text must exceed 4.5:1. Never 
 This document and active brief supersede the prior warm-earth DESIGN.md; architecture remains unchanged. Design guidance applied from Apple Design and source-reviewed UI-UX/Hallmark/shadcn principles; script-based design generators not run.
 
 Final implementation: Archivo variable Latin OFL is installed (100–900, 34,928 bytes). Removed unused Geist/Jakarta files, legacy icons and ambient background. The root DESIGN.md now points to this system. Mobile project captions use their own opaque rose strip so text does not overlap interface text at tablet widths.
+
+## Phase 3 portrait replacement (M16)
+
+The hero now uses an open asymmetric text/photograph spread: a straight rectangular owned portrait, oversized offset name lines, a separate About caption link and small burgundy identity accents. The former horseshoe frame, rounded image mask, grid, code ornament, circular lens and image-overlay action are removed. A single white side reveal and nested picture settle coordinate with name masks. Fine-pointer lighting is a faint rectangular sheen; mobile/reduced/no-JS show the same readable composition without required movement. See phase-3-motion-and-content-direction.md and milestone-16.md for decision and real before/after evidence.

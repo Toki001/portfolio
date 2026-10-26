@@ -28,7 +28,7 @@ summary {
 html {
   -webkit-text-size-adjust: 100%;
 }
-/* Signature 1: line masks and a split portrait curtain; no semantic text duplication. */
+/* Signature 1: open editorial identity and side-unveiled portrait. */
 :root {
   --motion-hero: 780ms;
   --motion-line-stagger: 60ms;
@@ -41,52 +41,20 @@ html {
 }
 .portrait-image {
   width: 100%;
-  aspect-ratio: 0.89;
-  overflow: hidden;
-  border-radius: 10rem 10rem 1rem 1rem;
-  animation: portrait-settle 780ms var(--ease-out) both;
-}
-.portrait-stage .portrait-image img {
-  width: 100%;
   height: 100%;
-  aspect-ratio: auto;
-  object-fit: cover;
-  border-radius: inherit;
+  animation: portrait-settle 700ms 100ms var(--ease-out) both;
 }
-.portrait-curtains {
+.portrait-curtain {
   position: absolute;
   inset: 0;
+  background: var(--color-paper);
   pointer-events: none;
-  border-radius: inherit;
-  overflow: hidden;
+  transform: translateX(101%);
   display: none;
 }
-html[data-motion="full"] .portrait-curtains {
+html[data-motion="full"] .portrait-curtain {
   display: block;
-}
-.portrait-curtains i {
-  position: absolute;
-  inset-block: 0;
-  width: 50.1%;
-  background: var(--color-accent);
-  transform: scaleY(0);
-  animation: portrait-curtain 700ms 60ms var(--ease-out) both;
-  transform-origin: top;
-}
-.portrait-curtains i:last-child {
-  right: 0;
-  transform-origin: bottom;
-  animation-delay: 120ms;
-}
-.portrait-grid {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.15;
-  background-image:
-    linear-gradient(var(--brand-white) 1px, transparent 1px),
-    linear-gradient(90deg, var(--brand-white) 1px, transparent 1px);
-  background-size: 48px 48px;
+  animation: portrait-unveil 700ms 100ms var(--ease-out) both;
 }
 .portrait-light {
   display: none;
@@ -96,12 +64,11 @@ html[data-motion="full"] .portrait-curtains {
   width: 200px;
   height: 200px;
   pointer-events: none;
-  border: 1px solid color-mix(in srgb, var(--brand-white) 25%, transparent);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 35% 30%,
-    color-mix(in srgb, var(--brand-white) 24%, transparent),
-    transparent 70%
+  background: linear-gradient(
+    120deg,
+    transparent 10%,
+    color-mix(in srgb, var(--brand-white) 8%, transparent) 50%,
+    transparent 90%
   );
   opacity: 0;
   transition: opacity 160ms var(--ease-out);
@@ -124,37 +91,34 @@ html[data-motion="full"] .portrait-curtains {
     transform: translateY(0) rotateX(0);
   }
 }
-@keyframes portrait-curtain {
+@keyframes portrait-unveil {
   from {
-    transform: scaleY(1);
+    transform: translateX(0);
   }
   to {
-    transform: scaleY(0);
+    transform: translateX(101%);
   }
 }
 @keyframes portrait-settle {
   from {
-    transform: translateY(18px) scale(1.09);
+    transform: translateX(-12px) scale(1.04);
   }
   to {
-    transform: translateY(0) scale(1);
+    transform: translateX(0) scale(1);
   }
 }
 @media (max-width: 600px) {
   .hero {
     --motion-hero: 520ms;
   }
+  .portrait-curtain,
   .portrait-image {
-    height: 100%;
-    aspect-ratio: auto;
-  }
-  .portrait-curtains i {
     animation-duration: 480ms;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .portrait-light,
-  .portrait-curtains {
+  .portrait-curtain {
     display: none !important;
   }
   [data-hero-depth],
@@ -328,7 +292,7 @@ html[data-input="keyboard"]
     .hero-positioning,
     .hero-actions,
     .portrait-image,
-    .portrait-curtains i
+    .portrait-curtain
   ) {
   animation: none !important;
 }

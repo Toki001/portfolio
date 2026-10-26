@@ -1,51 +1,64 @@
 .hero {
-  padding-top: clamp(1.5rem, 3vw, 3rem);
+  padding-top: clamp(1.5rem, 3vw, 3.5rem);
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.85fr);
   gap: clamp(2rem, 4vw, 4rem);
-  align-items: center;
-  padding-block: 1.5rem 4rem;
+  align-items: end;
+  padding-block: 1rem 4rem;
 }
 .hero-introduction {
-  font-size: 1rem;
-  margin-bottom: 1.6rem;
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 2.25rem;
   color: var(--color-muted);
-  animation: hero-enter 600ms var(--ease-out) both;
+  animation: hero-enter 350ms var(--ease-out) both;
+}
+.hero-introduction > span {
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
 }
 .hero-title {
-  font-size: clamp(4rem, 9.3vw, 8.75rem);
+  font-size: clamp(4rem, 10.6vw, 10.8rem);
   letter-spacing: -0.075em;
-  line-height: 0.94;
+  line-height: 0.95;
   font-weight: 550;
+}
+.hero-title > .motion-mask:last-child {
+  margin-left: 0.38em;
 }
 .name-period {
   color: var(--color-accent);
 }
 .hero-positioning {
-  margin-top: 2.5rem;
-  max-width: 31rem;
-  animation: hero-enter 650ms 110ms var(--ease-out) both;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: start;
+  gap: 1.75rem;
+  margin-top: 3.5rem;
+  max-width: 42rem;
+  animation: hero-enter 400ms 160ms var(--ease-out) both;
 }
 .hero-role {
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
   font-weight: 550;
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  line-height: 1.3;
   letter-spacing: -0.03em;
 }
 .hero-description {
-  margin-top: 0.65rem;
-  max-width: 28rem;
   color: var(--color-muted);
   line-height: 1.7;
 }
 .hero-actions {
   display: flex;
-  align-items: center;
   gap: 2rem;
+  align-items: center;
   flex-wrap: wrap;
-  margin-top: 2rem;
-  animation: hero-enter 650ms 160ms var(--ease-out) both;
+  margin-top: 2.25rem;
+  animation: hero-enter 350ms 220ms var(--ease-out) both;
 }
 .hero-actions .text-link {
   font-size: 0.9rem;
@@ -53,69 +66,45 @@
   border-bottom: 1px solid var(--color-line);
 }
 .hero-portrait {
-  margin: 0;
+  margin: 6rem 0 0;
   min-width: 0;
+  align-self: end;
 }
 .portrait-stage {
-  aspect-ratio: 0.87;
   position: relative;
   isolation: isolate;
-  background: var(--color-accent);
-  border-radius: 11rem 11rem 1.5rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.75rem;
-  overflow: hidden;
+  aspect-ratio: 0.83;
+  overflow: clip;
+  background: var(--color-wash);
 }
 .portrait-stage img {
+  display: block;
   width: 100%;
-  aspect-ratio: 0.89;
+  height: 100%;
   object-fit: cover;
-  object-position: 50% 35%;
-  border-radius: 10rem 10rem 1rem 1rem;
+  object-position: 50% 32%;
   filter: grayscale(1);
-}
-.portrait-arc {
-  position: absolute;
-  inset: 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--color-paper) 30%, transparent);
-  border-radius: inherit;
-  z-index: -1;
-}
-.portrait-word {
-  position: absolute;
-  inset-inline: 0;
-  top: -0.5rem;
-  text-align: center;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 400;
-  letter-spacing: -0.07em;
-  color: color-mix(in srgb, var(--color-paper) 25%, transparent);
-  z-index: -1;
-}
-.portrait-about {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  padding: 0.7rem 1rem;
-  background: var(--color-paper);
-  color: var(--color-ink);
-  border-radius: var(--radius-control);
-  font-size: 0.8rem;
-  text-decoration: none;
-  min-height: 2.75rem;
 }
 .hero-portrait figcaption {
   display: flex;
   justify-content: space-between;
+  align-items: start;
   gap: 1rem;
+  padding-top: 1rem;
   font-size: 0.75rem;
-  color: var(--color-muted);
-  margin-top: 0.8rem;
+  line-height: 1.7;
+}
+.portrait-about {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 44px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-line);
+}
+.portrait-about svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 .hero-colophon {
   display: flex;
@@ -130,7 +119,7 @@
   display: flex;
   gap: 1.5rem;
   text-decoration: none;
-  min-height: 2.75rem;
+  min-height: 44px;
   align-items: center;
 }
 .hero-disciplines {
@@ -155,7 +144,7 @@
 @keyframes hero-enter {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -164,19 +153,24 @@
 }
 @media (max-width: 1024px) {
   .hero-grid {
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
     gap: 2rem;
   }
   .hero-title {
-    font-size: clamp(3.5rem, 9vw, 6.5rem);
+    font-size: clamp(3.5rem, 9.2vw, 6.5rem);
   }
-  .portrait-stage {
-    padding: 1rem;
+  .hero-title > .motion-mask:last-child {
+    margin-left: 0.14em;
+  }
+  .hero-positioning {
+    display: block;
+    margin-top: 2rem;
+  }
+  .hero-description {
+    margin-top: 0.75rem;
   }
   .portrait-about {
-    gap: 0.7rem;
-    font-size: 0.75rem;
-    padding-inline: 0.65rem;
+    gap: 0.5rem;
   }
   .hero-colophon {
     font-size: 0.75rem;
@@ -196,14 +190,18 @@
     gap: 2.5rem;
   }
   .hero-title {
-    font-size: clamp(3.6rem, 13.6vw, 5.3rem);
+    font-size: clamp(3.6rem, 14vw, 5.3rem);
     letter-spacing: -0.065em;
   }
+  .hero-title > .motion-mask:last-child {
+    margin-left: 0.3em;
+  }
   .hero-introduction {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
   .hero-positioning {
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
+    max-width: 30rem;
   }
   .hero-description {
     font-size: 0.95rem;
@@ -213,20 +211,20 @@
     margin-top: 1.5rem;
   }
   .hero-portrait {
-    width: min(100%, 23rem);
-    margin-inline: auto;
+    width: min(80%, 20rem);
+    margin: 0 0 0 auto;
   }
   .portrait-stage {
-    aspect-ratio: 1.1;
-    padding: 1.3rem 2.4rem;
+    aspect-ratio: 1;
   }
-  .portrait-stage img {
-    height: 100%;
-    width: 100%;
-    object-position: 50% 30%;
+  .hero-portrait figcaption {
+    padding-top: 0.75rem;
+  }
+  .hero-portrait figcaption > span {
+    display: none;
   }
   .portrait-about {
-    padding: 0.65rem 1rem;
+    margin-left: auto;
   }
   .hero-colophon {
     align-items: flex-start;

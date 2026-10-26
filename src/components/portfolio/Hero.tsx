@@ -16,7 +16,9 @@ export function Hero() {
     >
       <div className="hero-grid">
         <div className="hero-copy">
-          <p className="hero-introduction">Hello, I’m</p>
+          <p className="hero-introduction">
+            <span aria-hidden="true">01 /</span> Hello, I’m
+          </p>
           <h1 id="identity-title" className="hero-title">
             <TextMask>{givenName}</TextMask>
             <TextMask>
@@ -45,11 +47,6 @@ export function Hero() {
         </div>
         <figure className="hero-portrait" data-hero-depth>
           <div className="portrait-stage" data-pointer-surface="portrait">
-            <span className="portrait-grid" aria-hidden="true" />
-            <span className="portrait-arc" aria-hidden="true" />
-            <span className="portrait-word" aria-hidden="true">
-              &lt;/&gt;
-            </span>
             <div className="portrait-image" data-pointer-layer>
               <img
                 width={384}
@@ -60,22 +57,22 @@ export function Hero() {
                 alt={`${identity.name} in his graduation gown`}
               />
             </div>
-            <span className="portrait-curtains" aria-hidden="true">
-              <i />
-              <i />
-            </span>
+            <span className="portrait-curtain" aria-hidden="true" />
             <span
               className="portrait-light"
               data-pointer-light
               aria-hidden="true"
             />
+          </div>
+          <figcaption>
+            <span>
+              {location.country}
+              <br />
+              <span className="muted">Code with purpose.</span>
+            </span>
             <a href="#about" className="portrait-about">
               A little about me <Arrow />
             </a>
-          </div>
-          <figcaption>
-            <span>Code with purpose.</span>
-            <span>Build with care.</span>
           </figcaption>
         </figure>
       </div>

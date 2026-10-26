@@ -1,0 +1,13 @@
+# Milestone 16 — Open editorial portrait
+
+Replaced the rejected thick burgundy arch with an open asymmetric identity spread. The actual graduation portrait remains unaltered in a straight rectangular crop, offset beside oversized staggered name lines. The About link is a separate caption action. Removed the horseshoe frame, curved photo mask, architectural grid, arc/code ornament, circular outline/light and overlaid image button. Burgundy now appears in small identity accents and the genuine CTA, not a photo enclosure. Two alternatives and the source-quality decision are recorded in the Phase 3 direction.
+
+Changed `Hero.tsx`, `hero.css` and the hero portion of `motion.css`. A single paper-colored side reveal replaces the split burgundy curtains; the picture settles on a separate layer. Retained finite, bounded fine-pointer response as a very faint rectangular sheen, without a circle or blur. Typography, portrait and supporting details coordinate; navigation and contact/project actions never wait. Desktop/tablet keep an offset open grid; mobile uses an inset photograph with clear face and caption. No new photo, package, route or identity claim.
+
+Executed `npm run format`, lint and production build; focused hero/fallback tests **8/8 PASS**. Added two portrait-failure interaction cases at 390/1280. Refreshed only the three intentional home visual baselines after browser inspection. Full `npm run verify` **PASS: 4 unit / 72 browser**, including nine exact comparisons, all six routes at ten widths in both motion modes, native 200% zoom, keyboard/touch/reduced/no-JS, axe, filter/gallery/contact and SEO checks. No disabled accessibility rule or error suppression.
+
+Real recordings and screenshots: `motion/phase3-m16/`, desktop 1440×900 / mobile 390×844, both error arrays empty. Desktop/mobile VP9 films decoded with the installed FFmpeg; timeline frames and final compositions visually reviewed. Extra actual-browser screenshots at 320×1000 and 768×1000 confirm no overflow and straight photo edges. Compare `motion/phase3-before/{desktop,mobile}-hero.png` with `motion/phase3-m16/{desktop,mobile}-hero.png`; hero-768.png records the tablet layout. Recorded desktop/mobile durations: 20.40 / 15.76 s.
+
+Build: JS **269.85 kB / 83.26 gzip**, CSS **40.00 kB / 8.79 gzip**, slightly smaller than M15. Lighthouse comparison is retained for the complete phase at M20. Actual-browser review passes the requested visual rejection: no remaining arch/grid/circular overlay in source or output. Portrait resolution is the authorized original; no reconstruction/upscale claim. Physical phone/Safari testing remains unavailable. No push/deploy or original-checkout change.
+
+Commit: introducing commit of this record.
