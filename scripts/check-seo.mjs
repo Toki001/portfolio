@@ -118,7 +118,7 @@ for (const url of urls) {
     `${path}: site-name canonical root`,
   );
   assert.equal(websites[0].name, seo.siteName, `${path}: preferred site name`);
-  assert.equal(
+  assert.deepEqual(
     websites[0].alternateName,
     seo.alternateName,
     `${path}: alternate site name`,
@@ -136,6 +136,11 @@ for (const url of urls) {
     assert.equal(names[0][1], seo.siteName, `${path}: consistent ${key}`);
   }
   const icons = [...html.matchAll(/<link\b[^>]*\brel="icon"[^>]*>/g)];
+  assert.equal(
+    icons.length,
+    1,
+    `${path}: one unambiguous search/browser favicon`,
+  );
   const searchIcon = icons.find(
     ([link]) =>
       link.includes('href="/toki-icon-192.png"') &&

@@ -1,0 +1,128 @@
+[
+  {
+    "path": "/",
+    "userAgent": "Mozilla/5.0",
+    "status": 200,
+    "seconds": 0.31,
+    "sha256": "cc20f47da4842a15254a8fb87c17ddaac69acfd2f62a2ff9d85d4585aa9a77a9",
+    "contentType": "text/html; charset=utf-8",
+    "canonical": [
+      "https://jameskier-doliguez-portfolio.vercel.app/"
+    ],
+    "website": [
+      {
+        "@type": "WebSite",
+        "@id": "https://jameskier-doliguez-portfolio.vercel.app/#website",
+        "url": "https://jameskier-doliguez-portfolio.vercel.app/",
+        "name": "Jameskier Doliguez",
+        "alternateName": "Toki",
+        "publisher": {
+          "@id": "https://jameskier-doliguez-portfolio.vercel.app/#person"
+        }
+      }
+    ],
+    "faviconLinks": [
+      "<link rel=\"icon\" type=\"image/svg+xml\" sizes=\"any\" href=\"/toki-icon.svg\" />",
+      "<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/toki-icon-32.png\" />",
+      "<link\n      rel=\"icon\"\n      type=\"image/png\"\n      sizes=\"192x192\"\n      href=\"/toki-icon-192.png\"\n    />",
+      "<link\n      rel=\"icon\"\n      type=\"image/x-icon\"\n      href=\"/toki-icon.ico\"\n      sizes=\"16x16 32x32 48x48\"\n    />"
+    ],
+    "robots": null
+  },
+  {
+    "path": "/",
+    "userAgent": "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+    "status": 200,
+    "seconds": 0.349,
+    "sha256": "cc20f47da4842a15254a8fb87c17ddaac69acfd2f62a2ff9d85d4585aa9a77a9",
+    "contentType": "text/html; charset=utf-8",
+    "canonical": [
+      "https://jameskier-doliguez-portfolio.vercel.app/"
+    ],
+    "website": [
+      {
+        "@type": "WebSite",
+        "@id": "https://jameskier-doliguez-portfolio.vercel.app/#website",
+        "url": "https://jameskier-doliguez-portfolio.vercel.app/",
+        "name": "Jameskier Doliguez",
+        "alternateName": "Toki",
+        "publisher": {
+          "@id": "https://jameskier-doliguez-portfolio.vercel.app/#person"
+        }
+      }
+    ],
+    "faviconLinks": [
+      "<link rel=\"icon\" type=\"image/svg+xml\" sizes=\"any\" href=\"/toki-icon.svg\" />",
+      "<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/toki-icon-32.png\" />",
+      "<link\n      rel=\"icon\"\n      type=\"image/png\"\n      sizes=\"192x192\"\n      href=\"/toki-icon-192.png\"\n    />",
+      "<link\n      rel=\"icon\"\n      type=\"image/x-icon\"\n      href=\"/toki-icon.ico\"\n      sizes=\"16x16 32x32 48x48\"\n    />"
+    ],
+    "robots": null
+  },
+  {
+    "path": "/robots.txt",
+    "userAgent": "Googlebot",
+    "status": 200,
+    "seconds": 0.393,
+    "sha256": "e13a9f2a220b73664eb8a5431d3bd42c8ecd168512639a9644df86cbee4cffd8",
+    "contentType": "text/plain; charset=utf-8",
+    "canonical": null,
+    "website": [],
+    "faviconLinks": null,
+    "robots": "User-agent: *\nAllow: /\n\nSitemap: https://jameskier-doliguez-portfolio.vercel.app/sitemap.xml\n"
+  },
+  {
+    "path": "/toki-icon-192.png",
+    "userAgent": "Googlebot-Image/1.0",
+    "status": 200,
+    "seconds": 0.421,
+    "sha256": "a9eade83708895ade69b25f702830719e8462326ea5e5ebfed6990f3701ba5a5",
+    "contentType": "image/png",
+    "canonical": null,
+    "website": [],
+    "faviconLinks": null,
+    "robots": null
+  },
+  {
+    "path": "/favicon.ico",
+    "userAgent": "Googlebot-Image/1.0",
+    "status": 200,
+    "seconds": 0.372,
+    "sha256": "1bc13844ffad7e2bda18bcd74f239257ff172e03218657ec4f33fe8057959973",
+    "contentType": "image/vnd.microsoft.icon",
+    "canonical": null,
+    "website": [],
+    "faviconLinks": null,
+    "robots": null
+  },
+  {
+    "path": "/projects/peso-flow",
+    "userAgent": "Googlebot",
+    "status": 200,
+    "seconds": 0.633,
+    "sha256": "9e17d48f2bcf4bc20cb32aad505e85ecb229d24171ae0e984d2537f4c09ab72e",
+    "contentType": "text/html; charset=utf-8",
+    "canonical": [
+      "https://jameskier-doliguez-portfolio.vercel.app/projects/peso-flow"
+    ],
+    "website": [
+      {
+        "@type": "WebSite",
+        "@id": "https://jameskier-doliguez-portfolio.vercel.app/#website",
+        "url": "https://jameskier-doliguez-portfolio.vercel.app/",
+        "name": "Jameskier Doliguez",
+        "alternateName": "Toki",
+        "publisher": {
+          "@id": "https://jameskier-doliguez-portfolio.vercel.app/#person"
+        }
+      }
+    ],
+    "faviconLinks": [
+      "<link rel=\"icon\" type=\"image/svg+xml\" sizes=\"any\" href=\"/toki-icon.svg\" />",
+      "<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/toki-icon-32.png\" />",
+      "<link\n      rel=\"icon\"\n      type=\"image/png\"\n      sizes=\"192x192\"\n      href=\"/toki-icon-192.png\"\n    />",
+      "<link\n      rel=\"icon\"\n      type=\"image/x-icon\"\n      href=\"/toki-icon.ico\"\n      sizes=\"16x16 32x32 48x48\"\n    />"
+    ],
+    "robots": null
+  }
+]

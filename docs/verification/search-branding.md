@@ -32,3 +32,16 @@ After the production build contains these changes, use the matching URL-prefix p
 Google controls selection and refresh timing, which can take days to weeks. No Search Console account action, Google recrawl, indexed-result change, DNS change or direct production deployment is claimed.
 
 Primary guidance reviewed: [Google site names](https://developers.google.com/search/docs/appearance/site-names), [Google favicon requirements](https://developers.google.com/search/docs/appearance/favicon-in-search). The guidance supports subdomains, recommends an alternate site name and a stable square favicon larger than 48px; this change uses the existing 192px PNG.
+
+
+## Continued search-result investigation — 2026-10-28
+
+The owner confirmed Search Console’s last homepage crawl was **2026-10-27 01:58:37** (displayed local time), before the October 28 branding update. This supports a stale-index explanation; it is not proof of when Google will next select a name or icon.
+
+New public HTTP checks with ordinary and crawler user-agent strings return the same homepage bytes, correct canonical and existing Jameskier Doliguez/Toki WebSite entity. Homepage, robots, 192px PNG and conventional ICO return 200 in 0.31–0.63 seconds in this sample. Full results are in search-crawler-evidence.json. User-agent emulation does not prove verified Googlebot visited.
+
+The follow-up removes competing `rel=icon` links and declares **one stable 192px PNG**, a format explicitly supported by Google. Existing icon files/URLs, Apple icon, mask and manifest remain available. It also provides ordered alternate names **Toki**, **toki.**, and the lowercase production hostname, following Google’s fallback-name guidance. The SEO guard now requires one unambiguous favicon and checks the full alternate-name array. No Organization, fake identity, cache-busting URL churn or manual claim of a changed Google result was introduced.
+
+Final local static SEO validates all nine routes; the focused portrait/favicon/slow-delivery browser checks pass. See performance-delivery.md for the broader browser run. After this combined update is deployed, inspect the root URL in the existing Search Console property, select **Test live URL**, confirm the tested HTML has Jameskier Doliguez, the alternate names and one `/toki-icon-192.png` link, then **Request indexing**. Inspect PesoFlow afterward if its old snippet persists. Google controls recrawl and display; its documentation allows days to weeks and does not guarantee the favicon/name selection.
+
+Primary guidance refreshed: [site names and fallback alternatives](https://developers.google.com/search/docs/appearance/site-names#what-to-do-if-your-preferred-site-name-isnt-selected), [favicon requirements and recrawling](https://developers.google.com/search/docs/appearance/favicon-in-search).

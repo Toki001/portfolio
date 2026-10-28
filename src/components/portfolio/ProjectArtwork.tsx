@@ -21,8 +21,16 @@ function Screen({
       </div>
       <img
         src={media.src}
-        srcSet={media.srcSet}
-        sizes="(max-width:600px) 75vw, (max-width:1024px) 50vw, 850px"
+        srcSet={
+          media.thumbnail?.endsWith("-320.webp")
+            ? `${media.thumbnail} 320w, ${media.srcSet ?? `${media.src} ${media.width}w`}`
+            : media.srcSet
+        }
+        sizes={
+          className === "composition-secondary"
+            ? "(max-width:600px) 35vw, (max-width:1024px) 40vw, 500px"
+            : "(max-width:600px) 70vw, (max-width:1024px) 80vw, 850px"
+        }
         alt={media.alt}
         width={media.width}
         height={media.height}

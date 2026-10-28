@@ -1,0 +1,169 @@
+{
+  "browser": "156.0.8078.73",
+  "visual": [
+    {
+      "page": "home",
+      "width": 390,
+      "beforeHeight": 10934,
+      "afterHeight": 10934,
+      "sameHeadingGeometry": true,
+      "overflow": false,
+      "pageErrors": [],
+      "screenshots": [
+        "docs/verification/screenshots/performance/before-home-390.png",
+        "docs/verification/screenshots/performance/after-home-390.png"
+      ]
+    },
+    {
+      "page": "home",
+      "width": 768,
+      "beforeHeight": 10455,
+      "afterHeight": 10455,
+      "sameHeadingGeometry": true,
+      "overflow": false,
+      "pageErrors": [],
+      "screenshots": [
+        "docs/verification/screenshots/performance/before-home-768.png",
+        "docs/verification/screenshots/performance/after-home-768.png"
+      ]
+    },
+    {
+      "page": "home",
+      "width": 1440,
+      "beforeHeight": 10342,
+      "afterHeight": 10342,
+      "sameHeadingGeometry": true,
+      "overflow": false,
+      "pageErrors": [],
+      "screenshots": [
+        "docs/verification/screenshots/performance/before-home-1440.png",
+        "docs/verification/screenshots/performance/after-home-1440.png"
+      ]
+    },
+    {
+      "page": "index",
+      "width": 390,
+      "beforeHeight": 4136,
+      "afterHeight": 4136,
+      "sameHeadingGeometry": true,
+      "overflow": false,
+      "pageErrors": [],
+      "screenshots": [
+        "docs/verification/screenshots/performance/before-index-390.png",
+        "docs/verification/screenshots/performance/after-index-390.png"
+      ]
+    },
+    {
+      "page": "index",
+      "width": 768,
+      "beforeHeight": 2639,
+      "afterHeight": 2639,
+      "sameHeadingGeometry": true,
+      "overflow": false,
+      "pageErrors": [],
+      "screenshots": [
+        "docs/verification/screenshots/performance/before-index-768.png",
+        "docs/verification/screenshots/performance/after-index-768.png"
+      ]
+    },
+    {
+      "page": "index",
+      "width": 1440,
+      "beforeHeight": 3402,
+      "afterHeight": 3402,
+      "sameHeadingGeometry": true,
+      "overflow": false,
+      "pageErrors": [],
+      "screenshots": [
+        "docs/verification/screenshots/performance/before-index-1440.png",
+        "docs/verification/screenshots/performance/after-index-1440.png"
+      ]
+    },
+    {
+      "page": "study",
+      "width": 390,
+      "beforeHeight": 5152,
+      "afterHeight": 5152,
+      "sameHeadingGeometry": true,
+      "overflow": false,
+      "pageErrors": [],
+      "screenshots": [
+        "docs/verification/screenshots/performance/before-study-390.png",
+        "docs/verification/screenshots/performance/after-study-390.png"
+      ]
+    },
+    {
+      "page": "study",
+      "width": 768,
+      "beforeHeight": 4828,
+      "afterHeight": 4828,
+      "sameHeadingGeometry": true,
+      "overflow": false,
+      "pageErrors": [],
+      "screenshots": [
+        "docs/verification/screenshots/performance/before-study-768.png",
+        "docs/verification/screenshots/performance/after-study-768.png"
+      ]
+    },
+    {
+      "page": "study",
+      "width": 1440,
+      "beforeHeight": 4789,
+      "afterHeight": 4789,
+      "sameHeadingGeometry": true,
+      "overflow": false,
+      "pageErrors": [],
+      "screenshots": [
+        "docs/verification/screenshots/performance/before-study-1440.png",
+        "docs/verification/screenshots/performance/after-study-1440.png"
+      ]
+    }
+  ],
+  "delayedDelivery": [
+    {
+      "label": "before",
+      "conditions": "Controlled local comparison, not production or Lighthouse: Chrome mobile 412x823 DPR1.75, 4xCPU, 150ms RTT, 1.6384Mbps; +1500ms for every external /assets/ or /fonts/ request; fresh cache.",
+      "lcp": 2248,
+      "cls": 0,
+      "fcp": 2168,
+      "externalCritical": [
+        {
+          "url": "/fonts/archivo-latin.woff2",
+          "duration": 2185.60000000149
+        },
+        {
+          "url": "/assets/index-BPtTxFFK.css",
+          "duration": 1898.300000000745
+        },
+        {
+          "url": "/assets/profile-800-Db5uEcrB.avif",
+          "duration": 2047.9000000022352
+        }
+      ]
+    },
+    {
+      "label": "after",
+      "conditions": "Controlled local comparison, not production or Lighthouse: Chrome mobile 412x823 DPR1.75, 4xCPU, 150ms RTT, 1.6384Mbps; +1500ms for every external /assets/ or /fonts/ request; fresh cache.",
+      "lcp": 564,
+      "cls": 0,
+      "fcp": 428,
+      "externalCritical": []
+    }
+  ],
+  "payloads": {
+    "before": {
+      "htmlBytes": 63279,
+      "gzipBytes": 9621
+    },
+    "after": {
+      "htmlBytes": 194733,
+      "gzipBytes": 81046
+    }
+  },
+  "portrait": {
+    "file": "src/assets/profile-800.avif",
+    "embeddedBytesIdentical": true,
+    "sha256": "a98684c50c28baf65d2dc4082c37ffd3ec7f050fdb19b2086d458b364f5459f5",
+    "bytes": 21888
+  }
+}

@@ -4,8 +4,9 @@ import profileImg from "../assets/profile-480.webp";
 import profile800 from "../assets/profile-800.webp";
 import profile1200 from "../assets/profile-1200.webp";
 import profile1600 from "../assets/profile-1600.webp";
-import portrait480 from "../assets/profile-480.avif";
-import portrait800 from "../assets/profile-800.avif";
+// Keep the normal-density first-screen portrait in the document on cold CDN visits.
+// These are the reviewed AVIF bytes; larger Retina variants remain available.
+import portrait800 from "../assets/profile-800.avif?inline";
 import portrait1200 from "../assets/profile-1200.avif";
 import portrait1600 from "../assets/profile-1600.avif";
 
@@ -22,7 +23,7 @@ export const siteConfig = {
       "I build practical digital products across mobile, web, and machine learning.",
     profileImage: profileImg,
     profileSrcSet: `${profileImg} 480w, ${profile800} 800w, ${profile1200} 1200w, ${profile1600} 1600w`,
-    profileAvifSrcSet: `${portrait480} 480w, ${portrait800} 800w, ${portrait1200} 1200w, ${portrait1600} 1600w`,
+    profileAvifSrcSet: `${portrait800} 800w, ${portrait1200} 1200w, ${portrait1600} 1600w`,
   },
   navigation: [
     {

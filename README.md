@@ -59,7 +59,7 @@ One shared observer handles editorial entrances. Workbench selection has no scro
 
 At the owner's request, `tests/`, `playwright.config.ts`, browser reports, screenshots, videos and raw Lighthouse reports are **local-only and ignored**. They remain on this machine; none were deleted by untracking. The normal `npm ci`, build and preview work without these QA files. Full `npm run verify` requires the local suite/config; a fresh checkout does not contain them. Earlier tracked QA can be recovered from `8132d7b` using `git restore --source=8132d7b --worktree -- tests playwright.config.ts`, then browser-review current visual baselines. This restores the earlier suite, not the two new local refinement checks.
 
-The latest portrait derivatives come from the owner's 24MP original, with EXIF orientation normalized and metadata stripped. AVIF/WebP at 480/800/1200/1600px support high-density displays; only the selected format/size downloads. `scripts/prepare-portrait.mjs /path/to/original.JPG` regenerates them. Original files and machine-specific archives stay outside Git.
+The latest portrait derivatives come from the owner's 24MP original, with EXIF orientation normalized and metadata stripped. Reviewed AVIF/WebP derivatives support high-density displays. The normal 800px AVIF is embedded for the first screen, with 1200/1600px AVIF and 480/800/1200/1600px WebP alternatives retained; only the selected external variant downloads. `scripts/prepare-portrait.mjs /path/to/original.JPG` regenerates them. Original files and machine-specific archives stay outside Git.
 
 ```sh
 npx playwright install chromium
@@ -126,3 +126,12 @@ Optional content: higher-resolution owned portrait, verified resume/current avai
 `src/config/seo.json` sets the preferred site name (**Jameskier Doliguez**) and alternate (**Toki**). The build emits one consistent `WebSite` entity, Open Graph site name and application name into the static HTML. The home page links the existing stable `/toki-icon-192.png` directly as a 192×192 PNG favicon alongside the browser SVG/ICO variants. `npm run check:seo` validates these signals on every indexable route.
 
 After the updated build is deployed, inspect `https://jameskier-doliguez-portfolio.vercel.app/` in Search Console, select **Test live URL**, check the tested HTML for the site name and favicon link, then select **Request indexing** for the homepage. Google selects the displayed name and favicon automatically; a successful deployment or indexing request does not update the search result immediately. See [search branding verification](docs/verification/search-branding.md).
+
+
+## First-screen delivery and search branding
+
+The production prerender embeds Vite’s compiled stylesheet, the existing Archivo face and the reviewed 800px AVIF portrait. The first screen can paint while external JavaScript or CDN assets are still loading. Development keeps normal Vite asset handling. This deliberately trades a larger initial document for fewer critical network requests; do not duplicate the embedded font with another preload. Higher-density portrait variants and full-size real project screenshots remain available. Composition previews use separate responsive sizes for primary and secondary screens, with truthful width descriptors. Explicit sizes also keep full-page captures and eager image selections stable.
+
+Vercel serves hashed assets as immutable; public project previews and Toki icons have a short browser cache because those filenames can change in place. HTML remains revalidated. The homepage declares one stable 192×192 PNG favicon; SVG/ICO/Apple variants remain at their compatible public URLs. Preferred site name is Jameskier Doliguez, with Toki and the lowercase hostname as alternatives. Google’s displayed name/favicon requires its own recrawl.
+
+See [performance verification](docs/verification/performance-delivery.md) for the supplied PDF findings, clean production reproduction, matched local results, browser screenshots, deliberate payload tradeoff and production follow-up. Local Lighthouse scores must not be presented as already achieved on the deployed site.

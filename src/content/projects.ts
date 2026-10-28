@@ -180,6 +180,8 @@ export const projects: Project[] = [
     media: [
       {
         src: "/projects/pokechamp.webp",
+        srcSet:
+          "/projects/pokechamp-800.webp 800w, /projects/pokechamp.webp 1440w",
         alt: "Actual PokeChamp team builder with a sample roster and defensive coverage",
         width: 1440,
         height: 1100,
@@ -246,6 +248,8 @@ export const projects: Project[] = [
     media: [
       {
         src: "/projects/pixeltools.webp",
+        srcSet:
+          "/projects/pixeltools-640.webp 640w, /projects/pixeltools.webp 960w",
         alt: "PixelTools directory of browser-based image utilities",
         width: 960,
         height: 782,

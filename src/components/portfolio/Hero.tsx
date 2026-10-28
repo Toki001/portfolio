@@ -52,13 +52,13 @@ export function Hero() {
                 <source
                   type="image/avif"
                   srcSet={identity.profileAvifSrcSet}
-                  sizes="(max-width:600px) 80vw, (max-width:1024px) 34vw, 400px"
+                  sizes="(max-width:600px) min(68vw, 304px), (max-width:1024px) 34vw, 400px"
                 />
                 <img
                   width={480}
                   height={576}
                   srcSet={identity.profileSrcSet}
-                  sizes="(max-width:600px) 80vw, (max-width:1024px) 34vw, 400px"
+                  sizes="(max-width:600px) min(68vw, 304px), (max-width:1024px) 34vw, 400px"
                   fetchPriority="high"
                   decoding="async"
                   src={identity.profileImage}

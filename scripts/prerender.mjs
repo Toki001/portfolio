@@ -22,7 +22,29 @@ const routes = [
     project,
   })),
 ];
-const template = await readFile("dist/index.html", "utf8");
+// Ship the first paint in the document: no stylesheet/font round trip on a cold CDN.
+// Reuse Vite's actual output so there is one source of styles in development and production.
+let template = await readFile("dist/index.html", "utf8");
+const font = (await readFile("public/fonts/archivo-latin.woff2")).toString(
+  "base64",
+);
+for (const [tag, href] of template.matchAll(
+  /<link\b(?=[^>]*rel="stylesheet")[^>]*href="([^"?]+)"[^>]*>/g,
+)) {
+  const css = (await readFile(`dist${href}`, "utf8"))
+    .replaceAll("/fonts/archivo-latin.woff2", `data:font/woff2;base64,${font}`)
+    // The face is already available: allow a brief decode before painting fallback text.
+    .replace("font-display:swap", "font-display:block");
+  template = template.replace(
+    tag,
+    `<style data-first-paint>${css.replaceAll("</style", "<\\/style")}</style>`,
+  );
+}
+// Avoid preloading an external duplicate of the embedded face.
+template = template.replace(
+  /<link\b(?=[^>]*rel="preload")(?=[^>]*href="\/fonts\/archivo-latin\.woff2")[^>]*>/g,
+  "",
+);
 for (const route of [
   ...routes,
   {
