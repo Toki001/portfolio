@@ -17,7 +17,8 @@ export function seoHead(verification = "", page = {}) {
     <meta name="description" content="${escape(description)}" />
     <meta name="robots" content="${page.noindex ? "noindex, follow" : "index, follow, max-image-preview:large"}" />
     <link rel="canonical" href="${url}" />
-    <meta property="og:site_name" content="Jameskier Doliguez" />
+    <meta name="application-name" content="${escape(seo.siteName)}" />
+    <meta property="og:site_name" content="${escape(seo.siteName)}" />
     <meta property="og:title" content="${escape(title)}" />
     <meta property="og:description" content="${escape(description)}" />
     <meta property="og:url" content="${url}" />

@@ -49,7 +49,8 @@ for (const route of [
       "@type": "WebSite",
       "@id": `${origin}#website`,
       url: origin,
-      name: identity.name,
+      name: seo.siteName,
+      alternateName: seo.alternateName,
       publisher: { "@id": `${origin}#person` },
     },
     {

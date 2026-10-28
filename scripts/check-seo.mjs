@@ -108,6 +108,45 @@ for (const url of urls) {
     graph["@graph"].find((entity) => entity["@type"] === "Person").url,
     seo.siteUrl,
   );
+  const websites = graph["@graph"].filter(
+    (entity) => entity["@type"] === "WebSite",
+  );
+  assert.equal(websites.length, 1, `${path}: one site-name entity`);
+  assert.equal(
+    websites[0].url,
+    seo.siteUrl,
+    `${path}: site-name canonical root`,
+  );
+  assert.equal(websites[0].name, seo.siteName, `${path}: preferred site name`);
+  assert.equal(
+    websites[0].alternateName,
+    seo.alternateName,
+    `${path}: alternate site name`,
+  );
+  for (const [attribute, key] of [
+    ["property", "og:site_name"],
+    ["name", "application-name"],
+  ]) {
+    const names = [
+      ...html.matchAll(
+        new RegExp(`<meta ${attribute}="${key}" content="([^"]+)"`, "g"),
+      ),
+    ];
+    assert.equal(names.length, 1, `${path}: one ${key}`);
+    assert.equal(names[0][1], seo.siteName, `${path}: consistent ${key}`);
+  }
+  const icons = [...html.matchAll(/<link\b[^>]*\brel="icon"[^>]*>/g)];
+  const searchIcon = icons.find(
+    ([link]) =>
+      link.includes('href="/toki-icon-192.png"') &&
+      link.includes('type="image/png"') &&
+      link.includes('sizes="192x192"'),
+  );
+  assert.ok(searchIcon, `${path}: directly linked large PNG search favicon`);
+  const favicon = await sharp("dist/toki-icon-192.png").metadata();
+  assert.equal(favicon.format, "png");
+  assert.equal(favicon.width, 192);
+  assert.equal(favicon.height, 192);
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
   assert.equal(new Set(ids).size, ids.length, "Unique HTML IDs");
   for (const match of html.matchAll(/href="#([^"]+)"/g))
